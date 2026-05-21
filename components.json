@@ -1,6 +1,10 @@
 {
   "categories": [
     {
+      "id": "design-tokens",
+      "label": "Design Tokens"
+    },
+    {
       "id": "actions",
       "label": "Actions"
     },
@@ -19,13 +23,15 @@
     {
       "id": "layout",
       "label": "Layout"
-    },
-    {
-      "id": "design-tokens",
-      "label": "Design Tokens"
     }
   ],
   "components": [
+    {
+      "id": "colors",
+      "name": "Colors",
+      "file": "colors.html",
+      "category": "design-tokens"
+    },
     {
       "id": "button",
       "name": "Button",
