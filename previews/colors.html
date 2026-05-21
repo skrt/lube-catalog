@@ -13,375 +13,73 @@
     一覧に戻る
   </a>
 
-  <div class="space-y-10">
-
-    <!-- Base -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Base</p>
-      <div class="flex gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-16 h-16 rounded-lg bg-[#101016] border border-gray-200"></div>
-          <p class="text-[10px] font-semibold text-gray-700">Base Content</p>
-          <p class="text-[10px] text-gray-400 font-mono">#101016</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-16 h-16 rounded-lg bg-white border border-gray-200"></div>
-          <p class="text-[10px] font-semibold text-gray-700">Base 100</p>
-          <p class="text-[10px] text-gray-400 font-mono">#ffffff</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-16 h-16 rounded-lg bg-[#f8f8fa] border border-gray-200"></div>
-          <p class="text-[10px] font-semibold text-gray-700">Base 200</p>
-          <p class="text-[10px] text-gray-400 font-mono">#f8f8fa</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-16 h-16 rounded-lg bg-[#eeeef2] border border-gray-200"></div>
-          <p class="text-[10px] font-semibold text-gray-700">Base 300</p>
-          <p class="text-[10px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-      </div>
+  <div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="text-left border-b border-gray-200">
+            <th class="pb-2 pr-4 font-semibold text-gray-700">Category</th>
+            <th class="pb-2 pr-4 font-semibold text-gray-700">Role</th>
+            <th class="pb-2 pr-4 font-semibold text-gray-700">Token</th>
+            <th class="pb-2 font-semibold text-gray-700">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Text -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Text</td><td class="py-1.5 pr-4 text-gray-600">primary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#101016]"></div><span class="font-mono text-gray-500">text-base-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#101016</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">secondary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.6)]"></div><span class="font-mono text-gray-500">text-base-content/60</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.6)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">tertiary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.3)]"></div><span class="font-mono text-gray-500">text-base-content/30</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.3)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#c94043]"></div><span class="font-mono text-gray-500">text-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
+          <!-- Background -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Background</td><td class="py-1.5 pr-4 text-gray-600">primary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-white"></div><span class="font-mono text-gray-500">bg-base-100</span></div></td><td class="py-1.5 font-mono text-gray-400">#ffffff</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">secondary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f8f8fa]"></div><span class="font-mono text-gray-500">bg-base-200</span></div></td><td class="py-1.5 font-mono text-gray-400">#f8f8fa</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">tertiary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
+          <!-- Border -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Border</td><td class="py-1.5 pr-4 text-gray-600">subtle</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.05)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/5</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.05)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.1)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/10</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.1)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">strong</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.2)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/20</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.2)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">primary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[#1114b9] shrink-0"></div><span class="font-mono text-gray-500">border-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[#c94043] shrink-0"></div><span class="font-mono text-gray-500">border-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
+          <!-- Action / Primary -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Primary</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#1114b9]"></div><span class="font-mono text-gray-500">bg-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#0e11a8]"></div><span class="font-mono text-gray-500">hover:bg-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#0e11a8</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f3f4fe]"></div><span class="font-mono text-gray-500">text-primary-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#f3f4fe</td></tr>
+          <!-- Action / Secondary -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Secondary</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#e7e7f8]"></div><span class="font-mono text-gray-500">bg-secondary</span></div></td><td class="py-1.5 font-mono text-gray-400">#e7e7f8</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#dfdff2]"></div><span class="font-mono text-gray-500">hover:bg-secondary</span></div></td><td class="py-1.5 font-mono text-gray-400">#dfdff2</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#1114b9]"></div><span class="font-mono text-gray-500">text-secondary-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
+          <!-- Action / Tertiary -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Tertiary</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f8f8fa]"></div><span class="font-mono text-gray-500">bg-base-200</span></div></td><td class="py-1.5 font-mono text-gray-400">#f8f8fa</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">hover:bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#101016]"></div><span class="font-mono text-gray-500">text-base-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#101016</td></tr>
+          <!-- Action / Danger -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Danger</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#c94043]"></div><span class="font-mono text-gray-500">bg-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#b7393c]"></div><span class="font-mono text-gray-500">hover:bg-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#b7393c</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#fff5f5]"></div><span class="font-mono text-gray-500">text-error-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#fff5f5</td></tr>
+          <!-- Action / Disabled -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Disabled</td><td class="py-1.5 pr-4 text-gray-600">background</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.2)]"></div><span class="font-mono text-gray-500">text-base-content/20</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.2)</td></tr>
+          <!-- Form -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Form</td><td class="py-1.5 pr-4 text-gray-600">bg/default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">bg/disabled</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f8f8fa]"></div><span class="font-mono text-gray-500">bg-base-200</span></div></td><td class="py-1.5 font-mono text-gray-400">#f8f8fa</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">border/default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.1)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/10</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.1)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">border/focus</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[#1114b9] shrink-0"></div><span class="font-mono text-gray-500">border-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">border/error</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[#c94043] shrink-0"></div><span class="font-mono text-gray-500">border-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
+          <!-- Icon -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Icon</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.6)]"></div><span class="font-mono text-gray-500">text-base-content/60</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.6)</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">disabled</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.3)]"></div><span class="font-mono text-gray-500">text-base-content/30</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.3)</td></tr>
+          <!-- Status -->
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Status</td><td class="py-1.5 pr-4 text-gray-600">success/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#e3f0ea]"></div><span class="font-mono text-gray-500">bg-success/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#e3f0ea</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">success/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#479d72]"></div><span class="font-mono text-gray-500">text-success</span></div></td><td class="py-1.5 font-mono text-gray-400">#479d72</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">warning/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#faebdd]"></div><span class="font-mono text-gray-500">bg-warning/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#faebdd</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">warning/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#de781f]"></div><span class="font-mono text-gray-500">text-warning</span></div></td><td class="py-1.5 font-mono text-gray-400">#de781f</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f7e2e3]"></div><span class="font-mono text-gray-500">bg-error/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#f7e2e3</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#c94043]"></div><span class="font-mono text-gray-500">text-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">info/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#e5e6ea]"></div><span class="font-mono text-gray-500">bg-info/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#e5e6ea</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">info/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#535671]"></div><span class="font-mono text-gray-500">text-info</span></div></td><td class="py-1.5 font-mono text-gray-400">#535671</td></tr>
+        </tbody>
+      </table>
     </div>
-
-    <!-- Text -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Text</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#101016]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#101016</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[rgba(16,16,22,0.6)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/60</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.6)</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[rgba(16,16,22,0.3)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">tertiary</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/30</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.3)</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">error</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Border -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Border</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[rgba(16,16,22,0.05)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">subtle</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/5</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.05)</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[rgba(16,16,22,0.1)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/10</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.1)</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[rgba(16,16,22,0.2)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">strong</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/20</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.2)</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#1114b9</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">error</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Action / Primary -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Action / Primary</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#1114b9</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#0e11a8]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#0e11a8</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#f3f4fe]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-primary-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f3f4fe</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Action / Secondary -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Action / Secondary</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#e7e7f8]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#e7e7f8</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#dfdff2]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#dfdff2</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-secondary-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#1114b9</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Action / Tertiary -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Action / Tertiary</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#f8f8fa]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-200</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f8f8fa</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-base-300</p>
-          <p class="text-[9px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#101016]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#101016</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Action / Danger -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Action / Danger</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#b7393c]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#b7393c</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#fff5f5]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-error-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#fff5f5</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Action / Disabled -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Action / Disabled</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">background</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-300</p>
-          <p class="text-[9px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[rgba(16,16,22,0.2)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/20</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.2)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Form -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Form</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">bg/default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-300</p>
-          <p class="text-[9px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#f8f8fa]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">bg/disabled</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-200</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f8f8fa</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[rgba(16,16,22,0.1)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">border/default</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/10</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">border/focus</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-primary</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md bg-white border-2 border-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">border/error</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-error</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Icon -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Icon</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[rgba(16,16,22,0.6)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/60</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.6)</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[rgba(16,16,22,0.3)]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">disabled</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/30</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.3)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Status -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Status</p>
-      <div class="flex gap-1.5">
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#e3f0ea]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">success/bg</p>
-          <p class="text-[9px] text-gray-400 font-mono">#e3f0ea</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#479d72]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">success/icon</p>
-          <p class="text-[9px] text-gray-400 font-mono">#479d72</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#faebdd]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">warning/bg</p>
-          <p class="text-[9px] text-gray-400 font-mono">#faebdd</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#de781f]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">warning/icon</p>
-          <p class="text-[9px] text-gray-400 font-mono">#de781f</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#f7e2e3]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">error/bg</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f7e2e3</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">error/icon</p>
-          <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#e5e6ea]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">info/bg</p>
-          <p class="text-[9px] text-gray-400 font-mono">#e5e6ea</p>
-        </div>
-        <div class="text-center space-y-1 flex-1 min-w-0">
-          <div class="h-14 rounded-md border border-gray-100 bg-[#535671]"></div>
-          <p class="text-[10px] font-semibold text-gray-500">info/icon</p>
-          <p class="text-[9px] text-gray-400 font-mono">#535671</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Token Reference Table -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Token Reference</p>
-      <div class="overflow-x-auto">
-        <table class="w-full text-xs">
-          <thead>
-            <tr class="text-left border-b border-gray-200">
-              <th class="pb-2 pr-4 font-semibold text-gray-700">Category</th>
-              <th class="pb-2 pr-4 font-semibold text-gray-700">Role</th>
-              <th class="pb-2 pr-4 font-semibold text-gray-700">Token</th>
-              <th class="pb-2 font-semibold text-gray-700">Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Text</td><td class="py-1.5 pr-4 text-gray-600">primary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#101016]"></div><span class="font-mono text-gray-500">text-base-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#101016</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">secondary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.6)]"></div><span class="font-mono text-gray-500">text-base-content/60</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.6)</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">tertiary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.3)]"></div><span class="font-mono text-gray-500">text-base-content/30</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.3)</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#c94043]"></div><span class="font-mono text-gray-500">text-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Background</td><td class="py-1.5 pr-4 text-gray-600">primary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-white"></div><span class="font-mono text-gray-500">bg-base-100</span></div></td><td class="py-1.5 font-mono text-gray-400">#ffffff</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">secondary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f8f8fa]"></div><span class="font-mono text-gray-500">bg-base-200</span></div></td><td class="py-1.5 font-mono text-gray-400">#f8f8fa</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">tertiary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Border</td><td class="py-1.5 pr-4 text-gray-600">subtle</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.05)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/5</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.05)</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.1)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/10</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.1)</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">strong</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[rgba(16,16,22,0.2)] shrink-0"></div><span class="font-mono text-gray-500">border-base-content/20</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.2)</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">primary</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[#1114b9] shrink-0"></div><span class="font-mono text-gray-500">border-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-[#c94043] shrink-0"></div><span class="font-mono text-gray-500">border-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Primary</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#1114b9]"></div><span class="font-mono text-gray-500">bg-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#0e11a8]"></div><span class="font-mono text-gray-500">hover:bg-primary</span></div></td><td class="py-1.5 font-mono text-gray-400">#0e11a8</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f3f4fe]"></div><span class="font-mono text-gray-500">text-primary-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#f3f4fe</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Secondary</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#e7e7f8]"></div><span class="font-mono text-gray-500">bg-secondary</span></div></td><td class="py-1.5 font-mono text-gray-400">#e7e7f8</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#dfdff2]"></div><span class="font-mono text-gray-500">hover:bg-secondary</span></div></td><td class="py-1.5 font-mono text-gray-400">#dfdff2</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#1114b9]"></div><span class="font-mono text-gray-500">text-secondary-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#1114b9</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Tertiary</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f8f8fa]"></div><span class="font-mono text-gray-500">bg-base-200</span></div></td><td class="py-1.5 font-mono text-gray-400">#f8f8fa</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">hover:bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#101016]"></div><span class="font-mono text-gray-500">text-base-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#101016</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Danger</td><td class="py-1.5 pr-4 text-gray-600">default</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#c94043]"></div><span class="font-mono text-gray-500">bg-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#b7393c]"></div><span class="font-mono text-gray-500">hover:bg-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#b7393c</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#fff5f5]"></div><span class="font-mono text-gray-500">text-error-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#fff5f5</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Action / Disabled</td><td class="py-1.5 pr-4 text-gray-600">background</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#eeeef2]"></div><span class="font-mono text-gray-500">bg-base-300</span></div></td><td class="py-1.5 font-mono text-gray-400">#eeeef2</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">foreground</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[rgba(16,16,22,0.2)]"></div><span class="font-mono text-gray-500">text-base-content/20</span></div></td><td class="py-1.5 font-mono text-gray-400">rgba(16,16,22,0.2)</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">Status</td><td class="py-1.5 pr-4 text-gray-600">success/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#e3f0ea]"></div><span class="font-mono text-gray-500">bg-success/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#e3f0ea</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">success/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#479d72]"></div><span class="font-mono text-gray-500">text-success</span></div></td><td class="py-1.5 font-mono text-gray-400">#479d72</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">warning/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#faebdd]"></div><span class="font-mono text-gray-500">bg-warning/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#faebdd</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">warning/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#de781f]"></div><span class="font-mono text-gray-500">text-warning</span></div></td><td class="py-1.5 font-mono text-gray-400">#de781f</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#f7e2e3]"></div><span class="font-mono text-gray-500">bg-error/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#f7e2e3</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">error/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#c94043]"></div><span class="font-mono text-gray-500">text-error</span></div></td><td class="py-1.5 font-mono text-gray-400">#c94043</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">info/bg</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#e5e6ea]"></div><span class="font-mono text-gray-500">bg-info/15</span></div></td><td class="py-1.5 font-mono text-gray-400">#e5e6ea</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">info/icon</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-[#535671]"></div><span class="font-mono text-gray-500">text-info</span></div></td><td class="py-1.5 font-mono text-gray-400">#535671</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
   </div>
 
 </body>
