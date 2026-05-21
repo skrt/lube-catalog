@@ -76,7 +76,7 @@
         <section :id="'component-' + comp.id" class="mb-8 bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 class="text-lg font-semibold" x-text="comp.name"></h2>
-            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded" x-text="comp.category"></span>
+            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded" x-text="comp.category === 'design-tokens' ? 'Token Reference' : comp.category"></span>
           </div>
           <div class="p-6">
             <div :id="'preview-' + comp.id" class="preview-container"></div>
@@ -110,11 +110,11 @@ function catalog() {
       const regular = this.components.filter(c => c.category !== 'design-tokens');
       this.regularComponentsSorted = regular.sort((a, b) => a.name.localeCompare(b.name));
 
-      // Mark first letter tokens for sidebar dividers (regular only)
+      // Mark first letter tokens for sidebar dividers (regular only, skip first)
       let lastLetter = '';
-      this.regularComponentsSorted.forEach(c => {
+      this.regularComponentsSorted.forEach((c, i) => {
         const first = c.name[0].toUpperCase();
-        c._firstToken = first !== lastLetter;
+        c._firstToken = i > 0 && first !== lastLetter;
         lastLetter = first;
       });
 
