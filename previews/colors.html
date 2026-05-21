@@ -19,6 +19,33 @@
 
   <div x-data="colorPalette()" x-cloak class="space-y-10">
 
+    <!-- Base -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Base</p>
+      <div class="flex gap-3">
+        <div class="text-center space-y-1.5 cursor-pointer" @click="copy('#101016')">
+          <div class="w-16 h-16 rounded-lg bg-[#101016] border border-gray-200"></div>
+          <p class="text-[10px] font-semibold text-gray-700">Base Content</p>
+          <p class="text-[10px] text-gray-400 font-mono">#101016</p>
+        </div>
+        <div class="text-center space-y-1.5 cursor-pointer" @click="copy('#ffffff')">
+          <div class="w-16 h-16 rounded-lg bg-white border border-gray-200"></div>
+          <p class="text-[10px] font-semibold text-gray-700">Base 100</p>
+          <p class="text-[10px] text-gray-400 font-mono">#ffffff</p>
+        </div>
+        <div class="text-center space-y-1.5 cursor-pointer" @click="copy('#f8f8fa')">
+          <div class="w-16 h-16 rounded-lg bg-[#f8f8fa] border border-gray-200"></div>
+          <p class="text-[10px] font-semibold text-gray-700">Base 200</p>
+          <p class="text-[10px] text-gray-400 font-mono">#f8f8fa</p>
+        </div>
+        <div class="text-center space-y-1.5 cursor-pointer" @click="copy('#eeeef2')">
+          <div class="w-16 h-16 rounded-lg bg-[#eeeef2] border border-gray-200"></div>
+          <p class="text-[10px] font-semibold text-gray-700">Base 300</p>
+          <p class="text-[10px] text-gray-400 font-mono">#eeeef2</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Semantic Palettes -->
     <template x-for="group in groups" :key="group.name">
       <div>
@@ -26,9 +53,8 @@
         <div class="flex gap-1.5">
           <template x-for="swatch in group.swatches" :key="swatch.label">
             <div class="text-center space-y-1 cursor-pointer flex-1 min-w-0" @click="copy(swatch.hex)">
-              <div class="h-10 rounded-md border border-gray-100" :style="'background-color: ' + swatch.hex"></div>
-              <p class="text-[10px] text-gray-500" x-text="swatch.label"></p>
-              <p class="text-[9px] text-gray-400 font-mono truncate" x-text="swatch.token"></p>
+              <div class="h-14 rounded-md border border-gray-100" :style="'background-color: ' + swatch.hex"></div>
+              <p class="text-[10px] font-semibold text-gray-500" x-text="swatch.label"></p>
               <p class="text-[9px] text-gray-400 font-mono truncate" x-text="swatch.hex"></p>
             </div>
           </template>
@@ -84,30 +110,27 @@ function colorPalette() {
     copiedValue: '',
     groups: [
       { name: 'Text', swatches: [
-        { label: 'primary',   token: 'text-base-content',      hex: '#101016' },
-        { label: 'secondary', token: 'text-base-content/60',   hex: 'rgba(16,16,22,0.6)' },
-        { label: 'tertiary',  token: 'text-base-content/30',   hex: 'rgba(16,16,22,0.3)' },
-        { label: 'error',     token: 'text-error',             hex: '#c94043' },
-      ]},
-      { name: 'Background', swatches: [
-        { label: 'primary',   token: 'bg-base-100', hex: '#ffffff' },
-        { label: 'secondary', token: 'bg-base-200', hex: '#f8f8fa' },
-        { label: 'tertiary',  token: 'bg-base-300', hex: '#eeeef2' },
+        { label: 'primary',   token: 'text-base-content',    hex: '#101016' },
+        { label: 'secondary', token: 'text-base-content/60', hex: 'rgba(16,16,22,0.6)' },
+        { label: 'tertiary',  token: 'text-base-content/30', hex: 'rgba(16,16,22,0.3)' },
+        { label: 'error',     token: 'text-error',           hex: '#c94043' },
       ]},
       { name: 'Border', swatches: [
-        { label: 'default',   token: 'border-base-content/10', hex: 'rgba(16,16,22,0.1)' },
-        { label: 'subtle',    token: 'border-base-content/5',  hex: 'rgba(16,16,22,0.05)' },
-        { label: 'strong',    token: 'border-base-content/20', hex: 'rgba(16,16,22,0.2)' },
+        { label: 'subtle',  token: 'border-base-content/5',  hex: 'rgba(16,16,22,0.05)' },
+        { label: 'default', token: 'border-base-content/10', hex: 'rgba(16,16,22,0.1)' },
+        { label: 'strong',  token: 'border-base-content/20', hex: 'rgba(16,16,22,0.2)' },
+        { label: 'primary', token: 'border-primary',         hex: '#1114b9' },
+        { label: 'error',   token: 'border-error',           hex: '#c94043' },
       ]},
       { name: 'Action / Primary', swatches: [
-        { label: 'default',    token: 'bg-primary',            hex: '#1114b9' },
-        { label: 'hover',      token: 'hover:bg-primary',      hex: '#0e11a8' },
-        { label: 'foreground', token: 'text-primary-content',  hex: '#f3f4fe' },
+        { label: 'default',    token: 'bg-primary',           hex: '#1114b9' },
+        { label: 'hover',      token: 'hover:bg-primary',     hex: '#0e11a8' },
+        { label: 'foreground', token: 'text-primary-content', hex: '#f3f4fe' },
       ]},
       { name: 'Action / Secondary', swatches: [
-        { label: 'default',    token: 'bg-secondary',           hex: '#e7e7f8' },
-        { label: 'hover',      token: 'hover:bg-secondary',     hex: '#dfdff2' },
-        { label: 'foreground', token: 'text-secondary-content', hex: '#1114b9' },
+        { label: 'default',    token: 'bg-secondary',            hex: '#e7e7f8' },
+        { label: 'hover',      token: 'hover:bg-secondary',      hex: '#dfdff2' },
+        { label: 'foreground', token: 'text-secondary-content',  hex: '#1114b9' },
       ]},
       { name: 'Action / Tertiary', swatches: [
         { label: 'default',    token: 'bg-base-200',       hex: '#f8f8fa' },
@@ -124,25 +147,25 @@ function colorPalette() {
         { label: 'foreground', token: 'text-base-content/20', hex: 'rgba(16,16,22,0.2)' },
       ]},
       { name: 'Form', swatches: [
-        { label: 'bg/default',       token: 'bg-base-300',          hex: '#eeeef2' },
-        { label: 'bg/disabled',      token: 'bg-base-200',          hex: '#f8f8fa' },
-        { label: 'border/default',   token: 'border-base-content/10', hex: 'rgba(16,16,22,0.1)' },
-        { label: 'border/focus',     token: 'border-primary',       hex: '#1114b9' },
-        { label: 'border/error',     token: 'border-error',         hex: '#c94043' },
+        { label: 'bg/default',     token: 'bg-base-300',          hex: '#eeeef2' },
+        { label: 'bg/disabled',    token: 'bg-base-200',          hex: '#f8f8fa' },
+        { label: 'border/default', token: 'border-base-content/10', hex: 'rgba(16,16,22,0.1)' },
+        { label: 'border/focus',   token: 'border-primary',       hex: '#1114b9' },
+        { label: 'border/error',   token: 'border-error',         hex: '#c94043' },
       ]},
       { name: 'Icon', swatches: [
         { label: 'default',  token: 'text-base-content/60', hex: 'rgba(16,16,22,0.6)' },
         { label: 'disabled', token: 'text-base-content/30', hex: 'rgba(16,16,22,0.3)' },
       ]},
       { name: 'Status', swatches: [
-        { label: 'success/bg',   token: 'bg-success/15',  hex: '#e3f0ea' },
-        { label: 'success/icon', token: 'text-success',   hex: '#479d72' },
-        { label: 'warning/bg',   token: 'bg-warning/15',  hex: '#faebdd' },
-        { label: 'warning/icon', token: 'text-warning',   hex: '#de781f' },
-        { label: 'error/bg',     token: 'bg-error/15',    hex: '#f7e2e3' },
-        { label: 'error/icon',   token: 'text-error',     hex: '#c94043' },
-        { label: 'info/bg',      token: 'bg-info/15',     hex: '#e5e6ea' },
-        { label: 'info/icon',    token: 'text-info',      hex: '#535671' },
+        { label: 'success/bg',   token: 'bg-success/15', hex: '#e3f0ea' },
+        { label: 'success/icon', token: 'text-success',  hex: '#479d72' },
+        { label: 'warning/bg',   token: 'bg-warning/15', hex: '#faebdd' },
+        { label: 'warning/icon', token: 'text-warning',  hex: '#de781f' },
+        { label: 'error/bg',     token: 'bg-error/15',   hex: '#f7e2e3' },
+        { label: 'error/icon',   token: 'text-error',    hex: '#c94043' },
+        { label: 'info/bg',      token: 'bg-info/15',    hex: '#e5e6ea' },
+        { label: 'info/icon',    token: 'text-info',     hex: '#535671' },
       ]},
     ],
 
