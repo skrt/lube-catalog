@@ -25,5 +25,12 @@
       "label": "Design Tokens"
     }
   ],
-  "components": []
+  "components": [
+    {
+      "id": "button",
+      "name": "Button",
+      "file": "button.html",
+      "category": "actions"
+    }
+  ]
 }
