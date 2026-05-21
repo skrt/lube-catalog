@@ -31,7 +31,7 @@
           >
         </div>
       </div>
-      <span class="text-sm text-gray-500 shrink-0" x-text="filteredComponents.length + ' components'"></span>
+      <span class="text-sm text-gray-500 shrink-0" x-text="orderedComponents.length + ' components'"></span>
     </div>
   </header>
 
@@ -40,7 +40,23 @@
     <!-- Sidebar: Component List -->
     <aside class="w-48 shrink-0 hidden md:block">
       <nav class="sticky top-24 space-y-0.5 max-h-[calc(100vh-7rem)] overflow-y-auto">
-        <template x-for="comp in allComponentsSorted" :key="comp.id">
+        <!-- Design Tokens -->
+        <template x-if="tokenComponents.length > 0">
+          <div>
+            <p class="px-3 py-1 text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Design Tokens</p>
+            <template x-for="comp in tokenComponents" :key="comp.id">
+              <button
+                @click="scrollToComponent(comp.id)"
+                :class="activeComponent === comp.id ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-100'"
+                class="w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors truncate"
+                x-text="comp.name"
+              ></button>
+            </template>
+            <div class="border-t border-gray-200 my-2"></div>
+          </div>
+        </template>
+        <!-- Components -->
+        <template x-for="comp in regularComponentsSorted" :key="comp.id">
           <div>
             <div x-show="comp._firstToken" class="border-t border-gray-200 my-2"></div>
             <button
@@ -56,7 +72,7 @@
 
     <!-- Main Content -->
     <main class="flex-1 min-w-0">
-      <template x-for="comp in filteredComponents" :key="comp.id">
+      <template x-for="comp in orderedComponents" :key="comp.id">
         <section :id="'component-' + comp.id" class="mb-8 bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 class="text-lg font-semibold" x-text="comp.name"></h2>
@@ -68,7 +84,7 @@
         </section>
       </template>
 
-      <div x-show="filteredComponents.length === 0" class="text-center py-12 text-gray-400">
+      <div x-show="orderedComponents.length === 0" class="text-center py-12 text-gray-400">
         No components found.
       </div>
     </main>
@@ -81,17 +97,22 @@ function catalog() {
     search: '',
     components: [],
     activeComponent: null,
-    allComponentsSorted: [],
+    tokenComponents: [],
+    regularComponentsSorted: [],
 
     async init() {
       const res = await fetch('components.json');
       const data = await res.json();
       this.components = data.components || [];
-      this.allComponentsSorted = [...this.components].sort((a, b) => a.name.localeCompare(b.name));
 
-      // Mark first letter tokens for sidebar dividers
+      // Split by category: design-tokens vs regular
+      this.tokenComponents = this.components.filter(c => c.category === 'design-tokens');
+      const regular = this.components.filter(c => c.category !== 'design-tokens');
+      this.regularComponentsSorted = regular.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Mark first letter tokens for sidebar dividers (regular only)
       let lastLetter = '';
-      this.allComponentsSorted.forEach(c => {
+      this.regularComponentsSorted.forEach(c => {
         const first = c.name[0].toUpperCase();
         c._firstToken = first !== lastLetter;
         lastLetter = first;
@@ -101,10 +122,11 @@ function catalog() {
       this.$nextTick(() => this.loadPreviews());
     },
 
-    get filteredComponents() {
-      if (!this.search) return this.components;
+    get orderedComponents() {
+      const all = [...this.tokenComponents, ...this.regularComponentsSorted];
+      if (!this.search) return all;
       const q = this.search.toLowerCase();
-      return this.components.filter(c =>
+      return all.filter(c =>
         c.name.toLowerCase().includes(q) || (c.category || '').toLowerCase().includes(q)
       );
     },
