@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "id": "actions",
+      "label": "Actions"
+    },
+    {
+      "id": "data-display",
+      "label": "Data Display"
+    },
+    {
+      "id": "feedback",
+      "label": "Feedback"
+    },
+    {
+      "id": "forms",
+      "label": "Forms"
+    },
+    {
+      "id": "layout",
+      "label": "Layout"
+    },
+    {
+      "id": "design-tokens",
+      "label": "Design Tokens"
+    }
+  ],
+  "components": []
+}

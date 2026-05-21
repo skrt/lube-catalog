@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lube Component Catalog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+<div x-data="catalog()" x-init="init()" x-cloak>
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+      <h1 class="text-xl font-bold shrink-0">lube Component Catalog</h1>
+      <div class="flex items-center gap-3 flex-1 max-w-xl">
+        <div class="relative flex-1">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            type="text"
+            x-model="search"
+            placeholder="Search components..."
+            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          >
+        </div>
+      </div>
+      <span class="text-sm text-gray-500 shrink-0" x-text="filteredComponents.length + ' components'"></span>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex gap-6">
+
+    <!-- Sidebar: Component List -->
+    <aside class="w-48 shrink-0 hidden md:block">
+      <nav class="sticky top-24 space-y-0.5 max-h-[calc(100vh-7rem)] overflow-y-auto">
+        <template x-for="comp in allComponentsSorted" :key="comp.id">
+          <div>
+            <div x-show="comp._firstToken" class="border-t border-gray-200 my-2"></div>
+            <button
+              @click="scrollToComponent(comp.id)"
+              :class="activeComponent === comp.id ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-100'"
+              class="w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors truncate"
+              x-text="comp.name"
+            ></button>
+          </div>
+        </template>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 min-w-0">
+      <template x-for="comp in filteredComponents" :key="comp.id">
+        <section :id="'component-' + comp.id" class="mb-8 bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+            <h2 class="text-lg font-semibold" x-text="comp.name"></h2>
+            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded" x-text="comp.category"></span>
+          </div>
+          <div class="p-6">
+            <div :id="'preview-' + comp.id" class="preview-container"></div>
+          </div>
+        </section>
+      </template>
+
+      <div x-show="filteredComponents.length === 0" class="text-center py-12 text-gray-400">
+        No components found.
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+function catalog() {
+  return {
+    search: '',
+    components: [],
+    activeComponent: null,
+    allComponentsSorted: [],
+
+    async init() {
+      const res = await fetch('components.json');
+      const data = await res.json();
+      this.components = data.components || [];
+      this.allComponentsSorted = [...this.components].sort((a, b) => a.name.localeCompare(b.name));
+
+      // Mark first letter tokens for sidebar dividers
+      let lastLetter = '';
+      this.allComponentsSorted.forEach(c => {
+        const first = c.name[0].toUpperCase();
+        c._firstToken = first !== lastLetter;
+        lastLetter = first;
+      });
+
+      // Load previews
+      this.$nextTick(() => this.loadPreviews());
+    },
+
+    get filteredComponents() {
+      if (!this.search) return this.components;
+      const q = this.search.toLowerCase();
+      return this.components.filter(c =>
+        c.name.toLowerCase().includes(q) || (c.category || '').toLowerCase().includes(q)
+      );
+    },
+
+    async loadPreviews() {
+      for (const comp of this.components) {
+        const container = document.getElementById('preview-' + comp.id);
+        if (!container) continue;
+        try {
+          const res = await fetch('previews/' + comp.file);
+          if (res.ok) {
+            container.innerHTML = await res.text();
+          }
+        } catch (e) {
+          container.innerHTML = '<p class="text-gray-400 text-sm">Preview not available</p>';
+        }
+      }
+    },
+
+    scrollToComponent(id) {
+      this.activeComponent = id;
+      const el = document.getElementById('component-' + id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+</script>
+
+</body>
+</html>
