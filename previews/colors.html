@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
 </head>
@@ -13,328 +17,144 @@
     一覧に戻る
   </a>
 
-  <div class="space-y-10">
+  <div x-data="colorPalette()" x-cloak class="space-y-10">
 
-    <!-- text/ -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Text</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#101016]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#101016</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[rgba(16,16,22,0.6)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/60</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.6)</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[rgba(16,16,22,0.3)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">tertiary</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/30</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.3)</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">error</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- bg/ -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Background</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-white"></div>
-          <p class="text-[10px] font-semibold text-gray-700">primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-100</p>
-          <p class="text-[9px] text-gray-400 font-mono">#ffffff</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#f8f8fa]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-200</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f8f8fa</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">tertiary</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-300</p>
-          <p class="text-[9px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- border/ -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Border</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg bg-white border-2 border-[rgba(16,16,22,0.1)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/10</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.1)</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg bg-white border-2 border-[rgba(16,16,22,0.05)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">subtle</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/5</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.05)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- action/primary -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Action / Primary</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#1114b9</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#0e11a8]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-primary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#0e11a8</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#f3f4fe]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-primary-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f3f4fe</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- action/secondary -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Action / Secondary</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#e7e7f8]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#e7e7f8</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#dfdff2]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-secondary</p>
-          <p class="text-[9px] text-gray-400 font-mono">#dfdff2</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-secondary-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#1114b9</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- action/tertiary -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Action / Tertiary</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#f8f8fa]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-200</p>
-          <p class="text-[9px] text-gray-400 font-mono">#f8f8fa</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-base-300</p>
-          <p class="text-[9px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#101016]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#101016</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- action/danger -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Action / Danger</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#b7393c]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">hover</p>
-          <p class="text-[9px] text-gray-400 font-mono">hover:bg-error</p>
-          <p class="text-[9px] text-gray-400 font-mono">#b7393c</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#fff5f5]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-error-content</p>
-          <p class="text-[9px] text-gray-400 font-mono">#fff5f5</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- action/disabled -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Action / Disabled</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">background</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-300</p>
-          <p class="text-[9px] text-gray-400 font-mono">#eeeef2</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[rgba(16,16,22,0.2)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">foreground</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/20</p>
-          <p class="text-[9px] text-gray-400 font-mono">rgba(16,16,22,0.2)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- form/ -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Form</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#eeeef2]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">bg/default</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-300</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#f8f8fa]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">bg/disabled</p>
-          <p class="text-[9px] text-gray-400 font-mono">bg-base-200</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg bg-white border-2 border-[rgba(16,16,22,0.1)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">border/default</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/10</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg bg-white border-2 border-[rgba(16,16,22,0.1)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">border/disabled</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-base-content/10</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg bg-white border-2 border-[#1114b9]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">border/focus</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-primary</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg bg-white border-2 border-[#c94043]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">border/error</p>
-          <p class="text-[9px] text-gray-400 font-mono">border-error</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- icon/ -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Icon</p>
-      <div class="flex flex-wrap gap-3">
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[rgba(16,16,22,0.6)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">default</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/60</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[rgba(16,16,22,0.3)]"></div>
-          <p class="text-[10px] font-semibold text-gray-700">disabled</p>
-          <p class="text-[9px] text-gray-400 font-mono">text-base-content/30</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- status/ -->
-    <div>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Status</p>
-      <div class="space-y-4">
-        <div>
-          <p class="text-[10px] font-semibold text-gray-500 mb-2">Success</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#e3f0ea]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">bg</p>
-              <p class="text-[9px] text-gray-400 font-mono">bg-success/15</p>
+    <!-- Semantic Palettes -->
+    <template x-for="group in groups" :key="group.name">
+      <div>
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3" x-text="group.name"></p>
+        <div class="flex gap-1.5">
+          <template x-for="swatch in group.swatches" :key="swatch.label">
+            <div class="text-center space-y-1 cursor-pointer flex-1 min-w-0" @click="copy(swatch.hex)">
+              <div class="h-10 rounded-md border border-gray-100" :style="'background-color: ' + swatch.hex"></div>
+              <p class="text-[10px] text-gray-500" x-text="swatch.label"></p>
+              <p class="text-[9px] text-gray-400 font-mono truncate" x-text="swatch.token"></p>
+              <p class="text-[9px] text-gray-400 font-mono truncate" x-text="swatch.hex"></p>
             </div>
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#479d72]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">icon</p>
-              <p class="text-[9px] text-gray-400 font-mono">text-success</p>
-              <p class="text-[9px] text-gray-400 font-mono">#479d72</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <p class="text-[10px] font-semibold text-gray-500 mb-2">Warning</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#faebdd]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">bg</p>
-              <p class="text-[9px] text-gray-400 font-mono">bg-warning/15</p>
-            </div>
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#de781f]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">icon</p>
-              <p class="text-[9px] text-gray-400 font-mono">text-warning</p>
-              <p class="text-[9px] text-gray-400 font-mono">#de781f</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <p class="text-[10px] font-semibold text-gray-500 mb-2">Error</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#f7e2e3]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">bg</p>
-              <p class="text-[9px] text-gray-400 font-mono">bg-error/15</p>
-            </div>
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#c94043]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">icon</p>
-              <p class="text-[9px] text-gray-400 font-mono">text-error</p>
-              <p class="text-[9px] text-gray-400 font-mono">#c94043</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <p class="text-[10px] font-semibold text-gray-500 mb-2">Info</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#e5e6ea]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">bg</p>
-              <p class="text-[9px] text-gray-400 font-mono">bg-info/15</p>
-            </div>
-            <div class="text-center space-y-1.5">
-              <div class="w-12 h-12 rounded-lg border border-gray-200 bg-[#535671]"></div>
-              <p class="text-[10px] font-semibold text-gray-700">icon</p>
-              <p class="text-[9px] text-gray-400 font-mono">text-info</p>
-              <p class="text-[9px] text-gray-400 font-mono">#535671</p>
-            </div>
-          </div>
+          </template>
         </div>
       </div>
+    </template>
+
+    <!-- Token Reference Table -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Token Reference</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs">
+          <thead>
+            <tr class="text-left border-b border-gray-200">
+              <th class="pb-2 pr-4 font-semibold text-gray-700">Category</th>
+              <th class="pb-2 pr-4 font-semibold text-gray-700">Role</th>
+              <th class="pb-2 pr-4 font-semibold text-gray-700">Token</th>
+              <th class="pb-2 font-semibold text-gray-700">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="group in groups" :key="group.name">
+              <template x-for="(swatch, i) in group.swatches" :key="swatch.token">
+                <tr class="border-b border-gray-50 cursor-pointer hover:bg-gray-50" @click="copy(swatch.hex)">
+                  <td class="py-1.5 pr-4 font-semibold text-gray-700" x-text="i === 0 ? group.name : ''"></td>
+                  <td class="py-1.5 pr-4 text-gray-600" x-text="swatch.label"></td>
+                  <td class="py-1.5 pr-4">
+                    <div class="flex items-center gap-2">
+                      <div class="w-4 h-4 rounded border border-gray-200 shrink-0" :style="'background-color: ' + swatch.hex"></div>
+                      <span class="font-mono text-gray-500" x-text="swatch.token"></span>
+                    </div>
+                  </td>
+                  <td class="py-1.5 font-mono text-gray-400" x-text="swatch.hex"></td>
+                </tr>
+              </template>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Copy Toast -->
+    <div x-show="toast" x-transition class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm shadow-lg">
+      Copied <span x-text="copiedValue" class="font-mono"></span>
     </div>
 
   </div>
+
+<script>
+function colorPalette() {
+  return {
+    toast: false,
+    copiedValue: '',
+    groups: [
+      { name: 'Text', swatches: [
+        { label: 'primary',   token: 'text-base-content',      hex: '#101016' },
+        { label: 'secondary', token: 'text-base-content/60',   hex: 'rgba(16,16,22,0.6)' },
+        { label: 'tertiary',  token: 'text-base-content/30',   hex: 'rgba(16,16,22,0.3)' },
+        { label: 'error',     token: 'text-error',             hex: '#c94043' },
+      ]},
+      { name: 'Background', swatches: [
+        { label: 'primary',   token: 'bg-base-100', hex: '#ffffff' },
+        { label: 'secondary', token: 'bg-base-200', hex: '#f8f8fa' },
+        { label: 'tertiary',  token: 'bg-base-300', hex: '#eeeef2' },
+      ]},
+      { name: 'Border', swatches: [
+        { label: 'default',   token: 'border-base-content/10', hex: 'rgba(16,16,22,0.1)' },
+        { label: 'subtle',    token: 'border-base-content/5',  hex: 'rgba(16,16,22,0.05)' },
+        { label: 'strong',    token: 'border-base-content/20', hex: 'rgba(16,16,22,0.2)' },
+      ]},
+      { name: 'Action / Primary', swatches: [
+        { label: 'default',    token: 'bg-primary',            hex: '#1114b9' },
+        { label: 'hover',      token: 'hover:bg-primary',      hex: '#0e11a8' },
+        { label: 'foreground', token: 'text-primary-content',  hex: '#f3f4fe' },
+      ]},
+      { name: 'Action / Secondary', swatches: [
+        { label: 'default',    token: 'bg-secondary',           hex: '#e7e7f8' },
+        { label: 'hover',      token: 'hover:bg-secondary',     hex: '#dfdff2' },
+        { label: 'foreground', token: 'text-secondary-content', hex: '#1114b9' },
+      ]},
+      { name: 'Action / Tertiary', swatches: [
+        { label: 'default',    token: 'bg-base-200',       hex: '#f8f8fa' },
+        { label: 'hover',      token: 'hover:bg-base-300', hex: '#eeeef2' },
+        { label: 'foreground', token: 'text-base-content', hex: '#101016' },
+      ]},
+      { name: 'Action / Danger', swatches: [
+        { label: 'default',    token: 'bg-error',           hex: '#c94043' },
+        { label: 'hover',      token: 'hover:bg-error',     hex: '#b7393c' },
+        { label: 'foreground', token: 'text-error-content', hex: '#fff5f5' },
+      ]},
+      { name: 'Action / Disabled', swatches: [
+        { label: 'background', token: 'bg-base-300',          hex: '#eeeef2' },
+        { label: 'foreground', token: 'text-base-content/20', hex: 'rgba(16,16,22,0.2)' },
+      ]},
+      { name: 'Form', swatches: [
+        { label: 'bg/default',       token: 'bg-base-300',          hex: '#eeeef2' },
+        { label: 'bg/disabled',      token: 'bg-base-200',          hex: '#f8f8fa' },
+        { label: 'border/default',   token: 'border-base-content/10', hex: 'rgba(16,16,22,0.1)' },
+        { label: 'border/focus',     token: 'border-primary',       hex: '#1114b9' },
+        { label: 'border/error',     token: 'border-error',         hex: '#c94043' },
+      ]},
+      { name: 'Icon', swatches: [
+        { label: 'default',  token: 'text-base-content/60', hex: 'rgba(16,16,22,0.6)' },
+        { label: 'disabled', token: 'text-base-content/30', hex: 'rgba(16,16,22,0.3)' },
+      ]},
+      { name: 'Status', swatches: [
+        { label: 'success/bg',   token: 'bg-success/15',  hex: '#e3f0ea' },
+        { label: 'success/icon', token: 'text-success',   hex: '#479d72' },
+        { label: 'warning/bg',   token: 'bg-warning/15',  hex: '#faebdd' },
+        { label: 'warning/icon', token: 'text-warning',   hex: '#de781f' },
+        { label: 'error/bg',     token: 'bg-error/15',    hex: '#f7e2e3' },
+        { label: 'error/icon',   token: 'text-error',     hex: '#c94043' },
+        { label: 'info/bg',      token: 'bg-info/15',     hex: '#e5e6ea' },
+        { label: 'info/icon',    token: 'text-info',      hex: '#535671' },
+      ]},
+    ],
+
+    copy(hex) {
+      navigator.clipboard.writeText(hex);
+      this.copiedValue = hex;
+      this.toast = true;
+      setTimeout(() => { this.toast = false; }, 1500);
+    }
+  };
+}
+</script>
 
 </body>
 </html>
