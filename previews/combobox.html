@@ -20,7 +20,7 @@
     selected: '',
     open: false,
     allOptions: ['にいやま株式会社', '株式会社shizai', '株式会社サプライヤー', 'K.K株式会社', '株式会社ABC', '丸山印刷株式会社', '東京パッケージ工業', '株式会社グリーンプリント', '日本包装資材株式会社', '株式会社フジシール'],
-    get filtered() { return this.query ? this.allOptions.filter(o => o.toLowerCase().includes(this.query.toLowerCase())) : this.allOptions; },
+    get filtered() { const q = this.selected && this.query === this.selected ? '' : this.query; return q ? this.allOptions.filter(o => o.toLowerCase().includes(q.toLowerCase())) : this.allOptions; },
     select(o) { this.selected = o; this.query = o; this.open = false; },
     clear() { this.selected = ''; this.query = ''; this.$refs.input.focus(); this.open = true; }
   }">
