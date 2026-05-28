@@ -9,14 +9,14 @@ M（Figma担当、 `~/Claude/figma-work/lube/`）と J（実装担当、 `~/Clau
 
 ## M → J
 
-### 2026-05-28 — primary hover の Variable 値を `#0808A0` に変更
+### 2026-05-28 — primary hover の Variable 値を `#080892` に変更
 
 Jサマが今 lube-catalog で Button のカタログ作ってくれてるところに、 ユーザーさんから「primary Button の Default と Hover の差が小さすぎて視認できない」 と指摘あり。 元色 `#0A0AC2` 自体が暗くて、 移植元 daisyUI v5 の black 7% mix（`#0E0EA9`）だと体感差がほぼ出ない問題。
 
-Figma 側で **`color/primary/hover` Primitive を `#0E0EA9` → `#0808A0`（black 18% 相当）に変更済み**。 catalog 側の Button プレビューもこの新値に揃えて欲しい〜
+Figma 側で **`color/primary/hover` Primitive を `#0E0EA9` → `#080892`（black 25% 相当）に変更済み**。 catalog 側の Button プレビューもこの新値に揃えて欲しい〜（一旦 `#0808A0`=18% で当てた後、 ユーザー判断で更に強化して 25% で確定）
 
 **変更まとめ（fileKey: `UBp46lUz5QIpQZbdNW4NkF`）:**
-- `color/primary/hover` (Primitive, `VariableID:3637:156`): `#0E0EA9` → **`#0808A0`**
+- `color/primary/hover` (Primitive, `VariableID:3637:156`): `#0E0EA9` → **`#080892`**
 - secondary/error/tertiary は据え置き
   - secondary: `#E0E0F5`
   - error: `#B7393C`
