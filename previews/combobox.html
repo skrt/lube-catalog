@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+</head>
+<body class="bg-white p-8 space-y-10">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!-- Interactive Demo -->
+  <section x-data="{
+    query: '',
+    selected: '',
+    open: false,
+    allOptions: ['にいやま株式会社', '株式会社shizai', '株式会社サプライヤー', 'K.K株式会社', '株式会社ABC', '丸山印刷株式会社', '東京パッケージ工業', '株式会社グリーンプリント', '日本包装資材株式会社', '株式会社フジシール'],
+    get filtered() { return this.query ? this.allOptions.filter(o => o.toLowerCase().includes(this.query.toLowerCase())) : this.allOptions; },
+    select(o) { this.selected = o; this.query = o; this.open = false; },
+    clear() { this.selected = ''; this.query = ''; this.$refs.input.focus(); this.open = true; }
+  }">
+    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Interactive Demo</p>
+    <div class="w-72 space-y-1">
+      <label class="block text-sm text-[#101016]">取引先 <span class="text-[#c94043]">*</span></label>
+      <div class="relative">
+        <div
+          class="flex items-center h-8 px-3 py-2 gap-2 rounded bg-white transition-colors"
+          :class="open ? 'border-2 border-[#0a0ac2]' : 'border border-[rgba(16,16,22,0.2)]'"
+        >
+          <input
+            x-ref="input"
+            type="text"
+            x-model="query"
+            @input="open = true"
+            @click="open = true"
+            placeholder="検索..."
+            class="flex-1 text-sm text-[#101016] placeholder:text-[rgba(16,16,22,0.3)] outline-none bg-transparent min-w-0"
+          >
+          <button x-show="query" @click="clear()" class="shrink-0 text-[rgba(16,16,22,0.6)] hover:text-[#101016]">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+          </button>
+        </div>
+        <div x-show="open" @click.away="open = false" x-transition class="absolute top-full left-0 w-full mt-1 max-h-[240px] overflow-y-auto bg-white border border-[rgba(16,16,22,0.1)] rounded shadow-lg z-10">
+          <div class="px-3 py-1.5 text-xs text-[rgba(16,16,22,0.6)] bg-[#f8f8fa]" x-text="'検索結果：' + filtered.length + '件'"></div>
+          <template x-if="filtered.length === 0">
+            <div class="px-3 py-2 text-sm text-[rgba(16,16,22,0.3)]">該当する結果がありません</div>
+          </template>
+          <template x-for="option in filtered" :key="option">
+            <div
+              @click="select(option)"
+              class="flex items-center px-3 py-2 cursor-pointer text-sm text-[#101016] hover:bg-[#f8f8fa]"
+              :class="selected === option && '!bg-[#e8e8fd] !text-[#0a0ac2]'"
+            >
+              <span x-text="option"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+      <p class="text-xs text-[rgba(16,16,22,0.6)]">入力して絞り込めます</p>
+    </div>
+  </section>
+
+  <!-- Sizes -->
+  <section>
+    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
+    <div class="flex flex-wrap items-end gap-6">
+      <div class="w-[220px] space-y-1">
+        <label class="block text-xs text-[#101016]">ラベル</label>
+        <div class="flex items-center h-6 px-2 py-1 gap-2 border border-[rgba(16,16,22,0.2)] rounded bg-white">
+          <span class="flex-1 text-xs text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">sm</p>
+      </div>
+      <div class="w-[220px] space-y-1">
+        <label class="block text-sm text-[#101016]">ラベル</label>
+        <div class="flex items-center h-8 px-3 py-2 gap-2 border border-[rgba(16,16,22,0.2)] rounded bg-white">
+          <span class="flex-1 text-sm text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">md</p>
+      </div>
+      <div class="w-[220px] space-y-1">
+        <label class="block text-base text-[#101016]">ラベル</label>
+        <div class="flex items-center h-10 px-3 py-2 gap-2 border border-[rgba(16,16,22,0.2)] rounded bg-white">
+          <span class="flex-1 text-base text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">lg</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- States -->
+  <section>
+    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">States</p>
+    <div class="flex flex-wrap items-start gap-4">
+      <div class="w-[200px] space-y-1">
+        <label class="block text-sm text-[#101016]">ラベル</label>
+        <div class="flex items-center h-8 px-3 py-2 gap-2 border border-[rgba(16,16,22,0.2)] rounded bg-white">
+          <span class="flex-1 text-sm text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">Default</p>
+      </div>
+      <div class="w-[200px] space-y-1">
+        <label class="block text-sm text-[#101016]">ラベル</label>
+        <div class="flex items-center h-8 px-3 py-2 gap-2 border-2 border-[#0a0ac2] rounded bg-white">
+          <span class="flex-1 text-sm text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">Focus</p>
+      </div>
+      <div class="w-[200px] space-y-1">
+        <label class="block text-sm text-[#101016]">ラベル</label>
+        <div class="flex items-center h-8 px-3 py-2 gap-2 border-2 border-[#c94043] rounded bg-white">
+          <span class="flex-1 text-sm text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">Error</p>
+      </div>
+      <div class="w-[200px] space-y-1">
+        <label class="block text-sm text-[#101016]">ラベル</label>
+        <div class="flex items-center h-8 px-3 py-2 gap-2 border border-[rgba(16,16,22,0.1)] rounded bg-[#f8f8fa] cursor-not-allowed">
+          <span class="flex-1 text-sm text-[rgba(16,16,22,0.3)] truncate">プレースホルダー</span>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">Disabled</p>
+      </div>
+      <div class="w-[200px] space-y-1">
+        <label class="block text-sm text-[#101016]">ラベル</label>
+        <div class="flex items-center h-8 px-3 py-2 gap-2 border border-[rgba(16,16,22,0.2)] rounded bg-white">
+          <span class="flex-1 text-sm text-[#101016] truncate">プレースホルダー</span>
+          <svg class="shrink-0 w-3.5 h-3.5 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+        </div>
+        <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-[10px] text-gray-400 mt-1">Filled</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ComboBoxMenu Variants -->
+  <section>
+    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">ComboBoxMenu Variants</p>
+    <div class="flex flex-wrap items-start gap-6">
+      <!-- With results -->
+      <div class="space-y-1.5">
+        <p class="text-[10px] text-gray-400">Results</p>
+        <div class="w-[260px] border border-[rgba(16,16,22,0.1)] rounded shadow-lg overflow-hidden">
+          <div class="px-3 py-1.5 text-xs text-[rgba(16,16,22,0.6)] bg-[#f8f8fa]">検索結果：10件</div>
+          <div class="px-3 py-2 text-sm text-[#101016]">にいやま株式会社</div>
+          <div class="px-3 py-2 text-sm text-[#101016]">株式会社shizai</div>
+          <div class="px-3 py-2 text-sm text-[#101016]">株式会社サプライヤー</div>
+        </div>
+      </div>
+      <!-- Empty -->
+      <div class="space-y-1.5">
+        <p class="text-[10px] text-gray-400">Empty</p>
+        <div class="w-[260px] border border-[rgba(16,16,22,0.1)] rounded shadow-lg overflow-hidden">
+          <div class="px-3 py-1.5 text-xs text-[rgba(16,16,22,0.6)] bg-[#f8f8fa]">検索結果：0件</div>
+          <div class="px-3 py-2 text-sm text-[rgba(16,16,22,0.3)]">該当する結果がありません</div>
+        </div>
+      </div>
+      <!-- Loading -->
+      <div class="space-y-1.5">
+        <p class="text-[10px] text-gray-400">Loading</p>
+        <div class="w-[260px] border border-[rgba(16,16,22,0.1)] rounded shadow-lg overflow-hidden">
+          <div class="px-3 py-1.5 text-xs text-[rgba(16,16,22,0.6)] bg-[#f8f8fa] flex items-center gap-1.5">
+            検索結果：5件
+            <svg class="w-3 h-3 animate-spin text-[rgba(16,16,22,0.3)]" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="px-3 py-2 text-sm text-[#101016]">にいやま株式会社</div>
+          <div class="px-3 py-2 text-sm text-[#101016]">株式会社shizai</div>
+          <div class="px-3 py-2 text-sm text-[#101016]">株式会社サプライヤー</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

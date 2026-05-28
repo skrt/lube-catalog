@@ -1,42 +1,410 @@
 {
   "categories": [
-    {
-      "id": "design-tokens",
-      "label": "Design Tokens"
-    },
-    {
-      "id": "actions",
-      "label": "Actions"
-    },
-    {
-      "id": "data-display",
-      "label": "Data Display"
-    },
-    {
-      "id": "feedback",
-      "label": "Feedback"
-    },
-    {
-      "id": "forms",
-      "label": "Forms"
-    },
-    {
-      "id": "layout",
-      "label": "Layout"
-    }
+    { "id": "design-tokens", "label": "Design Tokens" },
+    { "id": "actions", "label": "Actions" },
+    { "id": "data-display", "label": "Data Display" },
+    { "id": "feedback", "label": "Feedback" },
+    { "id": "forms", "label": "Forms" },
+    { "id": "layout", "label": "Layout" }
   ],
   "components": [
     {
       "id": "colors",
       "name": "Colors",
-      "file": "colors.html",
-      "category": "design-tokens"
+      "description": "カラートークン一覧",
+      "category": "design-tokens",
+      "preview": "previews/colors.html"
     },
     {
       "id": "button",
       "name": "Button",
-      "file": "button.html",
-      "category": "actions"
+      "description": "メインCTA・補助・サブ・危険操作の汎用ボタン",
+      "category": "actions",
+      "preview": "previews/button.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1763",
+      "props": [
+        {
+          "name": "Color",
+          "type": "enum",
+          "default": "Primary",
+          "values": ["Primary", "Secondary", "Tertiary", "Danger"],
+          "description": "ボタンの色バリアント"
+        },
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "ボタンサイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Hover", "Disabled", "Loading"],
+          "description": "ボタンの状態"
+        },
+        {
+          "name": "leftIcon",
+          "type": "boolean",
+          "default": "false",
+          "description": "左アイコンの表示"
+        },
+        {
+          "name": "rightIcon",
+          "type": "boolean",
+          "default": "false",
+          "description": "右アイコンの表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Color",
+          "items": [
+            { "variant": "Primary", "tokens": { "background": "bg-primary (#0a0ac2)", "hover": "hover:bg-primary (#080892)", "text": "text-primary-content (#f3f4fe)" } },
+            { "variant": "Secondary", "tokens": { "background": "bg-secondary (#e8e8fd)", "hover": "hover:bg-secondary (#e0e0f5)", "text": "text-secondary-content (#0a0ac2)" } },
+            { "variant": "Tertiary", "tokens": { "background": "bg-base-200 (#f8f8fa)", "hover": "hover:bg-base-300 (#eeeef2)", "text": "text-base-content (#101016)" } },
+            { "variant": "Danger", "tokens": { "background": "bg-error (#c94043)", "hover": "hover:bg-error (#b7393c)", "text": "text-error-content (#fff5f5)" } },
+            { "variant": "Disabled", "tokens": { "background": "bg-base-300 (#eeeef2)", "text": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+          ]
+        },
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "lg", "tokens": { "padding": "px-4 py-2.5", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "icon": "14px" } },
+            { "variant": "md", "tokens": { "padding": "px-3 py-2", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "14px" } },
+            { "variant": "sm", "tokens": { "padding": "px-2 py-1", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "12px" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "icon-button",
+      "name": "IconButton",
+      "description": "アイコンのみの正方形ボタン。Buttonのラベルなし版",
+      "category": "actions",
+      "preview": "previews/icon-button.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3694-438",
+      "props": [
+        {
+          "name": "Color",
+          "type": "enum",
+          "default": "Primary",
+          "values": ["Primary", "Secondary", "Tertiary", "Danger"],
+          "description": "ボタンの色バリアント"
+        },
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "ボタンサイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Hover", "Disabled"],
+          "description": "ボタンの状態"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "lg", "tokens": { "padding": "p-2.5", "icon": "20px (w-5)" } },
+            { "variant": "md", "tokens": { "padding": "p-2", "icon": "16px (w-4)" } },
+            { "variant": "sm", "tokens": { "padding": "p-1.5", "icon": "12px (w-3)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "description": "テキスト入力欄。Label・Placeholder・Helper・Errorを個別制御",
+      "category": "forms",
+      "preview": "previews/input.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1762",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "入力欄サイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "description": "入力欄の状態"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "プレースホルダー",
+          "description": "プレースホルダーテキスト"
+        },
+        {
+          "name": "helperText",
+          "type": "boolean",
+          "default": "true",
+          "description": "ヘルパーテキストの表示"
+        },
+        {
+          "name": "errorText",
+          "type": "boolean",
+          "default": "false",
+          "description": "エラーテキストの表示"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "false",
+          "description": "必須マーク（*）の表示"
+        },
+        {
+          "name": "leftIcon",
+          "type": "boolean",
+          "default": "false",
+          "description": "左アイコンの表示"
+        },
+        {
+          "name": "rightIcon",
+          "type": "boolean",
+          "default": "false",
+          "description": "右アイコンの表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } },
+            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "label": "text-sm (14px)" } },
+            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } }
+          ]
+        },
+        {
+          "category": "State",
+          "items": [
+            { "variant": "Default", "tokens": { "border": "border border-base-content/20 (rgba(16,16,22,0.2))", "background": "bg-base-100 (white)" } },
+            { "variant": "Focus", "tokens": { "border": "border-2 border-primary (#0a0ac2)", "background": "bg-base-100 (white)" } },
+            { "variant": "Error", "tokens": { "border": "border-2 border-error (#c94043)", "background": "bg-base-100 (white)" } },
+            { "variant": "Disabled", "tokens": { "border": "border border-base-content/10 (rgba(16,16,22,0.1))", "background": "bg-base-200 (#f8f8fa)" } },
+            { "variant": "Filled", "tokens": { "border": "border border-base-content/20 (rgba(16,16,22,0.2))", "background": "bg-base-100 (white)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text-area",
+      "name": "TextArea",
+      "description": "複数行入力欄。Inputベースの行高拡張版、右下にリサイズグリップ",
+      "category": "forms",
+      "preview": "previews/text-area.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3687-2817",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "テキストエリアサイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "description": "テキストエリアの状態"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "プレースホルダー",
+          "description": "プレースホルダーテキスト"
+        },
+        {
+          "name": "helperText",
+          "type": "boolean",
+          "default": "true",
+          "description": "ヘルパーテキストの表示"
+        },
+        {
+          "name": "errorText",
+          "type": "boolean",
+          "default": "false",
+          "description": "エラーテキストの表示"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "false",
+          "description": "必須マーク（*）の表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "lg", "tokens": { "height": "h-[72px]", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } },
+            { "variant": "md", "tokens": { "height": "h-16 (64px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "label": "text-sm (14px)" } },
+            { "variant": "sm", "tokens": { "height": "h-14 (56px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "description": "プルダウン選択欄。右にchevron-down固定、SelectMenuで選択肢表示",
+      "category": "forms",
+      "preview": "previews/select.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3684-2493",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "セレクトサイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled"],
+          "description": "セレクトの状態"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "選択しましょう",
+          "description": "プレースホルダーテキスト"
+        },
+        {
+          "name": "helperText",
+          "type": "boolean",
+          "default": "true",
+          "description": "ヘルパーテキストの表示"
+        },
+        {
+          "name": "errorText",
+          "type": "boolean",
+          "default": "false",
+          "description": "エラーテキストの表示"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "false",
+          "description": "必須マーク（*）の表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px (w-4)" } },
+            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px (w-3.5)" } },
+            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px (w-3)" } }
+          ]
+        },
+        {
+          "category": "SelectMenu Item",
+          "items": [
+            { "variant": "Default", "tokens": { "background": "transparent", "text": "text-base-content (#101016)" } },
+            { "variant": "Hover", "tokens": { "background": "bg-base-200 (#f8f8fa)", "text": "text-base-content (#101016)" } },
+            { "variant": "Selected", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)" } },
+            { "variant": "Disabled", "tokens": { "background": "transparent", "text": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combobox",
+      "name": "ComboBox",
+      "description": "インクリメンタル検索付き選択欄。入力で候補を絞り込み、ComboBoxMenuで選択",
+      "category": "forms",
+      "preview": "previews/combobox.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3695-780",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "コンボボックスサイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "description": "コンボボックスの状態"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "プレースホルダー",
+          "description": "プレースホルダーテキスト"
+        },
+        {
+          "name": "helperText",
+          "type": "boolean",
+          "default": "true",
+          "description": "ヘルパーテキストの表示"
+        },
+        {
+          "name": "errorText",
+          "type": "boolean",
+          "default": "false",
+          "description": "エラーテキストの表示"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "false",
+          "description": "必須マーク（*）の表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "ComboBoxMenu",
+          "items": [
+            { "variant": "Header", "tokens": { "font-size": "text-xs (12px)", "text": "text-base-content/60 (rgba(16,16,22,0.6))" } },
+            { "variant": "Empty", "tokens": { "text": "text-base-content/30 (rgba(16,16,22,0.3))" } },
+            { "variant": "Loading", "tokens": { "spinner": "animate-spin, text-base-content/30" } }
+          ]
+        }
+      ]
     }
   ]
 }

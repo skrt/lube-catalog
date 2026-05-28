@@ -31,7 +31,7 @@
           >
         </div>
       </div>
-      <span class="text-sm text-gray-500 shrink-0" x-text="orderedComponents.length + ' components'"></span>
+      <span class="text-sm text-gray-500 shrink-0" x-text="filteredComponents.length + ' components'"></span>
     </div>
   </header>
 
@@ -40,8 +40,7 @@
     <!-- Sidebar: Component List -->
     <aside class="w-48 shrink-0 hidden md:block">
       <nav class="sticky top-24 space-y-0.5 max-h-[calc(100vh-7rem)] overflow-y-auto">
-        <!-- Components -->
-        <template x-for="comp in regularComponentsSorted" :key="comp.id">
+        <template x-for="comp in allComponentsSorted" :key="comp.id">
           <div>
             <div x-show="comp._firstToken" class="border-t border-gray-200 my-2"></div>
             <button
@@ -52,40 +51,183 @@
             ></button>
           </div>
         </template>
-        <!-- Design Tokens -->
-        <template x-if="tokenComponents.length > 0">
-          <div>
-            <div class="border-t border-gray-200 my-2"></div>
-            <p class="px-3 py-1 text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Design Tokens</p>
-            <template x-for="comp in tokenComponents" :key="comp.id">
-              <button
-                @click="scrollToComponent(comp.id)"
-                :class="activeComponent === comp.id ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-100'"
-                class="w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors truncate"
-                x-text="comp.name"
-              ></button>
-            </template>
-          </div>
-        </template>
       </nav>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 min-w-0">
-      <template x-for="comp in orderedComponents" :key="comp.id">
-        <section :id="'component-' + comp.id" class="mb-8 bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-            <h2 class="text-lg font-semibold" x-text="comp.name"></h2>
-            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded" x-text="comp.category === 'design-tokens' ? 'Token Reference' : comp.category"></span>
-          </div>
-          <div class="p-6">
-            <div :id="'preview-' + comp.id" class="preview-container"></div>
-          </div>
-        </section>
-      </template>
 
-      <div x-show="orderedComponents.length === 0" class="text-center py-12 text-gray-400">
-        No components found.
+      <!-- Mobile Component Selector -->
+      <div class="md:hidden mb-4">
+        <select
+          @change="scrollToComponent($event.target.value); $event.target.value = ''"
+          class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white"
+        >
+          <option value="">Jump to component...</option>
+          <template x-for="comp in allComponentsSorted" :key="comp.id">
+            <option :value="comp.id" x-text="comp.name"></option>
+          </template>
+        </select>
+      </div>
+
+      <!-- Component List -->
+      <div class="space-y-6">
+        <template x-for="comp in filteredUIComponents" :key="comp.id">
+          <div :id="'comp-' + comp.id" class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+
+            <!-- Component Header -->
+            <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between gap-3">
+              <div>
+                <h2 class="text-base font-semibold" x-text="comp.name"></h2>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <span class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-medium" x-text="getCategoryLabel(comp.category)"></span>
+                <template x-if="comp.figmaUrl">
+                  <a :href="comp.figmaUrl" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-2.5 py-1 bg-purple-50 text-purple-700 rounded-md text-xs font-medium hover:bg-purple-100 transition-colors">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 38 57" fill="currentColor"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/></svg>
+                    Figma
+                  </a>
+                </template>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="border-b border-gray-100">
+              <div class="flex px-5 gap-4">
+                <button
+                  @click="setTab(comp.id, 'preview')"
+                  :class="getTab(comp.id) === 'preview' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'"
+                  class="py-2.5 text-sm font-medium border-b-2 transition-colors"
+                >Preview</button>
+                <button
+                  @click="setTab(comp.id, 'props')"
+                  :class="getTab(comp.id) === 'props' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'"
+                  class="py-2.5 text-sm font-medium border-b-2 transition-colors"
+                >Props</button>
+                <template x-if="comp.tokens && comp.tokens.length > 0">
+                  <button
+                    @click="setTab(comp.id, 'tokens')"
+                    :class="getTab(comp.id) === 'tokens' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'"
+                    class="py-2.5 text-sm font-medium border-b-2 transition-colors"
+                  >Tokens</button>
+                </template>
+              </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div>
+              <!-- Preview Tab -->
+              <div x-show="getTab(comp.id) === 'preview'" class="p-0">
+                <iframe
+                  :src="comp.preview + '?v=' + cacheKey"
+                  class="w-full border-0"
+                  :title="comp.name + ' preview'"
+                  loading="lazy"
+                  @load="resizeIframe($event.target)"
+                  style="min-height: 100px;"
+                ></iframe>
+              </div>
+
+              <!-- Props Tab -->
+              <div x-show="getTab(comp.id) === 'props'" class="p-5">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="text-left border-b border-gray-200">
+                      <th class="pb-2 pr-4 font-semibold text-gray-700">Name</th>
+                      <th class="pb-2 pr-4 font-semibold text-gray-700">Type</th>
+                      <th class="pb-2 pr-4 font-semibold text-gray-700">Default</th>
+                      <th class="pb-2 pr-4 font-semibold text-gray-700">Values</th>
+                      <th class="pb-2 font-semibold text-gray-700">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template x-for="prop in (comp.props || [])" :key="prop.name">
+                      <tr class="border-b border-gray-50">
+                        <td class="py-2 pr-4 font-mono text-indigo-600 text-xs" x-text="prop.name"></td>
+                        <td class="py-2 pr-4 text-gray-500" x-text="prop.type"></td>
+                        <td class="py-2 pr-4 font-mono text-xs text-gray-500" x-text="prop.default"></td>
+                        <td class="py-2 pr-4">
+                          <template x-if="prop.values">
+                            <div class="flex flex-wrap gap-1">
+                              <template x-for="v in prop.values" :key="v">
+                                <span class="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-mono" x-text="v"></span>
+                              </template>
+                            </div>
+                          </template>
+                          <template x-if="!prop.values">
+                            <span class="text-gray-400">-</span>
+                          </template>
+                        </td>
+                        <td class="py-2 text-gray-600" x-text="prop.description"></td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Tokens Tab -->
+              <div x-show="getTab(comp.id) === 'tokens'" class="p-5">
+                <template x-if="comp.tokens && comp.tokens.length > 0">
+                  <div class="space-y-6">
+                    <template x-for="group in comp.tokens" :key="group.category">
+                      <div>
+                        <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3" x-text="group.category"></h3>
+                        <div class="space-y-3">
+                          <template x-for="item in group.items" :key="item.variant">
+                            <div class="border border-gray-100 rounded-lg overflow-hidden">
+                              <div class="bg-gray-50 px-3 py-1.5 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-700" x-text="item.variant"></span>
+                              </div>
+                              <div class="divide-y divide-gray-50">
+                                <template x-for="(tokenVal, tokenKey) in item.tokens" :key="tokenKey">
+                                  <div class="flex items-center px-3 py-1.5">
+                                    <span class="w-40 shrink-0 text-xs text-gray-500" x-text="tokenKey"></span>
+                                    <code class="text-xs text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-mono" x-text="tokenVal"></code>
+                                  </div>
+                                </template>
+                              </div>
+                            </div>
+                          </template>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+          </div>
+        </template>
+
+        <!-- Design Tokens Section -->
+        <template x-if="filteredTokenComponents.length > 0">
+          <div>
+            <div class="mt-10 mb-6 border-t border-gray-200"></div>
+            <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Design Tokens</h2>
+            <div class="space-y-6">
+              <template x-for="comp in filteredTokenComponents" :key="comp.id">
+                <div :id="'comp-' + comp.id" class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                  <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between gap-3">
+                    <div>
+                      <h2 class="text-base font-semibold" x-text="comp.name"></h2>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                      <span class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-medium" x-text="getCategoryLabel(comp.category)"></span>
+                    </div>
+                  </div>
+                  <div class="p-0">
+                    <iframe :src="comp.preview + '?v=' + cacheKey" class="w-full border-0" :title="comp.name + ' preview'" loading="lazy" @load="resizeIframe($event.target)" style="min-height: 100px;"></iframe>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </template>
+
+        <!-- Empty State -->
+        <div x-show="filteredUIComponents.length === 0 && filteredTokenComponents.length === 0" class="text-center py-16">
+          <p class="text-gray-400 text-sm">No components found.</p>
+        </div>
       </div>
     </main>
   </div>
@@ -95,63 +237,108 @@
 function catalog() {
   return {
     search: '',
-    components: [],
     activeComponent: null,
-    tokenComponents: [],
-    regularComponentsSorted: [],
+    categories: [],
+    components: [],
+    tabs: {},
+    cacheKey: Date.now(),
 
     async init() {
-      const res = await fetch('components.json');
-      const data = await res.json();
-      this.components = data.components || [];
-
-      // Split by category: design-tokens vs regular
-      this.tokenComponents = this.components.filter(c => c.category === 'design-tokens');
-      const regular = this.components.filter(c => c.category !== 'design-tokens');
-      this.regularComponentsSorted = regular.sort((a, b) => a.name.localeCompare(b.name));
-
-      // Mark first letter tokens for sidebar dividers (regular only, skip first)
-      let lastLetter = '';
-      this.regularComponentsSorted.forEach((c, i) => {
-        const first = c.name[0].toUpperCase();
-        c._firstToken = i > 0 && first !== lastLetter;
-        lastLetter = first;
-      });
-
-      // Load previews
-      this.$nextTick(() => this.loadPreviews());
-    },
-
-    get orderedComponents() {
-      const all = [...this.regularComponentsSorted, ...this.tokenComponents];
-      if (!this.search) return all;
-      const q = this.search.toLowerCase();
-      return all.filter(c =>
-        c.name.toLowerCase().includes(q) || (c.category || '').toLowerCase().includes(q)
-      );
-    },
-
-    async loadPreviews() {
-      for (const comp of this.components) {
-        const container = document.getElementById('preview-' + comp.id);
-        if (!container) continue;
-        try {
-          const res = await fetch('previews/' + comp.file);
-          if (res.ok) {
-            container.innerHTML = await res.text();
-          }
-        } catch (e) {
-          container.innerHTML = '<p class="text-gray-400 text-sm">Preview not available</p>';
-        }
+      try {
+        const res = await fetch('components.json');
+        const data = await res.json();
+        this.categories = data.categories || [];
+        this.components = data.components || [];
+      } catch (e) {
+        console.error('Failed to load components.json:', e);
+      }
+      // Handle URL hash navigation
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#comp-')) {
+        const id = hash.replace('#comp-', '');
+        this.$nextTick(() => this.scrollToComponent(id));
       }
     },
 
+    get allComponentsSorted() {
+      const ui = this.components.filter(c => c.category !== 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+      const tokens = this.components.filter(c => c.category === 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+      if (tokens.length > 0) tokens[0]._firstToken = true;
+      return [...ui, ...tokens];
+    },
+
+    get filteredComponents() {
+      return this.components.filter(c => {
+        const q = this.search.toLowerCase();
+        return !q
+          || c.name.toLowerCase().includes(q)
+          || (c.description || '').toLowerCase().includes(q)
+          || c.category.toLowerCase().includes(q);
+      });
+    },
+
+    get filteredUIComponents() {
+      return this.filteredComponents.filter(c => c.category !== 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+    },
+
+    get filteredTokenComponents() {
+      return this.filteredComponents.filter(c => c.category === 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+    },
+
+    getCategoryLabel(id) {
+      const cat = this.categories.find(c => c.id === id);
+      return cat ? cat.label : id;
+    },
+
+    _scrollTarget: null,
+    _scrollTimer: null,
+
     scrollToComponent(id) {
+      if (!id) return;
       this.activeComponent = id;
-      const el = document.getElementById('component-' + id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const el = document.getElementById('comp-' + id);
+      if (!el) return;
+      this._scrollTarget = el;
+      this._scrollToEl(el);
+      clearTimeout(this._scrollTimer);
+      this._scrollTimer = setTimeout(() => {
+        this._scrollTarget = null;
+        this.activeComponent = null;
+      }, 5000);
+    },
+
+    _scrollToEl(el) {
+      const headerH = 72;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerH;
+      window.scrollTo({ top, behavior: 'instant' });
+    },
+
+    getTab(compId) {
+      return this.tabs[compId] || 'preview';
+    },
+
+    setTab(compId, tab) {
+      this.tabs[compId] = tab;
+    },
+
+    resizeIframe(iframe) {
+      const doResize = () => {
+        try {
+          const h = iframe.contentDocument.documentElement.scrollHeight;
+          iframe.style.height = h + 'px';
+        } catch (e) {
+          iframe.style.height = '400px';
+        }
+        if (this._scrollTarget) {
+          this._scrollToEl(this._scrollTarget);
+        }
+      };
+      doResize();
+      setTimeout(doResize, 500);
+      setTimeout(doResize, 1500);
+      setTimeout(doResize, 3000);
     }
-  }
+  };
 }
 </script>
 
