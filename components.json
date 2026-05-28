@@ -405,6 +405,39 @@
           ]
         }
       ]
+    },
+    {
+      "id": "number-input",
+      "name": "NumberInput",
+      "description": "数値入力欄。Inputベース、等幅フォント・右寄せ",
+      "category": "forms",
+      "preview": "previews/number-input.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3901-3022",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "入力欄サイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "description": "入力欄の状態"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Differences from Input",
+          "items": [
+            { "variant": "font", "tokens": { "font-family": "font-mono (等幅)" } },
+            { "variant": "alignment", "tokens": { "text-align": "text-right (右寄せ)" } }
+          ]
+        }
+      ]
     }
   ]
 }
