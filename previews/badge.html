@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }</style>
-<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8">
   <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
@@ -30,26 +30,11 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Color Variants</p>
       <div class="flex flex-wrap items-center gap-4">
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <p class="text-[10px] text-gray-400">Primary</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f5fef9] rounded-full bg-[#479d72]">ラベル</span>
-          <p class="text-[10px] text-gray-400">Success</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fffcf8] rounded-full bg-[#de781f]">ラベル</span>
-          <p class="text-[10px] text-gray-400">Warning</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fff5f5] rounded-full bg-[#c94043]">ラベル</span>
-          <p class="text-[10px] text-gray-400">Error</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f2f4ff] rounded-full bg-[#535671]">ラベル</span>
-          <p class="text-[10px] text-gray-400">Info</p>
-        </div>
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">Primary</span>
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f5fef9] rounded-full bg-[#479d72]">Success</span>
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fffcf8] rounded-full bg-[#de781f]">Warning</span>
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fff5f5] rounded-full bg-[#c94043]">Error</span>
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f2f4ff] rounded-full bg-[#535671]">Info</span>
       </div>
     </div>
 
@@ -57,18 +42,9 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
       <div class="flex flex-wrap items-end gap-4">
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <p class="text-[10px] text-gray-400">sm</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <p class="text-[10px] text-gray-400">md</p>
-        </div>
-        <div class="text-center space-y-1.5">
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <p class="text-[10px] text-gray-400">lg</p>
-        </div>
+        <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">sm</span>
+        <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">md</span>
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">lg</span>
       </div>
     </div>
 
@@ -79,29 +55,29 @@
         <!-- sm row -->
         <div class="flex items-center gap-3">
           <span class="text-[10px] text-gray-400 w-8">sm</span>
-          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f5fef9] rounded-full bg-[#479d72]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#fffcf8] rounded-full bg-[#de781f]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#fff5f5] rounded-full bg-[#c94043]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f2f4ff] rounded-full bg-[#535671]">ラベル</span>
+          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">Primary</span>
+          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f5fef9] rounded-full bg-[#479d72]">Success</span>
+          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#fffcf8] rounded-full bg-[#de781f]">Warning</span>
+          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#fff5f5] rounded-full bg-[#c94043]">Error</span>
+          <span class="inline-flex items-center justify-center px-1.5 py-0 text-xs leading-4 text-[#f2f4ff] rounded-full bg-[#535671]">Info</span>
         </div>
         <!-- md row -->
         <div class="flex items-center gap-3">
           <span class="text-[10px] text-gray-400 w-8">md</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f5fef9] rounded-full bg-[#479d72]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#fffcf8] rounded-full bg-[#de781f]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#fff5f5] rounded-full bg-[#c94043]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f2f4ff] rounded-full bg-[#535671]">ラベル</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">Primary</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f5fef9] rounded-full bg-[#479d72]">Success</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#fffcf8] rounded-full bg-[#de781f]">Warning</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#fff5f5] rounded-full bg-[#c94043]">Error</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs leading-4 text-[#f2f4ff] rounded-full bg-[#535671]">Info</span>
         </div>
         <!-- lg row -->
         <div class="flex items-center gap-3">
           <span class="text-[10px] text-gray-400 w-8">lg</span>
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f5fef9] rounded-full bg-[#479d72]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fffcf8] rounded-full bg-[#de781f]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fff5f5] rounded-full bg-[#c94043]">ラベル</span>
-          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f2f4ff] rounded-full bg-[#535671]">ラベル</span>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f3f4fe] rounded-full bg-[#0a0ac2]">Primary</span>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f5fef9] rounded-full bg-[#479d72]">Success</span>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fffcf8] rounded-full bg-[#de781f]">Warning</span>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#fff5f5] rounded-full bg-[#c94043]">Error</span>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-sm leading-5 text-[#f2f4ff] rounded-full bg-[#535671]">Info</span>
         </div>
       </div>
     </div>

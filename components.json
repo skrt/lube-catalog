@@ -272,6 +272,7 @@
     {
       "id": "select",
       "name": "Select",
+      "hasDemo": true,
       "description": "プルダウン選択欄。右にchevron-down固定、SelectMenuで選択肢表示",
       "category": "forms",
       "preview": "previews/select.html",
@@ -345,6 +346,7 @@
     {
       "id": "combobox",
       "name": "ComboBox",
+      "hasDemo": true,
       "description": "インクリメンタル検索付き選択欄。入力で候補を絞り込み、ComboBoxMenuで選択",
       "category": "forms",
       "preview": "previews/combobox.html",
@@ -519,6 +521,7 @@
     {
       "id": "toast",
       "name": "Toast",
+      "hasDemo": true,
       "description": "横バナー型トースト通知。画面右下からスライドイン、5秒で自動消去。Color=Success/Error",
       "category": "feedback",
       "preview": "previews/toast.html",
@@ -578,6 +581,7 @@
     {
       "id": "tooltip",
       "name": "Tooltip",
+      "hasDemo": true,
       "description": "ホバー時の小ラベル+4方向矢印。Color=Default/Error、top/bottom/left/rightで矢印方向選択",
       "category": "feedback",
       "preview": "previews/tooltip.html",
@@ -629,6 +633,7 @@
     {
       "id": "modal",
       "name": "Modal",
+      "hasDemo": true,
       "description": "Scrim+中央Dialogのフルスクリーンモーダル。Contents SLOTで本文差し替え、Footerは件数表示とアクションボタン",
       "category": "feedback",
       "preview": "previews/modal.html",
@@ -697,6 +702,7 @@
     {
       "id": "date-picker",
       "name": "DatePicker",
+      "hasDemo": true,
       "description": "日付選択欄。Inputベース、Left Icon=calendar固定。クリックでCalendar popupが開く",
       "category": "forms",
       "preview": "previews/date-picker.html",
