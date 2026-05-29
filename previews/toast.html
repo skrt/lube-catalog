@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Success: bg #479d72, text #f5fef9, icon circle-check
+    Error:   bg #c94043, text #fff5f5, icon circle-alert
+    Layout:  w-96 h-16, px-4 py-3, gap-4, rounded-lg
+    Title:   text-sm font-bold (700) leading-5
+    Desc:    text-xs (12px) leading-4
+    Close:   x icon 14px, top-3 right-4
+    Behavior (shizai-pro):
+      - fixed bottom-4 right-4 z-50
+      - translateY(16px) → translateY(0), opacity 0 → 1, 300ms ease
+      - auto-dismiss 5000ms
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Demo -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
+      <p class="text-sm text-gray-500 mb-4">ボタンを押すと画面右下からToastが表示されます（5秒で自動消去）</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <button
+          onclick="showToast('success')"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors"
+        >Success Toastを表示</button>
+        <button
+          onclick="showToast('error')"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#fff5f5] rounded bg-[#c94043] border border-[rgba(16,16,22,0.05)] hover:bg-[#b7393c] transition-colors"
+        >Error Toastを表示</button>
+      </div>
+    </div>
+
+    <!-- Color Variants (Static) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Color Variants</p>
+      <div class="space-y-3">
+
+        <!-- Success -->
+        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-[#479d72] overflow-hidden">
+          <svg class="w-4 h-4 shrink-0 text-[#f5fef9]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <div class="flex-1 flex flex-col min-w-0 text-[#f5fef9]">
+            <p class="text-sm font-bold leading-5">送信しました</p>
+            <p class="text-xs leading-4">メッセージを送信しました</p>
+          </div>
+          <button class="absolute top-3 right-4 text-[#f5fef9]">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Error -->
+        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-[#c94043] overflow-hidden">
+          <svg class="w-4 h-4 shrink-0 text-[#fff5f5]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <div class="flex-1 flex flex-col min-w-0 text-[#fff5f5]">
+            <p class="text-sm font-bold leading-5">送信に失敗しました</p>
+            <p class="text-xs leading-4">時間をおいて再度お試しください</p>
+          </div>
+          <button class="absolute top-3 right-4 text-[#fff5f5]">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col-reverse gap-3 pointer-events-none"></div>
+
+  <script>
+    const TOAST_CONFIG = {
+      success: {
+        bg: '#479d72',
+        text: '#f5fef9',
+        title: '送信しました',
+        desc: 'メッセージを送信しました',
+        icon: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'
+      },
+      error: {
+        bg: '#c94043',
+        text: '#fff5f5',
+        title: '送信に失敗しました',
+        desc: '時間をおいて再度お試しください',
+        icon: '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>'
+      }
+    };
+
+    function showToast(type) {
+      const cfg = TOAST_CONFIG[type];
+      const el = document.createElement('div');
+      el.className = 'relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg overflow-hidden pointer-events-auto';
+      el.style.backgroundColor = cfg.bg;
+      el.style.color = cfg.text;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+      el.innerHTML = `
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">${cfg.icon}</svg>
+        <div class="flex-1 flex flex-col min-w-0">
+          <p class="text-sm font-bold leading-5">${cfg.title}</p>
+          <p class="text-xs leading-4">${cfg.desc}</p>
+        </div>
+        <button class="absolute top-3 right-4" aria-label="閉じる">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      `;
+
+      const dismiss = () => {
+        el.style.transform = 'translateY(16px)';
+        el.style.opacity = '0';
+        setTimeout(() => el.remove(), 300);
+      };
+
+      el.querySelector('button').addEventListener('click', dismiss);
+      document.getElementById('toast-container').appendChild(el);
+
+      requestAnimationFrame(() => {
+        el.style.transform = 'translateY(0)';
+        el.style.opacity = '1';
+      });
+
+      setTimeout(dismiss, 5000);
+    }
+  </script>
+
+</body>
+</html>

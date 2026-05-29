@@ -71,9 +71,9 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "lg", "tokens": { "padding": "px-4 py-2.5", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "icon": "14px" } },
+            { "variant": "sm", "tokens": { "padding": "px-2 py-1", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "12px" } },
             { "variant": "md", "tokens": { "padding": "px-3 py-2", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "14px" } },
-            { "variant": "sm", "tokens": { "padding": "px-2 py-1", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "12px" } }
+            { "variant": "lg", "tokens": { "padding": "px-4 py-2.5", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "icon": "14px" } }
           ]
         }
       ]
@@ -112,9 +112,9 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "lg", "tokens": { "padding": "p-2.5", "icon": "20px (w-5)" } },
+            { "variant": "sm", "tokens": { "padding": "p-1.5", "icon": "12px (w-3)" } },
             { "variant": "md", "tokens": { "padding": "p-2", "icon": "16px (w-4)" } },
-            { "variant": "sm", "tokens": { "padding": "p-1.5", "icon": "12px (w-3)" } }
+            { "variant": "lg", "tokens": { "padding": "p-2.5", "icon": "20px (w-5)" } }
           ]
         }
       ]
@@ -188,9 +188,9 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } },
+            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } },
             { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "label": "text-sm (14px)" } },
-            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } }
+            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } }
           ]
         },
         {
@@ -262,9 +262,9 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "lg", "tokens": { "height": "h-[72px]", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } },
+            { "variant": "sm", "tokens": { "height": "h-14 (56px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } },
             { "variant": "md", "tokens": { "height": "h-16 (64px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "label": "text-sm (14px)" } },
-            { "variant": "sm", "tokens": { "height": "h-14 (56px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } }
+            { "variant": "lg", "tokens": { "height": "h-20 (80px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } }
           ]
         }
       ]
@@ -326,9 +326,9 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px (w-4)" } },
+            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px (w-3)" } },
             { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px (w-3.5)" } },
-            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px (w-3)" } }
+            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px (w-4)" } }
           ]
         },
         {
@@ -402,6 +402,359 @@
             { "variant": "Header", "tokens": { "font-size": "text-xs (12px)", "text": "text-base-content/60 (rgba(16,16,22,0.6))" } },
             { "variant": "Empty", "tokens": { "text": "text-base-content/30 (rgba(16,16,22,0.3))" } },
             { "variant": "Loading", "tokens": { "spinner": "animate-spin, text-base-content/30" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "badge",
+      "name": "Badge",
+      "description": "ステータス表示用バッジ。書類状態・件数・タグ等で使用。濃塗り＋pill形状",
+      "category": "data-display",
+      "preview": "previews/badge.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3707-2770",
+      "props": [
+        {
+          "name": "Color",
+          "type": "enum",
+          "default": "Primary",
+          "values": ["Primary", "Success", "Warning", "Error", "Info"],
+          "description": "バッジの色バリアント"
+        },
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "バッジサイズ"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Color",
+          "items": [
+            { "variant": "Primary", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)" } },
+            { "variant": "Success", "tokens": { "background": "bg-success (#479d72)", "text": "text-success-content (#f5fef9)" } },
+            { "variant": "Warning", "tokens": { "background": "bg-warning (#de781f)", "text": "text-warning-content (#fffcf8)" } },
+            { "variant": "Error", "tokens": { "background": "bg-error (#c94043)", "text": "text-error-content (#fff5f5)" } },
+            { "variant": "Info", "tokens": { "background": "bg-info (#535671)", "text": "text-info-content (#f2f4ff)" } }
+          ]
+        },
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "sm", "tokens": { "padding": "px-1.5 py-0", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)" } },
+            { "variant": "md", "tokens": { "padding": "px-2 py-0.5", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)" } },
+            { "variant": "lg", "tokens": { "padding": "px-2.5 py-0.5", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } }
+          ]
+        },
+        {
+          "category": "Shape",
+          "items": [
+            { "variant": "all", "tokens": { "radius": "rounded-full (9999px / pill)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "info",
+      "name": "Info",
+      "description": "通知/コールアウトボックス。タイトル＋メッセージ＋アイコン。Type=Success/Warning/Error/Info/Helpで色分け",
+      "category": "feedback",
+      "preview": "previews/info.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3793-9098",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Info",
+          "values": ["Success", "Warning", "Error", "Info", "Help"],
+          "description": "通知の種類"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "タイトル",
+          "description": "タイトルテキスト"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "default": "補足メッセージ",
+          "description": "本文テキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Type",
+          "items": [
+            { "variant": "Success", "tokens": { "background": "bg-success-content (#f5fef9)", "text": "text-success (#479d72)", "icon": "circle-check" } },
+            { "variant": "Warning", "tokens": { "background": "bg-warning-content (#fffcf8)", "text": "text-warning (#de781f)", "icon": "triangle-alert" } },
+            { "variant": "Error", "tokens": { "background": "bg-error-content (#fff5f5)", "text": "text-error (#c94043)", "icon": "circle-alert" } },
+            { "variant": "Info", "tokens": { "background": "bg-base-200 (#f8f8fa)", "text": "text-base-content (#101016)", "icon": "info" } },
+            { "variant": "Help", "tokens": { "background": "bg-base-200 (#f8f8fa)", "text": "text-base-content (#101016)", "icon": "message-circle-question-mark" } }
+          ]
+        },
+        {
+          "category": "Layout",
+          "items": [
+            { "variant": "all", "tokens": { "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "border": "border border-base-content/5 (rgba(16,16,22,0.05))", "gap": "gap-1 (4px)" } }
+          ]
+        },
+        {
+          "category": "Typography",
+          "items": [
+            { "variant": "title", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "weight": "font-semibold (600)" } },
+            { "variant": "message", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "weight": "font-normal (400)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toast",
+      "name": "Toast",
+      "description": "横バナー型トースト通知。画面右下からスライドイン、5秒で自動消去。Color=Success/Error",
+      "category": "feedback",
+      "preview": "previews/toast.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3796-9185",
+      "props": [
+        {
+          "name": "Color",
+          "type": "enum",
+          "default": "Success",
+          "values": ["Success", "Error"],
+          "description": "トーストの色バリアント"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "送信しました",
+          "description": "タイトルテキスト"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "default": "メッセージを送信しました",
+          "description": "本文テキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Color",
+          "items": [
+            { "variant": "Success", "tokens": { "background": "bg-success (#479d72)", "text": "text-success-content (#f5fef9)", "icon": "circle-check" } },
+            { "variant": "Error", "tokens": { "background": "bg-error (#c94043)", "text": "text-error-content (#fff5f5)", "icon": "circle-alert" } }
+          ]
+        },
+        {
+          "category": "Layout",
+          "items": [
+            { "variant": "all", "tokens": { "width": "w-96 (384px)", "height": "h-16 (64px)", "padding": "px-4 py-3", "gap": "gap-4 (16px)", "radius": "rounded-lg (8px)", "close-position": "top-3 right-4" } }
+          ]
+        },
+        {
+          "category": "Typography",
+          "items": [
+            { "variant": "title", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "weight": "font-bold (700)" } },
+            { "variant": "description", "tokens": { "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "weight": "font-normal (400)" } }
+          ]
+        },
+        {
+          "category": "Behavior",
+          "items": [
+            { "variant": "position", "tokens": { "fixed": "bottom-4 right-4 z-50" } },
+            { "variant": "animation", "tokens": { "in": "translateY(16px) → 0, opacity 0 → 1, 300ms ease", "out": "translateY(0) → 16px, opacity 1 → 0, 300ms ease" } },
+            { "variant": "auto-dismiss", "tokens": { "timeout": "5000ms" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tooltip",
+      "name": "Tooltip",
+      "description": "ホバー時の小ラベル+4方向矢印。Color=Default/Error、top/bottom/left/rightで矢印方向選択",
+      "category": "feedback",
+      "preview": "previews/tooltip.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3799-9205",
+      "props": [
+        {
+          "name": "Color",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Error"],
+          "description": "ツールチップの色バリアント"
+        },
+        {
+          "name": "Arrow",
+          "type": "enum",
+          "default": "bottom",
+          "values": ["top", "bottom", "left", "right"],
+          "description": "矢印の方向（指す先）"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "default": "ツールチップ",
+          "description": "ラベルテキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Color",
+          "items": [
+            { "variant": "Default", "tokens": { "background": "bg-info (#535671)", "text": "text-info-content (#f2f4ff)" } },
+            { "variant": "Error", "tokens": { "background": "bg-error (#c94043)", "text": "text-error-content (#fff5f5)" } }
+          ]
+        },
+        {
+          "category": "Layout",
+          "items": [
+            { "variant": "all", "tokens": { "padding": "px-2 py-1", "radius": "rounded-sm (4px)", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } }
+          ]
+        },
+        {
+          "category": "Arrow",
+          "items": [
+            { "variant": "all", "tokens": { "size": "10×4px (W×H)", "offset": "-3px from tooltip edge", "shape": "CSS triangle (border trick)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modal",
+      "name": "Modal",
+      "description": "Scrim+中央Dialogのフルスクリーンモーダル。Contents SLOTで本文差し替え、Footerは件数表示とアクションボタン",
+      "category": "feedback",
+      "preview": "previews/modal.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3719-502",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "ダイアログタイトル",
+          "description": "ヘッダータイトル"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "default": "この操作を実行してよろしいですか？この操作は取り消せません",
+          "description": "本文テキスト"
+        },
+        {
+          "name": "showCount",
+          "type": "boolean",
+          "default": "false",
+          "description": "Footer左の件数表示（X件選択中）"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Scrim",
+          "items": [
+            { "variant": "all", "tokens": { "background": "bg-black/50", "z-index": "z-50" } }
+          ]
+        },
+        {
+          "category": "Dialog",
+          "items": [
+            { "variant": "all", "tokens": { "width": "w-96 (384px)", "background": "bg-base-100 (white)", "radius": "rounded-xl (12px)", "shadow": "drop-shadow 0 16px 16px rgba(0,0,0,0.18)" } }
+          ]
+        },
+        {
+          "category": "Header",
+          "items": [
+            { "variant": "all", "tokens": { "padding": "pt-6 px-6", "font-size": "text-lg (18px)", "line-height": "leading-7 (28px)", "weight": "font-semibold (600)", "color": "text-base-content (#101016)" } }
+          ]
+        },
+        {
+          "category": "Content",
+          "items": [
+            { "variant": "all", "tokens": { "padding": "px-6 py-4", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "color": "text-base-content/60" } }
+          ]
+        },
+        {
+          "category": "Footer",
+          "items": [
+            { "variant": "all", "tokens": { "padding": "px-6 py-4", "gap": "gap-3", "alignment": "justify-end", "button-size": "md (px-3 py-2 text-xs rounded-sm)" } },
+            { "variant": "count text", "tokens": { "font-size": "text-sm (14px)", "color": "text-base-content/60", "alignment": "flex-1 left" } }
+          ]
+        },
+        {
+          "category": "Behavior",
+          "items": [
+            { "variant": "open", "tokens": { "backdrop": "opacity 0 → 1, 200ms", "panel": "opacity 0 + scale-95 → opacity 1 + scale-100, 200ms" } },
+            { "variant": "close", "tokens": { "trigger": "backdrop click / cancel / Esc key", "animation": "reverse of open" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "date-picker",
+      "name": "DatePicker",
+      "description": "日付選択欄。Inputベース、Left Icon=calendar固定。クリックでCalendar popupが開く",
+      "category": "forms",
+      "preview": "previews/date-picker.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3024",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "入力欄サイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "description": "入力欄の状態"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "プレースホルダー",
+          "description": "プレースホルダーテキスト"
+        },
+        {
+          "name": "calendarType",
+          "type": "enum",
+          "default": "Single",
+          "values": ["Single", "Range"],
+          "description": "Calendar popupのタイプ"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px" } },
+            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px" } },
+            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px" } }
+          ]
+        },
+        {
+          "category": "Calendar",
+          "items": [
+            { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
+            { "variant": "weekdays", "tokens": { "order": "月火水木金土日 (Japanese, Mon-first)", "size": "36px square", "font-size": "text-xs (12px)", "color": "base-content/30", "土 color": "text-primary (#0a0ac2)", "日 color": "text-error (#c94043)" } },
+            { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "radius": "rounded-sm (4px)" } },
+            { "variant": "day cell", "tokens": { "size": "36px square", "font-size": "text-sm (14px)", "in-month": "text-base-content", "out-of-month": "text-base-content/30" } },
+            { "variant": "Single Selected", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
+            { "variant": "Range start/end", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
+            { "variant": "Range middle", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)", "radius": "none" } }
           ]
         }
       ]

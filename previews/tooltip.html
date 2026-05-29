@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }
+/* Tooltip arrows via CSS triangles */
+.tt-arrow-bottom { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; }
+.tt-arrow-top    { position: absolute; top: -4px;    left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; }
+.tt-arrow-left   { position: absolute; left: -4px;   top: 50%;  transform: translateY(-50%); width: 0; height: 0; border-top: 5px solid transparent;  border-bottom: 5px solid transparent; }
+.tt-arrow-right  { position: absolute; right: -4px;  top: 50%;  transform: translateY(-50%); width: 0; height: 0; border-top: 5px solid transparent;  border-bottom: 5px solid transparent; }
+.tt-arrow-bottom.tt-default { border-top: 4px solid #535671; }
+.tt-arrow-top.tt-default    { border-bottom: 4px solid #535671; }
+.tt-arrow-left.tt-default   { border-right: 4px solid #535671; }
+.tt-arrow-right.tt-default  { border-left: 4px solid #535671; }
+.tt-arrow-bottom.tt-error   { border-top: 4px solid #c94043; }
+.tt-arrow-top.tt-error      { border-bottom: 4px solid #c94043; }
+.tt-arrow-left.tt-error     { border-right: 4px solid #c94043; }
+.tt-arrow-right.tt-error    { border-left: 4px solid #c94043; }
+/* Demo: tooltip visible on group hover */
+.tt-on-hover { opacity: 0; transition: opacity 0.15s ease; pointer-events: none; z-index: 50; }
+.group:hover .tt-on-hover { opacity: 1; }
+</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Default: bg #535671 (bg-info), text #f2f4ff (text-info-content)
+    Error:   bg #c94043 (bg-error), text #fff5f5 (text-error-content)
+    Padding: px-2 py-1 (8px / 4px)
+    Radius:  rounded-sm (4px)
+    Text:    text-sm (14px) leading-5 (20px)
+    Arrow:   10×4 px, -3px offset from edge
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Demo -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
+      <p class="text-sm text-gray-500 mb-6">ボタンにホバーするとTooltipが表示されます</p>
+      <div class="flex flex-wrap items-center gap-12">
+
+        <!-- Tooltip above button (arrow at bottom of tooltip) -->
+        <div class="relative group inline-block">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">
+            Top
+          </button>
+          <div class="tt-on-hover absolute left-1/2 -translate-x-1/2 bottom-full mb-2">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+              ツールチップ
+              <span class="tt-arrow-bottom tt-default"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tooltip below button (arrow at top of tooltip) -->
+        <div class="relative group inline-block">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">
+            Bottom
+          </button>
+          <div class="tt-on-hover absolute left-1/2 -translate-x-1/2 top-full mt-2">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+              ツールチップ
+              <span class="tt-arrow-top tt-default"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tooltip left of button (arrow at right of tooltip) -->
+        <div class="relative group inline-block">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">
+            Left
+          </button>
+          <div class="tt-on-hover absolute top-1/2 -translate-y-1/2 right-full mr-2">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+              ツールチップ
+              <span class="tt-arrow-right tt-default"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tooltip right of button (arrow at left of tooltip) -->
+        <div class="relative group inline-block">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">
+            Right
+          </button>
+          <div class="tt-on-hover absolute top-1/2 -translate-y-1/2 left-full ml-2">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+              ツールチップ
+              <span class="tt-arrow-left tt-default"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error color demo -->
+        <div class="relative group inline-block">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#fff5f5] rounded bg-[#c94043] border border-[rgba(16,16,22,0.05)] hover:bg-[#b7393c] transition-colors">
+            Error
+          </button>
+          <div class="tt-on-hover absolute left-1/2 -translate-x-1/2 bottom-full mb-2">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#c94043] text-[#fff5f5] text-sm leading-5 whitespace-nowrap">
+              エラー
+              <span class="tt-arrow-bottom tt-error"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Color Variants -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Color Variants</p>
+      <div class="flex flex-wrap items-center gap-8">
+        <div class="text-center space-y-1.5">
+          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+            ツールチップ
+            <span class="tt-arrow-bottom tt-default"></span>
+          </div>
+          <p class="text-[10px] text-gray-400">Default</p>
+        </div>
+        <div class="text-center space-y-1.5">
+          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#c94043] text-[#fff5f5] text-sm leading-5">
+            ツールチップ
+            <span class="tt-arrow-bottom tt-error"></span>
+          </div>
+          <p class="text-[10px] text-gray-400">Error</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow Directions (Default) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Arrow Directions</p>
+      <div class="flex flex-wrap items-center gap-10">
+        <div class="text-center space-y-1.5">
+          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+            ツールチップ
+            <span class="tt-arrow-bottom tt-default"></span>
+          </div>
+          <p class="text-[10px] text-gray-400">bottom</p>
+        </div>
+        <div class="text-center space-y-1.5">
+          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+            ツールチップ
+            <span class="tt-arrow-top tt-default"></span>
+          </div>
+          <p class="text-[10px] text-gray-400">top</p>
+        </div>
+        <div class="text-center space-y-1.5">
+          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+            ツールチップ
+            <span class="tt-arrow-left tt-default"></span>
+          </div>
+          <p class="text-[10px] text-gray-400">left</p>
+        </div>
+        <div class="text-center space-y-1.5">
+          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+            ツールチップ
+            <span class="tt-arrow-right tt-default"></span>
+          </div>
+          <p class="text-[10px] text-gray-400">right</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
