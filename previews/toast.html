@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }</style>
-<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8">
   <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
@@ -30,17 +30,17 @@
   <div class="space-y-10">
 
     <!-- Demo -->
-    <div>
+    <div id="demo-section">
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
       <p class="text-sm text-gray-500 mb-4">ボタンを押すと画面右下からToastが表示されます（5秒で自動消去）</p>
       <div class="flex flex-wrap items-center gap-3">
         <button
           onclick="showToast('success')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors"
         >Success Toastを表示</button>
         <button
           onclick="showToast('error')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#fff5f5] rounded bg-[#c94043] border border-[rgba(16,16,22,0.05)] hover:bg-[#b7393c] transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors"
         >Error Toastを表示</button>
       </div>
     </div>
@@ -54,7 +54,7 @@
         <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-[#479d72] overflow-hidden">
           <svg class="w-4 h-4 shrink-0 text-[#f5fef9]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           <div class="flex-1 flex flex-col min-w-0 text-[#f5fef9]">
-            <p class="text-sm font-bold leading-5">送信しました</p>
+            <p class="text-sm font-bold leading-5">Success</p>
             <p class="text-xs leading-4">メッセージを送信しました</p>
           </div>
           <button class="absolute top-3 right-4 text-[#f5fef9]">
@@ -66,7 +66,7 @@
         <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-[#c94043] overflow-hidden">
           <svg class="w-4 h-4 shrink-0 text-[#fff5f5]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
           <div class="flex-1 flex flex-col min-w-0 text-[#fff5f5]">
-            <p class="text-sm font-bold leading-5">送信に失敗しました</p>
+            <p class="text-sm font-bold leading-5">Error</p>
             <p class="text-xs leading-4">時間をおいて再度お試しください</p>
           </div>
           <button class="absolute top-3 right-4 text-[#fff5f5]">
@@ -80,7 +80,7 @@
   </div>
 
   <!-- Toast Container -->
-  <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col-reverse gap-3 pointer-events-none"></div>
+  <div id="toast-container" data-demo-keep class="fixed bottom-4 right-4 z-50 flex flex-col-reverse gap-3 pointer-events-none"></div>
 
   <script>
     const TOAST_CONFIG = {

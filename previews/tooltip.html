@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 <style>
-#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }
+#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }
 /* Tooltip arrows via CSS triangles */
 .tt-arrow-bottom { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; }
 .tt-arrow-top    { position: absolute; top: -4px;    left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; }
@@ -23,7 +23,7 @@
 .tt-on-hover { opacity: 0; transition: opacity 0.15s ease; pointer-events: none; z-index: 50; }
 .group:hover .tt-on-hover { opacity: 1; }
 </style>
-<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8">
   <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
@@ -44,7 +44,7 @@
   <div class="space-y-10">
 
     <!-- Demo -->
-    <div>
+    <div id="demo-section">
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
       <p class="text-sm text-gray-500 mb-6">ボタンにホバーするとTooltipが表示されます</p>
       <div class="flex flex-wrap items-center gap-12">
@@ -121,19 +121,13 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Color Variants</p>
       <div class="flex flex-wrap items-center gap-8">
-        <div class="text-center space-y-1.5">
-          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
-            ツールチップ
-            <span class="tt-arrow-bottom tt-default"></span>
-          </div>
-          <p class="text-[10px] text-gray-400">Default</p>
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+          Default
+          <span class="tt-arrow-bottom tt-default"></span>
         </div>
-        <div class="text-center space-y-1.5">
-          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#c94043] text-[#fff5f5] text-sm leading-5">
-            ツールチップ
-            <span class="tt-arrow-bottom tt-error"></span>
-          </div>
-          <p class="text-[10px] text-gray-400">Error</p>
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#c94043] text-[#fff5f5] text-sm leading-5">
+          Error
+          <span class="tt-arrow-bottom tt-error"></span>
         </div>
       </div>
     </div>
@@ -142,33 +136,21 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Arrow Directions</p>
       <div class="flex flex-wrap items-center gap-10">
-        <div class="text-center space-y-1.5">
-          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
-            ツールチップ
-            <span class="tt-arrow-bottom tt-default"></span>
-          </div>
-          <p class="text-[10px] text-gray-400">bottom</p>
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+          bottom
+          <span class="tt-arrow-bottom tt-default"></span>
         </div>
-        <div class="text-center space-y-1.5">
-          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
-            ツールチップ
-            <span class="tt-arrow-top tt-default"></span>
-          </div>
-          <p class="text-[10px] text-gray-400">top</p>
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+          top
+          <span class="tt-arrow-top tt-default"></span>
         </div>
-        <div class="text-center space-y-1.5">
-          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
-            ツールチップ
-            <span class="tt-arrow-left tt-default"></span>
-          </div>
-          <p class="text-[10px] text-gray-400">left</p>
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+          left
+          <span class="tt-arrow-left tt-default"></span>
         </div>
-        <div class="text-center space-y-1.5">
-          <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
-            ツールチップ
-            <span class="tt-arrow-right tt-default"></span>
-          </div>
-          <p class="text-[10px] text-gray-400">right</p>
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+          right
+          <span class="tt-arrow-right tt-default"></span>
         </div>
       </div>
     </div>

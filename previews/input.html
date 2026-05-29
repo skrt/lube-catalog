@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; }</style>
-<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); }); }</script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8">
   <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
@@ -20,22 +20,19 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
       <div class="flex flex-wrap items-end gap-6">
         <div class="w-56 space-y-1">
-          <label class="block text-xs text-[#101016]">ラベル</label>
+          <label class="block text-xs text-[#101016]">sm</label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-6 px-2 py-1 text-xs rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">sm</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル</label>
+          <label class="block text-sm text-[#101016]">md</label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">md</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-base text-[#101016]">ラベル</label>
+          <label class="block text-base text-[#101016]">lg</label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-10 px-3 py-2 text-base rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">lg</p>
         </div>
       </div>
     </div>
@@ -45,34 +42,29 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">States</p>
       <div class="flex flex-wrap items-start gap-4">
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル</label>
+          <label class="block text-sm text-[#101016]">Default</label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">Default</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル</label>
+          <label class="block text-sm text-[#101016]">Focus</label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border-2 border-[#0a0ac2] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">Focus</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル</label>
+          <label class="block text-sm text-[#101016]">Error</label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border-2 border-[#c94043] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">Error</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル</label>
+          <label class="block text-sm text-[#101016]">Disabled</label>
           <input type="text" placeholder="プレースホルダー" disabled class="w-full h-8 px-3 py-2 text-sm rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.1)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none cursor-not-allowed">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">Disabled</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル</label>
+          <label class="block text-sm text-[#101016]">Filled</label>
           <input type="text" value="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">Filled</p>
         </div>
       </div>
     </div>
@@ -82,16 +74,14 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Required</p>
       <div class="flex flex-wrap items-start gap-6">
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル <span class="text-[#c94043]">*</span></label>
+          <label class="block text-sm text-[#101016]">Default <span class="text-[#c94043]">*</span></label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
-          <p class="text-[10px] text-gray-400 mt-1">Default</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">ラベル <span class="text-[#c94043]">*</span></label>
+          <label class="block text-sm text-[#101016]">Error <span class="text-[#c94043]">*</span></label>
           <input type="text" placeholder="プレースホルダー" class="w-full h-8 px-3 py-2 text-sm rounded bg-white border-2 border-[#c94043] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none">
           <p class="text-xs text-[#c94043]">入力しましょう</p>
-          <p class="text-[10px] text-gray-400 mt-1">Error + エラーテキスト</p>
         </div>
       </div>
     </div>
