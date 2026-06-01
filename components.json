@@ -767,6 +767,104 @@
       ]
     },
     {
+      "id": "pagination",
+      "name": "Pagination",
+      "hasDemo": true,
+      "description": "ページ送りナビ。前へ/ページ番号/次への横並び。現在ページが薄青背景＋青文字でハイライト",
+      "category": "navigation",
+      "preview": "previews/pagination.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3815-4734",
+      "props": [
+        {
+          "name": "currentPage",
+          "type": "number",
+          "default": "1",
+          "description": "現在のページ番号"
+        },
+        {
+          "name": "totalPages",
+          "type": "number",
+          "default": "5",
+          "description": "総ページ数"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "display": "flex", "gap": "gap-2 (8px)", "align": "items-center" } }
+          ]
+        },
+        {
+          "category": "Page Button",
+          "items": [
+            { "variant": "layout", "tokens": { "width": "w-8 (32px)", "padding": "px-1 py-2", "radius": "rounded-sm (4px)", "font": "text-xs semibold leading-4" } },
+            { "variant": "Default", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "text": "text-base-content (#101016)" } },
+            { "variant": "Current", "tokens": { "background": "bg-secondary (#e8e8fd)", "border": "border base-content/7", "text": "text-secondary-content (#0a0ac2)" } }
+          ]
+        },
+        {
+          "category": "Prev / Next Button",
+          "items": [
+            { "variant": "layout", "tokens": { "padding": "px-3 py-2", "radius": "rounded-sm (4px)", "font": "text-xs semibold leading-4", "icon": "chevron-left / chevron-right (14px)" } },
+            { "variant": "Default", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7", "text": "text-base-content (#101016)" } },
+            { "variant": "Disabled", "tokens": { "background": "bg-base-300 (#eeeef2)", "border": "none", "text": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "description": "パンくずナビゲーション。Item=Default(灰色リンク)/Current(黒文字現在地)。Chevron/Icon切替可",
+      "category": "navigation",
+      "preview": "previews/breadcrumbs.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3824-5228",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Current"],
+          "description": "Default=灰色リンク、Current=黒文字現在地"
+        },
+        {
+          "name": "Chevron",
+          "type": "boolean",
+          "default": "true",
+          "description": "chevron-right セパレーター表示（先頭アイテムはfalse）"
+        },
+        {
+          "name": "Icon",
+          "type": "boolean",
+          "default": "false",
+          "description": "ラベル前のアイコン表示"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Breadcrumb",
+          "description": "ラベルテキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Item",
+          "items": [
+            { "variant": "layout", "tokens": { "gap (separator)": "gap-2 (8px)", "gap (icon-label)": "gap-1 (4px)", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } },
+            { "variant": "Default", "tokens": { "text": "text-base-content/60 (rgba(16,16,22,0.6))" } },
+            { "variant": "Current", "tokens": { "text": "text-base-content (#101016)" } }
+          ]
+        },
+        {
+          "category": "Separator",
+          "items": [
+            { "variant": "icon", "tokens": { "icon": "chevron-right", "size": "14px (w-3.5 h-3.5)", "color": "text-base-content/60" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "sidebar",
       "name": "Sidebar",
       "hasDemo": true,

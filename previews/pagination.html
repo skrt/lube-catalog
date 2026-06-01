@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 1px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Pagination: ページ送りナビ
+      Container: flex, gap-2 (8px), items-center
+      Page button: w-8 (32px), px-1, py-2, rounded-sm (4px), text-xs semibold, leading-4
+        Default: bg-base-200 (#f8f8fa), border base-content/7, text-base-content (#101016)
+        Current: bg-secondary (#e8e8fd), border base-content/7, text-secondary-content (#0a0ac2)
+      Prev/Next: px-3, py-2, rounded-sm (4px), text-xs semibold, leading-4
+        Default: bg-base-200 (#f8f8fa), border base-content/7, text-base-content, chevron 14px
+        Disabled: bg-base-300 (#eeeef2), no border, text-base-content/30
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Demo -->
+    <div id="demo-section" x-data="{ current: 2, total: 10, get pages() { const s = Math.max(1, this.current - 2); const e = Math.min(this.total, s + 4); return Array.from({length: e - Math.max(1, e - 4) + 1}, (_, i) => Math.max(1, e - 4) + i); } }">
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
+      <p class="text-sm text-gray-500 mb-4">ページ番号をクリックで切り替え（全10ページ）</p>
+      <div class="flex gap-2 items-center">
+        <!-- 前へ -->
+        <button
+          @click="if (current > 1) current--"
+          class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer"
+          :class="current === 1 ? 'bg-[#eeeef2] text-[rgba(16,16,22,0.3)] cursor-not-allowed' : 'bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#101016] hover:bg-[#eeeef2]'"
+          :disabled="current === 1"
+        >
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          前へ
+        </button>
+        <!-- Pages -->
+        <template x-for="p in pages" :key="p">
+          <button
+            @click="current = p"
+            class="flex items-center justify-center w-8 py-2 rounded text-xs font-semibold leading-4 cursor-pointer"
+            :class="p === current ? 'bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#0a0ac2]' : 'bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#101016] hover:bg-[#eeeef2]'"
+            x-text="p"
+          ></button>
+        </template>
+        <!-- 次へ -->
+        <button
+          @click="if (current < total) current++"
+          class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer"
+          :class="current === total ? 'bg-[#eeeef2] text-[rgba(16,16,22,0.3)] cursor-not-allowed' : 'bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#101016] hover:bg-[#eeeef2]'"
+          :disabled="current === total"
+        >
+          次へ
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 中間 -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Middle (page 8 / prev & next enabled)</p>
+      <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          前へ
+        </div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">6</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">7</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#0a0ac2]">8</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">9</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">10</div>
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+          次へ
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 先頭 -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">First (page 1 / prev disabled)</p>
+      <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#eeeef2] text-xs font-semibold leading-4 text-[rgba(16,16,22,0.3)]">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          前へ
+        </div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#0a0ac2]">1</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">2</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">3</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">4</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">5</div>
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+          次へ
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 末尾 -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Last (page 5 / next disabled)</p>
+      <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          前へ
+        </div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">1</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">2</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">3</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">4</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#0a0ac2]">5</div>
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#eeeef2] text-xs font-semibold leading-4 text-[rgba(16,16,22,0.3)]">
+          次へ
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
