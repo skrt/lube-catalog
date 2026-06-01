@@ -5,7 +5,8 @@
     { "id": "data-display", "label": "Data Display" },
     { "id": "feedback", "label": "Feedback" },
     { "id": "forms", "label": "Forms" },
-    { "id": "layout", "label": "Layout" }
+    { "id": "layout", "label": "Layout" },
+    { "id": "navigation", "label": "Navigation" }
   ],
   "components": [
     {
@@ -759,6 +760,156 @@
             { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "radius": "rounded-sm (4px)" } },
             { "variant": "day cell", "tokens": { "size": "36px square", "font-size": "text-sm (14px)", "in-month": "text-base-content", "out-of-month": "text-base-content/30" } },
             { "variant": "Single Selected", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
+            { "variant": "Range start/end", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
+            { "variant": "Range middle", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)", "radius": "none" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sidebar",
+      "name": "Sidebar",
+      "hasDemo": true,
+      "description": "アプリ左の主ナビゲーション。Open=展開(w-40)/折りたたみ(w-fit)。MenuButtonで構成",
+      "category": "navigation",
+      "preview": "previews/sidebar.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3854-7031",
+      "props": [
+        {
+          "name": "Open",
+          "type": "boolean",
+          "default": "true",
+          "description": "展開(true=w-40) / 折りたたみ(false=w-fit)"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "Open", "tokens": { "width": "w-40 (160px)", "background": "bg-base-200 (#f8f8fa)", "padding": "p-2 (8px)", "gap": "gap-4 (16px)" } },
+            { "variant": "Closed", "tokens": { "width": "w-fit", "background": "bg-base-200 (#f8f8fa)", "padding": "p-2 (8px)", "gap": "gap-2 (8px)", "align": "items-center" } }
+          ]
+        },
+        {
+          "category": "Section",
+          "items": [
+            { "variant": "title", "tokens": { "font-size": "text-xs (12px)", "color": "text-base-content/30 (rgba(16,16,22,0.3))", "padding": "px-3 py-2" } },
+            { "variant": "divider (collapsed)", "tokens": { "height": "h-px (1px)", "width": "w-fit", "color": "border-base-content/10 (rgba(16,16,22,0.1))" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "menu-button",
+      "name": "MenuButton",
+      "description": "ナビ用メニュー項目。Mode=Expanded/Collapsed、State=Default/Hover/Active。Sidebarの子部品",
+      "category": "navigation",
+      "preview": "previews/menu-button.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3855-7384",
+      "props": [
+        {
+          "name": "Mode",
+          "type": "enum",
+          "default": "Expanded",
+          "values": ["Expanded", "Collapsed"],
+          "description": "Expanded=アイコン+ラベル、Collapsed=アイコンのみ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Hover", "Active"],
+          "description": "メニュー項目の状態"
+        },
+        {
+          "name": "icon",
+          "type": "icon",
+          "default": "house",
+          "description": "Lucideアイコン（instance swap）"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "メニュー",
+          "description": "ラベルテキスト（Expandedモードのみ表示）"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Expanded",
+          "items": [
+            { "variant": "layout", "tokens": { "padding": "px-3 py-2 (12px 8px)", "gap": "gap-2 (8px)", "radius": "rounded-md (6px)", "icon": "16px", "font-size": "text-sm (14px)" } },
+            { "variant": "Default", "tokens": { "background": "none", "text": "text-base-content (#101016)" } },
+            { "variant": "Hover", "tokens": { "background": "bg-base-300 (#eeeef2)", "text": "text-base-content (#101016)" } },
+            { "variant": "Active", "tokens": { "background": "bg-secondary (#e8e8fd)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "text": "text-secondary-content (#0a0ac2)" } }
+          ]
+        },
+        {
+          "category": "Collapsed",
+          "items": [
+            { "variant": "layout", "tokens": { "padding": "p-3 (12px)", "radius": "rounded-md (6px)", "icon": "16px" } },
+            { "variant": "Default", "tokens": { "background": "none" } },
+            { "variant": "Hover", "tokens": { "background": "bg-base-300 (#eeeef2)" } },
+            { "variant": "Active", "tokens": { "background": "bg-secondary (#e8e8fd)", "border": "border base-content/7 (rgba(16,16,22,0.05))" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "date-range-picker",
+      "name": "DateRangePicker",
+      "hasDemo": true,
+      "description": "期間選択欄。DatePickerの幅拡張版、Left Icon=calendar-range固定。2回クリックでstart/endを選択",
+      "category": "forms",
+      "preview": "previews/date-range-picker.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3328",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "入力欄サイズ"
+        },
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "description": "入力欄の状態"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "ラベル",
+          "description": "ラベルテキスト"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "プレースホルダー",
+          "description": "プレースホルダーテキスト"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "false",
+          "description": "必須マーク表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px" } },
+            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px" } },
+            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px" } }
+          ]
+        },
+        {
+          "category": "Calendar (Range)",
+          "items": [
+            { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
             { "variant": "Range start/end", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
             { "variant": "Range middle", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)", "radius": "none" } }
           ]

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    MenuButton: ナビ用メニュー項目
+      Mode: Expanded (icon + label) / Collapsed (icon only)
+      State: Default / Hover / Active
+      Expanded: flex, gap-2 (8px), px-3 py-2, rounded-md (6px), icon 16px, text-sm
+      Collapsed: flex, justify-center, p-3, rounded-md (6px), icon 16px
+      Default:  no bg, text-base-content (#101016)
+      Hover:    bg-base-300 (#eeeef2)
+      Active:   bg-secondary (#e8e8fd), border base-content/7 (rgba(16,16,22,0.05)),
+                text-secondary-content (#0a0ac2)
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Expanded -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Expanded</p>
+      <div class="flex flex-wrap items-center gap-4">
+        <!-- Default -->
+        <div class="flex items-center gap-2 px-3 py-2 rounded-md border border-transparent">
+          <svg class="w-4 h-4 shrink-0 text-[#101016]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span class="text-sm leading-5 text-[#101016]">Default</span>
+        </div>
+        <!-- Hover -->
+        <div class="flex items-center gap-2 px-3 py-2 rounded-md bg-[#eeeef2] border border-transparent">
+          <svg class="w-4 h-4 shrink-0 text-[#101016]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span class="text-sm leading-5 text-[#101016]">Hover</span>
+        </div>
+        <!-- Active -->
+        <div class="flex items-center gap-2 px-3 py-2 rounded-md bg-[#e8e8fd] border border-[rgba(16,16,22,0.05)]">
+          <svg class="w-4 h-4 shrink-0 text-[#0a0ac2]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span class="text-sm leading-5 text-[#0a0ac2]">Active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsed -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Collapsed</p>
+      <div class="flex flex-wrap items-start gap-4">
+        <!-- Default -->
+        <div class="flex flex-col items-center gap-1.5">
+          <div class="flex items-center justify-center p-3 rounded-md border border-transparent">
+            <svg class="w-4 h-4 text-[#101016]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <p class="text-[10px] text-gray-400">Default</p>
+        </div>
+        <!-- Hover -->
+        <div class="flex flex-col items-center gap-1.5">
+          <div class="flex items-center justify-center p-3 rounded-md bg-[#eeeef2] border border-transparent">
+            <svg class="w-4 h-4 text-[#101016]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <p class="text-[10px] text-gray-400">Hover</p>
+        </div>
+        <!-- Active -->
+        <div class="flex flex-col items-center gap-1.5">
+          <div class="flex items-center justify-center p-3 rounded-md bg-[#e8e8fd] border border-[rgba(16,16,22,0.05)]">
+            <svg class="w-4 h-4 text-[#0a0ac2]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <p class="text-[10px] text-gray-400">Active</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+</html>
