@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Checkbox: 真偽値選択
+      Size: lg (24px, text-base), md (20px, text-sm), sm (16px, text-xs)
+      State: Default / Hover / Disabled
+      Checked: Unchecked / Checked / Indeterminate
+      Layout: flex, gap-2 (8px), items-center
+      Box radius: rounded-sm (4px)
+      Unchecked Default:  bg-white, border 1px base-content/20
+      Unchecked Hover:    bg-white, border 2px primary (#0a0ac2)
+      Unchecked Disabled: bg-base-200 (#f8f8fa), border 1px base-content/10
+      Checked Default/Hover:    bg-primary (#0a0ac2), white check icon
+      Checked Disabled:         bg-base-content/10, lighter check
+      Indeterminate Default/Hover: bg-primary, white minus icon
+      Indeterminate Disabled:      bg-base-content/10, lighter minus
+      Label Default/Hover: text-base-content (#101016)
+      Label Disabled:      text-base-content/30
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Demo -->
+    <div id="demo-section" x-data="{
+      items: [
+        { label: '見積依頼', checked: true },
+        { label: '見積書', checked: false },
+        { label: '発注請書', checked: true },
+        { label: '発注書', checked: false },
+        { label: '請求書', checked: false }
+      ],
+      get allState() {
+        const c = this.items.filter(i => i.checked).length;
+        return c === 0 ? 'unchecked' : c === this.items.length ? 'checked' : 'indeterminate';
+      },
+      toggleAll() {
+        const next = this.allState !== 'checked';
+        this.items.forEach(i => i.checked = next);
+      }
+    }">
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
+      <p class="text-sm text-gray-500 mb-4">クリックで切り替え。全選択で Indeterminate → Checked に変化</p>
+      <div class="flex flex-col gap-2">
+        <!-- Select All (indeterminate capable) -->
+        <div class="flex gap-2 items-center cursor-pointer group" @click="toggleAll()">
+          <div class="relative shrink-0 size-5 rounded"
+            :class="allState === 'unchecked' ? 'bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)] group-hover:shadow-[inset_0_0_0_2px_#0a0ac2]' : 'bg-[#0a0ac2]'">
+            <svg x-show="allState === 'checked'" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            <svg x-show="allState === 'indeterminate'" x-cloak class="absolute inset-0 w-full h-full text-white p-1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[#101016] font-semibold">すべて選択</span>
+        </div>
+        <div class="border-t border-[rgba(16,16,22,0.1)] my-1"></div>
+        <!-- Items -->
+        <template x-for="(item, i) in items" :key="i">
+          <div class="flex gap-2 items-center cursor-pointer group" @click="item.checked = !item.checked">
+            <div class="relative shrink-0 size-5 rounded"
+              :class="item.checked ? 'bg-[#0a0ac2]' : 'bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)] group-hover:shadow-[inset_0_0_0_2px_#0a0ac2]'">
+              <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <span class="text-sm leading-5 text-[#101016]" x-text="item.label"></span>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- Checked States (md) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Checked States (md)</p>
+      <div class="flex flex-wrap items-center gap-6">
+        <!-- Unchecked -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]"></div>
+          <span class="text-sm leading-5 text-[#101016]">Unchecked</span>
+        </div>
+        <!-- Checked -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[#101016]">Checked</span>
+        </div>
+        <!-- Indeterminate -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[#101016]">Indeterminate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- States (md, Checked) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">States (md, Checked)</p>
+      <div class="flex flex-wrap items-center gap-6">
+        <!-- Default -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[#101016]">Default</span>
+        </div>
+        <!-- Hover -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[#101016]">Hover</span>
+        </div>
+        <!-- Disabled -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[rgba(16,16,22,0.1)]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[rgba(16,16,22,0.3)]">Disabled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- States (md, Unchecked) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">States (md, Unchecked)</p>
+      <div class="flex flex-wrap items-center gap-6">
+        <!-- Default -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]"></div>
+          <span class="text-sm leading-5 text-[#101016]">Default</span>
+        </div>
+        <!-- Hover -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-white shadow-[inset_0_0_0_2px_#0a0ac2]"></div>
+          <span class="text-sm leading-5 text-[#101016]">Hover</span>
+        </div>
+        <!-- Disabled -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.1)]"></div>
+          <span class="text-sm leading-5 text-[rgba(16,16,22,0.3)]">Disabled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sizes (Checked) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
+      <div class="flex flex-wrap items-center gap-6">
+        <!-- sm -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-4 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-xs leading-4 text-[#101016]">sm</span>
+        </div>
+        <!-- md -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-sm leading-5 text-[#101016]">md</span>
+        </div>
+        <!-- lg -->
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-6 rounded bg-[#0a0ac2]">
+            <svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <span class="text-base leading-6 text-[#101016]">lg</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
