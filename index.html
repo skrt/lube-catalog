@@ -156,11 +156,13 @@
 
             <!-- Demo (separate iframe) -->
             <template x-if="activeComponent.hasDemo">
-              <section>
+              <section class="rounded-lg overflow-hidden">
                 <iframe
                   :src="activeComponent.preview + '?v=' + cacheKey + '&view=demo'"
-                  class="w-full h-[480px] border-0"
+                  class="w-full border-0"
                   :title="activeComponent.name + ' demo'"
+                  @load="resizeIframe($event.target)"
+                  style="min-height: 100px;"
                 ></iframe>
               </section>
             </template>

@@ -582,7 +582,7 @@
       "id": "tooltip",
       "name": "Tooltip",
       "hasDemo": true,
-      "description": "ホバー時の小ラベル+4方向矢印。Color=Default/Error、top/bottom/left/rightで矢印方向選択",
+      "description": "ホバー時の小ラベル+4方向矢印。Color=Default/Error、Placement=top/bottom/left/rightで表示位置選択",
       "category": "feedback",
       "preview": "previews/tooltip.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3799-9205",
@@ -595,11 +595,11 @@
           "description": "ツールチップの色バリアント"
         },
         {
-          "name": "Arrow",
+          "name": "Placement",
           "type": "enum",
-          "default": "bottom",
+          "default": "top",
           "values": ["top", "bottom", "left", "right"],
-          "description": "矢印の方向（指す先）"
+          "description": "ツールチップの表示位置（トリガー要素に対する方向）"
         },
         {
           "name": "content",
