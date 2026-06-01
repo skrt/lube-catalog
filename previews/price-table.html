@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 1px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    PriceTable: 単価表ミニ。数量別単価を縦書きラベル付きでコンパクト表示
+      Type: Default / Checkbox
+      Vertical label: "単価表", bg-base-200, w-6 (24px), px-1 py-2, text-xs semibold, vertical writing
+      Header cell: bg-base-200, py-1 px-2, text-2xs (11px), text-base-content/60, right-aligned, w-20 (80px)
+      Number cell: border-b base-content/10, py-1.5 px-2, text-2xs mono, text-base-content, right-aligned, w-20
+      Checkbox cell: border-b base-content/10, py-1.5, center, w-8 (32px), checkbox sm (no label)
+      Footer: "税区分：10%", text-2xs, text-base-content/30, right-aligned
+      Default columns: 数量 | 仕入単価 | 顧客単価
+      Checkbox columns: (checkbox w-8) | 数量 | 仕入単価 | 顧客単価
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Default -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Default</p>
+      <div class="inline-flex flex-col gap-1">
+        <div class="flex items-start">
+          <!-- Vertical Label -->
+          <div class="bg-[#f8f8fa] flex flex-col items-center justify-center px-1 py-2 self-stretch shrink-0 w-6">
+            <div class="text-xs font-semibold leading-4 text-[#101016]">
+              <p>単</p><p>価</p><p>表</p>
+            </div>
+          </div>
+          <!-- Table -->
+          <div class="flex flex-col">
+            <!-- Header -->
+            <div class="flex">
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">数量</span></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">仕入単価</span></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">顧客単価</span></div>
+            </div>
+            <!-- Rows -->
+            <div class="flex">
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">1,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">120</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">120</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">2,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">115</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">115</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">3,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">110</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">110</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">5,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">100</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">100</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">10,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">95</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">95</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="text-[11px] leading-4 text-[rgba(16,16,22,0.3)] text-right">税区分：10%</p>
+      </div>
+    </div>
+
+    <!-- Checkbox (static) -->
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Checkbox</p>
+      <div class="inline-flex flex-col gap-1">
+        <div class="flex items-start">
+          <div class="bg-[#f8f8fa] flex flex-col items-center justify-center px-1 py-2 self-stretch shrink-0 w-6">
+            <div class="text-xs font-semibold leading-4 text-[#101016]"><p>単</p><p>価</p><p>表</p></div>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex">
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-8"></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">数量</span></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">仕入単価</span></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">顧客単価</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-[rgba(16,16,22,0.1)]"><div class="size-4 rounded bg-[#0a0ac2] relative"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">1,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">120</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">120</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-[rgba(16,16,22,0.1)]"><div class="size-4 rounded bg-[#0a0ac2] relative"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">2,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">115</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">115</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-[rgba(16,16,22,0.1)]"><div class="size-4 rounded bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]"></div></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">3,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">110</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">110</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-[rgba(16,16,22,0.1)]"><div class="size-4 rounded bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]"></div></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">5,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">100</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">100</span></div>
+            </div>
+            <div class="flex">
+              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-[rgba(16,16,22,0.1)]"><div class="size-4 rounded bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]"></div></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">10,000</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">95</span></div>
+              <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums">95</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="text-[11px] leading-4 text-[rgba(16,16,22,0.3)] text-right">税区分：10%</p>
+      </div>
+    </div>
+
+    <!-- Demo -->
+    <div id="demo-section" x-data="{ rows: [
+      { qty: '1,000', cost: '120', price: '120', checked: true },
+      { qty: '2,000', cost: '115', price: '115', checked: true },
+      { qty: '3,000', cost: '110', price: '110', checked: false },
+      { qty: '5,000', cost: '100', price: '100', checked: false },
+      { qty: '10,000', cost: '95', price: '95', checked: false }
+    ] }">
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Checkbox (Demo)</p>
+      <p class="text-sm text-gray-500 mb-4">チェックボックスをクリックで選択切り替え</p>
+      <div class="inline-flex flex-col gap-1">
+        <div class="flex items-start">
+          <div class="bg-[#f8f8fa] flex flex-col items-center justify-center px-1 py-2 self-stretch shrink-0 w-6">
+            <div class="text-xs font-semibold leading-4 text-[#101016]">
+              <p>単</p><p>価</p><p>表</p>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex">
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-8"></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">数量</span></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">仕入単価</span></div>
+              <div class="bg-[#f8f8fa] flex items-center justify-end px-2 py-1 w-20"><span class="text-[11px] leading-4 text-[rgba(16,16,22,0.6)]">顧客単価</span></div>
+            </div>
+            <template x-for="(row, i) in rows" :key="i">
+              <div class="flex cursor-pointer hover:bg-[#f8f8fa]" @click="row.checked = !row.checked">
+                <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-[rgba(16,16,22,0.1)]">
+                  <div class="size-4 rounded relative" :class="row.checked ? 'bg-[#0a0ac2]' : 'bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]'">
+                    <svg x-show="row.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+                </div>
+                <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums" x-text="row.qty"></span></div>
+                <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums" x-text="row.cost"></span></div>
+                <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-[rgba(16,16,22,0.1)]"><span class="text-[11px] leading-4 text-[#101016] font-mono tabular-nums" x-text="row.price"></span></div>
+              </div>
+            </template>
+          </div>
+        </div>
+        <p class="text-[11px] leading-4 text-[rgba(16,16,22,0.3)] text-right">税区分：10%</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -767,6 +767,186 @@
       ]
     },
     {
+      "id": "price-table",
+      "name": "PriceTable",
+      "hasDemo": true,
+      "description": "単価表ミニ。数量別単価を縦書きラベル付きでコンパクト表示。Type=Default/Checkbox",
+      "category": "data-display",
+      "preview": "previews/price-table.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3721-1743",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Default",
+          "values": ["Default", "Checkbox"],
+          "description": "Default=数量+単価のみ、Checkbox=行選択チェックボックス付き"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Layout",
+          "items": [
+            { "variant": "vertical label", "tokens": { "width": "w-6 (24px)", "background": "bg-base-200 (#f8f8fa)", "padding": "px-1 py-2", "font": "text-xs semibold" } },
+            { "variant": "header cell", "tokens": { "width": "w-20 (80px)", "background": "bg-base-200", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } },
+            { "variant": "number cell", "tokens": { "width": "w-20 (80px)", "border-bottom": "border base-content/10", "padding": "px-2 py-1.5", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } },
+            { "variant": "checkbox cell", "tokens": { "width": "w-8 (32px)", "border-bottom": "border base-content/10", "padding": "px-2 py-1.5", "align": "center", "checkbox": "sm (16px)" } },
+            { "variant": "footer", "tokens": { "font": "text-2xs (11px)", "color": "text-base-content/30", "align": "right" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calc",
+      "name": "Calc",
+      "description": "金額計算カード。小計・粗利・消費税・内訳・合計の縦並び。Show Profit/Tax/Breakdown/Checkbox で表示切替",
+      "category": "data-display",
+      "preview": "previews/calc.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1615",
+      "props": [
+        {
+          "name": "showProfit",
+          "type": "boolean",
+          "default": "true",
+          "description": "粗利行の表示"
+        },
+        {
+          "name": "showTax",
+          "type": "boolean",
+          "default": "true",
+          "description": "消費税行の表示"
+        },
+        {
+          "name": "showBreakdown",
+          "type": "boolean",
+          "default": "true",
+          "description": "消費税内訳の表示"
+        },
+        {
+          "name": "showCheckbox",
+          "type": "boolean",
+          "default": "true",
+          "description": "合計金額表示チェックボックス"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Layout",
+          "items": [
+            { "variant": "container", "tokens": { "width": "w-[240px]", "gap": "gap-3 (12px)" } },
+            { "variant": "row", "tokens": { "height": "h-5 (20px)", "gap": "gap-2 (8px)", "align": "items-center" } },
+            { "variant": "line", "tokens": { "height": "h-px", "color": "bg base-content/5", "flex": "flex-1" } },
+            { "variant": "vertical bar", "tokens": { "width": "w-0.5 (2px)", "color": "bg base-content/10" } }
+          ]
+        },
+        {
+          "category": "Typography",
+          "items": [
+            { "variant": "label", "tokens": { "font": "text-sm", "color": "text-base-content (#101016)" } },
+            { "variant": "sub label", "tokens": { "font": "text-xs", "color": "text-base-content/60" } },
+            { "variant": "value", "tokens": { "font": "text-sm font-mono tabular-nums", "color": "text-base-content" } },
+            { "variant": "sub value", "tokens": { "font": "text-sm font-mono tabular-nums", "color": "text-base-content/60" } },
+            { "variant": "total", "tokens": { "font": "text-sm semibold font-mono tabular-nums", "color": "text-base-content" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "name": "Place",
+      "description": "納品先・連絡先カード。住所＋電話＋担当者＋メモを1ブロック化。Show Phone/Person/Note で個別表示切替",
+      "category": "data-display",
+      "preview": "previews/place.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1597",
+      "props": [
+        {
+          "name": "showPhone",
+          "type": "boolean",
+          "default": "true",
+          "description": "代表電話番号の表示"
+        },
+        {
+          "name": "showPerson",
+          "type": "boolean",
+          "default": "true",
+          "description": "担当者の表示"
+        },
+        {
+          "name": "showNote",
+          "type": "boolean",
+          "default": "true",
+          "description": "メモ欄の表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "background": "bg-base-200 (#f8f8fa)", "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "width": "w-[352px]", "gap": "gap-2 (8px)" } }
+          ]
+        },
+        {
+          "category": "Content",
+          "items": [
+            { "variant": "name", "tokens": { "font": "text-xs semibold", "color": "text-base-content (#101016)" } },
+            { "variant": "address", "tokens": { "font-size": "text-2xs (11px)", "line-height": "leading-4", "color": "text-base-content" } },
+            { "variant": "detail title", "tokens": { "font-size": "text-2xs (11px)", "color": "text-base-content/60", "align": "text-right" } },
+            { "variant": "detail data", "tokens": { "font-size": "text-2xs (11px)", "color": "text-base-content" } },
+            { "variant": "divider", "tokens": { "height": "h-px", "color": "bg base-content/5 (rgba(16,16,22,0.05))" } },
+            { "variant": "note", "tokens": { "font-size": "text-2xs (11px)", "line-height": "leading-4", "color": "text-base-content" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "props",
+      "name": "Props",
+      "description": "書類詳細ページのプロパティエリア。Item(タイトル:値ペア)を3列に並べた構成。帳票5種+マスタ3種のTemplate対応",
+      "category": "data-display",
+      "preview": "previews/props.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-936",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Text",
+          "values": ["Text", "Link", "Button"],
+          "description": "値の表示タイプ"
+        },
+        {
+          "name": "Line",
+          "type": "enum",
+          "default": "Single",
+          "values": ["Single", "Multi"],
+          "description": "単行 / 複数行"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "タイトル",
+          "description": "左側のタイトルテキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Layout",
+          "items": [
+            { "variant": "container", "tokens": { "display": "flex", "gap": "gap-2 (8px)", "align": "items-start", "border-top": "border-t base-content/5 (rgba(16,16,22,0.05))", "padding": "py-2" } },
+            { "variant": "title", "tokens": { "width": "w-28 (112px)", "font-size": "text-sm (14px)", "color": "text-base-content/60 (rgba(16,16,22,0.6))" } },
+            { "variant": "Multi list", "tokens": { "display": "flex-col", "gap": "gap-1 (4px)" } }
+          ]
+        },
+        {
+          "category": "Value Type",
+          "items": [
+            { "variant": "Text", "tokens": { "font": "text-sm semibold", "color": "text-base-content (#101016)" } },
+            { "variant": "Link", "tokens": { "font": "text-sm semibold", "color": "text-secondary-content (#0a0ac2)", "icon": "external-link (12px)" } },
+            { "variant": "Button", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7", "padding": "px-2 py-1", "radius": "rounded-sm (4px)", "font": "text-xs semibold", "color": "text-base-content" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "radio-group",
       "name": "RadioGroup",
       "hasDemo": true,
