@@ -19,7 +19,7 @@
     {
       "id": "button",
       "name": "Button",
-      "description": "メインCTA・補助・サブ・危険操作の汎用ボタン",
+      "description": "汎用ボタン",
       "category": "actions",
       "preview": "previews/button.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1763",
@@ -82,7 +82,7 @@
     {
       "id": "icon-button",
       "name": "IconButton",
-      "description": "アイコンのみの正方形ボタン。Buttonのラベルなし版",
+      "description": "ボタンのラベルなし版",
       "category": "actions",
       "preview": "previews/icon-button.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3694-438",
@@ -412,7 +412,7 @@
     {
       "id": "badge",
       "name": "Badge",
-      "description": "ステータス表示用バッジ。書類状態・件数・タグ等で使用。濃塗り＋pill形状",
+      "description": "ステータス表示用やタグ件数表示用として使用",
       "category": "data-display",
       "preview": "previews/badge.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3707-2770",
@@ -770,7 +770,7 @@
       "id": "price-table",
       "name": "PriceTable",
       "hasDemo": true, "demoBgWhite": true,
-      "description": "単価表ミニ。数量別単価を縦書きラベル付きでコンパクト表示。Type=Default/Checkbox",
+      "description": "単価表。数量別単価テーブルを表示",
       "category": "data-display",
       "preview": "previews/price-table.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3721-1743",
@@ -799,7 +799,7 @@
     {
       "id": "calc",
       "name": "Calc",
-      "description": "金額計算カード。小計・粗利・消費税・内訳・合計の縦並び。Show Profit/Tax/Breakdown/Checkbox で表示切替",
+      "description": "金額計算UI。小計、粗利、消費税、内訳、合計を表示",
       "category": "data-display",
       "preview": "previews/calc.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1615",
@@ -854,7 +854,7 @@
     {
       "id": "place",
       "name": "Place",
-      "description": "納品先・連絡先カード。住所＋電話＋担当者＋メモを1ブロック化。Show Phone/Person/Note で個別表示切替",
+      "description": "納品先表示カード",
       "category": "data-display",
       "preview": "previews/place.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1597",
@@ -901,7 +901,7 @@
     {
       "id": "props",
       "name": "Props",
-      "description": "書類詳細ページのプロパティエリア。Item(タイトル:値ペア)を3列に並べた構成。帳票5種+マスタ3種のTemplate対応",
+      "description": "詳細ページのプロパティ表示用",
       "category": "data-display",
       "preview": "previews/props.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-936",
