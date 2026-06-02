@@ -162,13 +162,16 @@
             <!-- Demo (separate iframe) -->
             <template x-if="activeComponent.hasDemo">
               <section class="py-6">
-                <iframe
-                  :src="activeComponent.preview + '?v=' + cacheKey + '&view=demo'"
-                  class="w-full border-0 rounded-lg"
-                  :title="activeComponent.name + ' demo'"
-                  @load="resizeIframe($event.target)"
-                  style="min-height: 100px;"
-                ></iframe>
+                <div class="relative">
+                  <span class="absolute top-2 left-2 z-10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gray-400 bg-white/80 rounded">Demo</span>
+                  <iframe
+                    :src="activeComponent.preview + '?v=' + cacheKey + '&view=demo'"
+                    class="w-full border-0 rounded-lg"
+                    :title="activeComponent.name + ' demo'"
+                    @load="resizeIframe($event.target)"
+                    style="min-height: 100px;"
+                  ></iframe>
+                </div>
               </section>
             </template>
 
