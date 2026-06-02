@@ -271,12 +271,12 @@
       ]
     },
     {
-      "id": "data-input",
-      "name": "DataInput",
+      "id": "file-input",
+      "name": "FileInput",
       "hasDemo": true,
       "description": "ファイル添付フォーム",
       "category": "forms",
-      "preview": "previews/data-input.html",
+      "preview": "previews/file-input.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3804-9497",
       "props": [
         {
@@ -293,7 +293,7 @@
           "items": [
             { "variant": "Container", "tokens": { "width": "w-[480px]", "gap": "gap-1 (4px)", "layout": "flex-col" } },
             { "variant": "Legend", "tokens": { "font": "text-xs semibold", "color": "text-base-content", "required": "text-error" } },
-            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-sm (4px)", "padding": "px-3 py-2", "font": "text-xs semibold" } },
+            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded (4px)", "padding": "px-3 py-2", "font": "text-xs semibold" } },
             { "variant": "Loading", "tokens": { "background": "bg-base-300", "text": "text-base-content/30", "icon": "loader-circle animate-spin" } },
             { "variant": "FileRow", "tokens": { "name": "text-xs text-base-content", "size": "text-xs text-base-content/30", "delete": "IconButton sm trash-2" } },
             { "variant": "Helper", "tokens": { "font": "text-xs", "color": "text-base-content/60" } }
@@ -691,7 +691,7 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "all", "tokens": { "padding": "px-2 py-1", "radius": "rounded-sm (4px)", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } }
+            { "variant": "all", "tokens": { "padding": "px-2 py-1", "radius": "rounded (4px)", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } }
           ]
         },
         {
@@ -828,7 +828,7 @@
           "items": [
             { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
             { "variant": "weekdays", "tokens": { "order": "月火水木金土日 (Japanese, Mon-first)", "size": "36px square", "font-size": "text-xs (12px)", "color": "base-content/30", "土 color": "text-primary", "日 color": "text-error" } },
-            { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-sm (4px)" } },
+            { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded (4px)" } },
             { "variant": "day cell", "tokens": { "size": "36px square", "font-size": "text-sm (14px)", "in-month": "text-base-content", "out-of-month": "text-base-content/30" } },
             { "variant": "Single Selected", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
             { "variant": "Range start/end", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
@@ -1012,7 +1012,7 @@
           "items": [
             { "variant": "Text", "tokens": { "font": "text-sm semibold", "color": "text-base-content" } },
             { "variant": "Link", "tokens": { "font": "text-sm semibold", "color": "text-secondary-content", "icon": "external-link (12px)" } },
-            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "padding": "px-2 py-1", "radius": "rounded-sm (4px)", "font": "text-xs semibold", "color": "text-base-content" } }
+            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "padding": "px-2 py-1", "radius": "rounded (4px)", "font": "text-xs semibold", "color": "text-base-content" } }
           ]
         }
       ]
@@ -1125,7 +1125,7 @@
           "category": "Box",
           "items": [
             { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
-            { "variant": "radius", "tokens": { "all": "rounded-sm (4px)" } },
+            { "variant": "radius", "tokens": { "all": "rounded (4px)" } },
             { "variant": "Unchecked Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20)" } },
             { "variant": "Unchecked Hover", "tokens": { "background": "bg-base-100 (white)", "border": "border-2 primary" } },
             { "variant": "Unchecked Disabled", "tokens": { "background": "bg-base-200", "border": "border base-content/10" } },
@@ -1177,7 +1177,7 @@
         {
           "category": "Page Button",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-8 (32px)", "padding": "px-1 py-2", "radius": "rounded-sm (4px)", "font": "text-xs semibold leading-4" } },
+            { "variant": "layout", "tokens": { "width": "w-8 (32px)", "padding": "px-1 py-2", "radius": "rounded (4px)", "font": "text-xs semibold leading-4" } },
             { "variant": "Default", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "text": "text-base-content" } },
             { "variant": "Current", "tokens": { "background": "bg-secondary", "border": "border base-content/5", "text": "text-secondary-content" } }
           ]
@@ -1185,7 +1185,7 @@
         {
           "category": "Prev / Next Button",
           "items": [
-            { "variant": "layout", "tokens": { "padding": "px-3 py-2", "radius": "rounded-sm (4px)", "font": "text-xs semibold leading-4", "icon": "chevron-left / chevron-right (14px)" } },
+            { "variant": "layout", "tokens": { "padding": "px-3 py-2", "radius": "rounded (4px)", "font": "text-xs semibold leading-4", "icon": "chevron-left / chevron-right (14px)" } },
             { "variant": "Default", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "text": "text-base-content" } },
             { "variant": "Disabled", "tokens": { "background": "bg-base-300", "border": "none", "text": "text-base-content/30)" } }
           ]
