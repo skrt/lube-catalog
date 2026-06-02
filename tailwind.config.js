@@ -10,6 +10,7 @@ tailwind.config = {
         'secondary': {
           DEFAULT: '#e8e8fd',
           hover: '#e0e0f5',
+          content: '#0a0ac2',
         },
         'base-content': 'rgb(16 16 22 / <alpha-value>)',
         'base-200': '#f8f8fa',
