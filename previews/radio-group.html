@@ -47,9 +47,9 @@
       <p class="text-sm text-gray-500 mb-4">クリックで選択切り替え</p>
       <div class="flex flex-col gap-2 mb-8">
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
-          <div class="flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
+          <div class="group flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
             <div class="relative shrink-0 size-5 rounded-full"
-              :class="radioSelected === item.id ? 'bg-white shadow-border-primary' : 'bg-white shadow-border-base-content-20 hover:shadow-border-2-primary'">
+              :class="radioSelected === item.id ? 'bg-white shadow-border-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <div x-show="radioSelected === item.id" class="absolute inset-[5px] rounded-full bg-primary"></div>
             </div>
             <span class="text-sm leading-5 text-base-content" x-text="item.label"></span>
@@ -79,6 +79,7 @@
       </div>
     </div>
 
+    <!-- demo-skip: bg-base-content/10 -->
     <!-- Radio: States (md) -->
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Radio States (md)</p>
