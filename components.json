@@ -62,11 +62,11 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Primary", "tokens": { "background": "bg-primary (#0a0ac2)", "hover": "hover:bg-primary (#080892)", "text": "text-primary-content (#f3f4fe)" } },
-            { "variant": "Secondary", "tokens": { "background": "bg-secondary (#e8e8fd)", "hover": "hover:bg-secondary (#e0e0f5)", "text": "text-secondary-content (#0a0ac2)" } },
-            { "variant": "Tertiary", "tokens": { "background": "bg-base-200 (#f8f8fa)", "hover": "hover:bg-base-300 (#eeeef2)", "text": "text-base-content (#101016)" } },
-            { "variant": "Danger", "tokens": { "background": "bg-error (#c94043)", "hover": "hover:bg-error (#b7393c)", "text": "text-error-content (#fff5f5)" } },
-            { "variant": "Disabled", "tokens": { "background": "bg-base-300 (#eeeef2)", "text": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+            { "variant": "Primary", "tokens": { "background": "bg-primary", "hover": "hover:bg-primary", "text": "text-primary-content" } },
+            { "variant": "Secondary", "tokens": { "background": "bg-secondary", "hover": "hover:bg-secondary", "text": "text-secondary-content" } },
+            { "variant": "Tertiary", "tokens": { "background": "bg-base-200", "hover": "hover:bg-base-300", "text": "text-base-content" } },
+            { "variant": "Danger", "tokens": { "background": "bg-error", "hover": "hover:bg-error", "text": "text-error-content" } },
+            { "variant": "Disabled", "tokens": { "background": "bg-base-300", "text": "text-base-content/30)" } }
           ]
         },
         {
@@ -197,11 +197,11 @@
         {
           "category": "State",
           "items": [
-            { "variant": "Default", "tokens": { "border": "border border-base-content/20 (rgba(16,16,22,0.2))", "background": "bg-base-100 (white)" } },
-            { "variant": "Focus", "tokens": { "border": "border-2 border-primary (#0a0ac2)", "background": "bg-base-100 (white)" } },
-            { "variant": "Error", "tokens": { "border": "border-2 border-error (#c94043)", "background": "bg-base-100 (white)" } },
-            { "variant": "Disabled", "tokens": { "border": "border border-base-content/10 (rgba(16,16,22,0.1))", "background": "bg-base-200 (#f8f8fa)" } },
-            { "variant": "Filled", "tokens": { "border": "border border-base-content/20 (rgba(16,16,22,0.2))", "background": "bg-base-100 (white)" } }
+            { "variant": "Default", "tokens": { "border": "border border-base-content/20)", "background": "bg-base-100 (white)" } },
+            { "variant": "Focus", "tokens": { "border": "border-2 border-primary", "background": "bg-base-100 (white)" } },
+            { "variant": "Error", "tokens": { "border": "border-2 border-error", "background": "bg-base-100 (white)" } },
+            { "variant": "Disabled", "tokens": { "border": "border border-base-content/10)", "background": "bg-base-200" } },
+            { "variant": "Filled", "tokens": { "border": "border border-base-content/20)", "background": "bg-base-100 (white)" } }
           ]
         }
       ]
@@ -336,10 +336,10 @@
         {
           "category": "SelectMenu Item",
           "items": [
-            { "variant": "Default", "tokens": { "background": "transparent", "text": "text-base-content (#101016)" } },
-            { "variant": "Hover", "tokens": { "background": "bg-base-200 (#f8f8fa)", "text": "text-base-content (#101016)" } },
-            { "variant": "Selected", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)" } },
-            { "variant": "Disabled", "tokens": { "background": "transparent", "text": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+            { "variant": "Default", "tokens": { "background": "transparent", "text": "text-base-content" } },
+            { "variant": "Hover", "tokens": { "background": "bg-base-200", "text": "text-base-content" } },
+            { "variant": "Selected", "tokens": { "background": "bg-secondary", "text": "text-secondary-content" } },
+            { "variant": "Disabled", "tokens": { "background": "transparent", "text": "text-base-content/30)" } }
           ]
         }
       ]
@@ -402,8 +402,8 @@
         {
           "category": "ComboBoxMenu",
           "items": [
-            { "variant": "Header", "tokens": { "font-size": "text-xs (12px)", "text": "text-base-content/60 (rgba(16,16,22,0.6))" } },
-            { "variant": "Empty", "tokens": { "text": "text-base-content/30 (rgba(16,16,22,0.3))" } },
+            { "variant": "Header", "tokens": { "font-size": "text-xs (12px)", "text": "text-base-content/60)" } },
+            { "variant": "Empty", "tokens": { "text": "text-base-content/30)" } },
             { "variant": "Loading", "tokens": { "spinner": "animate-spin, text-base-content/30" } }
           ]
         }
@@ -442,11 +442,11 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Primary", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)" } },
-            { "variant": "Success", "tokens": { "background": "bg-success (#479d72)", "text": "text-success-content (#f5fef9)" } },
-            { "variant": "Warning", "tokens": { "background": "bg-warning (#de781f)", "text": "text-warning-content (#fffcf8)" } },
-            { "variant": "Error", "tokens": { "background": "bg-error (#c94043)", "text": "text-error-content (#fff5f5)" } },
-            { "variant": "Info", "tokens": { "background": "bg-info (#535671)", "text": "text-info-content (#f2f4ff)" } }
+            { "variant": "Primary", "tokens": { "background": "bg-primary", "text": "text-primary-content" } },
+            { "variant": "Success", "tokens": { "background": "bg-success", "text": "text-success-content" } },
+            { "variant": "Warning", "tokens": { "background": "bg-warning", "text": "text-warning-content" } },
+            { "variant": "Error", "tokens": { "background": "bg-error", "text": "text-error-content" } },
+            { "variant": "Info", "tokens": { "background": "bg-info", "text": "text-info-content" } }
           ]
         },
         {
@@ -497,17 +497,17 @@
         {
           "category": "Type",
           "items": [
-            { "variant": "Success", "tokens": { "background": "bg-success-content (#f5fef9)", "text": "text-success (#479d72)", "icon": "circle-check" } },
-            { "variant": "Warning", "tokens": { "background": "bg-warning-content (#fffcf8)", "text": "text-warning (#de781f)", "icon": "triangle-alert" } },
-            { "variant": "Error", "tokens": { "background": "bg-error-content (#fff5f5)", "text": "text-error (#c94043)", "icon": "circle-alert" } },
-            { "variant": "Info", "tokens": { "background": "bg-base-200 (#f8f8fa)", "text": "text-base-content (#101016)", "icon": "info" } },
-            { "variant": "Help", "tokens": { "background": "bg-base-200 (#f8f8fa)", "text": "text-base-content (#101016)", "icon": "message-circle-question-mark" } }
+            { "variant": "Success", "tokens": { "background": "bg-success-content", "text": "text-success", "icon": "circle-check" } },
+            { "variant": "Warning", "tokens": { "background": "bg-warning-content", "text": "text-warning", "icon": "triangle-alert" } },
+            { "variant": "Error", "tokens": { "background": "bg-error-content", "text": "text-error", "icon": "circle-alert" } },
+            { "variant": "Info", "tokens": { "background": "bg-base-200", "text": "text-base-content", "icon": "info" } },
+            { "variant": "Help", "tokens": { "background": "bg-base-200", "text": "text-base-content", "icon": "message-circle-question-mark" } }
           ]
         },
         {
           "category": "Layout",
           "items": [
-            { "variant": "all", "tokens": { "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "border": "border border-base-content/5 (rgba(16,16,22,0.05))", "gap": "gap-1 (4px)" } }
+            { "variant": "all", "tokens": { "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "border": "border border-base-content/5", "gap": "gap-1 (4px)" } }
           ]
         },
         {
@@ -552,8 +552,8 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Success", "tokens": { "background": "bg-success (#479d72)", "text": "text-success-content (#f5fef9)", "icon": "circle-check" } },
-            { "variant": "Error", "tokens": { "background": "bg-error (#c94043)", "text": "text-error-content (#fff5f5)", "icon": "circle-alert" } }
+            { "variant": "Success", "tokens": { "background": "bg-success", "text": "text-success-content", "icon": "circle-check" } },
+            { "variant": "Error", "tokens": { "background": "bg-error", "text": "text-error-content", "icon": "circle-alert" } }
           ]
         },
         {
@@ -613,8 +613,8 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Default", "tokens": { "background": "bg-info (#535671)", "text": "text-info-content (#f2f4ff)" } },
-            { "variant": "Error", "tokens": { "background": "bg-error (#c94043)", "text": "text-error-content (#fff5f5)" } }
+            { "variant": "Default", "tokens": { "background": "bg-info", "text": "text-info-content" } },
+            { "variant": "Error", "tokens": { "background": "bg-error", "text": "text-error-content" } }
           ]
         },
         {
@@ -675,7 +675,7 @@
         {
           "category": "Header",
           "items": [
-            { "variant": "all", "tokens": { "padding": "pt-6 px-6", "font-size": "text-lg (18px)", "line-height": "leading-7 (28px)", "weight": "font-semibold (600)", "color": "text-base-content (#101016)" } }
+            { "variant": "all", "tokens": { "padding": "pt-6 px-6", "font-size": "text-lg (18px)", "line-height": "leading-7 (28px)", "weight": "font-semibold (600)", "color": "text-base-content" } }
           ]
         },
         {
@@ -756,12 +756,12 @@
           "category": "Calendar",
           "items": [
             { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
-            { "variant": "weekdays", "tokens": { "order": "月火水木金土日 (Japanese, Mon-first)", "size": "36px square", "font-size": "text-xs (12px)", "color": "base-content/30", "土 color": "text-primary (#0a0ac2)", "日 color": "text-error (#c94043)" } },
-            { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "radius": "rounded-sm (4px)" } },
+            { "variant": "weekdays", "tokens": { "order": "月火水木金土日 (Japanese, Mon-first)", "size": "36px square", "font-size": "text-xs (12px)", "color": "base-content/30", "土 color": "text-primary", "日 color": "text-error" } },
+            { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-sm (4px)" } },
             { "variant": "day cell", "tokens": { "size": "36px square", "font-size": "text-sm (14px)", "in-month": "text-base-content", "out-of-month": "text-base-content/30" } },
-            { "variant": "Single Selected", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
-            { "variant": "Range start/end", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
-            { "variant": "Range middle", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)", "radius": "none" } }
+            { "variant": "Single Selected", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
+            { "variant": "Range start/end", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
+            { "variant": "Range middle", "tokens": { "background": "bg-secondary", "text": "text-secondary-content", "radius": "none" } }
           ]
         }
       ]
@@ -787,7 +787,7 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "vertical label", "tokens": { "width": "w-6 (24px)", "background": "bg-base-200 (#f8f8fa)", "padding": "px-1 py-2", "font": "text-xs semibold" } },
+            { "variant": "vertical label", "tokens": { "width": "w-6 (24px)", "background": "bg-base-200", "padding": "px-1 py-2", "font": "text-xs semibold" } },
             { "variant": "header cell", "tokens": { "width": "w-20 (80px)", "background": "bg-base-200", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } },
             { "variant": "number cell", "tokens": { "width": "w-20 (80px)", "border-bottom": "border base-content/10", "padding": "px-2 py-1.5", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } },
             { "variant": "checkbox cell", "tokens": { "width": "w-8 (32px)", "border-bottom": "border base-content/10", "padding": "px-2 py-1.5", "align": "center", "checkbox": "sm (16px)" } },
@@ -842,7 +842,7 @@
         {
           "category": "Typography",
           "items": [
-            { "variant": "label", "tokens": { "font": "text-sm", "color": "text-base-content (#101016)" } },
+            { "variant": "label", "tokens": { "font": "text-sm", "color": "text-base-content" } },
             { "variant": "sub label", "tokens": { "font": "text-xs", "color": "text-base-content/60" } },
             { "variant": "value", "tokens": { "font": "text-sm font-mono tabular-nums", "color": "text-base-content" } },
             { "variant": "sub value", "tokens": { "font": "text-sm font-mono tabular-nums", "color": "text-base-content/60" } },
@@ -882,17 +882,17 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "background": "bg-base-200 (#f8f8fa)", "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "width": "w-[352px]", "gap": "gap-2 (8px)" } }
+            { "variant": "layout", "tokens": { "background": "bg-base-200", "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "width": "w-[352px]", "gap": "gap-2 (8px)" } }
           ]
         },
         {
           "category": "Content",
           "items": [
-            { "variant": "name", "tokens": { "font": "text-xs semibold", "color": "text-base-content (#101016)" } },
+            { "variant": "name", "tokens": { "font": "text-xs semibold", "color": "text-base-content" } },
             { "variant": "address", "tokens": { "font-size": "text-2xs (11px)", "line-height": "leading-4", "color": "text-base-content" } },
             { "variant": "detail title", "tokens": { "font-size": "text-2xs (11px)", "color": "text-base-content/60", "align": "text-right" } },
             { "variant": "detail data", "tokens": { "font-size": "text-2xs (11px)", "color": "text-base-content" } },
-            { "variant": "divider", "tokens": { "height": "h-px", "color": "bg base-content/5 (rgba(16,16,22,0.05))" } },
+            { "variant": "divider", "tokens": { "height": "h-px", "color": "bg base-content/5" } },
             { "variant": "note", "tokens": { "font-size": "text-2xs (11px)", "line-height": "leading-4", "color": "text-base-content" } }
           ]
         }
@@ -931,17 +931,17 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "container", "tokens": { "display": "flex", "gap": "gap-2 (8px)", "align": "items-start", "border-top": "border-t base-content/5 (rgba(16,16,22,0.05))", "padding": "py-2" } },
-            { "variant": "title", "tokens": { "width": "w-28 (112px)", "font-size": "text-sm (14px)", "color": "text-base-content/60 (rgba(16,16,22,0.6))" } },
+            { "variant": "container", "tokens": { "display": "flex", "gap": "gap-2 (8px)", "align": "items-start", "border-top": "border-t base-content/5", "padding": "py-2" } },
+            { "variant": "title", "tokens": { "width": "w-28 (112px)", "font-size": "text-sm (14px)", "color": "text-base-content/60)" } },
             { "variant": "Multi list", "tokens": { "display": "flex-col", "gap": "gap-1 (4px)" } }
           ]
         },
         {
           "category": "Value Type",
           "items": [
-            { "variant": "Text", "tokens": { "font": "text-sm semibold", "color": "text-base-content (#101016)" } },
-            { "variant": "Link", "tokens": { "font": "text-sm semibold", "color": "text-secondary-content (#0a0ac2)", "icon": "external-link (12px)" } },
-            { "variant": "Button", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7", "padding": "px-2 py-1", "radius": "rounded-sm (4px)", "font": "text-xs semibold", "color": "text-base-content" } }
+            { "variant": "Text", "tokens": { "font": "text-sm semibold", "color": "text-base-content" } },
+            { "variant": "Link", "tokens": { "font": "text-sm semibold", "color": "text-secondary-content", "icon": "external-link (12px)" } },
+            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "padding": "px-2 py-1", "radius": "rounded-sm (4px)", "font": "text-xs semibold", "color": "text-base-content" } }
           ]
         }
       ]
@@ -989,9 +989,9 @@
           "items": [
             { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
             { "variant": "Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20", "shape": "rounded-full" } },
-            { "variant": "Hover", "tokens": { "border": "border-2 primary (#0a0ac2)", "shape": "rounded-full" } },
-            { "variant": "Selected", "tokens": { "border": "border primary (#0a0ac2)", "dot": "bg-primary", "shape": "rounded-full" } },
-            { "variant": "Disabled", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/10", "label": "text-base-content/30" } },
+            { "variant": "Hover", "tokens": { "border": "border-2 primary", "shape": "rounded-full" } },
+            { "variant": "Selected", "tokens": { "border": "border primary", "dot": "bg-primary", "shape": "rounded-full" } },
+            { "variant": "Disabled", "tokens": { "background": "bg-base-200", "border": "border base-content/10", "label": "text-base-content/30" } },
             { "variant": "Selected-Disabled", "tokens": { "border": "border base-content/10", "dot": "bg-base-content/10", "label": "text-base-content/30" } }
           ]
         },
@@ -999,9 +999,9 @@
           "category": "Button / Item",
           "items": [
             { "variant": "layout", "tokens": { "height": "h-8 (32px)", "padding": "px-2", "radius": "rounded-md (6px)", "font": "text-sm semibold" } },
-            { "variant": "Active", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "count-bg": "bg-white", "count-text": "text-primary" } },
+            { "variant": "Active", "tokens": { "background": "bg-primary", "text": "text-primary-content", "count-bg": "bg-white", "count-text": "text-primary" } },
             { "variant": "Inactive", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/10", "text": "text-base-content", "count-bg": "bg-base-200", "count-text": "text-base-content/60" } },
-            { "variant": "Hover", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-base-content" } }
+            { "variant": "Hover", "tokens": { "background": "bg-secondary", "text": "text-base-content" } }
           ]
         }
       ]
@@ -1055,10 +1055,10 @@
           "items": [
             { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
             { "variant": "radius", "tokens": { "all": "rounded-sm (4px)" } },
-            { "variant": "Unchecked Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20 (rgba(16,16,22,0.2))" } },
-            { "variant": "Unchecked Hover", "tokens": { "background": "bg-base-100 (white)", "border": "border-2 primary (#0a0ac2)" } },
-            { "variant": "Unchecked Disabled", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/10" } },
-            { "variant": "Checked/Indeterminate", "tokens": { "background": "bg-primary (#0a0ac2)", "icon": "white check / minus" } },
+            { "variant": "Unchecked Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20)" } },
+            { "variant": "Unchecked Hover", "tokens": { "background": "bg-base-100 (white)", "border": "border-2 primary" } },
+            { "variant": "Unchecked Disabled", "tokens": { "background": "bg-base-200", "border": "border base-content/10" } },
+            { "variant": "Checked/Indeterminate", "tokens": { "background": "bg-primary", "icon": "white check / minus" } },
             { "variant": "Checked/Indeterminate Disabled", "tokens": { "background": "bg-base-content/10", "icon": "white check / minus" } }
           ]
         },
@@ -1068,8 +1068,8 @@
             { "variant": "sm", "tokens": { "font-size": "text-xs (12px)", "line-height": "leading-4" } },
             { "variant": "md", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5" } },
             { "variant": "lg", "tokens": { "font-size": "text-base (16px)", "line-height": "leading-6" } },
-            { "variant": "Default/Hover", "tokens": { "color": "text-base-content (#101016)" } },
-            { "variant": "Disabled", "tokens": { "color": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+            { "variant": "Default/Hover", "tokens": { "color": "text-base-content" } },
+            { "variant": "Disabled", "tokens": { "color": "text-base-content/30)" } }
           ]
         }
       ]
@@ -1107,16 +1107,16 @@
           "category": "Page Button",
           "items": [
             { "variant": "layout", "tokens": { "width": "w-8 (32px)", "padding": "px-1 py-2", "radius": "rounded-sm (4px)", "font": "text-xs semibold leading-4" } },
-            { "variant": "Default", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "text": "text-base-content (#101016)" } },
-            { "variant": "Current", "tokens": { "background": "bg-secondary (#e8e8fd)", "border": "border base-content/7", "text": "text-secondary-content (#0a0ac2)" } }
+            { "variant": "Default", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "text": "text-base-content" } },
+            { "variant": "Current", "tokens": { "background": "bg-secondary", "border": "border base-content/5", "text": "text-secondary-content" } }
           ]
         },
         {
           "category": "Prev / Next Button",
           "items": [
             { "variant": "layout", "tokens": { "padding": "px-3 py-2", "radius": "rounded-sm (4px)", "font": "text-xs semibold leading-4", "icon": "chevron-left / chevron-right (14px)" } },
-            { "variant": "Default", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/7", "text": "text-base-content (#101016)" } },
-            { "variant": "Disabled", "tokens": { "background": "bg-base-300 (#eeeef2)", "border": "none", "text": "text-base-content/30 (rgba(16,16,22,0.3))" } }
+            { "variant": "Default", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "text": "text-base-content" } },
+            { "variant": "Disabled", "tokens": { "background": "bg-base-300", "border": "none", "text": "text-base-content/30)" } }
           ]
         }
       ]
@@ -1160,8 +1160,8 @@
           "category": "Item",
           "items": [
             { "variant": "layout", "tokens": { "gap (separator)": "gap-2 (8px)", "gap (icon-label)": "gap-1 (4px)", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } },
-            { "variant": "Default", "tokens": { "text": "text-base-content/60 (rgba(16,16,22,0.6))" } },
-            { "variant": "Current", "tokens": { "text": "text-base-content (#101016)" } }
+            { "variant": "Default", "tokens": { "text": "text-base-content/60)" } },
+            { "variant": "Current", "tokens": { "text": "text-base-content" } }
           ]
         },
         {
@@ -1192,15 +1192,15 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "Open", "tokens": { "width": "w-40 (160px)", "background": "bg-base-200 (#f8f8fa)", "padding": "p-2 (8px)", "gap": "gap-4 (16px)" } },
-            { "variant": "Closed", "tokens": { "width": "w-fit", "background": "bg-base-200 (#f8f8fa)", "padding": "p-2 (8px)", "gap": "gap-2 (8px)", "align": "items-center" } }
+            { "variant": "Open", "tokens": { "width": "w-40 (160px)", "background": "bg-base-200", "padding": "p-2 (8px)", "gap": "gap-4 (16px)" } },
+            { "variant": "Closed", "tokens": { "width": "w-fit", "background": "bg-base-200", "padding": "p-2 (8px)", "gap": "gap-2 (8px)", "align": "items-center" } }
           ]
         },
         {
           "category": "Section",
           "items": [
-            { "variant": "title", "tokens": { "font-size": "text-xs (12px)", "color": "text-base-content/30 (rgba(16,16,22,0.3))", "padding": "px-3 py-2" } },
-            { "variant": "divider (collapsed)", "tokens": { "height": "h-px (1px)", "width": "w-fit", "color": "border-base-content/10 (rgba(16,16,22,0.1))" } }
+            { "variant": "title", "tokens": { "font-size": "text-xs (12px)", "color": "text-base-content/30)", "padding": "px-3 py-2" } },
+            { "variant": "divider (collapsed)", "tokens": { "height": "h-px (1px)", "width": "w-fit", "color": "border-base-content/10)" } }
           ]
         }
       ]
@@ -1245,9 +1245,9 @@
           "category": "Expanded",
           "items": [
             { "variant": "layout", "tokens": { "padding": "px-3 py-2 (12px 8px)", "gap": "gap-2 (8px)", "radius": "rounded-md (6px)", "icon": "16px", "font-size": "text-sm (14px)" } },
-            { "variant": "Default", "tokens": { "background": "none", "text": "text-base-content (#101016)" } },
-            { "variant": "Hover", "tokens": { "background": "bg-base-300 (#eeeef2)", "text": "text-base-content (#101016)" } },
-            { "variant": "Active", "tokens": { "background": "bg-secondary (#e8e8fd)", "border": "border base-content/7 (rgba(16,16,22,0.05))", "text": "text-secondary-content (#0a0ac2)" } }
+            { "variant": "Default", "tokens": { "background": "none", "text": "text-base-content" } },
+            { "variant": "Hover", "tokens": { "background": "bg-base-300", "text": "text-base-content" } },
+            { "variant": "Active", "tokens": { "background": "bg-secondary", "border": "border base-content/5", "text": "text-secondary-content" } }
           ]
         },
         {
@@ -1255,8 +1255,8 @@
           "items": [
             { "variant": "layout", "tokens": { "padding": "p-3 (12px)", "radius": "rounded-md (6px)", "icon": "16px" } },
             { "variant": "Default", "tokens": { "background": "none" } },
-            { "variant": "Hover", "tokens": { "background": "bg-base-300 (#eeeef2)" } },
-            { "variant": "Active", "tokens": { "background": "bg-secondary (#e8e8fd)", "border": "border base-content/7 (rgba(16,16,22,0.05))" } }
+            { "variant": "Hover", "tokens": { "background": "bg-base-300" } },
+            { "variant": "Active", "tokens": { "background": "bg-secondary", "border": "border base-content/5" } }
           ]
         }
       ]
@@ -1316,8 +1316,8 @@
           "category": "Calendar (Range)",
           "items": [
             { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
-            { "variant": "Range start/end", "tokens": { "background": "bg-primary (#0a0ac2)", "text": "text-primary-content (#f3f4fe)", "radius": "rounded-full" } },
-            { "variant": "Range middle", "tokens": { "background": "bg-secondary (#e8e8fd)", "text": "text-secondary-content (#0a0ac2)", "radius": "none" } }
+            { "variant": "Range start/end", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
+            { "variant": "Range middle", "tokens": { "background": "bg-secondary", "text": "text-secondary-content", "radius": "none" } }
           ]
         }
       ]
