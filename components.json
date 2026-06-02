@@ -799,7 +799,7 @@
     {
       "id": "calc",
       "name": "Calc",
-      "description": "金額計算UI。小計、粗利、消費税、内訳、合計を表示",
+      "description": "金額計算UI",
       "category": "data-display",
       "preview": "previews/calc.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1615",
