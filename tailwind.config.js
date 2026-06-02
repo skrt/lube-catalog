@@ -37,6 +37,9 @@ tailwind.config = {
           'bg': '#e5e6ea',
         },
       },
+      borderRadius: {
+        'sm': '4px',
+      },
       boxShadow: {
         'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
         'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
