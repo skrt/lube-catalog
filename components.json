@@ -769,7 +769,7 @@
     {
       "id": "price-table",
       "name": "PriceTable",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "単価表ミニ。数量別単価を縦書きラベル付きでコンパクト表示。Type=Default/Checkbox",
       "category": "data-display",
       "preview": "previews/price-table.html",
@@ -1077,7 +1077,7 @@
     {
       "id": "pagination",
       "name": "Pagination",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "ページ送りナビ。前へ/ページ番号/次への横並び。現在ページが薄青背景＋青文字でハイライト",
       "category": "navigation",
       "preview": "previews/pagination.html",
@@ -1175,7 +1175,7 @@
     {
       "id": "sidebar",
       "name": "Sidebar",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "アプリ左の主ナビゲーション。Open=展開(w-40)/折りたたみ(w-fit)。MenuButtonで構成",
       "category": "navigation",
       "preview": "previews/sidebar.html",

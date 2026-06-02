@@ -163,7 +163,8 @@
             <template x-if="activeComponent.hasDemo">
               <section class="py-6">
                 <div class="relative">
-                  <span class="absolute top-2 left-2 z-10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gray-400 bg-gray-100/90 rounded">Demo</span>
+                  <span class="absolute -top-2.5 left-3 z-10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gray-400 rounded"
+                    :class="activeComponent.demoBgWhite ? 'bg-gray-100' : 'bg-white'">Demo</span>
                   <iframe
                     :src="activeComponent.preview + '?v=' + cacheKey + '&view=demo'"
                     class="w-full border-0 rounded-lg"
