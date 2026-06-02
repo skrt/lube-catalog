@@ -47,7 +47,7 @@
       <nav class="sticky top-24 space-y-0.5 max-h-[calc(100vh-7rem)] overflow-y-auto no-scrollbar">
         <a
           href="#/"
-          :class="!activeComponentId ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-100'"
+          :class="!activeComponentId ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100'"
           class="block w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors truncate"
         >Home</a>
         <div class="border-t border-gray-200 !mt-3 !mb-3"></div>
@@ -56,7 +56,7 @@
             <div x-show="comp._firstToken" class="border-t border-gray-200 my-3"></div>
             <a
               :href="'#/' + comp.id"
-              :class="activeComponentId === comp.id ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-100'"
+              :class="activeComponentId === comp.id ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100'"
               class="block w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors truncate"
               x-text="comp.name"
             ></a>
