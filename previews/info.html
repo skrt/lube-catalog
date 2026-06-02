@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -37,48 +38,48 @@
       <div class="space-y-3 max-w-sm">
 
         <!-- Success -->
-        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-[rgba(16,16,22,0.05)] bg-[#f5fef9]">
-          <div class="flex items-center gap-1 text-[#479d72]">
+        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-base-content/5 bg-success-content">
+          <div class="flex items-center gap-1 text-success">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
             <span class="text-sm font-semibold leading-5">Success</span>
           </div>
-          <p class="text-sm leading-5 text-[#479d72]">補足メッセージ</p>
+          <p class="text-sm leading-5 text-success">補足メッセージ</p>
         </div>
 
         <!-- Warning -->
-        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-[rgba(16,16,22,0.05)] bg-[#fffcf8]">
-          <div class="flex items-center gap-1 text-[#de781f]">
+        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-base-content/5 bg-warning-content">
+          <div class="flex items-center gap-1 text-warning">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
             <span class="text-sm font-semibold leading-5">Warning</span>
           </div>
-          <p class="text-sm leading-5 text-[#de781f]">注意内容補足メッセージ</p>
+          <p class="text-sm leading-5 text-warning">注意内容補足メッセージ</p>
         </div>
 
         <!-- Error -->
-        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-[rgba(16,16,22,0.05)] bg-[#fff5f5]">
-          <div class="flex items-center gap-1 text-[#c94043]">
+        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-base-content/5 bg-error-content">
+          <div class="flex items-center gap-1 text-error">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
             <span class="text-sm font-semibold leading-5">Error</span>
           </div>
-          <p class="text-sm leading-5 text-[#c94043]">エラー内容補足メッセージ</p>
+          <p class="text-sm leading-5 text-error">エラー内容補足メッセージ</p>
         </div>
 
         <!-- Info -->
-        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-[rgba(16,16,22,0.05)] bg-[#f8f8fa]">
-          <div class="flex items-center gap-1 text-[#101016]">
+        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-base-content/5 bg-base-200">
+          <div class="flex items-center gap-1 text-base-content">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
             <span class="text-sm font-semibold leading-5">Info</span>
           </div>
-          <p class="text-sm leading-5 text-[#101016]">補足メッセージ</p>
+          <p class="text-sm leading-5 text-base-content">補足メッセージ</p>
         </div>
 
         <!-- Help -->
-        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-[rgba(16,16,22,0.05)] bg-[#f8f8fa]">
-          <div class="flex items-center gap-1 text-[#101016]">
+        <div class="flex flex-col gap-1 px-4 py-3 rounded-lg border border-base-content/5 bg-base-200">
+          <div class="flex items-center gap-1 text-base-content">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
             <span class="text-sm font-semibold leading-5">Help</span>
           </div>
-          <p class="text-sm leading-5 text-[#101016]">ヘルプメッセージ</p>
+          <p class="text-sm leading-5 text-base-content">ヘルプメッセージ</p>
         </div>
 
       </div>
