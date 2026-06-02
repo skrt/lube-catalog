@@ -94,20 +94,17 @@
       <template x-if="!activeComponent">
         <div class="flex flex-col gap-10 pt-4">
 
-          <!-- UI Components Grid -->
-          <template x-if="filteredUIComponents.length > 0">
+          <!-- UI Components by Category -->
+          <template x-for="group in uiComponentsByCategory" :key="group.id">
             <div>
-              <h2 class="text-4xl font-semibold tracking-tight mb-10">UI Components</h2>
+              <h2 class="text-lg font-semibold tracking-tight mb-4" x-text="group.label"></h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <template x-for="comp in filteredUIComponents" :key="comp.id">
+                <template x-for="comp in group.components" :key="comp.id">
                   <a
                     :href="'#/' + comp.id"
                     class="block bg-[#f8f8fa] rounded-xl p-5 hover:bg-[#f0f0f4] transition-all"
                   >
-                    <div class="flex items-start justify-between gap-2 mb-2">
-                      <h3 class="text-base font-semibold text-gray-900" x-text="comp.name"></h3>
-                      <span class="shrink-0 px-2 py-0.5 bg-white text-gray-600 rounded text-xs font-medium" x-text="getCategoryLabel(comp.category)"></span>
-                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-2" x-text="comp.name"></h3>
                     <p class="text-xs text-gray-500 line-clamp-2" x-text="comp.description"></p>
                   </a>
                 </template>
@@ -115,20 +112,17 @@
             </div>
           </template>
 
-          <!-- Design Tokens Grid -->
+          <!-- Design Tokens -->
           <template x-if="filteredTokenComponents.length > 0">
             <div>
-              <h2 class="text-4xl font-semibold tracking-tight mb-10">Design Tokens</h2>
+              <h2 class="text-lg font-semibold tracking-tight mb-4">Design Tokens</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <template x-for="comp in filteredTokenComponents" :key="comp.id">
                   <a
                     :href="'#/' + comp.id"
                     class="block bg-[#f8f8fa] rounded-xl p-5 hover:bg-[#f0f0f4] transition-all"
                   >
-                    <div class="flex items-start justify-between gap-2 mb-2">
-                      <h3 class="text-base font-semibold text-gray-900" x-text="comp.name"></h3>
-                      <span class="shrink-0 px-2 py-0.5 bg-white text-gray-600 rounded text-xs font-medium" x-text="getCategoryLabel(comp.category)"></span>
-                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-2" x-text="comp.name"></h3>
                     <p class="text-xs text-gray-500 line-clamp-2" x-text="comp.description || ''"></p>
                   </a>
                 </template>
@@ -324,6 +318,14 @@ function catalog() {
 
     get filteredTokenComponents() {
       return this.components.filter(c => c.category === 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+    },
+
+    get uiComponentsByCategory() {
+      const cats = this.categories.filter(c => c.id !== 'design-tokens');
+      return cats.map(cat => ({
+        ...cat,
+        components: this.components.filter(c => c.category === cat.id).sort((a, b) => a.name.localeCompare(b.name))
+      })).filter(g => g.components.length > 0);
     },
 
     getCategoryLabel(id) {
