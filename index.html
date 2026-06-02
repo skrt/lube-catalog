@@ -82,7 +82,7 @@
           <!-- UI Components Grid -->
           <template x-if="filteredUIComponents.length > 0">
             <div>
-              <h2 class="text-4xl font-semibold tracking-tight mb-6">UI Components</h2>
+              <h2 class="text-4xl font-semibold tracking-tight">UI Components</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <template x-for="comp in filteredUIComponents" :key="comp.id">
                   <a
@@ -103,7 +103,7 @@
           <!-- Design Tokens Grid -->
           <template x-if="filteredTokenComponents.length > 0">
             <div>
-              <h2 class="text-4xl font-semibold tracking-tight mb-6">Design Tokens</h2>
+              <h2 class="text-4xl font-semibold tracking-tight">Design Tokens</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <template x-for="comp in filteredTokenComponents" :key="comp.id">
                   <a
