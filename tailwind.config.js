@@ -32,6 +32,7 @@ tailwind.config = {
         },
         'info': {
           DEFAULT: '#535671',
+          content: '#f2f4ff',
           'bg': '#e5e6ea',
         },
       },
