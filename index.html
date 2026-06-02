@@ -39,7 +39,7 @@
           <a
             x-show="!search"
             href="#/"
-            :class="!activeComponentId ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100'"
+            :class="!activeComponentId ? 'bg-indigo-50 text-indigo-700' : 'text-base-content hover:bg-gray-100'"
             class="block w-full text-left px-2.5 py-1 rounded-md text-sm transition-colors truncate"
           >Home</a>
           <div x-show="!search" class="border-t border-gray-200 !mt-3 !mb-3"></div>
@@ -48,7 +48,7 @@
               <div x-show="comp._firstToken && !search" class="border-t border-gray-200 my-3"></div>
               <a
                 :href="'#/' + comp.id"
-                :class="activeComponentId === comp.id ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100'"
+                :class="activeComponentId === comp.id ? 'bg-indigo-50 text-indigo-700' : 'text-base-content hover:bg-gray-100'"
                 class="block w-full text-left px-2.5 py-1 rounded-md text-sm transition-colors truncate"
                 x-text="comp.name"
               ></a>
