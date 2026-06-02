@@ -55,7 +55,7 @@
             x-show="!search"
             href="#/"
             :class="!activeComponentId ? 'bg-indigo-50 text-indigo-700' : 'text-base-content hover:bg-gray-100'"
-            class="block w-full text-left px-2.5 py-1 rounded-md text-sm transition-colors truncate"
+            class="block w-full text-left px-2.5 py-1 rounded-md text-sm transition-colors truncate focus:outline-none"
           >Home</a>
           <div x-show="!search" class="border-t border-gray-200 !mt-3 !mb-3"></div>
           <template x-for="comp in allComponentsSorted" :key="comp.id">
@@ -64,7 +64,7 @@
               <a
                 :href="'#/' + comp.id"
                 :class="activeComponentId === comp.id ? 'bg-indigo-50 text-indigo-700' : 'text-base-content hover:bg-gray-100'"
-                class="block w-full text-left px-2.5 py-1 rounded-md text-sm transition-colors truncate"
+                class="block w-full text-left px-2.5 py-1 rounded-md text-sm transition-colors truncate focus:outline-none"
                 x-text="comp.name"
               ></a>
             </div>
@@ -342,7 +342,7 @@ function catalog() {
       const doResize = () => {
         try {
           const h = iframe.contentDocument.body.scrollHeight;
-          iframe.style.height = (h + 16) + 'px';
+          iframe.style.height = (h + 32) + 'px';
         } catch (e) {
           iframe.style.height = '400px';
         }
