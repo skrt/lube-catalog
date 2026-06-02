@@ -72,7 +72,7 @@
         {
           "category": "Common",
           "items": [
-            { "variant": "radius", "tokens": { "all": "rounded-sm" } },
+            { "variant": "radius", "tokens": { "all": "rounded-md" } },
             { "variant": "border", "tokens": { "all": "border base-content/5" } },
             { "variant": "font", "tokens": { "weight": "font-semibold" } }
           ]
@@ -121,7 +121,7 @@
         {
           "category": "Common",
           "items": [
-            { "variant": "radius", "tokens": { "all": "rounded-sm" } },
+            { "variant": "radius", "tokens": { "all": "rounded-md" } },
             { "variant": "border", "tokens": { "all": "border base-content/5" } }
           ]
         },
@@ -1140,7 +1140,7 @@
           "category": "Box",
           "items": [
             { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
-            { "variant": "radius", "tokens": { "all": "rounded-sm" } },
+            { "variant": "radius", "tokens": { "all": "rounded-md" } },
             { "variant": "Unchecked Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20)" } },
             { "variant": "Unchecked Hover", "tokens": { "background": "bg-base-100 (white)", "border": "border-2 primary" } },
             { "variant": "Unchecked Disabled", "tokens": { "background": "bg-base-200", "border": "border base-content/10" } },
