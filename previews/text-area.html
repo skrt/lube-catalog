@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -20,19 +21,19 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
       <div class="flex flex-wrap items-end gap-6">
         <div class="w-56 space-y-1">
-          <label class="block text-xs text-[#101016]">sm</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-14 px-2 py-1 text-xs rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-xs text-base-content">sm</label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-14 px-2 py-1 text-xs rounded bg-white border border-base-content/20 placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">md</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">md</label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-base-content/20 placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-base text-[#101016]">lg</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-20 px-3 py-2 text-base rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-base text-base-content">lg</label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-20 px-3 py-2 text-base rounded bg-white border border-base-content/20 placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
       </div>
     </div>
@@ -42,29 +43,29 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">States</p>
       <div class="flex flex-wrap items-start gap-4">
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Default</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Default</label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-base-content/20 placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Focus</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border-2 border-[#0a0ac2] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Focus</label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border-2 border-primary placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Error</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border-2 border-[#c94043] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Error</label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border-2 border-error placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Disabled</label>
-          <textarea rows="1" placeholder="プレースホルダー" disabled class="block w-full h-16 px-3 py-2 text-sm rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.1)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y cursor-not-allowed"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Disabled</label>
+          <textarea rows="1" placeholder="プレースホルダー" disabled class="block w-full h-16 px-3 py-2 text-sm rounded bg-base-200 border border-base-content/10 placeholder:text-base-content/30 text-base-content outline-none resize-y cursor-not-allowed"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Filled</label>
-          <textarea rows="1" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none resize-y">プレースホルダー</textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Filled</label>
+          <textarea rows="1" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-base-content/20 text-base-content outline-none resize-y">プレースホルダー</textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
       </div>
     </div>
@@ -74,14 +75,14 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Required</p>
       <div class="flex flex-wrap items-start gap-6">
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">Default <span class="text-[#c94043]">*</span></label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-[rgba(16,16,22,0.2)] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Default <span class="text-error">*</span></label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border border-base-content/20 placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">Error <span class="text-[#c94043]">*</span></label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border-2 border-[#c94043] placeholder:text-[rgba(16,16,22,0.3)] text-[#101016] outline-none resize-y"></textarea>
-          <p class="text-xs text-[#c94043]">入力しましょう</p>
+          <label class="block text-sm text-base-content">Error <span class="text-error">*</span></label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded bg-white border-2 border-error placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-error">入力しましょう</p>
         </div>
       </div>
     </div>

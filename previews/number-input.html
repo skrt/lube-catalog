@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -20,19 +21,19 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
       <div class="flex flex-wrap items-end gap-6">
         <div class="w-56 space-y-1">
-          <label class="block text-xs text-[#101016]">sm</label>
-          <input type="text" value="1000" class="w-full h-6 px-2 py-1 text-xs font-mono text-right rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-xs text-base-content">sm</label>
+          <input type="text" value="1000" class="w-full h-6 px-2 py-1 text-xs font-mono text-right rounded bg-white border border-base-content/20 text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-[#101016]">md</label>
-          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">md</label>
+          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border border-base-content/20 text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-base text-[#101016]">lg</label>
-          <input type="text" value="1000" class="w-full h-10 px-3 py-2 text-base font-mono text-right rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-base text-base-content">lg</label>
+          <input type="text" value="1000" class="w-full h-10 px-3 py-2 text-base font-mono text-right rounded bg-white border border-base-content/20 text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
       </div>
     </div>
@@ -42,29 +43,29 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">States</p>
       <div class="flex flex-wrap items-start gap-4">
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Default</label>
-          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Default</label>
+          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border border-base-content/20 text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Focus</label>
-          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border-2 border-[#0a0ac2] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Focus</label>
+          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border-2 border-primary text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Error</label>
-          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border-2 border-[#c94043] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Error</label>
+          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border-2 border-error text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Disabled</label>
-          <input type="text" value="1000" disabled class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.1)] text-[rgba(16,16,22,0.3)] outline-none cursor-not-allowed">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Disabled</label>
+          <input type="text" value="1000" disabled class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-base-200 border border-base-content/10 text-base-content/30 outline-none cursor-not-allowed">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
-          <label class="block text-sm text-[#101016]">Filled</label>
-          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border border-[rgba(16,16,22,0.2)] text-[#101016] outline-none">
-          <p class="text-xs text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <label class="block text-sm text-base-content">Filled</label>
+          <input type="text" value="1000" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded bg-white border border-base-content/20 text-base-content outline-none">
+          <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
       </div>
     </div>
