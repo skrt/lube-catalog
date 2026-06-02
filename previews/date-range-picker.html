@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 460px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -39,22 +40,22 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
       <p class="text-sm text-gray-500 mb-4">Calendarから開始日・終了日を順にクリックして期間を選択</p>
       <div class="w-80 flex flex-col gap-1" id="drp-demo-wrap">
-        <p class="text-sm leading-5 text-[#101016]">期間</p>
+        <p class="text-sm leading-5 text-base-content">期間</p>
         <div class="relative">
           <div
             class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white cursor-pointer transition-colors"
             id="drp-demo-trigger"
             style="border: 1px solid rgba(16,16,22,0.2)"
           >
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span id="drp-demo-label" class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]"></span>
-            <button id="drp-demo-clear" class="shrink-0 text-[rgba(16,16,22,0.6)] hidden">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span id="drp-demo-label" class="flex-1 text-sm leading-5 text-base-content/30"></span>
+            <button id="drp-demo-clear" class="shrink-0 text-base-content/60 hidden">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
             </button>
           </div>
           <div id="drp-demo-cal" class="absolute top-full left-0 z-50 mt-1 hidden"></div>
         </div>
-        <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+        <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
       </div>
     </div>
 
@@ -63,28 +64,28 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Sizes</p>
       <div class="flex flex-wrap items-start gap-6">
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-xs leading-4 text-[#101016]">sm</p>
-          <div class="flex items-center gap-2 h-6 px-2 py-1 rounded bg-white border border-[rgba(16,16,22,0.2)]">
-            <svg class="w-3 h-3 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-xs leading-4 text-[rgba(16,16,22,0.3)]">プレースホルダー</span>
+          <p class="text-xs leading-4 text-base-content">sm</p>
+          <div class="flex items-center gap-2 h-6 px-2 py-1 rounded bg-white border border-base-content/20">
+            <svg class="w-3 h-3 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-xs leading-4 text-base-content/30">プレースホルダー</span>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-sm leading-5 text-[#101016]">md</p>
-          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border border-[rgba(16,16,22,0.2)]">
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]">プレースホルダー</span>
+          <p class="text-sm leading-5 text-base-content">md</p>
+          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border border-base-content/20">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-sm leading-5 text-base-content/30">プレースホルダー</span>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-base leading-6 text-[#101016]">lg</p>
-          <div class="flex items-center gap-2 h-10 px-3 py-2 rounded bg-white border border-[rgba(16,16,22,0.2)]">
-            <svg class="w-4 h-4 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-base leading-6 text-[rgba(16,16,22,0.3)]">プレースホルダー</span>
+          <p class="text-base leading-6 text-base-content">lg</p>
+          <div class="flex items-center gap-2 h-10 px-3 py-2 rounded bg-white border border-base-content/20">
+            <svg class="w-4 h-4 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-base leading-6 text-base-content/30">プレースホルダー</span>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
       </div>
     </div>
@@ -95,49 +96,49 @@
       <div class="flex flex-wrap items-start gap-6">
         <!-- Default -->
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-sm leading-5 text-[#101016]">Default</p>
-          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border border-[rgba(16,16,22,0.2)]">
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]">yyyy/mm/dd - yyyy/mm/dd</span>
+          <p class="text-sm leading-5 text-base-content">Default</p>
+          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border border-base-content/20">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-sm leading-5 text-base-content/30">yyyy/mm/dd - yyyy/mm/dd</span>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
         <!-- Focus -->
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-sm leading-5 text-[#101016]">Focus</p>
-          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border-2 border-[#0a0ac2]">
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]">yyyy/mm/dd - yyyy/mm/dd</span>
+          <p class="text-sm leading-5 text-base-content">Focus</p>
+          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border-2 border-primary">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-sm leading-5 text-base-content/30">yyyy/mm/dd - yyyy/mm/dd</span>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
         <!-- Error -->
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-sm leading-5 text-[#101016]">Error</p>
-          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border-2 border-[#c94043]">
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]">yyyy/mm/dd - yyyy/mm/dd</span>
+          <p class="text-sm leading-5 text-base-content">Error</p>
+          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border-2 border-error">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-sm leading-5 text-base-content/30">yyyy/mm/dd - yyyy/mm/dd</span>
           </div>
-          <p class="text-xs leading-4 text-[#c94043]">入力しましょう</p>
+          <p class="text-xs leading-4 text-error">入力しましょう</p>
         </div>
         <!-- Disabled -->
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-sm leading-5 text-[#101016]">Disabled</p>
-          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.1)]">
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.3)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]">yyyy/mm/dd - yyyy/mm/dd</span>
+          <p class="text-sm leading-5 text-base-content">Disabled</p>
+          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-base-200 border border-base-content/10">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-sm leading-5 text-base-content/30">yyyy/mm/dd - yyyy/mm/dd</span>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
         <!-- Filled -->
         <div class="w-80 flex flex-col gap-1">
-          <p class="text-sm leading-5 text-[#101016]">Filled</p>
-          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border border-[rgba(16,16,22,0.2)]">
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
-            <span class="flex-1 text-sm leading-5 text-[#101016]">2025/05/14 - 2025/05/19</span>
-            <svg class="w-3.5 h-3.5 shrink-0 text-[rgba(16,16,22,0.6)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+          <p class="text-sm leading-5 text-base-content">Filled</p>
+          <div class="flex items-center gap-2 h-8 px-3 py-2 rounded bg-white border border-base-content/20">
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M17 14h-6M13 18H7"/></svg>
+            <span class="flex-1 text-sm leading-5 text-base-content">2025/05/14 - 2025/05/19</span>
+            <svg class="w-3.5 h-3.5 shrink-0 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
           </div>
-          <p class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">ヘルパーテキスト</p>
+          <p class="text-xs leading-4 text-base-content/60">ヘルパーテキスト</p>
         </div>
       </div>
     </div>
@@ -182,19 +183,19 @@
       const cells = buildMonthGrid(year, month);
 
       const root = document.createElement('div');
-      root.className = 'bg-white border border-[rgba(16,16,22,0.1)] rounded-lg p-3 inline-block';
+      root.className = 'bg-white border border-base-content/10 rounded-lg p-3 inline-block';
       root.style.boxShadow = '0 4px 8px rgba(0,0,0,0.08)';
 
       // Header
       const header = document.createElement('div');
       header.className = 'flex h-6 items-center justify-between w-full';
       header.innerHTML =
-        '<button class="flex items-center justify-center p-1.5 rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2]" data-nav="prev">' +
-          '<svg class="w-3 h-3 text-[#101016]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>' +
+        '<button class="flex items-center justify-center p-1.5 rounded bg-base-200 border border-base-content/5 hover:bg-base-300" data-nav="prev">' +
+          '<svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>' +
         '</button>' +
-        '<p class="text-sm font-semibold leading-5 text-[#101016]">' + year + '\u5E74 ' + (month + 1) + '\u6708</p>' +
-        '<button class="flex items-center justify-center p-1.5 rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2]" data-nav="next">' +
-          '<svg class="w-3 h-3 text-[#101016]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>' +
+        '<p class="text-sm font-semibold leading-5 text-base-content">' + year + '\u5E74 ' + (month + 1) + '\u6708</p>' +
+        '<button class="flex items-center justify-center p-1.5 rounded bg-base-200 border border-base-content/5 hover:bg-base-300" data-nav="next">' +
+          '<svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>' +
         '</button>';
       root.appendChild(header);
 
@@ -289,15 +290,15 @@
       var clearBtn = document.getElementById('drp-demo-clear');
       if (demo.start && demo.end) {
         label.textContent = formatDate(demo.start) + ' - ' + formatDate(demo.end);
-        label.className = 'flex-1 text-sm leading-5 text-[#101016]';
+        label.className = 'flex-1 text-sm leading-5 text-base-content';
         clearBtn.classList.remove('hidden');
       } else if (demo.start) {
         label.textContent = formatDate(demo.start) + ' - ...';
-        label.className = 'flex-1 text-sm leading-5 text-[#101016]';
+        label.className = 'flex-1 text-sm leading-5 text-base-content';
         clearBtn.classList.add('hidden');
       } else {
         label.textContent = '';
-        label.className = 'flex-1 text-sm leading-5 text-[rgba(16,16,22,0.3)]';
+        label.className = 'flex-1 text-sm leading-5 text-base-content/30';
         clearBtn.classList.add('hidden');
       }
     }
