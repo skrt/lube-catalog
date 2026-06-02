@@ -39,11 +39,11 @@
       Font: text-sm semibold
   -->
 
-  <div class="space-y-10">
+  <div class="space-y-14">
 
     <!-- Demo: Radio -->
     <div id="demo-section" x-data="{ radioSelected: 'opt1', buttonSelected: 'all' }">
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Demo — Radio</p>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo — Radio</p>
       <p class="text-sm text-gray-500 mb-4">クリックで選択切り替え</p>
       <div class="flex flex-col gap-2 mb-8">
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
@@ -57,7 +57,7 @@
         </template>
       </div>
 
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Demo — Button</p>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo — Button</p>
       <p class="text-sm text-gray-500 mb-4">クリックで選択切り替え</p>
       <div class="flex gap-2 items-center">
         <template x-for="item in [{id:'all',label:'すべて'},{id:'unsent',label:'未送付',count:'12'},{id:'sent',label:'送付済み',count:'48'}]" :key="item.id">
@@ -82,7 +82,7 @@
     <!-- demo-skip: bg-base-content/10 -->
     <!-- Radio: States (md) -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio States (md)</p>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio States (md)</p>
       <div class="flex flex-wrap items-center gap-6">
         <div class="flex gap-2 items-center">
           <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-base-content-20"></div>
@@ -113,7 +113,7 @@
 
     <!-- Radio: Sizes -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio Sizes (Selected)</p>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio Sizes (Selected)</p>
       <div class="flex flex-wrap items-center gap-6">
         <div class="flex gap-2 items-center">
           <div class="relative shrink-0 size-4 rounded-full bg-white shadow-border-primary">
@@ -138,7 +138,7 @@
 
     <!-- Button: States -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Button States</p>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Button States</p>
       <div class="flex flex-wrap items-center gap-4">
         <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-primary">
           <span class="text-sm font-semibold leading-5 text-primary-content">Active</span>
