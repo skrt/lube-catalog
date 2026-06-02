@@ -271,6 +271,37 @@
       ]
     },
     {
+      "id": "data-input",
+      "name": "DataInput",
+      "hasDemo": true,
+      "description": "ファイル添付フォーム",
+      "category": "forms",
+      "preview": "previews/data-input.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3804-9497",
+      "props": [
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Empty",
+          "values": ["Empty", "Loading", "Selected"],
+          "description": "フォームの状態"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Style",
+          "items": [
+            { "variant": "Container", "tokens": { "width": "w-[480px]", "gap": "gap-1 (4px)", "layout": "flex-col" } },
+            { "variant": "Legend", "tokens": { "font": "text-xs semibold", "color": "text-base-content", "required": "text-error" } },
+            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-sm (4px)", "padding": "px-3 py-2", "font": "text-xs semibold" } },
+            { "variant": "Loading", "tokens": { "background": "bg-base-300", "text": "text-base-content/30", "icon": "loader-circle animate-spin" } },
+            { "variant": "FileRow", "tokens": { "name": "text-xs text-base-content", "size": "text-xs text-base-content/30", "delete": "IconButton sm trash-2" } },
+            { "variant": "Helper", "tokens": { "font": "text-xs", "color": "text-base-content/60" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "select",
       "name": "Select",
       "hasDemo": true,
