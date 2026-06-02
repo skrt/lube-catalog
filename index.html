@@ -30,7 +30,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 flex">
 
     <!-- Sidebar: Component List -->
-    <aside class="w-48 shrink-0 hidden md:block md:pr-6 md:border-r md:border-gray-200">
+    <aside class="w-48 shrink-0 hidden md:block md:pr-6 md:border-r md:border-gray-200 min-h-[calc(100vh-4rem)]">
       <div class="sticky top-24 max-h-[calc(100vh-7rem)] flex flex-col">
         <div class="relative mb-3 shrink-0">
           <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -308,11 +308,11 @@ function catalog() {
     },
 
     get filteredUIComponents() {
-      return this.filteredComponents.filter(c => c.category !== 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+      return this.components.filter(c => c.category !== 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
     },
 
     get filteredTokenComponents() {
-      return this.filteredComponents.filter(c => c.category === 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+      return this.components.filter(c => c.category === 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
     },
 
     getCategoryLabel(id) {
