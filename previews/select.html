@@ -86,7 +86,7 @@ tailwind.config = {
           <span class="flex-1 text-sm truncate" :class="selected ? 'text-base-content' : 'text-base-content/30'" x-text="selected || '選択しましょう'"></span>
           <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </div>
-        <div x-show="open" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1 bg-white border border-base-content/10 rounded shadow-lg z-10">
+        <div x-show="open" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
           <template x-for="option in options" :key="option">
             <div
               @click="selected = option; open = false"
@@ -175,7 +175,7 @@ tailwind.config = {
   <!-- SelectMenu Item States -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>SelectMenu Item States</p>
-    <div class="w-72 border border-base-content/10 rounded shadow-lg overflow-hidden">
+    <div class="w-72 border border-base-content/10 rounded-md shadow-lg overflow-hidden">
       <div class="flex items-center px-3 py-2 text-sm text-base-content">Default</div>
       <div class="flex items-center px-3 py-2 text-sm text-base-content bg-base-200">Hover</div>
       <div class="flex items-center px-3 py-2 text-sm text-primary bg-secondary">Selected</div>
@@ -186,7 +186,7 @@ tailwind.config = {
   <!-- SelectMenu Empty State -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>SelectMenu Empty</p>
-    <div class="w-72 border border-base-content/10 rounded shadow-lg overflow-hidden">
+    <div class="w-72 border border-base-content/10 rounded-md shadow-lg overflow-hidden">
       <div class="flex items-center px-3 py-2 text-sm text-base-content/30">該当する選択肢がありません</div>
     </div>
   </section>

@@ -81,7 +81,7 @@ tailwind.config = {
                      Focus border-2 primary, Error border-2 error, Disabled bg-base-200
       Filled state: circle-x clear icon on right
     Calendar (Range):
-      Container: bg-white, border rgba(16,16,22,0.1), rounded-lg (8px), p-3, drop-shadow
+      Container: bg-white, border rgba(16,16,22,0.1), rounded-md (6px), p-3, drop-shadow
       Header:    24px tall, chevron IconButton (24px) + 月ラベル text-sm semibold
       Weekdays:  月火水木金土日 (36px square), text-xs, base-content/30, 土 primary, 日 error
       Day cell:  36px square, text-sm
@@ -240,7 +240,7 @@ tailwind.config = {
       const cells = buildMonthGrid(year, month);
 
       const root = document.createElement('div');
-      root.className = 'bg-white border border-base-content/10 rounded-lg p-3 inline-block';
+      root.className = 'bg-white border border-base-content/10 rounded-md p-3 inline-block';
       root.style.boxShadow = '0 4px 8px rgba(0,0,0,0.08)';
 
       // Header

@@ -102,7 +102,7 @@ tailwind.config = {
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
           </button>
         </div>
-        <div x-show="open" @click.away="open = false" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto bg-white border border-base-content/10 rounded shadow-lg z-10">
+        <div x-show="open" @click.away="open = false" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto bg-white border border-base-content/10 rounded-md shadow-lg z-10">
           <div class="px-3 py-1.5 text-xs text-base-content/30" x-text="'検索結果：' + filtered.length + '件'"></div>
           <template x-if="filtered.length === 0">
             <div class="px-3 py-2 text-sm text-base-content/30">該当する結果がありません</div>
@@ -199,7 +199,7 @@ tailwind.config = {
       <!-- With results -->
       <div class="space-y-1.5">
         <p class="text-[10px] text-gray-400">Results</p>
-        <div class="w-64 border border-base-content/10 rounded shadow-lg overflow-hidden">
+        <div class="w-64 border border-base-content/10 rounded-md shadow-lg overflow-hidden">
           <div class="px-3 py-1.5 text-xs text-base-content/30">検索結果：10件</div>
           <div class="px-3 py-2 text-sm text-base-content">にいやま株式会社</div>
           <div class="px-3 py-2 text-sm text-base-content">株式会社shizai</div>
@@ -209,7 +209,7 @@ tailwind.config = {
       <!-- Empty -->
       <div class="space-y-1.5">
         <p class="text-[10px] text-gray-400">Empty</p>
-        <div class="w-64 border border-base-content/10 rounded shadow-lg overflow-hidden">
+        <div class="w-64 border border-base-content/10 rounded-md shadow-lg overflow-hidden">
           <div class="px-3 py-1.5 text-xs text-base-content/30">検索結果：0件</div>
           <div class="px-3 py-2 text-sm text-base-content/30">該当する結果がありません</div>
         </div>
@@ -217,7 +217,7 @@ tailwind.config = {
       <!-- Loading -->
       <div class="space-y-1.5">
         <p class="text-[10px] text-gray-400">Loading</p>
-        <div class="w-64 border border-base-content/10 rounded shadow-lg overflow-hidden">
+        <div class="w-64 border border-base-content/10 rounded-md shadow-lg overflow-hidden">
           <div class="px-3 py-1.5 text-xs text-base-content/30 flex items-center gap-1.5">
             検索結果：5件
             <svg class="w-3 h-3 animate-spin text-base-content/30" viewBox="0 0 16 16" fill="none">
