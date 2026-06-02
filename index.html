@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     [x-cloak] { display: none !important; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -39,7 +41,7 @@
 
     <!-- Sidebar: Component List -->
     <aside class="w-48 shrink-0 hidden md:block md:pr-6 md:border-r md:border-gray-200">
-      <nav class="sticky top-24 space-y-0.5 max-h-[calc(100vh-7rem)] overflow-y-auto scrollbar-none">
+      <nav class="sticky top-24 space-y-0.5 max-h-[calc(100vh-7rem)] overflow-y-auto no-scrollbar">
         <a
           href="#/"
           :class="!activeComponentId ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-100'"
