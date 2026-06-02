@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 400px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -37,11 +38,11 @@
       <div class="flex flex-wrap items-center gap-3">
         <button
           onclick="openModal('confirm')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors"
         >確認モーダルを開く</button>
         <button
           onclick="openModal('delete')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors"
         >削除確認モーダルを開く</button>
       </div>
     </div>
@@ -52,14 +53,14 @@
       <div class="bg-gray-100 p-8 rounded-lg flex justify-center">
         <div class="w-96 rounded-xl bg-white shadow-[0_16px_16px_rgba(0,0,0,0.18)] flex flex-col">
           <div class="flex flex-col gap-2 pt-6 px-6">
-            <p class="text-lg font-semibold leading-7 text-[#101016]">ダイアログタイトル</p>
+            <p class="text-lg font-semibold leading-7 text-base-content">ダイアログタイトル</p>
           </div>
           <div class="flex flex-col gap-2 px-6 py-4">
-            <p class="text-sm leading-5 text-[rgba(16,16,22,0.6)]">この操作を実行してよろしいですか？この操作は取り消せません</p>
+            <p class="text-sm leading-5 text-base-content/60">この操作を実行してよろしいですか？この操作は取り消せません</p>
           </div>
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">承認</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">承認</button>
           </div>
         </div>
       </div>
@@ -73,9 +74,9 @@
         <!-- With count -->
         <div class="w-96 rounded-xl bg-white border border-gray-200">
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <p class="flex-1 text-sm leading-5 text-[rgba(16,16,22,0.6)]">0件選択中</p>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">承認</button>
+            <p class="flex-1 text-sm leading-5 text-base-content/60">0件選択中</p>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">承認</button>
           </div>
         </div>
         <p class="text-[10px] text-gray-400 ml-2">With count (showCount=true)</p>
@@ -83,8 +84,8 @@
         <!-- Without count -->
         <div class="w-96 rounded-xl bg-white border border-gray-200">
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">承認</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">承認</button>
           </div>
         </div>
         <p class="text-[10px] text-gray-400 ml-2">Without count (showCount=false)</p>
@@ -92,8 +93,8 @@
         <!-- Danger action -->
         <div class="w-96 rounded-xl bg-white border border-gray-200">
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#fff5f5] rounded bg-[#c94043] border border-[rgba(16,16,22,0.05)] hover:bg-[#b7393c] transition-colors">削除</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-error-content rounded bg-error border border-base-content/5 hover:bg-error-hover transition-colors">削除</button>
           </div>
         </div>
         <p class="text-[10px] text-gray-400 ml-2">Danger action</p>
@@ -108,14 +109,14 @@
     <div id="modal-backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-200"></div>
     <div id="modal-panel" class="relative w-96 rounded-xl bg-white shadow-[0_16px_16px_rgba(0,0,0,0.18)] flex flex-col opacity-0 scale-95 transition-all duration-200">
       <div class="flex flex-col gap-2 pt-6 px-6">
-        <p id="modal-title" class="text-lg font-semibold leading-7 text-[#101016]"></p>
+        <p id="modal-title" class="text-lg font-semibold leading-7 text-base-content"></p>
       </div>
       <div class="flex flex-col gap-2 px-6 py-4">
-        <p id="modal-body" class="text-sm leading-5 text-[rgba(16,16,22,0.6)]"></p>
+        <p id="modal-body" class="text-sm leading-5 text-base-content/60"></p>
       </div>
       <div class="flex items-center justify-end gap-3 px-6 py-4">
-        <button onclick="closeModal()" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-[#101016] rounded bg-[#f8f8fa] border border-[rgba(16,16,22,0.05)] hover:bg-[#eeeef2] transition-colors">キャンセル</button>
-        <button id="modal-confirm" onclick="closeModal()" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded border border-[rgba(16,16,22,0.05)] transition-colors"></button>
+        <button onclick="closeModal()" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
+        <button id="modal-confirm" onclick="closeModal()" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded border border-base-content/5 transition-colors"></button>
       </div>
     </div>
   </div>
@@ -126,13 +127,13 @@
         title: 'ダイアログタイトル',
         body: 'この操作を実行してよろしいですか？この操作は取り消せません',
         confirmLabel: '承認',
-        confirmClass: 'text-[#f3f4fe] bg-[#0a0ac2] hover:bg-[#080892]'
+        confirmClass: 'text-primary-content bg-primary hover:bg-primary-hover'
       },
       delete: {
         title: '本当に削除しますか？',
         body: 'この操作は取り消せません。関連するデータも削除されます',
         confirmLabel: '削除',
-        confirmClass: 'text-[#fff5f5] bg-[#c94043] hover:bg-[#b7393c]'
+        confirmClass: 'text-error-content bg-error hover:bg-error-hover'
       }
     };
 
@@ -142,7 +143,7 @@
       document.getElementById('modal-body').textContent = cfg.body;
       const confirmBtn = document.getElementById('modal-confirm');
       confirmBtn.textContent = cfg.confirmLabel;
-      confirmBtn.className = 'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded border border-[rgba(16,16,22,0.05)] transition-colors ' + cfg.confirmClass;
+      confirmBtn.className = 'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded border border-base-content/5 transition-colors ' + cfg.confirmClass;
 
       const container = document.getElementById('modal-container');
       container.classList.remove('hidden');

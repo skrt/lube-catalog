@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
@@ -20,7 +21,8 @@
       Size: lg (24px, text-base), md (20px, text-sm), sm (16px, text-xs)
       State: Default, Selected, Disabled, Selected-Disabled
       Default: white circle, border 1px base-content/20, rounded-full
-      Selected: white circle, border 2px primary, inner dot bg-primary
+      Hover: white circle, border 2px primary, rounded-full
+      Selected: white circle, border 1px primary, inner dot bg-primary
       Disabled: bg-base-200, border 1px base-content/10
       Selected-Disabled: border 2px base-content/10, dot base-content/10
       Label Default/Selected: text-base-content
@@ -47,10 +49,10 @@
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
           <div class="flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
             <div class="relative shrink-0 size-5 rounded-full"
-              :class="radioSelected === item.id ? 'bg-white shadow-[inset_0_0_0_2px_#0a0ac2]' : 'bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]'">
-              <div x-show="radioSelected === item.id" class="absolute inset-[5px] rounded-full bg-[#0a0ac2]"></div>
+              :class="radioSelected === item.id ? 'bg-white shadow-border-primary' : 'bg-white shadow-border-base-content-20 hover:shadow-border-2-primary'">
+              <div x-show="radioSelected === item.id" class="absolute inset-[5px] rounded-full bg-primary"></div>
             </div>
-            <span class="text-sm leading-5 text-[#101016]" x-text="item.label"></span>
+            <span class="text-sm leading-5 text-base-content" x-text="item.label"></span>
           </div>
         </template>
       </div>
@@ -61,15 +63,15 @@
         <template x-for="item in [{id:'all',label:'すべて'},{id:'unsent',label:'未送付',count:'12'},{id:'sent',label:'送付済み',count:'48'}]" :key="item.id">
           <div class="flex h-8 items-center justify-center px-2 rounded-md cursor-pointer"
             :class="[
-              buttonSelected === item.id ? 'bg-[#0a0ac2]' : 'bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.1)] hover:bg-[#e8e8fd] hover:shadow-none',
+              buttonSelected === item.id ? 'bg-primary' : 'bg-white shadow-border-base-content-10 hover:bg-secondary hover:shadow-none',
               item.count ? 'gap-1 py-1' : 'py-1.5'
             ]"
             @click="buttonSelected = item.id">
-            <span class="text-sm font-semibold leading-5" :class="buttonSelected === item.id ? 'text-[#f3f4fe]' : 'text-[#101016]'" x-text="item.label"></span>
+            <span class="text-sm font-semibold leading-5" :class="buttonSelected === item.id ? 'text-primary-content' : 'text-base-content'" x-text="item.label"></span>
             <template x-if="item.count">
               <div class="flex items-center justify-center px-2 py-0.5 rounded-full"
-                :class="buttonSelected === item.id ? 'bg-white' : 'bg-[#f8f8fa]'">
-                <span class="text-sm leading-5" :class="buttonSelected === item.id ? 'text-[#0a0ac2]' : 'text-[rgba(16,16,22,0.6)]'" x-text="item.count"></span>
+                :class="buttonSelected === item.id ? 'bg-white' : 'bg-base-200'">
+                <span class="text-sm leading-5" :class="buttonSelected === item.id ? 'text-primary' : 'text-base-content/60'" x-text="item.count"></span>
               </div>
             </template>
           </div>
@@ -82,24 +84,28 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Radio States (md)</p>
       <div class="flex flex-wrap items-center gap-6">
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)]"></div>
-          <span class="text-sm leading-5 text-[#101016]">Default</span>
+          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-base-content-20"></div>
+          <span class="text-sm leading-5 text-base-content">Default</span>
         </div>
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-[inset_0_0_0_2px_#0a0ac2]">
-            <div class="absolute inset-[5px] rounded-full bg-[#0a0ac2]"></div>
+          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-2-primary"></div>
+          <span class="text-sm leading-5 text-base-content">Hover</span>
+        </div>
+        <div class="flex gap-2 items-center">
+          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-primary">
+            <div class="absolute inset-[5px] rounded-full bg-primary"></div>
           </div>
-          <span class="text-sm leading-5 text-[#101016]">Selected</span>
+          <span class="text-sm leading-5 text-base-content">Selected</span>
         </div>
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-5 rounded-full bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.1)]"></div>
-          <span class="text-sm leading-5 text-[rgba(16,16,22,0.3)]">Disabled</span>
+          <div class="relative shrink-0 size-5 rounded-full bg-base-200 shadow-border-base-content-10"></div>
+          <span class="text-sm leading-5 text-base-content/30">Disabled</span>
         </div>
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-[inset_0_0_0_2px_rgba(16,16,22,0.1)]">
-            <div class="absolute inset-[5px] rounded-full bg-[rgba(16,16,22,0.1)]"></div>
+          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-base-content-10">
+            <div class="absolute inset-[5px] rounded-full bg-base-content/10"></div>
           </div>
-          <span class="text-sm leading-5 text-[rgba(16,16,22,0.3)]">Selected-Disabled</span>
+          <span class="text-sm leading-5 text-base-content/30">Selected-Disabled</span>
         </div>
       </div>
     </div>
@@ -109,22 +115,22 @@
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Radio Sizes (Selected)</p>
       <div class="flex flex-wrap items-center gap-6">
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-4 rounded-full bg-white shadow-[inset_0_0_0_2px_#0a0ac2]">
-            <div class="absolute inset-[4px] rounded-full bg-[#0a0ac2]"></div>
+          <div class="relative shrink-0 size-4 rounded-full bg-white shadow-border-primary">
+            <div class="absolute inset-[4px] rounded-full bg-primary"></div>
           </div>
-          <span class="text-xs leading-4 text-[#101016]">sm</span>
+          <span class="text-xs leading-4 text-base-content">sm</span>
         </div>
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-[inset_0_0_0_2px_#0a0ac2]">
-            <div class="absolute inset-[5px] rounded-full bg-[#0a0ac2]"></div>
+          <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-primary">
+            <div class="absolute inset-[5px] rounded-full bg-primary"></div>
           </div>
-          <span class="text-sm leading-5 text-[#101016]">md</span>
+          <span class="text-sm leading-5 text-base-content">md</span>
         </div>
         <div class="flex gap-2 items-center">
-          <div class="relative shrink-0 size-6 rounded-full bg-white shadow-[inset_0_0_0_2px_#0a0ac2]">
-            <div class="absolute inset-[6px] rounded-full bg-[#0a0ac2]"></div>
+          <div class="relative shrink-0 size-6 rounded-full bg-white shadow-border-primary">
+            <div class="absolute inset-[6px] rounded-full bg-primary"></div>
           </div>
-          <span class="text-base leading-6 text-[#101016]">lg</span>
+          <span class="text-base leading-6 text-base-content">lg</span>
         </div>
       </div>
     </div>
@@ -133,22 +139,22 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Button States</p>
       <div class="flex flex-wrap items-center gap-4">
-        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-[#0a0ac2]">
-          <span class="text-sm font-semibold leading-5 text-[#f3f4fe]">Active</span>
+        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-primary">
+          <span class="text-sm font-semibold leading-5 text-primary-content">Active</span>
           <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-white">
-            <span class="text-sm leading-5 text-[#0a0ac2]">100</span>
+            <span class="text-sm leading-5 text-primary">100</span>
           </div>
         </div>
-        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.1)]">
-          <span class="text-sm font-semibold leading-5 text-[#101016]">Inactive</span>
-          <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-[#f8f8fa]">
-            <span class="text-sm leading-5 text-[rgba(16,16,22,0.6)]">100</span>
+        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-white shadow-border-base-content-10">
+          <span class="text-sm font-semibold leading-5 text-base-content">Inactive</span>
+          <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-base-200">
+            <span class="text-sm leading-5 text-base-content/60">100</span>
           </div>
         </div>
-        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-[#e8e8fd]">
-          <span class="text-sm font-semibold leading-5 text-[#101016]">Hover</span>
-          <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-[#f8f8fa]">
-            <span class="text-sm leading-5 text-[rgba(16,16,22,0.6)]">100</span>
+        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-secondary">
+          <span class="text-sm font-semibold leading-5 text-base-content">Hover</span>
+          <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-base-200">
+            <span class="text-sm leading-5 text-base-content/60">100</span>
           </div>
         </div>
       </div>

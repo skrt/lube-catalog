@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 280px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -36,11 +37,11 @@
       <div class="flex flex-wrap items-center gap-3">
         <button
           onclick="showToast('success')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors"
         >Success Toastを表示</button>
         <button
           onclick="showToast('error')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors"
         >Error Toastを表示</button>
       </div>
     </div>
@@ -51,25 +52,25 @@
       <div class="space-y-3">
 
         <!-- Success -->
-        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-[#479d72] overflow-hidden">
-          <svg class="w-4 h-4 shrink-0 text-[#f5fef9]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <div class="flex-1 flex flex-col min-w-0 text-[#f5fef9]">
+        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-success overflow-hidden">
+          <svg class="w-4 h-4 shrink-0 text-success-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <div class="flex-1 flex flex-col min-w-0 text-success-content">
             <p class="text-sm font-bold leading-5">Success</p>
             <p class="text-xs leading-4">メッセージを送信しました</p>
           </div>
-          <button class="absolute top-3 right-4 text-[#f5fef9]">
+          <button class="absolute top-3 right-4 text-success-content">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>
 
         <!-- Error -->
-        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-[#c94043] overflow-hidden">
-          <svg class="w-4 h-4 shrink-0 text-[#fff5f5]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
-          <div class="flex-1 flex flex-col min-w-0 text-[#fff5f5]">
+        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg bg-error overflow-hidden">
+          <svg class="w-4 h-4 shrink-0 text-error-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <div class="flex-1 flex flex-col min-w-0 text-error-content">
             <p class="text-sm font-bold leading-5">Error</p>
             <p class="text-xs leading-4">時間をおいて再度お試しください</p>
           </div>
-          <button class="absolute top-3 right-4 text-[#fff5f5]">
+          <button class="absolute top-3 right-4 text-error-content">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>

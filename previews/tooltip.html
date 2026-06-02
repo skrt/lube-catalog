@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>
 #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 180px !important; box-sizing: border-box; }
 /* Tooltip arrows via CSS triangles */
@@ -51,11 +52,11 @@
 
         <!-- Tooltip above button (arrow at bottom of tooltip) -->
         <div class="relative group inline-block">
-          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">
             Top
           </button>
           <div class="tt-on-hover absolute left-1/2 -translate-x-1/2 bottom-full mb-2">
-            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5 whitespace-nowrap">
               ツールチップ
               <span class="tt-arrow-bottom tt-default"></span>
             </div>
@@ -64,11 +65,11 @@
 
         <!-- Tooltip below button (arrow at top of tooltip) -->
         <div class="relative group inline-block">
-          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">
             Bottom
           </button>
           <div class="tt-on-hover absolute left-1/2 -translate-x-1/2 top-full mt-2">
-            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5 whitespace-nowrap">
               ツールチップ
               <span class="tt-arrow-top tt-default"></span>
             </div>
@@ -77,11 +78,11 @@
 
         <!-- Tooltip left of button (arrow at right of tooltip) -->
         <div class="relative group inline-block">
-          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">
             Left
           </button>
           <div class="tt-on-hover absolute top-1/2 -translate-y-1/2 right-full mr-2">
-            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5 whitespace-nowrap">
               ツールチップ
               <span class="tt-arrow-right tt-default"></span>
             </div>
@@ -90,11 +91,11 @@
 
         <!-- Tooltip right of button (arrow at left of tooltip) -->
         <div class="relative group inline-block">
-          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#f3f4fe] rounded bg-[#0a0ac2] border border-[rgba(16,16,22,0.05)] hover:bg-[#080892] transition-colors">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">
             Right
           </button>
           <div class="tt-on-hover absolute top-1/2 -translate-y-1/2 left-full ml-2">
-            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5 whitespace-nowrap">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5 whitespace-nowrap">
               ツールチップ
               <span class="tt-arrow-left tt-default"></span>
             </div>
@@ -103,11 +104,11 @@
 
         <!-- Error color demo -->
         <div class="relative group inline-block">
-          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#fff5f5] rounded bg-[#c94043] border border-[rgba(16,16,22,0.05)] hover:bg-[#b7393c] transition-colors">
+          <button class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-error-content rounded bg-error border border-base-content/5 hover:bg-error-hover transition-colors">
             Error
           </button>
           <div class="tt-on-hover absolute left-1/2 -translate-x-1/2 bottom-full mb-2">
-            <div class="relative inline-block px-2 py-1 rounded-sm bg-[#c94043] text-[#fff5f5] text-sm leading-5 whitespace-nowrap">
+            <div class="relative inline-block px-2 py-1 rounded-sm bg-error text-error-content text-sm leading-5 whitespace-nowrap">
               エラー
               <span class="tt-arrow-bottom tt-error"></span>
             </div>
@@ -121,11 +122,11 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Color Variants</p>
       <div class="flex flex-wrap items-center gap-8">
-        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5">
           Default
           <span class="tt-arrow-bottom tt-default"></span>
         </div>
-        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#c94043] text-[#fff5f5] text-sm leading-5">
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-error text-error-content text-sm leading-5">
           Error
           <span class="tt-arrow-bottom tt-error"></span>
         </div>
@@ -136,19 +137,19 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Placement</p>
       <div class="flex flex-wrap items-center gap-10">
-        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5">
           top
           <span class="tt-arrow-bottom tt-default"></span>
         </div>
-        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5">
           bottom
           <span class="tt-arrow-top tt-default"></span>
         </div>
-        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5">
           left
           <span class="tt-arrow-right tt-default"></span>
         </div>
-        <div class="relative inline-block px-2 py-1 rounded-sm bg-[#535671] text-[#f2f4ff] text-sm leading-5">
+        <div class="relative inline-block px-2 py-1 rounded-sm bg-info text-primary-content text-sm leading-5">
           right
           <span class="tt-arrow-left tt-default"></span>
         </div>

@@ -966,7 +966,7 @@
           "name": "Radio / Item - State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Selected", "Disabled", "Selected-Disabled"],
+          "values": ["Default", "Hover", "Selected", "Disabled", "Selected-Disabled"],
           "description": "選択・操作状態"
         },
         {
@@ -989,9 +989,10 @@
           "items": [
             { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
             { "variant": "Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20", "shape": "rounded-full" } },
-            { "variant": "Selected", "tokens": { "border": "border-2 primary (#0a0ac2)", "dot": "bg-primary", "shape": "rounded-full" } },
+            { "variant": "Hover", "tokens": { "border": "border-2 primary (#0a0ac2)", "shape": "rounded-full" } },
+            { "variant": "Selected", "tokens": { "border": "border primary (#0a0ac2)", "dot": "bg-primary", "shape": "rounded-full" } },
             { "variant": "Disabled", "tokens": { "background": "bg-base-200 (#f8f8fa)", "border": "border base-content/10", "label": "text-base-content/30" } },
-            { "variant": "Selected-Disabled", "tokens": { "border": "border-2 base-content/10", "dot": "bg-base-content/10", "label": "text-base-content/30" } }
+            { "variant": "Selected-Disabled", "tokens": { "border": "border base-content/10", "dot": "bg-base-content/10", "label": "text-base-content/30" } }
           ]
         },
         {

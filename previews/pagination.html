@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 1px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }
 .in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
@@ -39,7 +40,7 @@
         <button
           @click="if (current > 1) current--"
           class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer"
-          :class="current === 1 ? 'bg-[#eeeef2] text-[rgba(16,16,22,0.3)] cursor-not-allowed' : 'bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#101016] hover:bg-[#eeeef2]'"
+          :class="current === 1 ? 'bg-base-300 text-base-content/30 cursor-not-allowed' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
           :disabled="current === 1"
         >
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
@@ -50,7 +51,7 @@
           <button
             @click="current = p"
             class="flex items-center justify-center w-8 py-2 rounded text-xs font-semibold leading-4 cursor-pointer"
-            :class="p === current ? 'bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#0a0ac2]' : 'bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#101016] hover:bg-[#eeeef2]'"
+            :class="p === current ? 'bg-secondary shadow-border-base-content-5 text-primary' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
             x-text="p"
           ></button>
         </template>
@@ -58,7 +59,7 @@
         <button
           @click="if (current < total) current++"
           class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer"
-          :class="current === total ? 'bg-[#eeeef2] text-[rgba(16,16,22,0.3)] cursor-not-allowed' : 'bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-[#101016] hover:bg-[#eeeef2]'"
+          :class="current === total ? 'bg-base-300 text-base-content/30 cursor-not-allowed' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
           :disabled="current === total"
         >
           次へ
@@ -71,16 +72,16 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Middle (page 8 / prev & next enabled)</p>
       <div class="flex gap-2 items-center">
-        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
           前へ
         </div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">6</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">7</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#0a0ac2]">8</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">9</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">10</div>
-        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">6</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">7</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-secondary shadow-border-base-content-5 text-xs font-semibold leading-4 text-primary">8</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">9</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">10</div>
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">
           次へ
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
         </div>
@@ -91,16 +92,16 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">First (page 1 / prev disabled)</p>
       <div class="flex gap-2 items-center">
-        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#eeeef2] text-xs font-semibold leading-4 text-[rgba(16,16,22,0.3)]">
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-300 text-xs font-semibold leading-4 text-base-content/30">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
           前へ
         </div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#0a0ac2]">1</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">2</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">3</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">4</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">5</div>
-        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-secondary shadow-border-base-content-5 text-xs font-semibold leading-4 text-primary">1</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">2</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">3</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">4</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">5</div>
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">
           次へ
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
         </div>
@@ -111,16 +112,16 @@
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Last (page 5 / next disabled)</p>
       <div class="flex gap-2 items-center">
-        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
           前へ
         </div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">1</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">2</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">3</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#f8f8fa] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#101016]">4</div>
-        <div class="flex items-center justify-center w-8 py-2 rounded bg-[#e8e8fd] shadow-[inset_0_0_0_1px_rgba(16,16,22,0.05)] text-xs font-semibold leading-4 text-[#0a0ac2]">5</div>
-        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-[#eeeef2] text-xs font-semibold leading-4 text-[rgba(16,16,22,0.3)]">
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">1</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">2</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">3</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">4</div>
+        <div class="flex items-center justify-center w-8 py-2 rounded bg-secondary shadow-border-base-content-5 text-xs font-semibold leading-4 text-primary">5</div>
+        <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-300 text-xs font-semibold leading-4 text-base-content/30">
           次へ
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
         </div>
