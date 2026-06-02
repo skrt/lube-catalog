@@ -342,7 +342,7 @@ function catalog() {
       const doResize = () => {
         try {
           const h = iframe.contentDocument.body.scrollHeight;
-          iframe.style.height = h + 'px';
+          iframe.style.height = (h + 16) + 'px';
         } catch (e) {
           iframe.style.height = '400px';
         }
