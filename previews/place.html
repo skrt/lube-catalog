@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
@@ -33,56 +34,56 @@
     <!-- Full -->
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Full (Phone + Person + Note)</p>
-      <div class="bg-[#f8f8fa] flex flex-col gap-2 items-start px-4 py-3 rounded-lg w-[352px]">
+      <div class="bg-base-200 flex flex-col gap-2 items-start px-4 py-3 rounded-lg w-[352px]">
         <div class="flex flex-col gap-1 w-full">
-          <p class="text-xs font-semibold leading-4 text-[#101016]">納品先A</p>
-          <div class="text-[11px] leading-4 text-[#101016]">
+          <p class="text-xs font-semibold leading-4 text-base-content">納品先A</p>
+          <div class="text-[11px] leading-4 text-base-content">
             <p>〒523-0021</p>
             <p>滋賀県近江八幡市長福寺町59番地</p>
           </div>
           <div class="flex gap-1 text-[11px] leading-4 w-full">
-            <div class="flex flex-col gap-1 items-end shrink-0 text-[rgba(16,16,22,0.6)] whitespace-nowrap">
+            <div class="flex flex-col gap-1 items-end shrink-0 text-base-content/60 whitespace-nowrap">
               <p>代表電話番号</p>
               <p>担当</p>
             </div>
             <div class="flex flex-col gap-1 flex-1 min-w-0">
-              <p class="text-[#101016]">090-1234-5678</p>
+              <p class="text-base-content">090-1234-5678</p>
               <div class="flex gap-1 whitespace-nowrap">
-                <span class="text-[#101016]">酒井 亮太</span>
-                <span class="text-[#101016]">090-1234-5678</span>
+                <span class="text-base-content">酒井 亮太</span>
+                <span class="text-base-content">090-1234-5678</span>
               </div>
               <div class="flex gap-1 whitespace-nowrap">
-                <span class="text-[#101016]">山田</span>
-                <span class="text-[#101016]">090-1234-5678</span>
+                <span class="text-base-content">山田</span>
+                <span class="text-base-content">090-1234-5678</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="h-px w-full bg-[rgba(16,16,22,0.05)]"></div>
-        <p class="text-[11px] leading-4 text-[#101016]">6Fまで運び入れお願い致します。 担当者が5Fにおりますので、到着時お電話頂けますと助かります。</p>
+        <div class="h-px w-full bg-base-content/5"></div>
+        <p class="text-[11px] leading-4 text-base-content">6Fまで運び入れお願い致します。 担当者が5Fにおりますので、到着時お電話頂けますと助かります。</p>
       </div>
     </div>
 
     <!-- Without Note -->
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Without Note</p>
-      <div class="bg-[#f8f8fa] flex flex-col gap-2 items-start px-4 py-3 rounded-lg w-[352px]">
+      <div class="bg-base-200 flex flex-col gap-2 items-start px-4 py-3 rounded-lg w-[352px]">
         <div class="flex flex-col gap-1 w-full">
-          <p class="text-xs font-semibold leading-4 text-[#101016]">納品先B</p>
-          <div class="text-[11px] leading-4 text-[#101016]">
+          <p class="text-xs font-semibold leading-4 text-base-content">納品先B</p>
+          <div class="text-[11px] leading-4 text-base-content">
             <p>〒150-0001</p>
             <p>東京都渋谷区神宮前1-2-3</p>
           </div>
           <div class="flex gap-1 text-[11px] leading-4 w-full">
-            <div class="flex flex-col gap-1 items-end shrink-0 text-[rgba(16,16,22,0.6)] whitespace-nowrap">
+            <div class="flex flex-col gap-1 items-end shrink-0 text-base-content/60 whitespace-nowrap">
               <p>代表電話番号</p>
               <p>担当</p>
             </div>
             <div class="flex flex-col gap-1 flex-1 min-w-0">
-              <p class="text-[#101016]">03-1234-5678</p>
+              <p class="text-base-content">03-1234-5678</p>
               <div class="flex gap-1 whitespace-nowrap">
-                <span class="text-[#101016]">田中 太郎</span>
-                <span class="text-[#101016]">03-9876-5432</span>
+                <span class="text-base-content">田中 太郎</span>
+                <span class="text-base-content">03-9876-5432</span>
               </div>
             </div>
           </div>
@@ -93,10 +94,10 @@
     <!-- Minimal (Address only) -->
     <div>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Minimal (Address only)</p>
-      <div class="bg-[#f8f8fa] flex flex-col gap-2 items-start px-4 py-3 rounded-lg w-[352px]">
+      <div class="bg-base-200 flex flex-col gap-2 items-start px-4 py-3 rounded-lg w-[352px]">
         <div class="flex flex-col gap-1 w-full">
-          <p class="text-xs font-semibold leading-4 text-[#101016]">納品先C</p>
-          <div class="text-[11px] leading-4 text-[#101016]">
+          <p class="text-xs font-semibold leading-4 text-base-content">納品先C</p>
+          <div class="text-[11px] leading-4 text-base-content">
             <p>〒530-0001</p>
             <p>大阪府大阪市北区梅田3-1-1</p>
           </div>

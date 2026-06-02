@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../tailwind.config.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 40px !important; min-height: 200px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
@@ -39,60 +40,60 @@
         <div class="flex flex-col gap-2">
           <!-- 小計 -->
           <div class="flex gap-2 h-5 items-center">
-            <span class="text-sm leading-5 text-[#101016]">小計</span>
-            <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-            <span class="text-sm leading-5 text-[#101016] font-mono tabular-nums">3,000</span>
+            <span class="text-sm leading-5 text-base-content">小計</span>
+            <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+            <span class="text-sm leading-5 text-base-content font-mono tabular-nums">3,000</span>
           </div>
           <!-- 粗利 -->
           <div class="flex gap-2 h-5 items-center">
             <div class="flex gap-2 items-center pl-2">
-              <div class="w-0.5 h-4 bg-[rgba(16,16,22,0.1)]"></div>
-              <span class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">粗利(12.5%)</span>
+              <div class="w-0.5 h-4 bg-base-content/10"></div>
+              <span class="text-xs leading-4 text-base-content/60">粗利(12.5%)</span>
             </div>
-            <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-            <span class="text-sm leading-5 text-[#101016] font-mono tabular-nums">3,000</span>
+            <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+            <span class="text-sm leading-5 text-base-content font-mono tabular-nums">3,000</span>
           </div>
           <!-- 消費税 -->
           <div class="flex gap-2 h-5 items-center">
-            <span class="text-sm leading-5 text-[#101016]">消費税</span>
-            <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-            <span class="text-sm leading-5 text-[#101016] font-mono tabular-nums">500</span>
+            <span class="text-sm leading-5 text-base-content">消費税</span>
+            <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+            <span class="text-sm leading-5 text-base-content font-mono tabular-nums">500</span>
           </div>
           <!-- 内訳 -->
           <div class="flex gap-2 items-start pl-2 w-full">
-            <div class="w-0.5 self-stretch bg-[rgba(16,16,22,0.1)]"></div>
+            <div class="w-0.5 self-stretch bg-base-content/10"></div>
             <div class="flex flex-col gap-1 flex-1 min-w-0">
               <div class="flex gap-2 items-center">
-                <span class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">10%対象</span>
-                <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-                <span class="text-sm leading-5 text-[rgba(16,16,22,0.6)] font-mono tabular-nums">500</span>
+                <span class="text-xs leading-4 text-base-content/60">10%対象</span>
+                <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+                <span class="text-sm leading-5 text-base-content/60 font-mono tabular-nums">500</span>
               </div>
               <div class="flex gap-2 items-center">
-                <span class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">軽減8%対象</span>
-                <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-                <span class="text-sm leading-5 text-[rgba(16,16,22,0.6)] font-mono tabular-nums">1,000</span>
+                <span class="text-xs leading-4 text-base-content/60">軽減8%対象</span>
+                <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+                <span class="text-sm leading-5 text-base-content/60 font-mono tabular-nums">1,000</span>
               </div>
               <div class="flex gap-2 items-center">
-                <span class="text-xs leading-4 text-[rgba(16,16,22,0.6)]">対象外</span>
-                <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-                <span class="text-sm leading-5 text-[rgba(16,16,22,0.6)] font-mono tabular-nums">1,500</span>
+                <span class="text-xs leading-4 text-base-content/60">対象外</span>
+                <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+                <span class="text-sm leading-5 text-base-content/60 font-mono tabular-nums">1,500</span>
               </div>
             </div>
           </div>
           <!-- 合計金額 -->
           <div class="flex gap-2 h-5 items-center">
-            <span class="text-sm font-semibold leading-5 text-[#101016]">合計金額</span>
-            <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-            <span class="text-sm font-semibold leading-5 text-[#101016] font-mono tabular-nums">3,500</span>
+            <span class="text-sm font-semibold leading-5 text-base-content">合計金額</span>
+            <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+            <span class="text-sm font-semibold leading-5 text-base-content font-mono tabular-nums">3,500</span>
           </div>
         </div>
         <!-- Checkbox -->
         <div class="flex gap-2 items-center cursor-pointer group" x-data="{ checked: false }" @click="checked = !checked">
           <div class="relative shrink-0 size-4 rounded"
-            :class="checked ? 'bg-[#0a0ac2]' : 'bg-white shadow-[inset_0_0_0_1px_rgba(16,16,22,0.2)] group-hover:shadow-[inset_0_0_0_2px_#0a0ac2]'">
+            :class="checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
             <svg x-show="checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
           </div>
-          <span class="text-xs leading-4 text-[#101016]">合計金額を見積書に表示</span>
+          <span class="text-xs leading-4 text-base-content">合計金額を見積書に表示</span>
         </div>
       </div>
     </div>
@@ -103,14 +104,14 @@
       <div class="flex flex-col gap-3 w-[240px]">
         <div class="flex flex-col gap-2">
           <div class="flex gap-2 h-5 items-center">
-            <span class="text-sm leading-5 text-[#101016]">小計</span>
-            <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-            <span class="text-sm leading-5 text-[#101016] font-mono tabular-nums">3,000</span>
+            <span class="text-sm leading-5 text-base-content">小計</span>
+            <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+            <span class="text-sm leading-5 text-base-content font-mono tabular-nums">3,000</span>
           </div>
           <div class="flex gap-2 h-5 items-center">
-            <span class="text-sm font-semibold leading-5 text-[#101016]">合計金額</span>
-            <div class="flex-1 min-w-0 h-px bg-[rgba(16,16,22,0.05)]"></div>
-            <span class="text-sm font-semibold leading-5 text-[#101016] font-mono tabular-nums">3,000</span>
+            <span class="text-sm font-semibold leading-5 text-base-content">合計金額</span>
+            <div class="flex-1 min-w-0 h-px bg-base-content/5"></div>
+            <span class="text-sm font-semibold leading-5 text-base-content font-mono tabular-nums">3,000</span>
           </div>
         </div>
       </div>
