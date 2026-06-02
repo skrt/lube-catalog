@@ -33,7 +33,6 @@
 
     <!-- Demo -->
     <div id="demo-section" x-data="{ current: 2, total: 10, get pages() { const s = Math.max(1, this.current - 2); const e = Math.min(this.total, s + 4); return Array.from({length: e - Math.max(1, e - 4) + 1}, (_, i) => Math.max(1, e - 4) + i); } }">
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Demo</p>
       <p class="text-sm text-gray-500 mb-4">ページ番号をクリックで切り替え（全10ページ）</p>
       <div class="flex gap-2 items-center">
         <!-- 前へ -->
