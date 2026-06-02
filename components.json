@@ -410,6 +410,46 @@
       ]
     },
     {
+      "id": "image",
+      "name": "Image",
+      "description": "画像サムネイル",
+      "category": "data-display",
+      "preview": "previews/image.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3892-3499",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "lg",
+          "values": ["sm", "md", "lg"],
+          "description": "sm=108px, md=220px, lg=720px"
+        },
+        {
+          "name": "Image",
+          "type": "boolean",
+          "default": "true",
+          "description": "true=実画像、false=NO IMAGEプレースホルダー"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Size",
+          "items": [
+            { "variant": "sm", "tokens": { "size": "size-[108px]", "icon": "w-4 (16px)", "text": "text-xs" } },
+            { "variant": "md", "tokens": { "size": "size-[220px]", "icon": "w-5 (20px)", "text": "text-sm" } },
+            { "variant": "lg", "tokens": { "size": "size-[720px]", "icon": "w-6 (24px)", "text": "text-base" } }
+          ]
+        },
+        {
+          "category": "Style",
+          "items": [
+            { "variant": "Image", "tokens": { "shape": "rounded-lg", "fit": "object-cover" } },
+            { "variant": "Placeholder", "tokens": { "background": "bg-base-200", "shape": "rounded-lg", "icon-color": "text-base-content/30", "text-color": "text-base-content/30" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "badge",
       "name": "Badge",
       "description": "ステータス表示用やタグ件数表示用として使用",
