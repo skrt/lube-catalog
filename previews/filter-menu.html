@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          DEFAULT: '#0a0ac2',
+          hover: '#080892',
+          content: '#f3f4fe',
+        },
+        'secondary': {
+          DEFAULT: '#e8e8fd',
+          hover: '#e0e0f5',
+          content: '#0a0ac2',
+        },
+        'base-content': 'rgb(16 16 22 / <alpha-value>)',
+        'base-200': '#f8f8fa',
+        'base-300': '#eeeef2',
+        'error': {
+          DEFAULT: '#c94043',
+          hover: '#b7393c',
+          content: '#fff5f5',
+          'bg': '#f7e2e3',
+        },
+        'success': {
+          DEFAULT: '#479d72',
+          content: '#f5fef9',
+          'bg': '#e3f0ea',
+        },
+        'warning': {
+          DEFAULT: '#de781f',
+          content: '#fffcf8',
+          'bg': '#faebdd',
+        },
+        'info': {
+          DEFAULT: '#535671',
+          content: '#f2f4ff',
+          'bg': '#e5e6ea',
+        },
+      },
+      borderRadius: {
+        'sm': '4px',
+      },
+      boxShadow: {
+        'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
+        'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
+        'border-base-content-20': 'inset 0 0 0 1px rgba(16, 16, 22, 0.2)',
+        'border-2-base-content-10': 'inset 0 0 0 2px rgba(16, 16, 22, 0.1)',
+        'border-2-base-content-20': 'inset 0 0 0 2px rgba(16, 16, 22, 0.2)',
+        'border-primary': 'inset 0 0 0 1px #0a0ac2',
+        'border-2-primary': 'inset 0 0 0 2px #0a0ac2',
+        'border-error': 'inset 0 0 0 1px #c94043',
+        'border-2-error': 'inset 0 0 0 2px #c94043',
+      },
+    },
+  },
+};
+</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    FilterMenu: 縦型フィルターパネル。ヘッダー＋セクション別Checkbox項目
+      Container: bg-base-200, rounded-lg (8px), p-4 (16px), w-[224px], gap-4 (16px)
+      Header: flex justify-between items-center
+        Title: gap-2, filter icon 16px + text-base semibold text-base-content
+        Toggle: IconButton Tertiary (bg-base-200, border base-content/5, rounded-md, p-2, icon 16px)
+      Section: gap-3 (12px)
+        Section title: text-sm, text-base-content/30
+        Checkbox items: md (20px box), gap-2, label text-sm text-base-content
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Default -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <div class="bg-base-200 flex flex-col gap-4 p-4 rounded-lg w-[224px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="filter" class="w-4 h-4 text-base-content"></i>
+            <span class="text-base font-semibold leading-6 text-base-content">フィルター</span>
+          </div>
+          <button class="bg-base-200 shadow-border-base-content-5 flex items-center justify-center p-2 rounded-md">
+            <i data-lucide="list-collapse" class="w-4 h-4 text-base-content"></i>
+          </button>
+        </div>
+        <!-- カテゴリー -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm leading-5 text-base-content/30">カテゴリー</span>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-primary relative shrink-0"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <span class="text-sm leading-5 text-base-content">ダンボール (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">軟包材 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">化粧箱 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">紙袋 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">その他 (10)</span>
+          </label>
+        </div>
+        <!-- サプライヤー -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm leading-5 text-base-content/30">サプライヤー</span>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">株式会社ツムギパック (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">コマチ印刷株式会社 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">株式会社ソラト紙器 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">株式会社ナナホシ資材 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">クヌギ紙器株式会社 (10)</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
+            <span class="text-sm leading-5 text-base-content">株式会社シオン資材 (10)</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo -->
+    <!-- demo-skip: Default -->
+    <div id="demo-section" x-data="{
+      categories: [
+        { label: 'ダンボール', count: 10, checked: true },
+        { label: '軟包材', count: 10, checked: false },
+        { label: '化粧箱', count: 10, checked: false },
+        { label: '紙袋', count: 10, checked: false },
+        { label: 'その他', count: 10, checked: false }
+      ],
+      suppliers: [
+        { label: '株式会社ツムギパック', count: 10, checked: false },
+        { label: 'コマチ印刷株式会社', count: 10, checked: false },
+        { label: '株式会社ソラト紙器', count: 10, checked: false },
+        { label: '株式会社ナナホシ資材', count: 10, checked: false },
+        { label: 'クヌギ紙器株式会社', count: 10, checked: false },
+        { label: '株式会社シオン資材', count: 10, checked: false }
+      ]
+    }">
+      <div class="bg-base-200 flex flex-col gap-4 p-4 rounded-lg w-[224px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="filter" class="w-4 h-4 text-base-content"></i>
+            <span class="text-base font-semibold leading-6 text-base-content">フィルター</span>
+          </div>
+          <button class="bg-base-200 shadow-border-base-content-5 flex items-center justify-center p-2 rounded-md">
+            <i data-lucide="list-collapse" class="w-4 h-4 text-base-content"></i>
+          </button>
+        </div>
+        <!-- カテゴリー -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm leading-5 text-base-content/30">カテゴリー</span>
+          <template x-for="(item, i) in categories" :key="i">
+            <label class="flex items-center gap-2 cursor-pointer group" @click.prevent="item.checked = !item.checked">
+              <div class="size-5 rounded-sm relative shrink-0" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
+                <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              </div>
+              <span class="text-sm leading-5 text-base-content" x-text="item.label + ' (' + item.count + ')'"></span>
+            </label>
+          </template>
+        </div>
+        <!-- サプライヤー -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm leading-5 text-base-content/30">サプライヤー</span>
+          <template x-for="(item, i) in suppliers" :key="i">
+            <label class="flex items-center gap-2 cursor-pointer group" @click.prevent="item.checked = !item.checked">
+              <div class="size-5 rounded-sm relative shrink-0" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
+                <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              </div>
+              <span class="text-sm leading-5 text-base-content" x-text="item.label + ' (' + item.count + ')'"></span>
+            </label>
+          </template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

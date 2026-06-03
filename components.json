@@ -1248,6 +1248,46 @@
       ]
     },
     {
+      "id": "filter-menu",
+      "name": "FilterMenu",
+      "hasDemo": true,
+      "description": "縦型フィルターパネル。セクション別Checkbox項目で絞り込み",
+      "category": "navigation",
+      "preview": "previews/filter-menu.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3891-3340",
+      "props": [
+        {
+          "name": "sections",
+          "type": "string",
+          "default": "カテゴリー, サプライヤー",
+          "description": "フィルターセクション（Checkbox グループ）"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "width": "w-[224px]", "background": "bg-base-200", "padding": "p-4 (16px)", "radius": "rounded-lg (8px)", "gap": "gap-4 (16px)" } }
+          ]
+        },
+        {
+          "category": "Header",
+          "items": [
+            { "variant": "title", "tokens": { "icon": "filter (16px)", "font": "text-base semibold", "color": "text-base-content", "gap": "gap-2 (8px)" } },
+            { "variant": "toggle", "tokens": { "icon": "list-collapse (16px)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md", "padding": "p-2" } }
+          ]
+        },
+        {
+          "category": "Section",
+          "items": [
+            { "variant": "title", "tokens": { "font": "text-sm", "color": "text-base-content/30" } },
+            { "variant": "gap", "tokens": { "between-items": "gap-3 (12px)" } },
+            { "variant": "checkbox", "tokens": { "size": "md (20px)", "label-font": "text-sm", "label-color": "text-base-content", "gap": "gap-2 (8px)" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "breadcrumbs",
       "name": "Breadcrumbs",
       "description": "パンくずナビゲーション",
