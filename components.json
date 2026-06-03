@@ -1248,6 +1248,45 @@
       ]
     },
     {
+      "id": "document",
+      "name": "Document",
+      "description": "帳票テンプレート。QuoteTable/Calc/Place等の組み合わせ",
+      "category": "layout",
+      "preview": "previews/document.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3907-4091",
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "width": "w-[768px] (A4縦)", "background": "bg-white", "border": "border base-content/5", "radius": "rounded-lg", "padding": "p-6 (24px)", "gap": "gap-3 (12px)" } }
+          ]
+        },
+        {
+          "category": "Title",
+          "items": [
+            { "variant": "title", "tokens": { "font": "text-xl semibold", "color": "text-base-content" } },
+            { "variant": "meta", "tokens": { "font": "text-xs", "color": "text-base-content", "gap": "gap-4" } }
+          ]
+        },
+        {
+          "category": "Document Header",
+          "items": [
+            { "variant": "recipient", "tokens": { "font": "text-base semibold", "flex": "flex-1" } },
+            { "variant": "sender", "tokens": { "width": "w-60 (240px)", "name-font": "text-sm semibold", "detail-font": "text-xs text-base-content/60" } },
+            { "variant": "seal", "tokens": { "size": "60×60px", "shape": "rounded-full border base-content/10" } }
+          ]
+        },
+        {
+          "category": "Composition",
+          "items": [
+            { "variant": "明細表", "tokens": { "component": "QuoteTable (品名flex-1, 数量/単価/金額 各w-20)" } },
+            { "variant": "合計ブロック", "tokens": { "layout": "flex gap-14, 備考(flex-1) + Calc(w-60)" } },
+            { "variant": "備考", "tokens": { "label": "text-xs text-base-content/60", "body": "text-xs text-base-content" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "table",
       "name": "Table",
       "description": "一覧テーブル。Header + Cell + スクロールバー付きコンテナ",
