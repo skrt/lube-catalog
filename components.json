@@ -1248,6 +1248,50 @@
       ]
     },
     {
+      "id": "card",
+      "name": "Card",
+      "description": "並び替え・削除できる操作カード。中身は自由スロット",
+      "category": "data-display",
+      "preview": "previews/card.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3885-2893",
+      "props": [
+        {
+          "name": "Show Handle",
+          "type": "boolean",
+          "default": "true",
+          "description": "ドラッグハンドルの表示"
+        },
+        {
+          "name": "Show Delete",
+          "type": "boolean",
+          "default": "true",
+          "description": "削除ボタンの表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "width": "w-[400px]", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md (6px)", "padding": "p-4 (16px)", "gap": "gap-2 (8px)" } }
+          ]
+        },
+        {
+          "category": "Header",
+          "items": [
+            { "variant": "handle", "tokens": { "icon": "grip-vertical (14px)", "color": "text-base-content" } },
+            { "variant": "title", "tokens": { "font": "text-sm semibold", "color": "text-base-content" } },
+            { "variant": "delete", "tokens": { "type": "IconButton sm", "icon": "trash-2 (12px)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md" } }
+          ]
+        },
+        {
+          "category": "Contents",
+          "items": [
+            { "variant": "gap", "tokens": { "between-fields": "gap-4 (16px)" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "footer",
       "name": "Footer",
       "hasDemo": true, "demoBgWhite": true,
