@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          DEFAULT: '#0a0ac2',
+          hover: '#080892',
+          content: '#f3f4fe',
+        },
+        'secondary': {
+          DEFAULT: '#e8e8fd',
+          hover: '#e0e0f5',
+          content: '#0a0ac2',
+        },
+        'base-content': 'rgb(16 16 22 / <alpha-value>)',
+        'base-200': '#f8f8fa',
+        'base-300': '#eeeef2',
+        'error': {
+          DEFAULT: '#c94043',
+          hover: '#b7393c',
+          content: '#fff5f5',
+          'bg': '#f7e2e3',
+        },
+        'success': {
+          DEFAULT: '#479d72',
+          content: '#f5fef9',
+          'bg': '#e3f0ea',
+        },
+        'warning': {
+          DEFAULT: '#de781f',
+          content: '#fffcf8',
+          'bg': '#faebdd',
+        },
+        'info': {
+          DEFAULT: '#535671',
+          content: '#f2f4ff',
+          'bg': '#e5e6ea',
+        },
+      },
+      borderRadius: {
+        'sm': '4px',
+      },
+      boxShadow: {
+        'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
+        'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
+        'border-base-content-20': 'inset 0 0 0 1px rgba(16, 16, 22, 0.2)',
+        'border-2-base-content-10': 'inset 0 0 0 2px rgba(16, 16, 22, 0.1)',
+        'border-2-base-content-20': 'inset 0 0 0 2px rgba(16, 16, 22, 0.2)',
+        'border-primary': 'inset 0 0 0 1px #0a0ac2',
+        'border-2-primary': 'inset 0 0 0 2px #0a0ac2',
+        'border-error': 'inset 0 0 0 1px #c94043',
+        'border-2-error': 'inset 0 0 0 2px #c94043',
+      },
+    },
+  },
+};
+</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    PriceTable Preview: 見積明細表のフル版。品名（rowspan）＋数量/単価/金額の階層構造
+      Header row: bg-base-200, text-2xs (11px), text-base-content/60
+        品名 cell: flex-1, px-2 py-1, left-aligned
+        Number header cells: w-[160px], px-2 py-1, right-aligned
+      Name cell (PriceTable / Name):
+        品名: text-xs (12px), text-base-content, px-2 py-2, border-b base-content/10
+        Detail block: pl-1, border-l-2 base-content/10, pl-1.5
+          Labels: text-2xs (11px), text-base-content/60
+          Values: text-2xs (11px), text-base-content
+          gap between label/value columns: gap-2 (8px)
+      Number cell: w-[160px], px-2 py-1.5, border-b base-content/10, text-2xs mono tabular-nums, right-aligned
+      Last group bottom row: no border-b (border-0)
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Default -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <div class="flex flex-col w-full">
+        <!-- Header Row -->
+        <div class="bg-base-200 flex items-center">
+          <div class="flex-1 min-w-0 px-2 py-1">
+            <span class="text-[11px] leading-4 text-base-content/60">品名</span>
+          </div>
+          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-[11px] leading-4 text-base-content/60">数量</span>
+          </div>
+          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-[11px] leading-4 text-base-content/60">仕入単価</span>
+          </div>
+          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-[11px] leading-4 text-base-content/60">顧客単価</span>
+          </div>
+          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-[11px] leading-4 text-base-content/60">金額(税抜)</span>
+          </div>
+        </div>
+
+        <!-- Group: 60サイズブランドボックス (with details) -->
+        <div class="flex items-start">
+          <!-- Name cell -->
+          <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 border-b border-base-content/10 self-stretch">
+            <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
+            <div class="flex gap-2 pl-1">
+              <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col">
+                <span class="text-[11px] leading-4 text-base-content/60">サプライヤー</span>
+                <span class="text-[11px] leading-4 text-base-content/60">サイズ</span>
+                <span class="text-[11px] leading-4 text-base-content/60">形状</span>
+                <span class="text-[11px] leading-4 text-base-content/60">構成</span>
+                <span class="text-[11px] leading-4 text-base-content/60">段厚</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-[11px] leading-4 text-base-content">ツムギパック株式会社</span>
+                <span class="text-[11px] leading-4 text-base-content">組立外寸 W310×D230×H280mm</span>
+                <span class="text-[11px] leading-4 text-base-content">A式</span>
+                <span class="text-[11px] leading-4 text-base-content">C5/120/C5</span>
+                <span class="text-[11px] leading-4 text-base-content">EF</span>
+              </div>
+            </div>
+          </div>
+          <!-- Number columns -->
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">4,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">5,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">4,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">5,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">19</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">9,000,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
+          </div>
+        </div>
+
+        <!-- Group: ネコポス大サイズ (no details) -->
+        <div class="flex items-start">
+          <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 border-b border-base-content/10 self-stretch">
+            <p class="text-xs leading-4 text-base-content">ネコポス大サイズ</p>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">100</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">100</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
+          </div>
+        </div>
+
+        <!-- Group: ゆうパケットパフ (no details, 2 rows) -->
+        <div class="flex items-start">
+          <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 border-b border-base-content/10 self-stretch">
+            <p class="text-xs leading-4 text-base-content">ゆうパケットパフ</p>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">500</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">500</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">320</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">300</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">320</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">300</span></div>
+          </div>
+        </div>
+
+        <!-- Group: ショッパー (last group, no border-b on last row) -->
+        <div class="flex items-start">
+          <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 self-stretch">
+            <p class="text-xs leading-4 text-base-content">ショッパー</p>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10,000</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20,000</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">9</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10</span></div>
+          </div>
+          <div class="w-[160px] shrink-0 flex flex-col">
+            <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">9</span></div>
+            <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

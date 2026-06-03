@@ -883,6 +883,46 @@
       ]
     },
     {
+      "id": "quote-table",
+      "name": "QuoteTable",
+      "description": "見積明細表。複数アイテムの品名＋数量/単価/金額を一覧表示",
+      "category": "data-display",
+      "preview": "previews/quote-table.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3791-8997",
+      "props": [
+        {
+          "name": "Show Detail",
+          "type": "boolean",
+          "default": "true",
+          "description": "品名セルの詳細ブロック（サプライヤー/サイズ/形状/構成/段厚）表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Header",
+          "items": [
+            { "variant": "row", "tokens": { "background": "bg-base-200" } },
+            { "variant": "品名 cell", "tokens": { "flex": "flex-1", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "left" } },
+            { "variant": "number header", "tokens": { "width": "w-[160px]", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } }
+          ]
+        },
+        {
+          "category": "Name Cell",
+          "items": [
+            { "variant": "品名", "tokens": { "font": "text-xs (12px)", "color": "text-base-content", "padding": "p-2", "border-bottom": "border base-content/10" } },
+            { "variant": "detail label", "tokens": { "font": "text-2xs (11px)", "color": "text-base-content/60", "border-left": "border-l-2 base-content/10", "padding-left": "pl-1.5" } },
+            { "variant": "detail value", "tokens": { "font": "text-2xs (11px)", "color": "text-base-content" } }
+          ]
+        },
+        {
+          "category": "Number Cell",
+          "items": [
+            { "variant": "all", "tokens": { "width": "w-[160px]", "padding": "px-2 py-1.5", "border-bottom": "border base-content/10", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "calc",
       "name": "Calc",
       "description": "金額計算UI",
