@@ -108,23 +108,23 @@ tailwind.config = {
           <span class="text-sm leading-5 text-base-content/30">カテゴリー</span>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-primary relative shrink-0"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
-            <span class="text-sm leading-5 text-base-content">ダンボール (10)</span>
+            <span class="text-sm leading-5 text-base-content">ダンボール</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">軟包材 (10)</span>
+            <span class="text-sm leading-5 text-base-content">軟包材</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">化粧箱 (10)</span>
+            <span class="text-sm leading-5 text-base-content">化粧箱</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">紙袋 (10)</span>
+            <span class="text-sm leading-5 text-base-content">紙袋</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">その他 (10)</span>
+            <span class="text-sm leading-5 text-base-content">その他</span>
           </label>
         </div>
         <!-- サプライヤー -->
@@ -132,49 +132,74 @@ tailwind.config = {
           <span class="text-sm leading-5 text-base-content/30">サプライヤー</span>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">株式会社ツムギパック (10)</span>
+            <span class="text-sm leading-5 text-base-content">株式会社ツムギパック</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">コマチ印刷株式会社 (10)</span>
+            <span class="text-sm leading-5 text-base-content">コマチ印刷株式会社</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">株式会社ソラト紙器 (10)</span>
+            <span class="text-sm leading-5 text-base-content">株式会社ソラト紙器</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">株式会社ナナホシ資材 (10)</span>
+            <span class="text-sm leading-5 text-base-content">株式会社ナナホシ資材</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">クヌギ紙器株式会社 (10)</span>
+            <span class="text-sm leading-5 text-base-content">クヌギ紙器株式会社</span>
           </label>
           <label class="flex items-center gap-2">
             <div class="size-5 rounded-sm bg-white shadow-border-base-content-20 shrink-0"></div>
-            <span class="text-sm leading-5 text-base-content">株式会社シオン資材 (10)</span>
+            <span class="text-sm leading-5 text-base-content">株式会社シオン資材</span>
           </label>
         </div>
       </div>
     </div>
 
+    <!-- Empty -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Empty</p>
+      <div class="bg-base-200 flex flex-col gap-4 p-4 rounded-lg w-[224px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="filter" class="w-4 h-4 text-base-content"></i>
+            <span class="text-base font-semibold leading-6 text-base-content">フィルター</span>
+          </div>
+          <button class="bg-base-200 shadow-border-base-content-5 flex items-center justify-center p-2 rounded-md">
+            <i data-lucide="list-collapse" class="w-4 h-4 text-base-content"></i>
+          </button>
+        </div>
+        <!-- カテゴリー (empty) -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm leading-5 text-base-content/30">カテゴリー</span>
+        </div>
+        <!-- サプライヤー (empty) -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm leading-5 text-base-content/30">サプライヤー</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Demo -->
-    <!-- demo-skip: Default -->
+    <!-- demo-skip: Default Empty -->
     <div id="demo-section" x-data="{
       categories: [
-        { label: 'ダンボール', count: 10, checked: true },
-        { label: '軟包材', count: 10, checked: false },
-        { label: '化粧箱', count: 10, checked: false },
-        { label: '紙袋', count: 10, checked: false },
-        { label: 'その他', count: 10, checked: false }
+        { label: 'ダンボール', checked: true },
+        { label: '軟包材', checked: false },
+        { label: '化粧箱', checked: false },
+        { label: '紙袋', checked: false },
+        { label: 'その他', checked: false }
       ],
       suppliers: [
-        { label: '株式会社ツムギパック', count: 10, checked: false },
-        { label: 'コマチ印刷株式会社', count: 10, checked: false },
-        { label: '株式会社ソラト紙器', count: 10, checked: false },
-        { label: '株式会社ナナホシ資材', count: 10, checked: false },
-        { label: 'クヌギ紙器株式会社', count: 10, checked: false },
-        { label: '株式会社シオン資材', count: 10, checked: false }
+        { label: '株式会社ツムギパック', checked: false },
+        { label: 'コマチ印刷株式会社', checked: false },
+        { label: '株式会社ソラト紙器', checked: false },
+        { label: '株式会社ナナホシ資材', checked: false },
+        { label: 'クヌギ紙器株式会社', checked: false },
+        { label: '株式会社シオン資材', checked: false }
       ]
     }">
       <div class="bg-base-200 flex flex-col gap-4 p-4 rounded-lg w-[224px]">
@@ -196,7 +221,7 @@ tailwind.config = {
               <div class="size-5 rounded-sm relative shrink-0" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
                 <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
               </div>
-              <span class="text-sm leading-5 text-base-content" x-text="item.label + ' (' + item.count + ')'"></span>
+              <span class="text-sm leading-5 text-base-content" x-text="item.label"></span>
             </label>
           </template>
         </div>
@@ -208,7 +233,7 @@ tailwind.config = {
               <div class="size-5 rounded-sm relative shrink-0" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
                 <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
               </div>
-              <span class="text-sm leading-5 text-base-content" x-text="item.label + ' (' + item.count + ')'"></span>
+              <span class="text-sm leading-5 text-base-content" x-text="item.label"></span>
             </label>
           </template>
         </div>

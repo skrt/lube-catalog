@@ -1250,7 +1250,7 @@
     {
       "id": "filter-menu",
       "name": "FilterMenu",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "縦型フィルターパネル。セクション別Checkbox項目で絞り込み",
       "category": "navigation",
       "preview": "previews/filter-menu.html",
