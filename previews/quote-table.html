@@ -79,14 +79,14 @@ tailwind.config = {
     PriceTable Preview: 見積明細表のフル版。品名（rowspan）＋数量/単価/金額の階層構造
       Header row: bg-base-200, text-2xs (11px), text-base-content/60
         品名 cell: flex-1, px-2 py-1, left-aligned
-        Number header cells: w-[160px], px-2 py-1, right-aligned
+        Number header cells: w-40, px-2 py-1, right-aligned
       Name cell (PriceTable / Name):
         品名: text-xs (12px), text-base-content, px-2 py-2, border-b base-content/10
         Detail block: pl-1, border-l-2 base-content/10, pl-1.5
           Labels: text-2xs (11px), text-base-content/60
           Values: text-2xs (11px), text-base-content
           gap between label/value columns: gap-2 (8px)
-      Number cell: w-[160px], px-2 py-1.5, border-b base-content/10, text-2xs mono tabular-nums, right-aligned
+      Number cell: w-40, px-2 py-1.5, border-b base-content/10, text-2xs mono tabular-nums, right-aligned
       Last group bottom row: no border-b (border-0)
   -->
 
@@ -101,16 +101,16 @@ tailwind.config = {
           <div class="flex-1 min-w-0 px-2 py-1">
             <span class="text-[11px] leading-4 text-base-content/60">品名</span>
           </div>
-          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
             <span class="text-[11px] leading-4 text-base-content/60">数量</span>
           </div>
-          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
             <span class="text-[11px] leading-4 text-base-content/60">仕入単価</span>
           </div>
-          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
             <span class="text-[11px] leading-4 text-base-content/60">顧客単価</span>
           </div>
-          <div class="w-[160px] shrink-0 flex items-center justify-end px-2 py-1">
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
             <span class="text-[11px] leading-4 text-base-content/60">金額(税抜)</span>
           </div>
         </div>
@@ -138,28 +138,28 @@ tailwind.config = {
             </div>
           </div>
           <!-- Number columns -->
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">4,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">5,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">4,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">5,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">19</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">9,000,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">18</span></div>
@@ -173,22 +173,22 @@ tailwind.config = {
           <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 border-b border-base-content/10 self-stretch">
             <p class="text-xs leading-4 text-base-content">ネコポス大サイズ</p>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">3,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">100</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">100</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">98</span></div>
@@ -200,19 +200,19 @@ tailwind.config = {
           <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 border-b border-base-content/10 self-stretch">
             <p class="text-xs leading-4 text-base-content">ゆうパケットパフ</p>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">500</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">500</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">320</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">300</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">320</span></div>
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">300</span></div>
           </div>
@@ -223,19 +223,19 @@ tailwind.config = {
           <div class="flex-1 min-w-0 flex flex-col gap-1 justify-center p-2 self-stretch">
             <p class="text-xs leading-4 text-base-content">ショッパー</p>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10,000</span></div>
             <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">20,000</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">9</span></div>
             <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10</span></div>
           </div>
-          <div class="w-[160px] shrink-0 flex flex-col">
+          <div class="w-40 shrink-0 flex flex-col">
             <div class="flex items-center justify-end px-2 py-1.5 border-b border-base-content/10"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">9</span></div>
             <div class="flex items-center justify-end px-2 py-1.5"><span class="text-[11px] leading-4 text-base-content font-mono tabular-nums">10</span></div>
           </div>

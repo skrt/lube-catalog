@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          DEFAULT: '#0a0ac2',
+          hover: '#080892',
+          content: '#f3f4fe',
+        },
+        'secondary': {
+          DEFAULT: '#e8e8fd',
+          hover: '#e0e0f5',
+          content: '#0a0ac2',
+        },
+        'base-content': 'rgb(16 16 22 / <alpha-value>)',
+        'base-200': '#f8f8fa',
+        'base-300': '#eeeef2',
+        'error': {
+          DEFAULT: '#c94043',
+          hover: '#b7393c',
+          content: '#fff5f5',
+          'bg': '#f7e2e3',
+        },
+        'success': {
+          DEFAULT: '#479d72',
+          content: '#f5fef9',
+          'bg': '#e3f0ea',
+        },
+        'warning': {
+          DEFAULT: '#de781f',
+          content: '#fffcf8',
+          'bg': '#faebdd',
+        },
+        'info': {
+          DEFAULT: '#535671',
+          content: '#f2f4ff',
+          'bg': '#e5e6ea',
+        },
+      },
+      borderRadius: {
+        'sm': '4px',
+      },
+      boxShadow: {
+        'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
+        'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
+        'border-base-content-20': 'inset 0 0 0 1px rgba(16, 16, 22, 0.2)',
+        'border-2-base-content-10': 'inset 0 0 0 2px rgba(16, 16, 22, 0.1)',
+        'border-2-base-content-20': 'inset 0 0 0 2px rgba(16, 16, 22, 0.2)',
+        'border-primary': 'inset 0 0 0 1px #0a0ac2',
+        'border-2-primary': 'inset 0 0 0 2px #0a0ac2',
+        'border-error': 'inset 0 0 0 1px #c94043',
+        'border-2-error': 'inset 0 0 0 2px #c94043',
+      },
+    },
+  },
+};
+</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Footer: 画面下部固定のアクションバー。コンテンツの上に重なる
+      Container: bg-base-100 (white), border-t base-content/10, px-6 (24px) py-4 (16px), fixed bottom
+      Back Button (optional): Tertiary md (bg-base-200, border base-content/5, rounded-md, px-3 py-2, text-xs semibold)
+        icon: chevron-left 14px
+      Spacer: flex-1
+      CTA group: gap-2 (8px), right-aligned
+        Sub CTA: Tertiary md, w-48, icon left (save 14px)
+        Main CTA: Primary md, w-48, icon left (send 14px)
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Default (no back button) -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <div class="bg-white border-t border-base-content/10 flex gap-2 items-center px-6 py-4">
+        <div class="flex-1"></div>
+        <div class="flex gap-2 items-start shrink-0">
+          <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 text-xs font-semibold leading-4 text-base-content w-48 hover:bg-base-300 transition-colors">
+            <i data-lucide="save" class="w-3.5 h-3.5"></i>
+            サブCTA
+          </button>
+          <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-primary border border-base-content/5 text-xs font-semibold leading-4 text-primary-content w-48 hover:bg-primary-hover transition-colors">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            メインCTA
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- With Back Button -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Back Button</p>
+      <div class="bg-white border-t border-base-content/10 flex gap-2 items-center px-6 py-4">
+        <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 text-xs font-semibold leading-4 text-base-content hover:bg-base-300 transition-colors shrink-0">
+          <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+          戻る
+        </button>
+        <div class="flex-1"></div>
+        <div class="flex gap-2 items-start shrink-0">
+          <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 text-xs font-semibold leading-4 text-base-content w-48 hover:bg-base-300 transition-colors">
+            <i data-lucide="save" class="w-3.5 h-3.5"></i>
+            サブCTA
+          </button>
+          <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-primary border border-base-content/5 text-xs font-semibold leading-4 text-primary-content w-48 hover:bg-primary-hover transition-colors">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            メインCTA
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo -->
+    <!-- demo-skip: Default Back Button -->
+    <div id="demo-section" x-data="{ showBack: true }">
+      <div class="flex flex-col min-h-80">
+        <!-- Content area -->
+        <div class="flex-1 space-y-4 p-4">
+          <label class="flex items-center gap-2 cursor-pointer group" @click.prevent="showBack = !showBack">
+            <div class="size-5 rounded-sm relative shrink-0" :class="showBack ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
+              <svg x-show="showBack" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <span class="text-sm leading-5 text-base-content">戻るボタンを表示</span>
+          </label>
+          <div class="space-y-3">
+            <template x-for="i in 4" :key="i">
+              <div class="h-10 bg-base-200 rounded-lg"></div>
+            </template>
+          </div>
+        </div>
+        <!-- Sticky Footer -->
+        <div class="sticky bottom-0 bg-white border-t border-base-content/10 flex gap-2 items-center px-6 py-4">
+          <button x-show="showBack" class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 text-xs font-semibold leading-4 text-base-content hover:bg-base-300 transition-colors shrink-0">
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+            戻る
+          </button>
+          <div class="flex-1"></div>
+          <div class="flex gap-2 items-start shrink-0">
+            <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 text-xs font-semibold leading-4 text-base-content w-48 hover:bg-base-300 transition-colors">
+              <i data-lucide="save" class="w-3.5 h-3.5"></i>
+              サブCTA
+            </button>
+            <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-primary border border-base-content/5 text-xs font-semibold leading-4 text-primary-content w-48 hover:bg-primary-hover transition-colors">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              メインCTA
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

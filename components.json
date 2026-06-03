@@ -288,7 +288,7 @@
     {
       "id": "file-input",
       "name": "FileInput",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "ファイル添付フォーム",
       "category": "forms",
       "preview": "previews/file-input.html",
@@ -319,7 +319,7 @@
     {
       "id": "select",
       "name": "Select",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "プルダウン型の選択フォーム",
       "category": "forms",
       "preview": "previews/select.html",
@@ -393,7 +393,7 @@
     {
       "id": "combobox",
       "name": "ComboBox",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "検索付きの選択フォーム",
       "category": "forms",
       "preview": "previews/combobox.html",
@@ -608,7 +608,7 @@
     {
       "id": "toast",
       "name": "Toast",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "一時的なフィードバック通知",
       "category": "feedback",
       "preview": "previews/toast.html",
@@ -668,7 +668,7 @@
     {
       "id": "tooltip",
       "name": "Tooltip",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "ホバー時に表示する吹き出し",
       "category": "feedback",
       "preview": "previews/tooltip.html",
@@ -720,7 +720,7 @@
     {
       "id": "modal",
       "name": "Modal",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "スクリーン＋中央ダイアログのフルスクリーンモーダル",
       "category": "feedback",
       "preview": "previews/modal.html",
@@ -789,7 +789,7 @@
     {
       "id": "date-picker",
       "name": "DatePicker",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "日付選択フォーム",
       "category": "forms",
       "preview": "previews/date-picker.html",
@@ -903,7 +903,7 @@
           "items": [
             { "variant": "row", "tokens": { "background": "bg-base-200" } },
             { "variant": "品名 cell", "tokens": { "flex": "flex-1", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "left" } },
-            { "variant": "number header", "tokens": { "width": "w-[160px]", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } }
+            { "variant": "number header", "tokens": { "width": "w-40 (160px)", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } }
           ]
         },
         {
@@ -917,7 +917,7 @@
         {
           "category": "Number Cell",
           "items": [
-            { "variant": "all", "tokens": { "width": "w-[160px]", "padding": "px-2 py-1.5", "border-bottom": "border base-content/10", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } }
+            { "variant": "all", "tokens": { "width": "w-40 (160px)", "padding": "px-2 py-1.5", "border-bottom": "border base-content/10", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } }
           ]
         }
       ]
@@ -959,7 +959,7 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "container", "tokens": { "width": "w-[240px]", "gap": "gap-3 (12px)" } },
+            { "variant": "container", "tokens": { "width": "w-60 (240px)", "gap": "gap-3 (12px)" } },
             { "variant": "row", "tokens": { "height": "h-5 (20px)", "gap": "gap-2 (8px)", "align": "items-center" } },
             { "variant": "line", "tokens": { "height": "h-px", "color": "bg base-content/5", "flex": "flex-1" } },
             { "variant": "vertical bar", "tokens": { "width": "w-0.5 (2px)", "color": "bg base-content/10" } }
@@ -1075,7 +1075,7 @@
     {
       "id": "radio-group",
       "name": "RadioGroup",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "単一選択の選択肢",
       "category": "forms",
       "preview": "previews/radio-group.html",
@@ -1135,7 +1135,7 @@
     {
       "id": "checkbox",
       "name": "Checkbox",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "複数選択可能な選択肢",
       "category": "forms",
       "preview": "previews/checkbox.html",
@@ -1248,6 +1248,44 @@
       ]
     },
     {
+      "id": "footer",
+      "name": "Footer",
+      "hasDemo": true, "demoBgWhite": true,
+      "description": "画面下部固定のアクションバー。コンテンツの上に重なる",
+      "category": "navigation",
+      "preview": "previews/footer.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3850-5749",
+      "props": [
+        {
+          "name": "Back Button",
+          "type": "boolean",
+          "default": "false",
+          "description": "戻るボタンの表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "position": "fixed bottom-0", "background": "bg-base-100 (white)", "border-top": "border-t base-content/10", "padding": "px-6 py-4", "gap": "gap-2 (8px)", "z-index": "z-50" } }
+          ]
+        },
+        {
+          "category": "Back Button",
+          "items": [
+            { "variant": "style", "tokens": { "type": "Button Tertiary md", "icon": "chevron-left (14px)", "label": "戻る" } }
+          ]
+        },
+        {
+          "category": "CTA",
+          "items": [
+            { "variant": "Sub CTA", "tokens": { "type": "Button Tertiary md", "width": "w-48 (192px)", "icon": "save (14px)" } },
+            { "variant": "Main CTA", "tokens": { "type": "Button Primary md", "width": "w-48 (192px)", "icon": "send (14px)" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "filter-menu",
       "name": "FilterMenu",
       "hasDemo": true, "demoBgWhite": true,
@@ -1267,7 +1305,7 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-[224px]", "background": "bg-base-200", "padding": "p-4 (16px)", "radius": "rounded-lg (8px)", "gap": "gap-4 (16px)" } }
+            { "variant": "layout", "tokens": { "width": "w-56 (224px)", "background": "bg-base-200", "padding": "p-4 (16px)", "radius": "rounded-lg (8px)", "gap": "gap-4 (16px)" } }
           ]
         },
         {
@@ -1430,7 +1468,7 @@
     {
       "id": "date-range-picker",
       "name": "DateRangePicker",
-      "hasDemo": true,
+      "hasDemo": true, "demoBgWhite": true,
       "description": "期間選択フォーム",
       "category": "forms",
       "preview": "previews/date-range-picker.html",

@@ -35,3 +35,5 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - States セクションのトークンは Demo セクションにも反映する（`scripts/check-demo-sync.sh` で検証、pre-commit hook で自動チェック）
 - Disabled 状態のみ Demo 不要。意図的な除外は `<!-- demo-skip: token1 token2 -->` で宣言
 - 既存コンポーネントを内包・利用するプレビューでは、そのコンポーネントの挙動（hover, checked, disabled 等の見た目・インタラクション）を踏襲する。既存プレビューの実装を確認してから組み込むこと
+- Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
+- Demo 付きコンポーネントは `demoBgWhite: true` を設定する（DEMO タグのコントラスト確保）
