@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          DEFAULT: '#0a0ac2',
+          hover: '#080892',
+          content: '#f3f4fe',
+        },
+        'secondary': {
+          DEFAULT: '#e8e8fd',
+          hover: '#e0e0f5',
+          content: '#0a0ac2',
+        },
+        'base-content': 'rgb(16 16 22 / <alpha-value>)',
+        'base-200': '#f8f8fa',
+        'base-300': '#eeeef2',
+        'error': {
+          DEFAULT: '#c94043',
+          hover: '#b7393c',
+          content: '#fff5f5',
+          'bg': '#f7e2e3',
+        },
+        'success': {
+          DEFAULT: '#479d72',
+          content: '#f5fef9',
+          'bg': '#e3f0ea',
+        },
+        'warning': {
+          DEFAULT: '#de781f',
+          content: '#fffcf8',
+          'bg': '#faebdd',
+        },
+        'info': {
+          DEFAULT: '#535671',
+          content: '#f2f4ff',
+          'bg': '#e5e6ea',
+        },
+      },
+      borderRadius: {
+        'sm': '4px',
+      },
+      boxShadow: {
+        'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
+        'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
+        'border-base-content-20': 'inset 0 0 0 1px rgba(16, 16, 22, 0.2)',
+        'border-2-base-content-10': 'inset 0 0 0 2px rgba(16, 16, 22, 0.1)',
+        'border-2-base-content-20': 'inset 0 0 0 2px rgba(16, 16, 22, 0.2)',
+        'border-primary': 'inset 0 0 0 1px #0a0ac2',
+        'border-2-primary': 'inset 0 0 0 2px #0a0ac2',
+        'border-error': 'inset 0 0 0 1px #c94043',
+        'border-2-error': 'inset 0 0 0 2px #c94043',
+      },
+    },
+  },
+};
+</script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Table / Cell: テーブル共通セル
+      Type: Text / Number / LinkText / MultiText / Badge / Button
+      Size: md / sm
+      Common: border-b border-base-content/5
+      md: px-4 py-3.5 (16px 14px)
+      sm: p-3 (12px)
+      Text: flex-1, text-sm (md) / text-xs (sm), text-base-content
+      Number: justify-end, w-40 (160px), font-mono tabular-nums, text-right
+      LinkText: w-40, text-secondary-content (blue)
+      MultiText: w-40, flex-col, multiple lines
+      Badge: Badge component (existing)
+      Button: justify-center, Button Secondary sm
+  -->
+
+  <div class="space-y-10">
+
+    <!-- md -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>md</p>
+      <div class="flex">
+        <!-- Text -->
+        <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 w-40">
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">テキスト</span>
+        </div>
+        <!-- Number -->
+        <div class="border-b border-base-content/5 flex items-center justify-end px-4 py-3.5 w-40">
+          <span class="text-sm leading-5 text-base-content font-mono tabular-nums text-right">10,000</span>
+        </div>
+        <!-- LinkText -->
+        <div class="border-b border-base-content/5 flex items-center gap-1 px-4 py-3.5 w-40">
+          <span class="text-sm leading-5 text-secondary-content">リンクテキスト</span>
+        </div>
+        <!-- MultiText -->
+        <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 w-40">
+          <div class="flex flex-col flex-1 min-w-0 text-sm leading-5 text-base-content">
+            <span>テキスト1</span>
+            <span>テキスト2</span>
+            <span>テキスト3</span>
+          </div>
+        </div>
+        <!-- Badge -->
+        <div class="border-b border-base-content/5 flex items-center px-4 py-3.5">
+          <span class="bg-primary text-primary-content text-xs leading-4 px-2 py-0.5 rounded-full">ラベル</span>
+        </div>
+        <!-- Button -->
+        <div class="border-b border-base-content/5 flex items-center justify-center px-4 py-2">
+          <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content hover:bg-secondary-hover transition-colors">詳細</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- sm -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>sm</p>
+      <div class="flex">
+        <!-- Text -->
+        <div class="border-b border-base-content/5 flex items-center p-3 w-40">
+          <span class="text-xs leading-4 text-base-content flex-1 min-w-0">テキスト</span>
+        </div>
+        <!-- Number -->
+        <div class="border-b border-base-content/5 flex items-center justify-end p-3 w-40">
+          <span class="text-xs leading-4 text-base-content font-mono tabular-nums text-right">10,000</span>
+        </div>
+        <!-- LinkText -->
+        <div class="border-b border-base-content/5 flex items-center gap-1 p-3 w-40">
+          <span class="text-xs leading-4 text-secondary-content">リンクテキスト</span>
+        </div>
+        <!-- MultiText -->
+        <div class="border-b border-base-content/5 flex items-center p-3 w-40">
+          <div class="flex flex-col flex-1 min-w-0 text-xs leading-4 text-base-content">
+            <span>テキスト1</span>
+            <span>テキスト2</span>
+            <span>テキスト3</span>
+          </div>
+        </div>
+        <!-- Badge -->
+        <div class="border-b border-base-content/5 flex items-center p-3">
+          <span class="bg-primary text-primary-content text-xs leading-4 px-1.5 rounded-full">ラベル</span>
+        </div>
+        <!-- Button -->
+        <div class="border-b border-base-content/5 flex items-center justify-center px-3 py-2">
+          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content hover:bg-secondary-hover transition-colors">詳細</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Cell Types (md) -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Header (md)</p>
+      <div class="flex">
+        <div class="bg-base-200 flex items-center px-4 py-3.5 w-40">
+          <span class="text-sm leading-5 text-base-content/60">Default</span>
+        </div>
+        <div class="bg-base-200 flex items-center justify-end px-4 py-3.5 w-40">
+          <span class="text-sm leading-5 text-base-content/60">Number</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Cell Types (sm) -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Header (sm)</p>
+      <div class="flex">
+        <div class="bg-base-200 flex items-center p-3 w-40">
+          <span class="text-xs leading-4 text-base-content/60">Default</span>
+        </div>
+        <div class="bg-base-200 flex items-center justify-end p-3 w-40">
+          <span class="text-xs leading-4 text-base-content/60">Number</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 利用例: デマンド一覧 -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：デマンド一覧</p>
+      <div class="bg-white border border-base-content/5 rounded-md overflow-clip w-full">
+        <div class="flex flex-col">
+          <!-- Header Row -->
+          <div class="bg-base-200 flex items-start">
+            <div class="bg-base-200 flex items-center px-4 py-3.5 shrink-0 w-24"><span class="text-sm leading-5 text-base-content/60">コード</span></div>
+            <div class="bg-base-200 flex items-center px-4 py-3.5 shrink-0 w-72"><span class="text-sm leading-5 text-base-content/60">デマンド名</span></div>
+            <div class="bg-base-200 flex items-center px-4 py-3.5 flex-1 min-w-0"><span class="text-sm leading-5 text-base-content/60">請求書送付先</span></div>
+            <div class="bg-base-200 flex items-center justify-center px-4 py-3.5 shrink-0 w-20"></div>
+          </div>
+          <!-- Body Rows -->
+          <div class="flex">
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 shrink-0 w-24"><span class="text-sm leading-5 text-base-content">KTH</span></div>
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 shrink-0 w-72"><span class="text-sm leading-5 text-base-content">株式会社コトハ商事</span></div>
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 flex-1 min-w-0">
+              <div class="flex flex-col text-sm leading-5 text-base-content"><span>r.sakai@example.com</span><span>k.tanaka@example.com</span></div>
+            </div>
+            <div class="border-b border-base-content/5 flex items-center justify-center px-4 py-2 shrink-0">
+              <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content hover:bg-secondary-hover transition-colors">詳細</button>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 shrink-0 w-24"><span class="text-sm leading-5 text-base-content">NGS</span></div>
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 shrink-0 w-72"><span class="text-sm leading-5 text-base-content">株式会社ナギサ物産</span></div>
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 flex-1 min-w-0">
+              <div class="flex flex-col text-sm leading-5 text-base-content"><span>a.mori@example.com</span><span>t.ito@example.com</span></div>
+            </div>
+            <div class="border-b border-base-content/5 flex items-center justify-center px-4 py-2 shrink-0">
+              <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content hover:bg-secondary-hover transition-colors">詳細</button>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 shrink-0 w-24"><span class="text-sm leading-5 text-base-content">YMN</span></div>
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 shrink-0 w-72"><span class="text-sm leading-5 text-base-content">ユメノ食品株式会社</span></div>
+            <div class="border-b border-base-content/5 flex items-center px-4 py-3.5 flex-1 min-w-0">
+              <div class="flex flex-col text-sm leading-5 text-base-content"><span>y.kato@example.com</span><span>h.ueda@example.com</span></div>
+            </div>
+            <div class="border-b border-base-content/5 flex items-center justify-center px-4 py-2 shrink-0">
+              <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content hover:bg-secondary-hover transition-colors">詳細</button>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="flex items-center px-4 py-3.5 shrink-0 w-24"><span class="text-sm leading-5 text-base-content">FRI</span></div>
+            <div class="flex items-center px-4 py-3.5 shrink-0 w-72"><span class="text-sm leading-5 text-base-content">株式会社フウライ物産</span></div>
+            <div class="flex items-center px-4 py-3.5 flex-1 min-w-0">
+              <div class="flex flex-col text-sm leading-5 text-base-content"><span>s.yamada@example.com</span><span>m.inoue@example.com</span></div>
+            </div>
+            <div class="flex items-center justify-center px-4 py-2 shrink-0">
+              <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content hover:bg-secondary-hover transition-colors">詳細</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

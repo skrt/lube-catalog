@@ -1248,6 +1248,53 @@
       ]
     },
     {
+      "id": "table",
+      "name": "Table",
+      "description": "一覧テーブル。Header + Cell + スクロールバー付きコンテナ",
+      "category": "data-display",
+      "preview": "previews/table.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3743-13682",
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/5", "radius": "rounded-md (6px)", "overflow": "overflow-clip" } }
+          ]
+        },
+        {
+          "category": "Header",
+          "items": [
+            { "variant": "Default", "tokens": { "background": "bg-base-200", "color": "text-base-content/60", "align": "left" } },
+            { "variant": "Number", "tokens": { "background": "bg-base-200", "color": "text-base-content/60", "align": "right (justify-end)" } }
+          ]
+        },
+        {
+          "category": "Cell Size",
+          "items": [
+            { "variant": "md", "tokens": { "padding": "px-4 py-3.5 (16px 14px)", "font-size": "text-sm (14px)" } },
+            { "variant": "sm", "tokens": { "padding": "p-3 (12px)", "font-size": "text-xs (12px)" } }
+          ]
+        },
+        {
+          "category": "Cell Type",
+          "items": [
+            { "variant": "Text", "tokens": { "flex": "flex-1", "color": "text-base-content" } },
+            { "variant": "Number", "tokens": { "align": "justify-end text-right", "font": "font-mono tabular-nums" } },
+            { "variant": "LinkText", "tokens": { "color": "text-secondary-content" } },
+            { "variant": "MultiText", "tokens": { "layout": "flex-col" } },
+            { "variant": "Badge", "tokens": { "component": "Badge" } },
+            { "variant": "Button", "tokens": { "align": "justify-center", "component": "Button Secondary" } }
+          ]
+        },
+        {
+          "category": "Row",
+          "items": [
+            { "variant": "border", "tokens": { "bottom": "border-b base-content/5 (最終行は border なし)" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "group-box",
       "name": "GroupBox",
       "description": "見出し付きの囲み箱。中身は自由スロット",
