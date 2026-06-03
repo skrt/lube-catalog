@@ -1248,6 +1248,57 @@
       ]
     },
     {
+      "id": "group-box",
+      "name": "GroupBox",
+      "description": "見出し付きの囲み箱。中身は自由スロット",
+      "category": "layout",
+      "preview": "previews/group-box.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3858-8095",
+      "props": [
+        {
+          "name": "Legend",
+          "type": "string",
+          "default": "見出し",
+          "description": "左上の見出しテキスト"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "false",
+          "description": "見出し横の必須マーク（*）表示"
+        },
+        {
+          "name": "scroll",
+          "type": "boolean",
+          "default": "false",
+          "description": "max-h-64でスクロール表示"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "width": "w-[400px]", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md (6px)", "padding": "p-4 (16px)", "gap": "gap-2 (8px)" } },
+            { "variant": "scroll", "tokens": { "max-height": "max-h-64 (256px)", "overflow": "overflow-y-auto" } }
+          ]
+        },
+        {
+          "category": "Legend",
+          "items": [
+            { "variant": "position", "tokens": { "absolute": "top-[-9px] left-[15px]" } },
+            { "variant": "font", "tokens": { "size": "text-xs (12px)", "weight": "font-semibold", "color": "text-base-content" } },
+            { "variant": "required", "tokens": { "color": "text-error" } }
+          ]
+        },
+        {
+          "category": "Internal",
+          "items": [
+            { "variant": "divider", "tokens": { "height": "h-px", "color": "bg-base-content/5" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "header",
       "name": "Header",
       "description": "アプリ上部ヘッダーバー。左にパンくず、右にアカウント操作",

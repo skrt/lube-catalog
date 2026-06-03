@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          DEFAULT: '#0a0ac2',
+          hover: '#080892',
+          content: '#f3f4fe',
+        },
+        'secondary': {
+          DEFAULT: '#e8e8fd',
+          hover: '#e0e0f5',
+          content: '#0a0ac2',
+        },
+        'base-content': 'rgb(16 16 22 / <alpha-value>)',
+        'base-200': '#f8f8fa',
+        'base-300': '#eeeef2',
+        'error': {
+          DEFAULT: '#c94043',
+          hover: '#b7393c',
+          content: '#fff5f5',
+          'bg': '#f7e2e3',
+        },
+        'success': {
+          DEFAULT: '#479d72',
+          content: '#f5fef9',
+          'bg': '#e3f0ea',
+        },
+        'warning': {
+          DEFAULT: '#de781f',
+          content: '#fffcf8',
+          'bg': '#faebdd',
+        },
+        'info': {
+          DEFAULT: '#535671',
+          content: '#f2f4ff',
+          'bg': '#e5e6ea',
+        },
+      },
+      borderRadius: {
+        'sm': '4px',
+      },
+      boxShadow: {
+        'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
+        'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
+        'border-base-content-20': 'inset 0 0 0 1px rgba(16, 16, 22, 0.2)',
+        'border-2-base-content-10': 'inset 0 0 0 2px rgba(16, 16, 22, 0.1)',
+        'border-2-base-content-20': 'inset 0 0 0 2px rgba(16, 16, 22, 0.2)',
+        'border-primary': 'inset 0 0 0 1px #0a0ac2',
+        'border-2-primary': 'inset 0 0 0 2px #0a0ac2',
+        'border-error': 'inset 0 0 0 1px #c94043',
+        'border-2-error': 'inset 0 0 0 2px #c94043',
+      },
+    },
+  },
+};
+</script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    GroupBox: 見出し付きの囲み箱。中身は自由スロット
+      Container: bg-base-200, border base-content/5, rounded-md (6px), p-4 (16px), w-[400px], flex-col, gap-2 (8px), relative
+      Legend Row: absolute, top-[-9px] left-[15px], text-xs semibold, text-base-content, optional required (*)
+      Contents: flex-col gap-2 (8px), free slot
+      Scroll variant: max-h-64 (256px), overflow-y-auto, scrollbar w-2 rounded-full bg-base-content/30
+      Divider: h-px bg-base-content/5
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Default (with Legend) -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
+          <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
+        </div>
+        <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+      </div>
+    </div>
+
+    <!-- With Required -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Required</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
+          <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
+          <span class="text-xs font-semibold leading-4 text-error">*</span>
+        </div>
+        <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+      </div>
+    </div>
+
+    <!-- Scroll -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Scroll</p>
+      <div class="relative mt-3 w-[400px]">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1 z-10">
+          <span class="text-xs font-semibold leading-4 text-base-content">社内メモ</span>
+        </div>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2 max-h-64 overflow-y-auto">
+          <div class="text-sm leading-5 text-base-content">
+            <p>割引はこのような経緯で行われております。</p>
+            <p>もし問題がありましたら担当AEまでご連絡をお願いいたします。</p>
+            <p>問題がない場合はそのまま請求処理をお願いできればと思います。</p>
+            <p>請求の際に割引が適用されていることがデマンド側に伝わるようにしたいです。このような記載が行われることを想定しており、かなり長い文言が入る場合はスクロールで全ての文言を表示する形式にしています。</p>
+            <p>高さは最大256pxで、それ以上の場合はスクロール、以下の場合はコンテンツ量に合わせてボックスのサイズを縮めます。</p>
+            <p>この行以降はスクロールしないと見えない領域です。</p>
+            <p>長文のメモやコメントが入るケースを想定しています。</p>
+            <p>スクロールバーは右端に表示されます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 利用例: 住所(日本) -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：住所(日本)</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
+          <span class="text-xs font-semibold leading-4 text-base-content">住所</span>
+        </div>
+        <!-- 国 Select -->
+        <div class="flex flex-col gap-1 w-24">
+          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">国</span><span class="text-error">*</span></div>
+          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+            <span class="text-sm leading-5 text-base-content flex-1">日本</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+          </div>
+        </div>
+        <!-- 郵便番号 + 住所自動入力 -->
+        <div class="flex gap-2 items-end">
+          <div class="flex flex-col gap-1 w-40">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">郵便番号</span><span class="text-error">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+          </div>
+          <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 hover:bg-secondary-hover transition-colors">住所自動入力</button>
+        </div>
+        <!-- 都道府県 -->
+        <div class="flex flex-col gap-1 w-40">
+          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">都道府県</span><span class="text-error">*</span></div>
+          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+            <span class="text-sm leading-5 text-base-content flex-1">選択しましょう</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+          </div>
+        </div>
+        <!-- 市区町村 -->
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">市区町村</span><span class="text-error">*</span></div>
+          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+        </div>
+        <!-- 丁目・番地・号 -->
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">丁目・番地・号</span><span class="text-error">*</span></div>
+          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+        </div>
+        <!-- 建物・会社名 -->
+        <div class="flex flex-col gap-1 w-full">
+          <span class="text-sm leading-5 text-base-content">建物・会社名</span>
+          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 利用例: 仕様 -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：仕様</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
+          <span class="text-xs font-semibold leading-4 text-base-content">仕様</span>
+        </div>
+        <!-- カテゴリー -->
+        <div class="flex flex-col gap-1 w-40">
+          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">カテゴリー</span><span class="text-error">*</span></div>
+          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+            <span class="text-sm leading-5 text-base-content flex-1">ダンボール</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+          </div>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <!-- Spec rows -->
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">サイズ</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">形状</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">構成</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">段厚</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">印刷</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">加工</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">その他</span>
+          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+        </div>
+        <div class="flex items-start justify-end">
+          <button class="bg-primary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-primary-content hover:bg-primary-hover transition-colors">完了</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 利用例: 案件管理 -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：案件管理</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
+          <span class="text-xs font-semibold leading-4 text-base-content">案件管理</span>
+        </div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">案件</span>
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">{案件名}</span>
+          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">見積依頼</span>
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">{件名}</span>
+          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">見積書</span>
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">発注請書</span>
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">発注書</span>
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <div class="flex gap-2 items-center">
+          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">請求書</span>
+          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 利用例: 請求書ステータス -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：請求書ステータス</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
+        <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
+          <span class="text-xs font-semibold leading-4 text-base-content">請求書ステータス</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-sm leading-5 text-base-content">freee請求書</span>
+            <span class="bg-info text-info-content text-xs leading-4 px-2 py-0.5 rounded-full">作成済み</span>
+          </div>
+          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">freeeを開く<i data-lucide="external-link" class="w-3 h-3"></i></button>
+        </div>
+        <div class="h-px bg-base-content/5 w-full"></div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-sm leading-5 text-base-content">請求書送付</span>
+            <span class="bg-warning text-warning-content text-xs leading-4 px-2 py-0.5 rounded-full">未送付</span>
+          </div>
+          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content hover:bg-primary-hover transition-colors">送付済みに変更</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
