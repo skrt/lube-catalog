@@ -1248,6 +1248,36 @@
       ]
     },
     {
+      "id": "header",
+      "name": "Header",
+      "description": "アプリ上部ヘッダーバー。左にパンくず、右にアカウント操作",
+      "category": "navigation",
+      "preview": "previews/header.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3827-2130",
+      "tokens": [
+        {
+          "category": "Container",
+          "items": [
+            { "variant": "layout", "tokens": { "display": "flex justify-between items-center", "padding": "py-2 (8px)" } }
+          ]
+        },
+        {
+          "category": "Left",
+          "items": [
+            { "variant": "breadcrumbs", "tokens": { "component": "Breadcrumbs" } }
+          ]
+        },
+        {
+          "category": "Right (Account)",
+          "items": [
+            { "variant": "layout", "tokens": { "display": "flex items-center", "gap": "gap-4 (16px)" } },
+            { "variant": "buttons", "tokens": { "type": "IconButton sm Tertiary", "icons": "log-out, settings" } },
+            { "variant": "username", "tokens": { "font": "text-sm", "color": "text-base-content" } }
+          ]
+        }
+      ]
+    },
+    {
       "id": "card",
       "name": "Card",
       "description": "並び替え・削除できる操作カード。中身は自由スロット",
