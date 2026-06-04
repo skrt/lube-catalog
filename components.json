@@ -3697,45 +3697,7 @@
             }
           ]
         }
-      ],
-      "spec": {
-        "anatomy": [
-          {
-            "part": "Container",
-            "description": "フッター全体（fixed bottom, border-top）"
-          },
-          {
-            "part": "BackButton",
-            "description": "戻るボタン（optional, Tertiary md）"
-          },
-          {
-            "part": "Spacer",
-            "description": "中央の flex-1 スペーサー"
-          },
-          {
-            "part": "CTA",
-            "description": "右端のアクションボタン群（Sub CTA + Main CTA）"
-          }
-        ],
-        "states": [
-          {
-            "transition": "Default",
-            "trigger": "初期表示",
-            "effect": "サブCTAとメインCTAが表示される"
-          },
-          {
-            "transition": "With Back",
-            "trigger": "Back Button = true",
-            "effect": "左に戻るボタンが追加される"
-          }
-        ],
-        "behavior": [
-          {
-            "action": "固定表示",
-            "detail": "画面下部に固定され、コンテンツの上に重なる"
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "filter-menu",
