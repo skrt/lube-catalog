@@ -983,28 +983,16 @@
         ],
         "behavior": [
           {
-            "action": "メニュー開閉",
-            "detail": "入力欄クリック or フォーカスで開く。選択 or Escape or 外部クリックで閉じる"
-          },
-          {
             "action": "フィルタリング",
-            "detail": "入力テキストで選択肢を前方一致 or 部分一致でフィルタ。大文字小文字を区別しない"
-          },
-          {
-            "action": "選択",
-            "detail": "Item クリック or Enter で選択。選択値が Input に表示され、メニューが閉じる"
-          },
-          {
-            "action": "クリア",
-            "detail": "ClearButton(×) クリックで値をクリア。Input を空にしてフォーカスを戻し、メニューを開く"
+            "detail": "部分一致で絞り込み、大文字小文字を区別しない"
           },
           {
             "action": "検索結果なし",
-            "detail": "フィルタ結果が0件の場合、Menu > Empty を表示"
+            "detail": "該当なしの場合、空状態メッセージを表示"
           },
           {
             "action": "非同期読み込み",
-            "detail": "選択肢の取得中は Menu > Loading を表示"
+            "detail": "選択肢の取得中はスピナーを表示"
           }
         ],
         "keyboard": [
@@ -1581,10 +1569,6 @@
         ],
         "behavior": [
           {
-            "action": "自動消去",
-            "detail": "表示後 5秒で自動的に消える"
-          },
-          {
             "action": "位置",
             "detail": "画面右下に固定表示される"
           }
@@ -1883,10 +1867,6 @@
           {
             "action": "フォーカストラップ",
             "detail": "開いている間、Tab フォーカスがダイアログ内に閉じ込められる"
-          },
-          {
-            "action": "背景クリック",
-            "detail": "ダイアログ外をクリックすると閉じる"
           }
         ],
         "keyboard": [
@@ -2116,16 +2096,8 @@
         ],
         "behavior": [
           {
-            "action": "カレンダー開閉",
-            "detail": "InputRow クリックで開く。日付選択 or 外部クリック or Escape で閉じる"
-          },
-          {
             "action": "月切替",
-            "detail": "前月/次月 IconButton で表示月を変更"
-          },
-          {
-            "action": "日付選択",
-            "detail": "Day セルクリックで選択。前後月の日付をクリックするとその月に移動して選択"
+            "detail": "前月/次月ボタンで表示月を変更できる"
           }
         ],
         "keyboard": [
@@ -2848,10 +2820,6 @@
           }
         ],
         "behavior": [
-          {
-            "action": "単一選択",
-            "detail": "グループ内で1つだけ選択可能。別の項目を選ぶと前の選択が解除される"
-          },
           {
             "action": "Button 型",
             "detail": "ボタン型バリアントでは Active/Inactive の見た目で切り替わる"
@@ -4357,7 +4325,7 @@
           },
           {
             "action": "範囲ハイライト",
-            "detail": "開始〜終了間の日付が bg-secondary でハイライト、両端が bg-primary + rounded-full"
+            "detail": "開始〜終了間の日付がハイライトされ、両端が丸く強調される"
           }
         ]
       }
