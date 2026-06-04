@@ -63,7 +63,7 @@ tailwind.config = {
 };
 </script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 400px !important; box-sizing: border-box; }</style>
-<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); var examples = document.getElementById("examples-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "examples" && examples) { document.body.appendChild(examples); Array.from(document.body.children).forEach(function(c) { if (c === examples || c.tagName === "SCRIPT") return; c.remove(); }); } else if (view === "preview") { if (demo) demo.remove(); if (examples) examples.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8">
   <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
@@ -103,9 +103,67 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- Static Dialog (no scrim) -->
+    <!-- Dialog Structure -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Dialog (Static)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Dialog Structure</p>
+      <div class="bg-gray-100 p-8 rounded-lg flex justify-center">
+        <div class="w-96 rounded-xl bg-white shadow-[0_16px_16px_rgba(0,0,0,0.18)] flex flex-col">
+          <div class="flex flex-col pt-6 px-6">
+            <p class="text-lg font-semibold leading-7 text-base-content">ダイアログタイトル</p>
+          </div>
+          <div class="flex flex-col px-6 py-4">
+            <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+          </div>
+          <div class="flex items-center justify-end gap-3 px-6 py-4">
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">承認</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Footer</p>
+      <div class="flex flex-wrap items-start gap-4">
+
+        <div>
+          <div class="w-96 rounded-xl bg-white border border-gray-200">
+            <div class="flex items-center justify-end gap-3 px-6 py-4">
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">キャンセル</button>
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">承認</button>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1 ml-1">Without count</p>
+        </div>
+
+        <div>
+          <div class="w-96 rounded-xl bg-white border border-gray-200">
+            <div class="flex items-center justify-end gap-3 px-6 py-4">
+              <p class="flex-1 text-sm leading-5 text-base-content/60">0件選択中</p>
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">キャンセル</button>
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">承認</button>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1 ml-1">With count</p>
+        </div>
+
+        <div>
+          <div class="w-96 rounded-xl bg-white border border-gray-200">
+            <div class="flex items-center justify-end gap-3 px-6 py-4">
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">キャンセル</button>
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-error-content rounded-md bg-error border border-base-content/5">削除</button>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1 ml-1">Danger</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Examples -->
+    <div id="examples-section">
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>確認ダイアログ</p>
       <div class="bg-gray-100 p-8 rounded-lg flex justify-center">
         <div class="w-96 rounded-xl bg-white shadow-[0_16px_16px_rgba(0,0,0,0.18)] flex flex-col">
           <div class="flex flex-col gap-2 pt-6 px-6">
@@ -115,48 +173,14 @@ tailwind.config = {
             <p class="text-sm leading-5 text-base-content/60">この操作を実行してよろしいですか？この操作は取り消せません</p>
           </div>
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">承認</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">承認</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer Variants -->
-    <div>
-      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Footer</p>
-      <div class="space-y-4">
 
-        <!-- With count -->
-        <div class="w-96 rounded-xl bg-white border border-gray-200">
-          <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <p class="flex-1 text-sm leading-5 text-base-content/60">0件選択中</p>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">承認</button>
-          </div>
-        </div>
-        <p class="text-xs text-base-content/60 ml-2">With count (showCount=true)</p>
-
-        <!-- Without count -->
-        <div class="w-96 rounded-xl bg-white border border-gray-200">
-          <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors">承認</button>
-          </div>
-        </div>
-        <p class="text-xs text-base-content/60 ml-2">Without count (showCount=false)</p>
-
-        <!-- Danger action -->
-        <div class="w-96 rounded-xl bg-white border border-gray-200">
-          <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-error-content rounded-md bg-error border border-base-content/5 hover:bg-error-hover transition-colors">削除</button>
-          </div>
-        </div>
-        <p class="text-xs text-base-content/60 ml-2">Danger action</p>
-
-      </div>
-    </div>
 
   </div>
 
@@ -237,15 +261,15 @@ tailwind.config = {
       }
       // Focus trap
       if (e.key === 'Tab') {
+        e.preventDefault();
         const panel = document.getElementById('modal-panel');
-        const focusable = panel.querySelectorAll('button:not([disabled])');
+        const focusable = Array.from(panel.querySelectorAll('button:not([disabled])'));
         if (focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
+        const idx = focusable.indexOf(document.activeElement);
         if (e.shiftKey) {
-          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+          focusable[idx <= 0 ? focusable.length - 1 : idx - 1].focus();
         } else {
-          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+          focusable[idx >= focusable.length - 1 ? 0 : idx + 1].focus();
         }
       }
     });

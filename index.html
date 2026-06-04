@@ -166,8 +166,11 @@
             </div>
 
             <!-- Section Nav (hidden if only 1 section) -->
-            <nav x-show="(1 + (activeComponent.props && activeComponent.props.length > 0 ? 1 : 0) + (activeComponent.tokens && activeComponent.tokens.length > 0 ? 1 : 0) + (activeComponent.hasDemo ? 1 : 0) + (activeComponent.spec ? 1 : 0)) > 1" class="sticky top-0 z-20 bg-white flex gap-5 mt-4 mb-2 border-b border-gray-100 pb-3 pt-3 uppercase text-xs tracking-wider">
+            <nav x-show="(1 + (activeComponent.props && activeComponent.props.length > 0 ? 1 : 0) + (activeComponent.tokens && activeComponent.tokens.length > 0 ? 1 : 0) + (activeComponent.hasDemo ? 1 : 0) + (activeComponent.spec ? 1 : 0) + (activeComponent.hasExamples ? 1 : 0)) > 1" class="sticky top-0 z-20 bg-white flex gap-5 mt-4 mb-2 border-b border-gray-100 pb-3 pt-3 uppercase text-xs tracking-wider">
               <a href="#section-variants" @click.prevent="document.getElementById('section-variants').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Variants</a>
+              <template x-if="activeComponent.hasExamples">
+                <a href="#section-examples" @click.prevent="document.getElementById('section-examples').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Examples</a>
+              </template>
               <template x-if="activeComponent.props && activeComponent.props.length > 0">
                 <a href="#section-props" @click.prevent="document.getElementById('section-props').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Props</a>
               </template>
@@ -193,6 +196,20 @@
                 style="min-height: 100px;"
               ></iframe>
             </section>
+
+            <!-- Examples -->
+            <template x-if="activeComponent.hasExamples">
+              <section id="section-examples" class="py-6 scroll-mt-12">
+                <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Examples</h3>
+                <iframe
+                  :src="activeComponent.preview + '?v=' + cacheKey + '&view=examples'"
+                  class="w-full border-0 rounded-lg"
+                  :title="activeComponent.name + ' examples'"
+                  @load="resizeIframe($event.target)"
+                  style="min-height: 100px;"
+                ></iframe>
+              </section>
+            </template>
 
             <!-- Props -->
             <template x-if="activeComponent.props && activeComponent.props.length > 0">

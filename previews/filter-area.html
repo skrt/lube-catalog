@@ -63,7 +63,7 @@ tailwind.config = {
 };
 </script>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
-<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); var examples = document.getElementById("examples-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "examples" && examples) { document.body.appendChild(examples); Array.from(document.body.children).forEach(function(c) { if (c === examples || c.tagName === "SCRIPT") return; c.remove(); }); } else if (view === "preview") { if (demo) demo.remove(); if (examples) examples.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8 space-y-10">
   <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
@@ -82,6 +82,8 @@ tailwind.config = {
       DateRangePicker: calendar-range icon left, circle-x icon right
       請求書: 2行構成 (Form Row + Status Tabs)
   -->
+
+  <div id="examples-section" class="space-y-10">
 
   <!-- 見積依頼 -->
   <section>
@@ -258,6 +260,8 @@ tailwind.config = {
       </div>
     </div>
   </section>
+
+  </div><!-- /examples-section -->
 
 </body>
 </html>

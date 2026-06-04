@@ -1716,22 +1716,22 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3719-502",
       "props": [
         {
-          "name": "title",
-          "type": "string",
-          "default": "ダイアログタイトル",
-          "description": "ヘッダータイトル"
+          "name": "Contents",
+          "type": "slot",
+          "default": "-",
+          "description": "ダイアログ本体のコンテンツ（テキスト、フォーム等を自由に配置）"
         },
         {
-          "name": "body",
-          "type": "string",
-          "default": "この操作を実行してよろしいですか？この操作は取り消せません",
-          "description": "本文テキスト"
-        },
-        {
-          "name": "showCount",
+          "name": "Show Count",
           "type": "boolean",
           "default": "false",
-          "description": "Footer左の件数表示（X件選択中）"
+          "description": "Footer に選択件数テキストを表示"
+        },
+        {
+          "name": "Actions",
+          "type": "slot",
+          "default": "-",
+          "description": "Footer のアクションボタン群"
         }
       ],
       "tokens": [
@@ -1883,7 +1883,8 @@
             "action": "ダイアログ内でフォーカスを循環"
           }
         ]
-      }
+      },
+      "hasExamples": true
     },
     {
       "id": "date-picker",
@@ -3777,7 +3778,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hasExamples": true
     },
     {
       "id": "footer",
@@ -4595,7 +4597,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hasExamples": true
     }
   ]
 }
