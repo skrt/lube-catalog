@@ -637,17 +637,17 @@
           {
             "transition": "Empty → Loading",
             "trigger": "ファイル選択",
-            "effect": "ボタンが Loading 表示（spinner + テキスト変更）"
+            "effect": "ボタンがローディング表示に変わる（スピナー + 「処理中...」）"
           },
           {
             "transition": "Loading → Selected",
             "trigger": "アップロード完了",
-            "effect": "FileRow にファイル情報を表示"
+            "effect": "選択済みファイルの一覧が表示される"
           },
           {
             "transition": "Selected → Empty",
             "trigger": "削除ボタンクリック",
-            "effect": "FileRow を削除、Empty に戻る"
+            "effect": "ファイルが削除され、初期状態に戻る"
           }
         ],
         "behavior": [
@@ -832,12 +832,12 @@
           {
             "transition": "Default → Focus",
             "trigger": "クリック",
-            "effect": "メニューが開く"
+            "effect": "ドロップダウンメニューが開く"
           },
           {
             "transition": "Focus → Filled",
             "trigger": "Item を選択",
-            "effect": "メニューが閉じ、選択値を表示"
+            "effect": "メニューが閉じ、選択した値が表示される"
           },
           {
             "transition": "Filled → Focus",
@@ -847,12 +847,12 @@
           {
             "transition": "Error",
             "trigger": "バリデーションエラー",
-            "effect": "ErrorText 表示"
+            "effect": "エラーメッセージが表示される"
           },
           {
             "transition": "Disabled",
             "trigger": "disabled 属性",
-            "effect": "全操作不可"
+            "effect": "操作できない状態になる"
           }
         ],
         "behavior": [
@@ -957,32 +957,32 @@
           {
             "transition": "Default → Focus",
             "trigger": "クリック or Tab フォーカス",
-            "effect": "メニューが開き全選択肢を表示"
+            "effect": "メニューが開き、全選択肢が表示される"
           },
           {
             "transition": "Focus → Filtering",
             "trigger": "テキスト入力",
-            "effect": "入力値で選択肢をフィルタ"
+            "effect": "入力に応じて選択肢が絞り込まれる"
           },
           {
             "transition": "Filtering → Filled",
             "trigger": "Item を選択",
-            "effect": "メニューが閉じ、選択値を Input に表示"
+            "effect": "メニューが閉じ、選択した値が入力欄に表示される"
           },
           {
             "transition": "Filled → Focus",
             "trigger": "入力欄を再クリック or ClearButton",
-            "effect": "再クリック: メニュー再表示 / ClearButton: 値クリア+メニュー表示"
+            "effect": "再クリックでメニューが開く。×ボタンで値をクリアしてメニューを開く"
           },
           {
             "transition": "Error",
             "trigger": "バリデーションエラー",
-            "effect": "ErrorText 表示、HelperText 非表示"
+            "effect": "エラーメッセージが表示される（ヘルパーテキストは非表示）"
           },
           {
             "transition": "Disabled",
             "trigger": "disabled 属性",
-            "effect": "全操作不可、メニュー開かない"
+            "effect": "操作できない状態になる"
           }
         ],
         "behavior": [
@@ -1575,12 +1575,12 @@
           {
             "transition": "Hidden → Visible",
             "trigger": "トースト表示イベント",
-            "effect": "translateY(16px)→0 + opacity 0→1 (300ms)"
+            "effect": "下からスライドしながらフェードインする"
           },
           {
             "transition": "Visible → Hidden",
             "trigger": "自動消去(5s) / ×クリック",
-            "effect": "translateY(0)→16px + opacity 1→0 (300ms)"
+            "effect": "下にスライドしながらフェードアウトする"
           }
         ],
         "behavior": [
@@ -1705,12 +1705,12 @@
           {
             "transition": "Hidden → Visible",
             "trigger": "Trigger にホバー",
-            "effect": "Tooltip を表示"
+            "effect": "ツールチップが表示される"
           },
           {
             "transition": "Visible → Hidden",
             "trigger": "Trigger からマウスアウト",
-            "effect": "Tooltip を非表示"
+            "effect": "ツールチップが非表示になる"
           }
         ],
         "behavior": [
@@ -1879,12 +1879,12 @@
           {
             "transition": "Closed → Open",
             "trigger": "トリガーボタンクリック",
-            "effect": "Scrim + Dialog をフェードイン + スケールアニメーション"
+            "effect": "背景が暗くなり、ダイアログが中央にフェードインする"
           },
           {
             "transition": "Open → Closed",
             "trigger": "キャンセル / Scrim クリック / Escape",
-            "effect": "フェードアウト + スケールダウン"
+            "effect": "ダイアログがフェードアウトし、背景が元に戻る"
           }
         ],
         "behavior": [
@@ -2108,22 +2108,22 @@
           {
             "transition": "Default → Focus",
             "trigger": "クリック",
-            "effect": "Calendar を表示"
+            "effect": "カレンダーが表示される"
           },
           {
             "transition": "Focus → Filled",
             "trigger": "日付を選択",
-            "effect": "Calendar が閉じ、選択日を Input に表示"
+            "effect": "カレンダーが閉じ、選択した日付が表示される"
           },
           {
             "transition": "Error",
             "trigger": "バリデーションエラー",
-            "effect": "border-2 error + ErrorText"
+            "effect": "エラーメッセージが表示される"
           },
           {
             "transition": "Disabled",
             "trigger": "disabled 属性",
-            "effect": "全操作不可"
+            "effect": "操作できない状態になる"
           }
         ],
         "behavior": [
@@ -2264,12 +2264,12 @@
           {
             "transition": "Default",
             "trigger": "初期表示",
-            "effect": "数量・単価の一覧表示"
+            "effect": "数量と単価の一覧が表示される"
           },
           {
             "transition": "Checkbox",
             "trigger": "Type = Checkbox",
-            "effect": "左にチェックボックス列が追加"
+            "effect": "各行にチェックボックスが追加される"
           }
         ],
         "behavior": [
@@ -2850,17 +2850,17 @@
           {
             "transition": "Unselected → Selected",
             "trigger": "Item クリック",
-            "effect": "dot 表示 + border primary"
+            "effect": "選択マークが表示される"
           },
           {
             "transition": "Selected → (別の Item) Selected",
             "trigger": "別の Item クリック",
-            "effect": "前の Item が Unselected に、新しい Item が Selected に"
+            "effect": "前の選択が解除され、新しい項目が選択される"
           },
           {
             "transition": "Disabled",
             "trigger": "disabled 属性",
-            "effect": "bg-base-200, border base-content/10"
+            "effect": "操作できない状態になる"
           }
         ],
         "behavior": [
@@ -3050,22 +3050,22 @@
           {
             "transition": "Unchecked → Checked",
             "trigger": "クリック",
-            "effect": "Box が bg-primary + check アイコン表示"
+            "effect": "チェックマークが表示される"
           },
           {
             "transition": "Checked → Unchecked",
             "trigger": "クリック",
-            "effect": "Box が bg-white + border に戻る"
+            "effect": "チェックマークが消える"
           },
           {
             "transition": "Hover",
             "trigger": "マウスオーバー",
-            "effect": "border-2 primary"
+            "effect": "枠線が強調される"
           },
           {
             "transition": "Disabled",
             "trigger": "disabled 属性",
-            "effect": "bg-base-200, border base-content/10, label text-base-content/30"
+            "effect": "操作できない状態になる"
           }
         ],
         "behavior": [
@@ -3211,17 +3211,17 @@
           {
             "transition": "Page N → Page M",
             "trigger": "PageButton クリック",
-            "effect": "Current ページが切り替わる"
+            "effect": "選択したページに切り替わる"
           },
           {
             "transition": "Page N → Page N-1",
             "trigger": "PrevButton クリック",
-            "effect": "前ページに移動"
+            "effect": "前のページに移動する"
           },
           {
             "transition": "Page N → Page N+1",
             "trigger": "NextButton クリック",
-            "effect": "次ページに移動"
+            "effect": "次のページに移動する"
           }
         ],
         "behavior": [
@@ -3773,12 +3773,12 @@
           {
             "transition": "Default",
             "trigger": "初期表示",
-            "effect": "Sub CTA + Main CTA のみ表示"
+            "effect": "サブCTAとメインCTAが表示される"
           },
           {
             "transition": "With Back",
             "trigger": "Back Button = true",
-            "effect": "左に戻るボタンが追加表示"
+            "effect": "左に戻るボタンが追加される"
           }
         ],
         "behavior": [
@@ -3901,12 +3901,12 @@
           {
             "transition": "Default",
             "trigger": "初期表示",
-            "effect": "全セクション・全項目を表示"
+            "effect": "全セクション・全項目が表示される"
           },
           {
             "transition": "Empty",
             "trigger": "選択肢なし",
-            "effect": "セクションタイトルのみ表示、Checkbox なし"
+            "effect": "セクションタイトルのみ表示される"
           }
         ],
         "behavior": [
@@ -4083,12 +4083,12 @@
           {
             "transition": "Open → Closed",
             "trigger": "トグル操作",
-            "effect": "幅が w-40 → w-fit、ラベル非表示"
+            "effect": "幅が狭くなり、ラベルが非表示になる"
           },
           {
             "transition": "Closed → Open",
             "trigger": "トグル操作",
-            "effect": "幅が w-fit → w-40、ラベル表示"
+            "effect": "幅が広がり、ラベルが表示される"
           }
         ],
         "behavior": [
@@ -4359,27 +4359,27 @@
           {
             "transition": "Default → Focus",
             "trigger": "クリック",
-            "effect": "Calendar を表示"
+            "effect": "カレンダーが表示される"
           },
           {
             "transition": "Focus → Selecting",
             "trigger": "開始日を選択",
-            "effect": "開始日がハイライト、終了日待ち"
+            "effect": "開始日がハイライトされ、終了日の選択待ちになる"
           },
           {
             "transition": "Selecting → Filled",
             "trigger": "終了日を選択",
-            "effect": "範囲がハイライト、Calendar が閉じる"
+            "effect": "選択範囲がハイライトされ、カレンダーが閉じる"
           },
           {
             "transition": "Error",
             "trigger": "バリデーションエラー",
-            "effect": "border-2 error"
+            "effect": "エラーメッセージが表示される"
           },
           {
             "transition": "Disabled",
             "trigger": "disabled 属性",
-            "effect": "全操作不可"
+            "effect": "操作できない状態になる"
           }
         ],
         "behavior": [
