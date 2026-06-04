@@ -73,32 +73,60 @@ tailwind.config = {
   </a>
 
   <!-- Interactive Demo -->
-  <section id="demo-section" x-data="{ open: false, selected: '', options: ['アジマット株式会社', '株式会社 木下印刷', '株式会社 サンレル', 'BAY化粧品', '株式会社ハツコ', 'クボヤ工業株式会社', 'マルシメ株式会社'] }">
+  <section id="demo-section" x-data="selectDemo()">
+    <script data-demo-keep>
+      function selectDemo() {
+        return {
+          open: false,
+          selected: '',
+          activeIndex: -1,
+          options: ['アジマット株式会社', '株式会社 木下印刷', '株式会社 サンレル', 'BAY化粧品', '株式会社ハツコ', 'クボヤ工業株式会社', 'マルシメ株式会社'],
+          select(o) { this.selected = o; this.open = false; this.activeIndex = -1; },
+          onArrowDown() { if (!this.open) this.open = true; this.activeIndex = Math.min(this.activeIndex + 1, this.options.length - 1); this.$nextTick(() => this.scrollToActive()); },
+          onArrowUp() { this.activeIndex = Math.max(this.activeIndex - 1, 0); this.$nextTick(() => this.scrollToActive()); },
+          onEnter() { if (this.open && this.activeIndex >= 0) { this.select(this.options[this.activeIndex]); } else { this.open = true; } },
+          onEscape() { this.open = false; this.activeIndex = -1; },
+          scrollToActive() {
+            const menu = this.$refs.menu;
+            if (!menu) return;
+            const item = menu.querySelector('[data-active="true"]');
+            if (item) item.scrollIntoView({ block: 'nearest' });
+          }
+        };
+      }
+    </script>
     <div class="w-72 space-y-1">
       <label class="block text-sm text-base-content">取引先 <span class="text-error">*</span></label>
-      <div class="relative">
+      <div class="relative" @click.away="open = false; activeIndex = -1">
         <div
-          @click="open = !open"
-          @click.away="open = false"
-          class="flex items-center h-8 px-3 py-2 gap-2 rounded-md bg-white cursor-pointer transition-colors"
+          @click="open = !open; activeIndex = -1"
+          @keydown.arrow-down.prevent="onArrowDown()"
+          @keydown.arrow-up.prevent="onArrowUp()"
+          @keydown.enter.prevent="onEnter()"
+          @keydown.escape="onEscape()"
+          @keydown.tab="open = false"
+          tabindex="0"
+          class="flex items-center h-8 px-3 py-2 gap-2 rounded-md bg-white cursor-pointer transition-colors outline-none"
           :class="open ? 'border-2 border-primary' : 'border border-base-content/20'"
         >
           <span class="flex-1 text-sm truncate" :class="selected ? 'text-base-content' : 'text-base-content/30'" x-text="selected || '選択しましょう'"></span>
           <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </div>
-        <div x-show="open" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
-          <template x-for="option in options" :key="option">
+        <div x-show="open" x-transition x-ref="menu" class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+          <template x-for="(option, idx) in options" :key="option">
             <div
-              @click="selected = option; open = false"
-              class="flex items-center px-3 py-2 cursor-pointer text-sm text-base-content hover:bg-base-200"
-              :class="selected === option && '!bg-secondary !text-primary'"
+              @click="select(option)"
+              @mouseenter="activeIndex = idx"
+              :data-active="activeIndex === idx"
+              class="flex items-center px-3 py-2 cursor-pointer text-sm text-base-content"
+              :class="activeIndex === idx ? 'bg-base-200' : (selected === option ? 'bg-secondary text-primary' : 'hover:bg-base-200')"
             >
               <span x-text="option"></span>
             </div>
           </template>
         </div>
       </div>
-      <p class="text-xs text-base-content/60">クリックして選択してみてください</p>
+      <p class="text-xs text-base-content/60">クリック or ↑↓キーで選択</p>
     </div>
   </section>
 
