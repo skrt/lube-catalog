@@ -94,7 +94,7 @@ tailwind.config = {
 
     <!-- Demo -->
     <div id="demo-section" x-data="{ open: true, active: 'mitsumori-irai' }">
-      <p class="text-sm text-gray-500 mb-4">パネルのアイコンボタンをクリックで開閉を切り替え</p>
+      <p class="text-sm text-gray-500 mb-4">パネルのアイコンボタンをクリックで開閉を切り替え。折りたたみ時はホバーで Tooltip が表示される</p>
       <div class="bg-base-200 flex flex-col p-2 rounded-lg transition-[width] duration-200 ease-in-out"
            :class="open ? 'w-40 gap-4 items-start' : 'w-fit gap-2 items-center'">
         <!-- Header -->

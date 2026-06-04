@@ -3885,41 +3885,7 @@
             }
           ]
         }
-      ],
-      "spec": {
-        "anatomy": [
-          {
-            "part": "Container",
-            "description": "サイドバー全体（Open: w-40 / Closed: w-fit）"
-          },
-          {
-            "part": "Section",
-            "description": "セクション（タイトル + MenuButton 群）"
-          },
-          {
-            "part": "MenuButton",
-            "description": "メニュー項目（icon + label）"
-          }
-        ],
-        "states": [
-          {
-            "transition": "Open → Closed",
-            "trigger": "トグル操作",
-            "effect": "幅が狭くなり、ラベルが非表示になる"
-          },
-          {
-            "transition": "Closed → Open",
-            "trigger": "トグル操作",
-            "effect": "幅が広がり、ラベルが表示される"
-          }
-        ],
-        "behavior": [
-          {
-            "action": "Active 表示",
-            "detail": "現在ページのメニューボタンがハイライトされる"
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "menu-button",
