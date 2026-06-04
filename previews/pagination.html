@@ -63,7 +63,7 @@ tailwind.config = {
 };
 </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 32px 32px !important; min-height: 200px !important; box-sizing: border-box; }
 .in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
 .in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
@@ -126,7 +126,7 @@ tailwind.config = {
 
     <!-- 中間 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Middle (page 8 / prev & next enabled)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Middle (page 8 / prev & next enabled)</p>
       <div class="flex gap-2 items-center">
         <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
@@ -146,7 +146,7 @@ tailwind.config = {
 
     <!-- 先頭 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>First (page 1 / prev disabled)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>First (page 1 / prev disabled)</p>
       <div class="flex gap-2 items-center">
         <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-300 text-xs font-semibold leading-4 text-base-content/30">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
@@ -166,7 +166,7 @@ tailwind.config = {
 
     <!-- 末尾 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Last (page 5 / next disabled)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Last (page 5 / next disabled)</p>
       <div class="flex gap-2 items-center">
         <div class="flex gap-2 items-center justify-center px-3 py-2 rounded bg-base-200 shadow-border-base-content-5 text-xs font-semibold leading-4 text-base-content">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>

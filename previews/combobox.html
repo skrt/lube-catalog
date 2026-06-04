@@ -63,7 +63,7 @@ tailwind.config = {
 };
 </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 24px 24px !important; min-height: 360px !important; box-sizing: border-box; }</style>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 360px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8 space-y-10">
@@ -73,18 +73,37 @@ tailwind.config = {
   </a>
 
   <!-- Interactive Demo -->
-  <section id="demo-section" x-data="{
-    query: '',
-    selected: '',
-    open: false,
-    allOptions: ['にいやま株式会社', '株式会社shizai', '株式会社サプライヤー', 'K.K株式会社', '株式会社ABC', '丸山印刷株式会社', '東京パッケージ工業', '株式会社グリーンプリント', '日本包装資材株式会社', '株式会社フジシール'],
-    get filtered() { const q = this.selected && this.query === this.selected ? '' : this.query; return q ? this.allOptions.filter(o => o.toLowerCase().includes(q.toLowerCase())) : this.allOptions; },
-    select(o) { this.selected = o; this.query = o; this.open = false; },
-    clear() { this.selected = ''; this.query = ''; this.$refs.input.focus(); this.open = true; }
-  }">
+  <section id="demo-section" x-data="comboboxDemo()">
+    <script data-demo-keep>
+      function comboboxDemo() {
+        return {
+          query: '',
+          selected: '',
+          open: false,
+          activeIndex: -1,
+          allOptions: ['にいやま株式会社', '株式会社shizai', '株式会社サプライヤー', 'K.K株式会社', '株式会社ABC', '丸山印刷株式会社', '東京パッケージ工業', '株式会社グリーンプリント', '日本包装資材株式会社', '株式会社フジシール'],
+          get filtered() {
+            const q = this.selected && this.query === this.selected ? '' : this.query;
+            return q ? this.allOptions.filter(o => o.toLowerCase().includes(q.toLowerCase())) : this.allOptions;
+          },
+          select(o) { this.selected = o; this.query = o; this.open = false; this.activeIndex = -1; },
+          clear() { this.selected = ''; this.query = ''; this.activeIndex = -1; this.open = true; this.$nextTick(() => this.$refs.input.focus()); },
+          onArrowDown() { if (!this.open) this.open = true; this.activeIndex = Math.min(this.activeIndex + 1, this.filtered.length - 1); this.$nextTick(() => this.scrollToActive()); },
+          onArrowUp() { this.activeIndex = Math.max(this.activeIndex - 1, 0); this.$nextTick(() => this.scrollToActive()); },
+          onEnter() { if (this.open && this.activeIndex >= 0 && this.filtered[this.activeIndex]) this.select(this.filtered[this.activeIndex]); },
+          onEscape() { this.open = false; this.activeIndex = -1; },
+          scrollToActive() {
+            const menu = this.$refs.menu;
+            if (!menu) return;
+            const item = menu.querySelector('[data-active="true"]');
+            if (item) item.scrollIntoView({ block: 'nearest' });
+          }
+        };
+      }
+    </script>
     <div class="w-72 space-y-1">
       <label class="block text-sm text-base-content">取引先 <span class="text-error">*</span></label>
-      <div class="relative">
+      <div class="relative" @click.away="open = false; activeIndex = -1">
         <div
           class="flex items-center h-8 px-3 py-2 gap-2 rounded-md bg-white transition-colors"
           :class="open ? 'border-2 border-primary' : 'border border-base-content/20'"
@@ -93,24 +112,32 @@ tailwind.config = {
             x-ref="input"
             type="text"
             x-model="query"
-            @input="open = true"
+            @input="open = true; activeIndex = -1"
             @click="open = true"
+            @keydown.arrow-down.prevent="onArrowDown()"
+            @keydown.arrow-up.prevent="onArrowUp()"
+            @keydown.enter.prevent="onEnter()"
+            @keydown.escape="onEscape()"
+            @keydown.tab="open = false"
             placeholder="検索..."
             class="flex-1 text-sm text-base-content placeholder:text-base-content/30 outline-none bg-transparent min-w-0"
           >
-          <button x-show="query" @click="clear()" class="shrink-0 text-base-content/60 hover:text-base-content">
+          <button x-show="query" @click.stop="clear()" class="shrink-0 text-base-content/60 hover:text-base-content">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
           </button>
         </div>
-        <div x-show="open" @click.away="open = false" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+        <div x-show="open" x-transition x-ref="menu" class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto bg-white border border-base-content/10 rounded-md shadow-lg z-10">
           <div class="px-3 py-1.5 text-xs text-base-content/30" x-text="'検索結果：' + filtered.length + '件'"></div>
           <template x-if="filtered.length === 0">
             <div class="px-3 py-2 text-sm text-base-content/30">該当する結果がありません</div>
           </template>
-          <template x-for="option in filtered" :key="option">
+          <template x-for="(option, idx) in filtered" :key="option">
             <div
               @click="select(option)"
-              class="flex items-center px-3 py-2 cursor-pointer text-sm text-base-content hover:bg-base-200"
+              @mouseenter="activeIndex = idx"
+              :data-active="activeIndex === idx"
+              class="flex items-center px-3 py-2 cursor-pointer text-sm text-base-content"
+              :class="activeIndex === idx ? 'bg-base-200' : 'hover:bg-base-200'"
             >
               <span x-text="option"></span>
             </div>
@@ -123,7 +150,7 @@ tailwind.config = {
 
   <!-- Sizes -->
   <section>
-    <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Sizes</p>
+    <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Sizes</p>
     <div class="flex flex-wrap items-end gap-6">
       <div class="w-56 space-y-1">
         <label class="block text-xs text-base-content">sm</label>
@@ -151,7 +178,7 @@ tailwind.config = {
 
   <!-- States -->
   <section>
-    <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>States</p>
+    <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>States</p>
     <div class="flex flex-wrap items-start gap-4">
       <div class="w-52 space-y-1">
         <label class="block text-sm text-base-content">Default</label>
@@ -192,9 +219,9 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- ComboBoxMenu Variants -->
+  <!-- Menu Variants -->
   <section>
-    <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>ComboBoxMenu Variants</p>
+    <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Menu</p>
     <div class="flex flex-wrap items-start gap-6">
       <!-- With results -->
       <div class="space-y-1.5">

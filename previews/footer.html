@@ -64,7 +64,7 @@ tailwind.config = {
 </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 32px 32px !important; min-height: 200px !important; box-sizing: border-box; }
 .in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
 .in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
@@ -91,7 +91,7 @@ tailwind.config = {
 
     <!-- Default (no back button) -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
       <div class="bg-white border-t border-base-content/10 flex gap-2 items-center px-6 py-4">
         <div class="flex-1"></div>
         <div class="flex gap-2 items-start shrink-0">
@@ -109,7 +109,7 @@ tailwind.config = {
 
     <!-- With Back Button -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Back Button</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Back Button</p>
       <div class="bg-white border-t border-base-content/10 flex gap-2 items-center px-6 py-4">
         <button class="inline-flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 text-xs font-semibold leading-4 text-base-content hover:bg-base-300 transition-colors shrink-0">
           <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>

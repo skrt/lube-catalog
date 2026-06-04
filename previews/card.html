@@ -64,7 +64,7 @@ tailwind.config = {
 </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 32px 32px !important; min-height: 200px !important; box-sizing: border-box; }
 .in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
 .in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
@@ -93,7 +93,7 @@ tailwind.config = {
     <!-- States: Header variations -->
     <!-- Default (Handle + Title + Delete) -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
@@ -110,7 +110,7 @@ tailwind.config = {
 
     <!-- No Handle -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>No Handle</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>No Handle</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <span class="text-sm font-semibold leading-5 text-base-content flex-1">タイトル</span>
@@ -126,7 +126,7 @@ tailwind.config = {
 
     <!-- No Delete -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>No Delete</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>No Delete</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
@@ -138,9 +138,10 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 利用例: デマンド：担当者 -->
+    <p class="text-xl font-normal text-base-content mb-4 uppercase mt-6">Examples</p>
+
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：デマンド担当者</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>デマンド担当者</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
@@ -170,7 +171,7 @@ tailwind.config = {
 
     <!-- 利用例: サプライヤー：担当者 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：サプライヤー担当者</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>サプライヤー担当者</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
@@ -206,7 +207,7 @@ tailwind.config = {
 
     <!-- 利用例: 見積依頼：見積先 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：見積依頼見積先</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>見積依頼見積先</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>

@@ -63,7 +63,7 @@ tailwind.config = {
 };
 </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 32px 32px !important; min-height: 200px !important; box-sizing: border-box; }
 .in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
 .in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
@@ -88,7 +88,7 @@ tailwind.config = {
 
     <!-- Default (with Legend) -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Default</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
@@ -99,7 +99,7 @@ tailwind.config = {
 
     <!-- With Required -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Required</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Required</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
@@ -111,7 +111,7 @@ tailwind.config = {
 
     <!-- Scroll -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Scroll</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Scroll</p>
       <div class="relative mt-3 w-[400px]">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1 z-10">
           <span class="text-xs font-semibold leading-4 text-base-content">社内メモ</span>
@@ -131,9 +131,10 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 利用例: 住所(日本) -->
+    <p class="text-xl font-normal text-base-content mb-4 uppercase mt-6">Examples</p>
+
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：住所(日本)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>住所(日本)</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">住所</span>
@@ -182,7 +183,7 @@ tailwind.config = {
 
     <!-- 利用例: 仕様 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：仕様</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>仕様</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">仕様</span>
@@ -233,7 +234,7 @@ tailwind.config = {
 
     <!-- 利用例: 案件管理 -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：案件管理</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>案件管理</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">案件管理</span>
@@ -278,7 +279,7 @@ tailwind.config = {
 
     <!-- 利用例: 請求書ステータス -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>利用例：請求書ステータス</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>請求書ステータス</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-[400px] flex flex-col gap-2 relative mt-3 overflow-visible">
         <div class="absolute top-[-9px] left-[15px] flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">請求書ステータス</span>

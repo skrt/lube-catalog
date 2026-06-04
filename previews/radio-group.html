@@ -63,7 +63,7 @@ tailwind.config = {
 };
 </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 24px 24px !important; min-height: 200px !important; box-sizing: border-box; }</style>
+<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 200px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8">
@@ -137,7 +137,7 @@ tailwind.config = {
     <!-- demo-skip: bg-base-content/10 -->
     <!-- Radio: States (md) -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio States (md)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio States (md)</p>
       <div class="flex flex-wrap items-center gap-6">
         <div class="flex gap-2 items-center">
           <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-base-content-20"></div>
@@ -168,7 +168,7 @@ tailwind.config = {
 
     <!-- Radio: Sizes -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio Sizes (Selected)</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio Sizes (Selected)</p>
       <div class="flex flex-wrap items-center gap-6">
         <div class="flex gap-2 items-center">
           <div class="relative shrink-0 size-4 rounded-full bg-white shadow-border-primary">
@@ -193,7 +193,7 @@ tailwind.config = {
 
     <!-- Button: States -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Button States</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>States</p>
       <div class="flex flex-wrap items-center gap-4">
         <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-primary">
           <span class="text-sm font-semibold leading-5 text-primary-content">Active</span>

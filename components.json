@@ -398,6 +398,46 @@
       "category": "forms",
       "preview": "previews/combobox.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3695-780",
+      "spec": {
+        "anatomy": [
+          { "part": "Root", "description": "コンポーネント全体のラッパー" },
+          { "part": "Label", "description": "ラベル + 必須マーク(*)" },
+          { "part": "InputRow", "description": "入力欄の枠。Input + ClearButton + ChevronIcon を含む" },
+          { "part": "Input", "description": "テキスト入力。検索クエリの入力とフィルタリングを担う" },
+          { "part": "ClearButton", "description": "選択済み時に表示される×ボタン。値をクリアする" },
+          { "part": "ChevronIcon", "description": "右端の chevron-down アイコン。メニューの開閉状態を示す" },
+          { "part": "HelperText", "description": "入力欄下の補足テキスト" },
+          { "part": "ErrorText", "description": "エラー時のメッセージ（HelperText と排他）" },
+          { "part": "Menu", "description": "ドロップダウンメニュー（ComboBoxMenu コンポーネント）" },
+          { "part": "Menu > Header", "description": "グループの見出し" },
+          { "part": "Menu > Item", "description": "選択肢。Default/Hover/Selected/Disabled の4状態" },
+          { "part": "Menu > Empty", "description": "検索結果が0件の時に表示" },
+          { "part": "Menu > Loading", "description": "非同期読み込み中のスピナー表示" }
+        ],
+        "states": [
+          { "transition": "Default → Focus", "trigger": "クリック or Tab フォーカス", "effect": "メニューが開き全選択肢を表示" },
+          { "transition": "Focus → Filtering", "trigger": "テキスト入力", "effect": "入力値で選択肢をフィルタ" },
+          { "transition": "Filtering → Filled", "trigger": "Item を選択", "effect": "メニューが閉じ、選択値を Input に表示" },
+          { "transition": "Filled → Focus", "trigger": "入力欄を再クリック or ClearButton", "effect": "再クリック: メニュー再表示 / ClearButton: 値クリア+メニュー表示" },
+          { "transition": "Error", "trigger": "バリデーションエラー", "effect": "ErrorText 表示、HelperText 非表示" },
+          { "transition": "Disabled", "trigger": "disabled 属性", "effect": "全操作不可、メニュー開かない" }
+        ],
+        "behavior": [
+          { "action": "メニュー開閉", "detail": "入力欄クリック or フォーカスで開く。選択 or Escape or 外部クリックで閉じる" },
+          { "action": "フィルタリング", "detail": "入力テキストで選択肢を前方一致 or 部分一致でフィルタ。大文字小文字を区別しない" },
+          { "action": "選択", "detail": "Item クリック or Enter で選択。選択値が Input に表示され、メニューが閉じる" },
+          { "action": "クリア", "detail": "ClearButton(×) クリックで値をクリア。Input を空にしてフォーカスを戻し、メニューを開く" },
+          { "action": "検索結果なし", "detail": "フィルタ結果が0件の場合、Menu > Empty を表示" },
+          { "action": "非同期読み込み", "detail": "選択肢の取得中は Menu > Loading を表示" }
+        ],
+        "keyboard": [
+          { "key": "ArrowDown", "action": "メニュー内のフォーカスを次の Item に移動。メニューが閉じていれば開く" },
+          { "key": "ArrowUp", "action": "メニュー内のフォーカスを前の Item に移動" },
+          { "key": "Enter", "action": "フォーカス中の Item を選択してメニューを閉じる" },
+          { "key": "Escape", "action": "メニューを閉じる。入力値はクリアしない" },
+          { "key": "Tab", "action": "メニューを閉じてフォーカスを次の要素に移動" }
+        ]
+      },
       "props": [
         {
           "name": "Size",
