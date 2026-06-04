@@ -2196,49 +2196,7 @@
             }
           ]
         }
-      ],
-      "spec": {
-        "anatomy": [
-          {
-            "part": "Container",
-            "description": "単価表全体"
-          },
-          {
-            "part": "VerticalLabel",
-            "description": "左端の縦書きラベル「単価表」"
-          },
-          {
-            "part": "Header",
-            "description": "ヘッダー行（数量/仕入単価/顧客単価）"
-          },
-          {
-            "part": "Row",
-            "description": "データ行（数値セル）"
-          },
-          {
-            "part": "Footer",
-            "description": "税区分表示"
-          }
-        ],
-        "states": [
-          {
-            "transition": "Default",
-            "trigger": "初期表示",
-            "effect": "数量と単価の一覧が表示される"
-          },
-          {
-            "transition": "Checkbox",
-            "trigger": "Type = Checkbox",
-            "effect": "各行にチェックボックスが追加される"
-          }
-        ],
-        "behavior": [
-          {
-            "action": "行選択",
-            "detail": "Checkbox モード時、行クリックでチェック状態をトグル"
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "quote-table",
