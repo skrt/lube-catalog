@@ -3592,6 +3592,194 @@
       ]
     },
     {
+      "id": "details",
+      "name": "Details",
+      "description": "書類詳細画面の明細カード。Item/Cost の2タイプ、Open/Close/Add/Confirm の各モード",
+      "category": "data-display",
+      "preview": "previews/details.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3912-7775",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Item",
+          "values": [
+            "Item",
+            "Cost"
+          ],
+          "description": "明細の種類。Item=商品明細、Cost=費用明細"
+        },
+        {
+          "name": "Open",
+          "type": "boolean",
+          "default": "true",
+          "description": "本体の展開/折りたたみ"
+        },
+        {
+          "name": "Mode",
+          "type": "enum",
+          "default": "Default",
+          "values": [
+            "Default",
+            "Add",
+            "Confirm"
+          ],
+          "description": "Default=閲覧、Add=新規追加（編集可能）、Confirm=確定後表示"
+        },
+        {
+          "name": "Props Row Type",
+          "type": "enum",
+          "default": "Default",
+          "values": [
+            "Default",
+            "Link",
+            "Data",
+            "SubText",
+            "TextArea",
+            "RadioButton：区分",
+            "RadioButton：区分選択後",
+            "RadioButton：納品先"
+          ],
+          "description": "ラベル:値行の表示タイプ（Details/Props サブコンポーネント）"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Header",
+          "items": [
+            {
+              "variant": "style",
+              "tokens": {
+                "background": "bg-base-200",
+                "height": "h-11 (44px)",
+                "padding": "px-4",
+                "border": "border-b border-base-content/5",
+                "title": "text-sm font-semibold text-base-content",
+                "gap": "gap-4"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Actions",
+          "items": [
+            {
+              "variant": "削除",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border border-base-content/5",
+                "radius": "rounded-md",
+                "font": "text-xs font-semibold text-base-content",
+                "icon": "trash 12px"
+              }
+            },
+            {
+              "variant": "編集",
+              "tokens": {
+                "background": "bg-secondary",
+                "font": "text-xs font-semibold text-secondary-content",
+                "icon": "pencil 12px"
+              }
+            },
+            {
+              "variant": "詳細",
+              "tokens": {
+                "background": "bg-secondary",
+                "font": "text-xs font-semibold text-secondary-content",
+                "icon": "chevron-right 12px"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Spec Table (Item only)",
+          "items": [
+            {
+              "variant": "header",
+              "tokens": {
+                "background": "bg-base-200",
+                "font": "text-xs text-base-content/60",
+                "padding": "px-3 py-2"
+              }
+            },
+            {
+              "variant": "cell",
+              "tokens": {
+                "font": "text-xs text-base-content",
+                "padding": "p-3"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Body",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
+                "padding": "px-4 py-3",
+                "gap": "gap-4"
+              }
+            },
+            {
+              "variant": "Image (Item)",
+              "tokens": {
+                "size": "108px",
+                "radius": "rounded-lg"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Props Row",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
+                "border": "border-t border-base-content/5",
+                "padding": "py-2",
+                "gap": "gap-2",
+                "align": "items-start"
+              }
+            },
+            {
+              "variant": "label",
+              "tokens": {
+                "width": "w-24 (96px)",
+                "font": "text-xs leading-4",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "value",
+              "tokens": {
+                "font": "text-xs leading-4",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Link value",
+              "tokens": {
+                "color": "text-secondary-content",
+                "icon": "external-link 12px"
+              }
+            },
+            {
+              "variant": "Data value (file button)",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border border-base-content/5",
+                "radius": "rounded-md",
+                "padding": "px-2 py-1",
+                "font": "text-xs font-semibold",
+                "icons": "file-down + chevron-right 12px"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "footer",
       "name": "Footer",
       "hasDemo": true,
@@ -4229,6 +4417,180 @@
               "variant": "alignment",
               "tokens": {
                 "text-align": "text-right (右寄せ)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "name": "Title",
+      "description": "ページ/セクション見出し＋右にアクションボタン群",
+      "category": "layout",
+      "preview": "previews/title.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3824-5554",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Page",
+          "values": [
+            "Page",
+            "Section",
+            "Sub"
+          ],
+          "description": "見出しの階層"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "default": "タイトル",
+          "description": "見出しテキスト"
+        },
+        {
+          "name": "Actions",
+          "type": "slot",
+          "default": "-",
+          "description": "右側のアクションボタン群"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Title Text",
+          "items": [
+            {
+              "variant": "Page",
+              "tokens": {
+                "font": "text-3xl font-semibold",
+                "leading": "leading-9 (36px)",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Section",
+              "tokens": {
+                "font": "text-xl font-semibold",
+                "leading": "leading-7 (28px)",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Sub",
+              "tokens": {
+                "font": "text-base font-semibold",
+                "leading": "leading-6 (24px)",
+                "color": "text-base-content"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Actions",
+          "items": [
+            {
+              "variant": "Page (lg button)",
+              "tokens": {
+                "padding": "px-4 py-2.5",
+                "font": "text-sm font-semibold",
+                "radius": "rounded-md"
+              }
+            },
+            {
+              "variant": "Section / Sub (md button)",
+              "tokens": {
+                "padding": "px-3 py-2",
+                "font": "text-xs font-semibold",
+                "radius": "rounded-md"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Layout",
+          "items": [
+            {
+              "variant": "container",
+              "tokens": {
+                "display": "flex items-center",
+                "gap": "gap-6"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter-area",
+      "name": "FilterArea",
+      "description": "一覧画面の検索フィルタテンプレート。画面ごとにフィールド構成が異なる",
+      "category": "navigation",
+      "preview": "previews/filter-area.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3844-5515",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "見積依頼",
+          "values": [
+            "見積依頼",
+            "見積書",
+            "発注書",
+            "発注請書",
+            "請求書",
+            "デマンド",
+            "サプライヤー"
+          ],
+          "description": "画面ごとのフィルター構成"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Layout",
+          "items": [
+            {
+              "variant": "container",
+              "tokens": {
+                "display": "flex items-start",
+                "gap": "gap-4",
+                "width": "w-full"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Field",
+          "items": [
+            {
+              "variant": "Input",
+              "tokens": {
+                "width": "w-40 (160px)",
+                "height": "h-8",
+                "border": "border border-base-content/20",
+                "radius": "rounded-md",
+                "padding": "px-3 py-2",
+                "label": "text-sm text-base-content"
+              }
+            },
+            {
+              "variant": "ComboBox",
+              "tokens": {
+                "width": "w-40 or w-32",
+                "icon": "chevron-down 14px right"
+              }
+            },
+            {
+              "variant": "DateRangePicker",
+              "tokens": {
+                "width": "w-72 (288px)",
+                "icons": "calendar-range left, circle-x right"
+              }
+            },
+            {
+              "variant": "フリーワード",
+              "tokens": {
+                "width": "flex-1",
+                "helper": "text-xs text-base-content/60"
               }
             }
           ]

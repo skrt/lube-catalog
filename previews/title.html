@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          DEFAULT: '#0a0ac2',
+          hover: '#080892',
+          content: '#f3f4fe',
+        },
+        'secondary': {
+          DEFAULT: '#e8e8fd',
+          hover: '#e0e0f5',
+          content: '#0a0ac2',
+        },
+        'base-content': 'rgb(16 16 22 / <alpha-value>)',
+        'base-200': '#f8f8fa',
+        'base-300': '#eeeef2',
+        'error': {
+          DEFAULT: '#c94043',
+          hover: '#b7393c',
+          content: '#fff5f5',
+          'bg': '#f7e2e3',
+        },
+        'success': {
+          DEFAULT: '#479d72',
+          content: '#f5fef9',
+          'bg': '#e3f0ea',
+        },
+        'warning': {
+          DEFAULT: '#de781f',
+          content: '#fffcf8',
+          'bg': '#faebdd',
+        },
+        'info': {
+          DEFAULT: '#535671',
+          content: '#f2f4ff',
+          'bg': '#e5e6ea',
+        },
+      },
+      borderRadius: {
+        'sm': '4px',
+      },
+      boxShadow: {
+        'border-base-content-5': 'inset 0 0 0 1px rgba(16, 16, 22, 0.05)',
+        'border-base-content-10': 'inset 0 0 0 1px rgba(16, 16, 22, 0.1)',
+        'border-base-content-20': 'inset 0 0 0 1px rgba(16, 16, 22, 0.2)',
+        'border-2-base-content-10': 'inset 0 0 0 2px rgba(16, 16, 22, 0.1)',
+        'border-2-base-content-20': 'inset 0 0 0 2px rgba(16, 16, 22, 0.2)',
+        'border-primary': 'inset 0 0 0 1px #0a0ac2',
+        'border-2-primary': 'inset 0 0 0 2px #0a0ac2',
+        'border-error': 'inset 0 0 0 1px #c94043',
+        'border-2-error': 'inset 0 0 0 2px #c94043',
+      },
+    },
+  },
+};
+</script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8 space-y-10">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    Title — ページ/セクション見出し＋右にアクションボタン群
+      Type: Page / Section / Sub
+      Layout: flex items-center gap-6, w-full
+
+    Page:    text-3xl(30px) font-semibold leading-9(36px) text-base-content
+             Actions: Button lg (px-4 py-2.5 text-sm font-semibold rounded-md)
+    Section: text-xl(20px) font-semibold leading-7(28px) text-base-content
+             Actions: Button md (px-3 py-2 text-xs font-semibold rounded-md)
+    Sub:     text-base(16px) font-semibold leading-6(24px) text-base-content
+             Actions: Button md (px-3 py-2 text-xs font-semibold rounded-md)
+  -->
+
+  <!-- Types -->
+  <section>
+    <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Types</p>
+    <div class="flex flex-col gap-8">
+
+      <!-- Page -->
+      <div class="flex items-start gap-4">
+        <p class="shrink-0 w-20 pt-1 text-[10px] text-gray-400">Page</p>
+        <div class="flex-1 flex gap-6 items-center">
+          <p class="flex-1 min-w-0 text-3xl font-semibold leading-9 text-base-content">タイトル</p>
+          <div class="flex gap-2 items-center shrink-0">
+            <button class="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">複製</button>
+            <button class="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">PDFダウンロード</button>
+            <button class="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">編集</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section -->
+      <div class="flex items-start gap-4">
+        <p class="shrink-0 w-20 pt-0.5 text-[10px] text-gray-400">Section</p>
+        <div class="flex-1 flex gap-6 items-center">
+          <p class="flex-1 min-w-0 text-xl font-semibold leading-7 text-base-content">タイトル</p>
+          <div class="flex gap-2 items-center shrink-0">
+            <button class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">ボタン</button>
+            <button class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">ボタン</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub -->
+      <div class="flex items-start gap-4">
+        <p class="shrink-0 w-20 pt-0.5 text-[10px] text-gray-400">Sub</p>
+        <div class="flex-1 flex gap-6 items-center">
+          <p class="flex-1 min-w-0 text-base font-semibold leading-6 text-base-content">タイトル</p>
+          <div class="flex gap-2 items-center shrink-0">
+            <button class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5">ボタン</button>
+            <button class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5">ボタン</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
