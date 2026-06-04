@@ -1,12 +1,33 @@
 {
   "categories": [
-    { "id": "design-tokens", "label": "Design Tokens" },
-    { "id": "actions", "label": "Actions" },
-    { "id": "data-display", "label": "Data Display" },
-    { "id": "feedback", "label": "Feedback" },
-    { "id": "forms", "label": "Forms" },
-    { "id": "layout", "label": "Layout" },
-    { "id": "navigation", "label": "Navigation" }
+    {
+      "id": "design-tokens",
+      "label": "Design Tokens"
+    },
+    {
+      "id": "actions",
+      "label": "Actions"
+    },
+    {
+      "id": "data-display",
+      "label": "Data Display"
+    },
+    {
+      "id": "feedback",
+      "label": "Feedback"
+    },
+    {
+      "id": "forms",
+      "label": "Forms"
+    },
+    {
+      "id": "layout",
+      "label": "Layout"
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation"
+    }
   ],
   "components": [
     {
@@ -28,21 +49,35 @@
           "name": "Color",
           "type": "enum",
           "default": "Primary",
-          "values": ["Primary", "Secondary", "Tertiary", "Danger"],
+          "values": [
+            "Primary",
+            "Secondary",
+            "Tertiary",
+            "Danger"
+          ],
           "description": "ボタンの色バリアント"
         },
         {
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "ボタンサイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Hover", "Disabled", "Loading"],
+          "values": [
+            "Default",
+            "Hover",
+            "Disabled",
+            "Loading"
+          ],
           "description": "ボタンの状態"
         },
         {
@@ -62,27 +97,100 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Primary", "tokens": { "background": "bg-primary", "hover": "hover:bg-primary", "text": "text-primary-content" } },
-            { "variant": "Secondary", "tokens": { "background": "bg-secondary", "hover": "hover:bg-secondary", "text": "text-secondary-content" } },
-            { "variant": "Tertiary", "tokens": { "background": "bg-base-200", "hover": "hover:bg-base-300", "text": "text-base-content" } },
-            { "variant": "Danger", "tokens": { "background": "bg-error", "hover": "hover:bg-error", "text": "text-error-content" } },
-            { "variant": "Disabled", "tokens": { "background": "bg-base-300", "text": "text-base-content/30)" } }
+            {
+              "variant": "Primary",
+              "tokens": {
+                "background": "bg-primary",
+                "hover": "hover:bg-primary",
+                "text": "text-primary-content"
+              }
+            },
+            {
+              "variant": "Secondary",
+              "tokens": {
+                "background": "bg-secondary",
+                "hover": "hover:bg-secondary",
+                "text": "text-secondary-content"
+              }
+            },
+            {
+              "variant": "Tertiary",
+              "tokens": {
+                "background": "bg-base-200",
+                "hover": "hover:bg-base-300",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Danger",
+              "tokens": {
+                "background": "bg-error",
+                "hover": "hover:bg-error",
+                "text": "text-error-content"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "bg-base-300",
+                "text": "text-base-content/30)"
+              }
+            }
           ]
         },
         {
           "category": "Common",
           "items": [
-            { "variant": "radius", "tokens": { "all": "rounded-md" } },
-            { "variant": "border", "tokens": { "all": "border base-content/5" } },
-            { "variant": "font", "tokens": { "weight": "font-semibold" } }
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md"
+              }
+            },
+            {
+              "variant": "border",
+              "tokens": {
+                "all": "border base-content/5"
+              }
+            },
+            {
+              "variant": "font",
+              "tokens": {
+                "weight": "font-semibold"
+              }
+            }
           ]
         },
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "padding": "px-2 py-1", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "12px" } },
-            { "variant": "md", "tokens": { "padding": "px-3 py-2", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "icon": "14px" } },
-            { "variant": "lg", "tokens": { "padding": "px-4 py-2.5", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "icon": "14px" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4 (16px)",
+                "icon": "12px"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "padding": "px-3 py-2",
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4 (16px)",
+                "icon": "14px"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "padding": "px-4 py-2.5",
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)",
+                "icon": "14px"
+              }
+            }
           ]
         }
       ]
@@ -99,21 +207,34 @@
           "name": "Color",
           "type": "enum",
           "default": "Primary",
-          "values": ["Primary", "Secondary", "Tertiary", "Danger"],
+          "values": [
+            "Primary",
+            "Secondary",
+            "Tertiary",
+            "Danger"
+          ],
           "description": "ボタンの色バリアント"
         },
         {
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "ボタンサイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Hover", "Disabled"],
+          "values": [
+            "Default",
+            "Hover",
+            "Disabled"
+          ],
           "description": "ボタンの状態"
         }
       ],
@@ -121,16 +242,44 @@
         {
           "category": "Common",
           "items": [
-            { "variant": "radius", "tokens": { "all": "rounded-md" } },
-            { "variant": "border", "tokens": { "all": "border base-content/5" } }
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md"
+              }
+            },
+            {
+              "variant": "border",
+              "tokens": {
+                "all": "border base-content/5"
+              }
+            }
           ]
         },
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "padding": "p-1.5", "icon": "12px (w-3)" } },
-            { "variant": "md", "tokens": { "padding": "p-2", "icon": "16px (w-4)" } },
-            { "variant": "lg", "tokens": { "padding": "p-2.5", "icon": "20px (w-5)" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "padding": "p-1.5",
+                "icon": "12px (w-3)"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "padding": "p-2",
+                "icon": "16px (w-4)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "padding": "p-2.5",
+                "icon": "20px (w-5)"
+              }
+            }
           ]
         }
       ]
@@ -147,14 +296,24 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "入力欄サイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled",
+            "Filled"
+          ],
           "description": "入力欄の状態"
         },
         {
@@ -204,19 +363,73 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } },
-            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "label": "text-sm (14px)" } },
-            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "height": "h-6 (24px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "label": "text-xs (12px)"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "height": "h-8 (32px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)",
+                "label": "text-sm (14px)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-10 (40px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)",
+                "label": "text-base (16px)"
+              }
+            }
           ]
         },
         {
           "category": "State",
           "items": [
-            { "variant": "Default", "tokens": { "border": "border border-base-content/20)", "background": "bg-base-100 (white)" } },
-            { "variant": "Focus", "tokens": { "border": "border-2 border-primary", "background": "bg-base-100 (white)" } },
-            { "variant": "Error", "tokens": { "border": "border-2 border-error", "background": "bg-base-100 (white)" } },
-            { "variant": "Disabled", "tokens": { "border": "border border-base-content/10)", "background": "bg-base-200" } },
-            { "variant": "Filled", "tokens": { "border": "border border-base-content/20)", "background": "bg-base-100 (white)" } }
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20)",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10)",
+                "background": "bg-base-200"
+              }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20)",
+                "background": "bg-base-100 (white)"
+              }
+            }
           ]
         }
       ]
@@ -233,14 +446,24 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "テキストエリアサイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled",
+            "Filled"
+          ],
           "description": "テキストエリアの状態"
         },
         {
@@ -278,9 +501,33 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "height": "h-14 (56px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "label": "text-xs (12px)" } },
-            { "variant": "md", "tokens": { "height": "h-16 (64px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "label": "text-sm (14px)" } },
-            { "variant": "lg", "tokens": { "height": "h-20 (80px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "label": "text-base (16px)" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "height": "h-14 (56px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "label": "text-xs (12px)"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "height": "h-16 (64px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)",
+                "label": "text-sm (14px)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-20 (80px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)",
+                "label": "text-base (16px)"
+              }
+            }
           ]
         }
       ]
@@ -288,7 +535,8 @@
     {
       "id": "file-input",
       "name": "FileInput",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "ファイル添付フォーム",
       "category": "forms",
       "preview": "previews/file-input.html",
@@ -298,7 +546,11 @@
           "name": "State",
           "type": "enum",
           "default": "Empty",
-          "values": ["Empty", "Loading", "Selected"],
+          "values": [
+            "Empty",
+            "Loading",
+            "Selected"
+          ],
           "description": "フォームの状態"
         }
       ],
@@ -306,20 +558,115 @@
         {
           "category": "Style",
           "items": [
-            { "variant": "Container", "tokens": { "width": "w-[480px]", "gap": "gap-1 (4px)", "layout": "flex-col" } },
-            { "variant": "Legend", "tokens": { "font": "text-xs semibold", "color": "text-base-content", "required": "text-error" } },
-            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-sm", "padding": "px-3 py-2", "font": "text-xs semibold" } },
-            { "variant": "Loading", "tokens": { "background": "bg-base-300", "text": "text-base-content/30", "icon": "loader-circle animate-spin" } },
-            { "variant": "FileRow", "tokens": { "name": "text-xs text-base-content", "size": "text-xs text-base-content/30", "delete": "IconButton sm trash-2" } },
-            { "variant": "Helper", "tokens": { "font": "text-xs", "color": "text-base-content/60" } }
+            {
+              "variant": "Container",
+              "tokens": {
+                "width": "w-[480px]",
+                "gap": "gap-1 (4px)",
+                "layout": "flex-col"
+              }
+            },
+            {
+              "variant": "Legend",
+              "tokens": {
+                "font": "text-xs semibold",
+                "color": "text-base-content",
+                "required": "text-error"
+              }
+            },
+            {
+              "variant": "Button",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "radius": "rounded-sm",
+                "padding": "px-3 py-2",
+                "font": "text-xs semibold"
+              }
+            },
+            {
+              "variant": "Loading",
+              "tokens": {
+                "background": "bg-base-300",
+                "text": "text-base-content/30",
+                "icon": "loader-circle animate-spin"
+              }
+            },
+            {
+              "variant": "FileRow",
+              "tokens": {
+                "name": "text-xs text-base-content",
+                "size": "text-xs text-base-content/30",
+                "delete": "IconButton sm trash-2"
+              }
+            },
+            {
+              "variant": "Helper",
+              "tokens": {
+                "font": "text-xs",
+                "color": "text-base-content/60"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Root",
+            "description": "コンポーネント全体"
+          },
+          {
+            "part": "Legend",
+            "description": "ラベル + 必須マーク"
+          },
+          {
+            "part": "Button",
+            "description": "ファイル選択ボタン"
+          },
+          {
+            "part": "FileRow",
+            "description": "選択済みファイルの表示行（ファイル名 + サイズ + 削除ボタン）"
+          },
+          {
+            "part": "HelperText",
+            "description": "補足テキスト"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Empty → Loading",
+            "trigger": "ファイル選択",
+            "effect": "ボタンが Loading 表示（spinner + テキスト変更）"
+          },
+          {
+            "transition": "Loading → Selected",
+            "trigger": "アップロード完了",
+            "effect": "FileRow にファイル情報を表示"
+          },
+          {
+            "transition": "Selected → Empty",
+            "trigger": "削除ボタンクリック",
+            "effect": "FileRow を削除、Empty に戻る"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "ファイル選択",
+            "detail": "ボタンクリックでファイルダイアログを開く"
+          },
+          {
+            "action": "削除",
+            "detail": "FileRow の trash アイコンで個別ファイルを削除"
+          }
+        ]
+      }
     },
     {
       "id": "select",
       "name": "Select",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "プルダウン型の選択フォーム",
       "category": "forms",
       "preview": "previews/select.html",
@@ -329,14 +676,23 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "セレクトサイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled"
+          ],
           "description": "セレクトの状態"
         },
         {
@@ -374,68 +730,308 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px (w-3)" } },
-            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px (w-3.5)" } },
-            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px (w-4)" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "height": "h-6 (24px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "icon": "12px (w-3)"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "height": "h-8 (32px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)",
+                "icon": "14px (w-3.5)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-10 (40px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)",
+                "icon": "16px (w-4)"
+              }
+            }
           ]
         },
         {
           "category": "SelectMenu Item",
           "items": [
-            { "variant": "Default", "tokens": { "background": "transparent", "text": "text-base-content" } },
-            { "variant": "Hover", "tokens": { "background": "bg-base-200", "text": "text-base-content" } },
-            { "variant": "Selected", "tokens": { "background": "bg-secondary", "text": "text-secondary-content" } },
-            { "variant": "Disabled", "tokens": { "background": "transparent", "text": "text-base-content/30)" } }
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "transparent",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "background": "bg-base-200",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Selected",
+              "tokens": {
+                "background": "bg-secondary",
+                "text": "text-secondary-content"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "transparent",
+                "text": "text-base-content/30)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Root",
+            "description": "コンポーネント全体のラッパー"
+          },
+          {
+            "part": "Label",
+            "description": "ラベル + 必須マーク(*)"
+          },
+          {
+            "part": "InputRow",
+            "description": "選択欄の枠。選択値 + ChevronIcon"
+          },
+          {
+            "part": "ChevronIcon",
+            "description": "右端の chevron-down アイコン"
+          },
+          {
+            "part": "HelperText",
+            "description": "入力欄下の補足テキスト"
+          },
+          {
+            "part": "ErrorText",
+            "description": "エラー時のメッセージ"
+          },
+          {
+            "part": "Menu",
+            "description": "ドロップダウンメニュー（SelectMenu）"
+          },
+          {
+            "part": "Menu > Item",
+            "description": "選択肢。Default/Hover/Selected/Disabled の4状態"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default → Focus",
+            "trigger": "クリック",
+            "effect": "メニューが開く"
+          },
+          {
+            "transition": "Focus → Filled",
+            "trigger": "Item を選択",
+            "effect": "メニューが閉じ、選択値を表示"
+          },
+          {
+            "transition": "Filled → Focus",
+            "trigger": "再クリック",
+            "effect": "メニューが再び開く"
+          },
+          {
+            "transition": "Error",
+            "trigger": "バリデーションエラー",
+            "effect": "ErrorText 表示"
+          },
+          {
+            "transition": "Disabled",
+            "trigger": "disabled 属性",
+            "effect": "全操作不可"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "メニュー開閉",
+            "detail": "クリックで開閉。外部クリック or Escape で閉じる"
+          },
+          {
+            "action": "選択",
+            "detail": "Item クリック or Enter で選択。選択値が表示されメニューが閉じる"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "ArrowDown",
+            "action": "次の Item にフォーカス移動。閉じていれば開く"
+          },
+          {
+            "key": "ArrowUp",
+            "action": "前の Item にフォーカス移動"
+          },
+          {
+            "key": "Enter",
+            "action": "フォーカス中の Item を選択"
+          },
+          {
+            "key": "Escape",
+            "action": "メニューを閉じる"
+          },
+          {
+            "key": "Tab",
+            "action": "メニューを閉じてフォーカス移動"
+          }
+        ]
+      }
     },
     {
       "id": "combobox",
       "name": "ComboBox",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "検索付きの選択フォーム",
       "category": "forms",
       "preview": "previews/combobox.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3695-780",
       "spec": {
         "anatomy": [
-          { "part": "Root", "description": "コンポーネント全体のラッパー" },
-          { "part": "Label", "description": "ラベル + 必須マーク(*)" },
-          { "part": "InputRow", "description": "入力欄の枠。Input + ClearButton + ChevronIcon を含む" },
-          { "part": "Input", "description": "テキスト入力。検索クエリの入力とフィルタリングを担う" },
-          { "part": "ClearButton", "description": "選択済み時に表示される×ボタン。値をクリアする" },
-          { "part": "ChevronIcon", "description": "右端の chevron-down アイコン。メニューの開閉状態を示す" },
-          { "part": "HelperText", "description": "入力欄下の補足テキスト" },
-          { "part": "ErrorText", "description": "エラー時のメッセージ（HelperText と排他）" },
-          { "part": "Menu", "description": "ドロップダウンメニュー（ComboBoxMenu コンポーネント）" },
-          { "part": "Menu > Header", "description": "グループの見出し" },
-          { "part": "Menu > Item", "description": "選択肢。Default/Hover/Selected/Disabled の4状態" },
-          { "part": "Menu > Empty", "description": "検索結果が0件の時に表示" },
-          { "part": "Menu > Loading", "description": "非同期読み込み中のスピナー表示" }
+          {
+            "part": "Root",
+            "description": "コンポーネント全体のラッパー"
+          },
+          {
+            "part": "Label",
+            "description": "ラベル + 必須マーク(*)"
+          },
+          {
+            "part": "InputRow",
+            "description": "入力欄の枠。Input + ClearButton + ChevronIcon を含む"
+          },
+          {
+            "part": "Input",
+            "description": "テキスト入力。検索クエリの入力とフィルタリングを担う"
+          },
+          {
+            "part": "ClearButton",
+            "description": "選択済み時に表示される×ボタン。値をクリアする"
+          },
+          {
+            "part": "ChevronIcon",
+            "description": "右端の chevron-down アイコン。メニューの開閉状態を示す"
+          },
+          {
+            "part": "HelperText",
+            "description": "入力欄下の補足テキスト"
+          },
+          {
+            "part": "ErrorText",
+            "description": "エラー時のメッセージ（HelperText と排他）"
+          },
+          {
+            "part": "Menu",
+            "description": "ドロップダウンメニュー（ComboBoxMenu コンポーネント）"
+          },
+          {
+            "part": "Menu > Header",
+            "description": "グループの見出し"
+          },
+          {
+            "part": "Menu > Item",
+            "description": "選択肢。Default/Hover/Selected/Disabled の4状態"
+          },
+          {
+            "part": "Menu > Empty",
+            "description": "検索結果が0件の時に表示"
+          },
+          {
+            "part": "Menu > Loading",
+            "description": "非同期読み込み中のスピナー表示"
+          }
         ],
         "states": [
-          { "transition": "Default → Focus", "trigger": "クリック or Tab フォーカス", "effect": "メニューが開き全選択肢を表示" },
-          { "transition": "Focus → Filtering", "trigger": "テキスト入力", "effect": "入力値で選択肢をフィルタ" },
-          { "transition": "Filtering → Filled", "trigger": "Item を選択", "effect": "メニューが閉じ、選択値を Input に表示" },
-          { "transition": "Filled → Focus", "trigger": "入力欄を再クリック or ClearButton", "effect": "再クリック: メニュー再表示 / ClearButton: 値クリア+メニュー表示" },
-          { "transition": "Error", "trigger": "バリデーションエラー", "effect": "ErrorText 表示、HelperText 非表示" },
-          { "transition": "Disabled", "trigger": "disabled 属性", "effect": "全操作不可、メニュー開かない" }
+          {
+            "transition": "Default → Focus",
+            "trigger": "クリック or Tab フォーカス",
+            "effect": "メニューが開き全選択肢を表示"
+          },
+          {
+            "transition": "Focus → Filtering",
+            "trigger": "テキスト入力",
+            "effect": "入力値で選択肢をフィルタ"
+          },
+          {
+            "transition": "Filtering → Filled",
+            "trigger": "Item を選択",
+            "effect": "メニューが閉じ、選択値を Input に表示"
+          },
+          {
+            "transition": "Filled → Focus",
+            "trigger": "入力欄を再クリック or ClearButton",
+            "effect": "再クリック: メニュー再表示 / ClearButton: 値クリア+メニュー表示"
+          },
+          {
+            "transition": "Error",
+            "trigger": "バリデーションエラー",
+            "effect": "ErrorText 表示、HelperText 非表示"
+          },
+          {
+            "transition": "Disabled",
+            "trigger": "disabled 属性",
+            "effect": "全操作不可、メニュー開かない"
+          }
         ],
         "behavior": [
-          { "action": "メニュー開閉", "detail": "入力欄クリック or フォーカスで開く。選択 or Escape or 外部クリックで閉じる" },
-          { "action": "フィルタリング", "detail": "入力テキストで選択肢を前方一致 or 部分一致でフィルタ。大文字小文字を区別しない" },
-          { "action": "選択", "detail": "Item クリック or Enter で選択。選択値が Input に表示され、メニューが閉じる" },
-          { "action": "クリア", "detail": "ClearButton(×) クリックで値をクリア。Input を空にしてフォーカスを戻し、メニューを開く" },
-          { "action": "検索結果なし", "detail": "フィルタ結果が0件の場合、Menu > Empty を表示" },
-          { "action": "非同期読み込み", "detail": "選択肢の取得中は Menu > Loading を表示" }
+          {
+            "action": "メニュー開閉",
+            "detail": "入力欄クリック or フォーカスで開く。選択 or Escape or 外部クリックで閉じる"
+          },
+          {
+            "action": "フィルタリング",
+            "detail": "入力テキストで選択肢を前方一致 or 部分一致でフィルタ。大文字小文字を区別しない"
+          },
+          {
+            "action": "選択",
+            "detail": "Item クリック or Enter で選択。選択値が Input に表示され、メニューが閉じる"
+          },
+          {
+            "action": "クリア",
+            "detail": "ClearButton(×) クリックで値をクリア。Input を空にしてフォーカスを戻し、メニューを開く"
+          },
+          {
+            "action": "検索結果なし",
+            "detail": "フィルタ結果が0件の場合、Menu > Empty を表示"
+          },
+          {
+            "action": "非同期読み込み",
+            "detail": "選択肢の取得中は Menu > Loading を表示"
+          }
         ],
         "keyboard": [
-          { "key": "ArrowDown", "action": "メニュー内のフォーカスを次の Item に移動。メニューが閉じていれば開く" },
-          { "key": "ArrowUp", "action": "メニュー内のフォーカスを前の Item に移動" },
-          { "key": "Enter", "action": "フォーカス中の Item を選択してメニューを閉じる" },
-          { "key": "Escape", "action": "メニューを閉じる。入力値はクリアしない" },
-          { "key": "Tab", "action": "メニューを閉じてフォーカスを次の要素に移動" }
+          {
+            "key": "ArrowDown",
+            "action": "メニュー内のフォーカスを次の Item に移動。メニューが閉じていれば開く"
+          },
+          {
+            "key": "ArrowUp",
+            "action": "メニュー内のフォーカスを前の Item に移動"
+          },
+          {
+            "key": "Enter",
+            "action": "フォーカス中の Item を選択してメニューを閉じる"
+          },
+          {
+            "key": "Escape",
+            "action": "メニューを閉じる。入力値はクリアしない"
+          },
+          {
+            "key": "Tab",
+            "action": "メニューを閉じてフォーカスを次の要素に移動"
+          }
         ]
       },
       "props": [
@@ -443,14 +1039,24 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "コンボボックスサイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled",
+            "Filled"
+          ],
           "description": "コンボボックスの状態"
         },
         {
@@ -488,9 +1094,25 @@
         {
           "category": "ComboBoxMenu",
           "items": [
-            { "variant": "Header", "tokens": { "font-size": "text-xs (12px)", "text": "text-base-content/60)" } },
-            { "variant": "Empty", "tokens": { "text": "text-base-content/30)" } },
-            { "variant": "Loading", "tokens": { "spinner": "animate-spin, text-base-content/30" } }
+            {
+              "variant": "Header",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "text": "text-base-content/60)"
+              }
+            },
+            {
+              "variant": "Empty",
+              "tokens": {
+                "text": "text-base-content/30)"
+              }
+            },
+            {
+              "variant": "Loading",
+              "tokens": {
+                "spinner": "animate-spin, text-base-content/30"
+              }
+            }
           ]
         }
       ]
@@ -507,7 +1129,11 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "sm=108px, md=220px, lg=720px"
         },
         {
@@ -521,16 +1147,51 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "size": "size-[108px]", "icon": "w-4 (16px)", "text": "text-xs" } },
-            { "variant": "md", "tokens": { "size": "size-[220px]", "icon": "w-5 (20px)", "text": "text-sm" } },
-            { "variant": "lg", "tokens": { "size": "size-[720px]", "icon": "w-6 (24px)", "text": "text-base" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "size": "size-[108px]",
+                "icon": "w-4 (16px)",
+                "text": "text-xs"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "size": "size-[220px]",
+                "icon": "w-5 (20px)",
+                "text": "text-sm"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "size": "size-[720px]",
+                "icon": "w-6 (24px)",
+                "text": "text-base"
+              }
+            }
           ]
         },
         {
           "category": "Style",
           "items": [
-            { "variant": "Image", "tokens": { "shape": "rounded-lg", "fit": "object-cover" } },
-            { "variant": "Placeholder", "tokens": { "background": "bg-base-200", "shape": "rounded-lg", "icon-color": "text-base-content/30", "text-color": "text-base-content/30" } }
+            {
+              "variant": "Image",
+              "tokens": {
+                "shape": "rounded-lg",
+                "fit": "object-cover"
+              }
+            },
+            {
+              "variant": "Placeholder",
+              "tokens": {
+                "background": "bg-base-200",
+                "shape": "rounded-lg",
+                "icon-color": "text-base-content/30",
+                "text-color": "text-base-content/30"
+              }
+            }
           ]
         }
       ]
@@ -547,14 +1208,24 @@
           "name": "Color",
           "type": "enum",
           "default": "Primary",
-          "values": ["Primary", "Success", "Warning", "Error", "Info"],
+          "values": [
+            "Primary",
+            "Success",
+            "Warning",
+            "Error",
+            "Info"
+          ],
           "description": "バッジの色バリアント"
         },
         {
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "バッジサイズ"
         },
         {
@@ -568,25 +1239,81 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Primary", "tokens": { "background": "bg-primary", "text": "text-primary-content" } },
-            { "variant": "Success", "tokens": { "background": "bg-success", "text": "text-success-content" } },
-            { "variant": "Warning", "tokens": { "background": "bg-warning", "text": "text-warning-content" } },
-            { "variant": "Error", "tokens": { "background": "bg-error", "text": "text-error-content" } },
-            { "variant": "Info", "tokens": { "background": "bg-info", "text": "text-info-content" } }
+            {
+              "variant": "Primary",
+              "tokens": {
+                "background": "bg-primary",
+                "text": "text-primary-content"
+              }
+            },
+            {
+              "variant": "Success",
+              "tokens": {
+                "background": "bg-success",
+                "text": "text-success-content"
+              }
+            },
+            {
+              "variant": "Warning",
+              "tokens": {
+                "background": "bg-warning",
+                "text": "text-warning-content"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "background": "bg-error",
+                "text": "text-error-content"
+              }
+            },
+            {
+              "variant": "Info",
+              "tokens": {
+                "background": "bg-info",
+                "text": "text-info-content"
+              }
+            }
           ]
         },
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "padding": "px-1.5 py-0", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)" } },
-            { "variant": "md", "tokens": { "padding": "px-2 py-0.5", "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)" } },
-            { "variant": "lg", "tokens": { "padding": "px-2.5 py-0.5", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "padding": "px-1.5 py-0",
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4 (16px)"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "padding": "px-2 py-0.5",
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4 (16px)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "padding": "px-2.5 py-0.5",
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)"
+              }
+            }
           ]
         },
         {
           "category": "Shape",
           "items": [
-            { "variant": "all", "tokens": { "radius": "rounded-full (9999px / pill)" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "radius": "rounded-full (9999px / pill)"
+              }
+            }
           ]
         }
       ]
@@ -603,7 +1330,13 @@
           "name": "Type",
           "type": "enum",
           "default": "Info",
-          "values": ["Success", "Warning", "Error", "Info", "Help"],
+          "values": [
+            "Success",
+            "Warning",
+            "Error",
+            "Info",
+            "Help"
+          ],
           "description": "通知の種類"
         },
         {
@@ -623,24 +1356,81 @@
         {
           "category": "Type",
           "items": [
-            { "variant": "Success", "tokens": { "background": "bg-success-content", "text": "text-success", "icon": "circle-check" } },
-            { "variant": "Warning", "tokens": { "background": "bg-warning-content", "text": "text-warning", "icon": "triangle-alert" } },
-            { "variant": "Error", "tokens": { "background": "bg-error-content", "text": "text-error", "icon": "circle-alert" } },
-            { "variant": "Info", "tokens": { "background": "bg-base-200", "text": "text-base-content", "icon": "info" } },
-            { "variant": "Help", "tokens": { "background": "bg-base-200", "text": "text-base-content", "icon": "message-circle-question-mark" } }
+            {
+              "variant": "Success",
+              "tokens": {
+                "background": "bg-success-content",
+                "text": "text-success",
+                "icon": "circle-check"
+              }
+            },
+            {
+              "variant": "Warning",
+              "tokens": {
+                "background": "bg-warning-content",
+                "text": "text-warning",
+                "icon": "triangle-alert"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "background": "bg-error-content",
+                "text": "text-error",
+                "icon": "circle-alert"
+              }
+            },
+            {
+              "variant": "Info",
+              "tokens": {
+                "background": "bg-base-200",
+                "text": "text-base-content",
+                "icon": "info"
+              }
+            },
+            {
+              "variant": "Help",
+              "tokens": {
+                "background": "bg-base-200",
+                "text": "text-base-content",
+                "icon": "message-circle-question-mark"
+              }
+            }
           ]
         },
         {
           "category": "Layout",
           "items": [
-            { "variant": "all", "tokens": { "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "border": "border border-base-content/5", "gap": "gap-1 (4px)" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "padding": "px-4 py-3",
+                "radius": "rounded-lg (8px)",
+                "border": "border border-base-content/5",
+                "gap": "gap-1 (4px)"
+              }
+            }
           ]
         },
         {
           "category": "Typography",
           "items": [
-            { "variant": "title", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "weight": "font-semibold (600)" } },
-            { "variant": "message", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "weight": "font-normal (400)" } }
+            {
+              "variant": "title",
+              "tokens": {
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)",
+                "weight": "font-semibold (600)"
+              }
+            },
+            {
+              "variant": "message",
+              "tokens": {
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)",
+                "weight": "font-normal (400)"
+              }
+            }
           ]
         }
       ]
@@ -648,7 +1438,8 @@
     {
       "id": "toast",
       "name": "Toast",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "一時的なフィードバック通知",
       "category": "feedback",
       "preview": "previews/toast.html",
@@ -658,7 +1449,10 @@
           "name": "Color",
           "type": "enum",
           "default": "Success",
-          "values": ["Success", "Error"],
+          "values": [
+            "Success",
+            "Error"
+          ],
           "description": "トーストの色バリアント"
         },
         {
@@ -678,37 +1472,138 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Success", "tokens": { "background": "bg-success", "text": "text-success-content", "icon": "circle-check" } },
-            { "variant": "Error", "tokens": { "background": "bg-error", "text": "text-error-content", "icon": "circle-alert" } }
+            {
+              "variant": "Success",
+              "tokens": {
+                "background": "bg-success",
+                "text": "text-success-content",
+                "icon": "circle-check"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "background": "bg-error",
+                "text": "text-error-content",
+                "icon": "circle-alert"
+              }
+            }
           ]
         },
         {
           "category": "Layout",
           "items": [
-            { "variant": "all", "tokens": { "width": "w-96 (384px)", "height": "h-16 (64px)", "padding": "px-4 py-3", "gap": "gap-4 (16px)", "radius": "rounded-lg (8px)", "close-position": "top-3 right-4" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "width": "w-96 (384px)",
+                "height": "h-16 (64px)",
+                "padding": "px-4 py-3",
+                "gap": "gap-4 (16px)",
+                "radius": "rounded-lg (8px)",
+                "close-position": "top-3 right-4"
+              }
+            }
           ]
         },
         {
           "category": "Typography",
           "items": [
-            { "variant": "title", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "weight": "font-bold (700)" } },
-            { "variant": "description", "tokens": { "font-size": "text-xs (12px)", "line-height": "leading-4 (16px)", "weight": "font-normal (400)" } }
+            {
+              "variant": "title",
+              "tokens": {
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)",
+                "weight": "font-bold (700)"
+              }
+            },
+            {
+              "variant": "description",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4 (16px)",
+                "weight": "font-normal (400)"
+              }
+            }
           ]
         },
         {
           "category": "Behavior",
           "items": [
-            { "variant": "position", "tokens": { "fixed": "bottom-4 right-4 z-50" } },
-            { "variant": "animation", "tokens": { "in": "translateY(16px) → 0, opacity 0 → 1, 300ms ease", "out": "translateY(0) → 16px, opacity 1 → 0, 300ms ease" } },
-            { "variant": "auto-dismiss", "tokens": { "timeout": "5000ms" } }
+            {
+              "variant": "position",
+              "tokens": {
+                "fixed": "bottom-4 right-4 z-50"
+              }
+            },
+            {
+              "variant": "animation",
+              "tokens": {
+                "in": "translateY(16px) → 0, opacity 0 → 1, 300ms ease",
+                "out": "translateY(0) → 16px, opacity 1 → 0, 300ms ease"
+              }
+            },
+            {
+              "variant": "auto-dismiss",
+              "tokens": {
+                "timeout": "5000ms"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "トースト本体（固定位置 bottom-4 right-4）"
+          },
+          {
+            "part": "Icon",
+            "description": "左端のステータスアイコン（circle-check / circle-alert）"
+          },
+          {
+            "part": "Content",
+            "description": "タイトル + 説明テキスト"
+          },
+          {
+            "part": "CloseButton",
+            "description": "右上の×ボタン"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Hidden → Visible",
+            "trigger": "トースト表示イベント",
+            "effect": "translateY(16px)→0 + opacity 0→1 (300ms)"
+          },
+          {
+            "transition": "Visible → Hidden",
+            "trigger": "自動消去(5s) / ×クリック",
+            "effect": "translateY(0)→16px + opacity 1→0 (300ms)"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "自動消去",
+            "detail": "表示後 5000ms で自動的にフェードアウト"
+          },
+          {
+            "action": "手動消去",
+            "detail": "CloseButton クリックで即座にフェードアウト"
+          },
+          {
+            "action": "位置",
+            "detail": "画面右下に固定表示（fixed bottom-4 right-4 z-50）"
+          }
+        ]
+      }
     },
     {
       "id": "tooltip",
       "name": "Tooltip",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "ホバー時に表示する吹き出し",
       "category": "feedback",
       "preview": "previews/tooltip.html",
@@ -718,14 +1613,22 @@
           "name": "Color",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Error"],
+          "values": [
+            "Default",
+            "Error"
+          ],
           "description": "ツールチップの色バリアント"
         },
         {
           "name": "Placement",
           "type": "enum",
           "default": "top",
-          "values": ["top", "bottom", "left", "right"],
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
           "description": "ツールチップの表示位置（トリガー要素に対する方向）"
         },
         {
@@ -739,28 +1642,94 @@
         {
           "category": "Color",
           "items": [
-            { "variant": "Default", "tokens": { "background": "bg-info", "text": "text-info-content" } },
-            { "variant": "Error", "tokens": { "background": "bg-error", "text": "text-error-content" } }
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "bg-info",
+                "text": "text-info-content"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "background": "bg-error",
+                "text": "text-error-content"
+              }
+            }
           ]
         },
         {
           "category": "Layout",
           "items": [
-            { "variant": "all", "tokens": { "padding": "px-2 py-1", "radius": "rounded-sm", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "padding": "px-2 py-1",
+                "radius": "rounded-sm",
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)"
+              }
+            }
           ]
         },
         {
           "category": "Arrow",
           "items": [
-            { "variant": "all", "tokens": { "size": "10×4px (W×H)", "offset": "-3px from tooltip edge", "shape": "CSS triangle (border trick)" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "size": "10×4px (W×H)",
+                "offset": "-3px from tooltip edge",
+                "shape": "CSS triangle (border trick)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Trigger",
+            "description": "ホバー対象の要素"
+          },
+          {
+            "part": "Tooltip",
+            "description": "吹き出し本体"
+          },
+          {
+            "part": "Arrow",
+            "description": "三角矢印（CSS triangle）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Hidden → Visible",
+            "trigger": "Trigger にホバー",
+            "effect": "Tooltip を表示"
+          },
+          {
+            "transition": "Visible → Hidden",
+            "trigger": "Trigger からマウスアウト",
+            "effect": "Tooltip を非表示"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "表示位置",
+            "detail": "Placement（top/bottom/left/right）に基づいて Trigger の周囲に配置"
+          },
+          {
+            "action": "遅延",
+            "detail": "ホバー後に短い遅延（100-200ms）で表示、即座には出さない"
+          }
+        ]
+      }
     },
     {
       "id": "modal",
       "name": "Modal",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "スクリーン＋中央ダイアログのフルスクリーンモーダル",
       "category": "feedback",
       "preview": "previews/modal.html",
@@ -789,47 +1758,166 @@
         {
           "category": "Scrim",
           "items": [
-            { "variant": "all", "tokens": { "background": "bg-black/50", "z-index": "z-50" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "background": "bg-black/50",
+                "z-index": "z-50"
+              }
+            }
           ]
         },
         {
           "category": "Dialog",
           "items": [
-            { "variant": "all", "tokens": { "width": "w-96 (384px)", "background": "bg-base-100 (white)", "radius": "rounded-xl (12px)", "shadow": "drop-shadow 0 16px 16px rgba(0,0,0,0.18)" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "width": "w-96 (384px)",
+                "background": "bg-base-100 (white)",
+                "radius": "rounded-xl (12px)",
+                "shadow": "drop-shadow 0 16px 16px rgba(0,0,0,0.18)"
+              }
+            }
           ]
         },
         {
           "category": "Header",
           "items": [
-            { "variant": "all", "tokens": { "padding": "pt-6 px-6", "font-size": "text-lg (18px)", "line-height": "leading-7 (28px)", "weight": "font-semibold (600)", "color": "text-base-content" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "padding": "pt-6 px-6",
+                "font-size": "text-lg (18px)",
+                "line-height": "leading-7 (28px)",
+                "weight": "font-semibold (600)",
+                "color": "text-base-content"
+              }
+            }
           ]
         },
         {
           "category": "Content",
           "items": [
-            { "variant": "all", "tokens": { "padding": "px-6 py-4", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)", "color": "text-base-content/60" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "padding": "px-6 py-4",
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)",
+                "color": "text-base-content/60"
+              }
+            }
           ]
         },
         {
           "category": "Footer",
           "items": [
-            { "variant": "all", "tokens": { "padding": "px-6 py-4", "gap": "gap-3", "alignment": "justify-end", "button-size": "md (px-3 py-2 text-xs rounded-sm)" } },
-            { "variant": "count text", "tokens": { "font-size": "text-sm (14px)", "color": "text-base-content/60", "alignment": "flex-1 left" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "padding": "px-6 py-4",
+                "gap": "gap-3",
+                "alignment": "justify-end",
+                "button-size": "md (px-3 py-2 text-xs rounded-sm)"
+              }
+            },
+            {
+              "variant": "count text",
+              "tokens": {
+                "font-size": "text-sm (14px)",
+                "color": "text-base-content/60",
+                "alignment": "flex-1 left"
+              }
+            }
           ]
         },
         {
           "category": "Behavior",
           "items": [
-            { "variant": "open", "tokens": { "backdrop": "opacity 0 → 1, 200ms", "panel": "opacity 0 + scale-95 → opacity 1 + scale-100, 200ms" } },
-            { "variant": "close", "tokens": { "trigger": "backdrop click / cancel / Esc key", "animation": "reverse of open" } }
+            {
+              "variant": "open",
+              "tokens": {
+                "backdrop": "opacity 0 → 1, 200ms",
+                "panel": "opacity 0 + scale-95 → opacity 1 + scale-100, 200ms"
+              }
+            },
+            {
+              "variant": "close",
+              "tokens": {
+                "trigger": "backdrop click / cancel / Esc key",
+                "animation": "reverse of open"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Scrim",
+            "description": "背景オーバーレイ（bg-black/50）"
+          },
+          {
+            "part": "Dialog",
+            "description": "中央ダイアログパネル"
+          },
+          {
+            "part": "Header",
+            "description": "タイトルテキスト"
+          },
+          {
+            "part": "Content",
+            "description": "本文エリア"
+          },
+          {
+            "part": "Footer",
+            "description": "アクションボタン群（キャンセル + 確定）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Closed → Open",
+            "trigger": "トリガーボタンクリック",
+            "effect": "Scrim + Dialog をフェードイン + スケールアニメーション"
+          },
+          {
+            "transition": "Open → Closed",
+            "trigger": "キャンセル / Scrim クリック / Escape",
+            "effect": "フェードアウト + スケールダウン"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "開閉",
+            "detail": "開く: opacity 0+scale-95 → 1+scale-100 (200ms)。閉じる: 逆再生"
+          },
+          {
+            "action": "フォーカストラップ",
+            "detail": "開いている間、Tab フォーカスをダイアログ内に閉じ込める"
+          },
+          {
+            "action": "Scrim クリック",
+            "detail": "ダイアログ外クリックで閉じる"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "Escape",
+            "action": "ダイアログを閉じる"
+          },
+          {
+            "key": "Tab",
+            "action": "ダイアログ内でフォーカスを循環"
+          }
+        ]
+      }
     },
     {
       "id": "date-picker",
       "name": "DatePicker",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "日付選択フォーム",
       "category": "forms",
       "preview": "previews/date-picker.html",
@@ -839,14 +1927,24 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "入力欄サイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled",
+            "Filled"
+          ],
           "description": "入力欄の状態"
         },
         {
@@ -865,7 +1963,10 @@
           "name": "calendarType",
           "type": "enum",
           "default": "Single",
-          "values": ["Single", "Range"],
+          "values": [
+            "Single",
+            "Range"
+          ],
           "description": "Calendar popupのタイプ"
         }
       ],
@@ -873,29 +1974,197 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px" } },
-            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px" } },
-            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "height": "h-6 (24px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "icon": "12px"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "height": "h-8 (32px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)",
+                "icon": "14px"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-10 (40px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)",
+                "icon": "16px"
+              }
+            }
           ]
         },
         {
           "category": "Calendar",
           "items": [
-            { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
-            { "variant": "weekdays", "tokens": { "order": "月火水木金土日 (Japanese, Mon-first)", "size": "36px square", "font-size": "text-xs (12px)", "color": "base-content/30", "土 color": "text-primary", "日 color": "text-error" } },
-            { "variant": "header IconButton", "tokens": { "size": "24px (p-1.5 + 12px icon)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-sm" } },
-            { "variant": "day cell", "tokens": { "size": "36px square", "font-size": "text-sm (14px)", "in-month": "text-base-content", "out-of-month": "text-base-content/30" } },
-            { "variant": "Single Selected", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
-            { "variant": "Range start/end", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
-            { "variant": "Range middle", "tokens": { "background": "bg-secondary", "text": "text-secondary-content", "radius": "none" } }
+            {
+              "variant": "container",
+              "tokens": {
+                "width": "264px (content)",
+                "padding": "p-3",
+                "background": "bg-base-100 (white)",
+                "border": "border base-content/10",
+                "radius": "rounded-lg (8px)",
+                "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)"
+              }
+            },
+            {
+              "variant": "weekdays",
+              "tokens": {
+                "order": "月火水木金土日 (Japanese, Mon-first)",
+                "size": "36px square",
+                "font-size": "text-xs (12px)",
+                "color": "base-content/30",
+                "土 color": "text-primary",
+                "日 color": "text-error"
+              }
+            },
+            {
+              "variant": "header IconButton",
+              "tokens": {
+                "size": "24px (p-1.5 + 12px icon)",
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "radius": "rounded-sm"
+              }
+            },
+            {
+              "variant": "day cell",
+              "tokens": {
+                "size": "36px square",
+                "font-size": "text-sm (14px)",
+                "in-month": "text-base-content",
+                "out-of-month": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "Single Selected",
+              "tokens": {
+                "background": "bg-primary",
+                "text": "text-primary-content",
+                "radius": "rounded-full"
+              }
+            },
+            {
+              "variant": "Range start/end",
+              "tokens": {
+                "background": "bg-primary",
+                "text": "text-primary-content",
+                "radius": "rounded-full"
+              }
+            },
+            {
+              "variant": "Range middle",
+              "tokens": {
+                "background": "bg-secondary",
+                "text": "text-secondary-content",
+                "radius": "none"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Root",
+            "description": "コンポーネント全体"
+          },
+          {
+            "part": "Label",
+            "description": "ラベル + 必須マーク"
+          },
+          {
+            "part": "InputRow",
+            "description": "日付表示欄 + カレンダーアイコン"
+          },
+          {
+            "part": "Calendar",
+            "description": "ドロップダウンカレンダー"
+          },
+          {
+            "part": "Calendar > Header",
+            "description": "月切替（前月/次月 IconButton + 年月表示）"
+          },
+          {
+            "part": "Calendar > Weekdays",
+            "description": "曜日行（月〜日）"
+          },
+          {
+            "part": "Calendar > Day",
+            "description": "日付セル。当月/前後月/選択済み/範囲の状態"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default → Focus",
+            "trigger": "クリック",
+            "effect": "Calendar を表示"
+          },
+          {
+            "transition": "Focus → Filled",
+            "trigger": "日付を選択",
+            "effect": "Calendar が閉じ、選択日を Input に表示"
+          },
+          {
+            "transition": "Error",
+            "trigger": "バリデーションエラー",
+            "effect": "border-2 error + ErrorText"
+          },
+          {
+            "transition": "Disabled",
+            "trigger": "disabled 属性",
+            "effect": "全操作不可"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "カレンダー開閉",
+            "detail": "InputRow クリックで開く。日付選択 or 外部クリック or Escape で閉じる"
+          },
+          {
+            "action": "月切替",
+            "detail": "前月/次月 IconButton で表示月を変更"
+          },
+          {
+            "action": "日付選択",
+            "detail": "Day セルクリックで選択。前後月の日付をクリックするとその月に移動して選択"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "Escape",
+            "action": "カレンダーを閉じる"
+          },
+          {
+            "key": "ArrowLeft/Right",
+            "action": "前日/翌日に移動"
+          },
+          {
+            "key": "ArrowUp/Down",
+            "action": "前週/翌週に移動"
+          },
+          {
+            "key": "Enter",
+            "action": "フォーカス中の日付を選択"
+          }
+        ]
+      }
     },
     {
       "id": "price-table",
       "name": "PriceTable",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "単価表。数量別単価テーブルを表示",
       "category": "data-display",
       "preview": "previews/price-table.html",
@@ -905,7 +2174,10 @@
           "name": "Type",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Checkbox"],
+          "values": [
+            "Default",
+            "Checkbox"
+          ],
           "description": "Default=数量+単価のみ、Checkbox=行選択チェックボックス付き"
         }
       ],
@@ -913,14 +2185,104 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "vertical label", "tokens": { "width": "w-6 (24px)", "background": "bg-base-200", "padding": "px-1 py-2", "font": "text-xs semibold" } },
-            { "variant": "header cell", "tokens": { "width": "w-20 (80px)", "background": "bg-base-200", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } },
-            { "variant": "number cell", "tokens": { "width": "w-20 (80px)", "border-bottom": "border base-content/10", "padding": "px-2 py-1.5", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } },
-            { "variant": "checkbox cell", "tokens": { "width": "w-8 (32px)", "border-bottom": "border base-content/10", "padding": "px-2 py-1.5", "align": "center", "checkbox": "sm (16px)" } },
-            { "variant": "footer", "tokens": { "font": "text-2xs (11px)", "color": "text-base-content/30", "align": "right" } }
+            {
+              "variant": "vertical label",
+              "tokens": {
+                "width": "w-6 (24px)",
+                "background": "bg-base-200",
+                "padding": "px-1 py-2",
+                "font": "text-xs semibold"
+              }
+            },
+            {
+              "variant": "header cell",
+              "tokens": {
+                "width": "w-20 (80px)",
+                "background": "bg-base-200",
+                "padding": "px-2 py-1",
+                "font": "text-2xs (11px)",
+                "color": "text-base-content/60",
+                "align": "right"
+              }
+            },
+            {
+              "variant": "number cell",
+              "tokens": {
+                "width": "w-20 (80px)",
+                "border-bottom": "border base-content/10",
+                "padding": "px-2 py-1.5",
+                "font": "text-2xs mono tabular-nums",
+                "color": "text-base-content",
+                "align": "right"
+              }
+            },
+            {
+              "variant": "checkbox cell",
+              "tokens": {
+                "width": "w-8 (32px)",
+                "border-bottom": "border base-content/10",
+                "padding": "px-2 py-1.5",
+                "align": "center",
+                "checkbox": "sm (16px)"
+              }
+            },
+            {
+              "variant": "footer",
+              "tokens": {
+                "font": "text-2xs (11px)",
+                "color": "text-base-content/30",
+                "align": "right"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "単価表全体"
+          },
+          {
+            "part": "VerticalLabel",
+            "description": "左端の縦書きラベル「単価表」"
+          },
+          {
+            "part": "Header",
+            "description": "ヘッダー行（数量/仕入単価/顧客単価）"
+          },
+          {
+            "part": "Row",
+            "description": "データ行（数値セル）"
+          },
+          {
+            "part": "Footer",
+            "description": "税区分表示"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default",
+            "trigger": "初期表示",
+            "effect": "数量・単価の一覧表示"
+          },
+          {
+            "transition": "Checkbox",
+            "trigger": "Type = Checkbox",
+            "effect": "左にチェックボックス列が追加"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "行選択",
+            "detail": "Checkbox モード時、行クリックでチェック状態をトグル"
+          },
+          {
+            "action": "Hover",
+            "detail": "Checkbox hover は既存コンポーネント準拠（border-2-primary）"
+          }
+        ]
+      }
     },
     {
       "id": "quote-table",
@@ -941,23 +2303,78 @@
         {
           "category": "Header",
           "items": [
-            { "variant": "row", "tokens": { "background": "bg-base-200" } },
-            { "variant": "品名 cell", "tokens": { "flex": "flex-1", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "left" } },
-            { "variant": "number header", "tokens": { "width": "w-40 (160px)", "padding": "px-2 py-1", "font": "text-2xs (11px)", "color": "text-base-content/60", "align": "right" } }
+            {
+              "variant": "row",
+              "tokens": {
+                "background": "bg-base-200"
+              }
+            },
+            {
+              "variant": "品名 cell",
+              "tokens": {
+                "flex": "flex-1",
+                "padding": "px-2 py-1",
+                "font": "text-2xs (11px)",
+                "color": "text-base-content/60",
+                "align": "left"
+              }
+            },
+            {
+              "variant": "number header",
+              "tokens": {
+                "width": "w-40 (160px)",
+                "padding": "px-2 py-1",
+                "font": "text-2xs (11px)",
+                "color": "text-base-content/60",
+                "align": "right"
+              }
+            }
           ]
         },
         {
           "category": "Name Cell",
           "items": [
-            { "variant": "品名", "tokens": { "font": "text-xs (12px)", "color": "text-base-content", "padding": "p-2", "border-bottom": "border base-content/10" } },
-            { "variant": "detail label", "tokens": { "font": "text-2xs (11px)", "color": "text-base-content/60", "border-left": "border-l-2 base-content/10", "padding-left": "pl-1.5" } },
-            { "variant": "detail value", "tokens": { "font": "text-2xs (11px)", "color": "text-base-content" } }
+            {
+              "variant": "品名",
+              "tokens": {
+                "font": "text-xs (12px)",
+                "color": "text-base-content",
+                "padding": "p-2",
+                "border-bottom": "border base-content/10"
+              }
+            },
+            {
+              "variant": "detail label",
+              "tokens": {
+                "font": "text-2xs (11px)",
+                "color": "text-base-content/60",
+                "border-left": "border-l-2 base-content/10",
+                "padding-left": "pl-1.5"
+              }
+            },
+            {
+              "variant": "detail value",
+              "tokens": {
+                "font": "text-2xs (11px)",
+                "color": "text-base-content"
+              }
+            }
           ]
         },
         {
           "category": "Number Cell",
           "items": [
-            { "variant": "all", "tokens": { "width": "w-40 (160px)", "padding": "px-2 py-1.5", "border-bottom": "border base-content/10", "font": "text-2xs mono tabular-nums", "color": "text-base-content", "align": "right" } }
+            {
+              "variant": "all",
+              "tokens": {
+                "width": "w-40 (160px)",
+                "padding": "px-2 py-1.5",
+                "border-bottom": "border base-content/10",
+                "font": "text-2xs mono tabular-nums",
+                "color": "text-base-content",
+                "align": "right"
+              }
+            }
           ]
         }
       ]
@@ -999,20 +2416,76 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "container", "tokens": { "width": "w-60 (240px)", "gap": "gap-3 (12px)" } },
-            { "variant": "row", "tokens": { "height": "h-5 (20px)", "gap": "gap-2 (8px)", "align": "items-center" } },
-            { "variant": "line", "tokens": { "height": "h-px", "color": "bg base-content/5", "flex": "flex-1" } },
-            { "variant": "vertical bar", "tokens": { "width": "w-0.5 (2px)", "color": "bg base-content/10" } }
+            {
+              "variant": "container",
+              "tokens": {
+                "width": "w-60 (240px)",
+                "gap": "gap-3 (12px)"
+              }
+            },
+            {
+              "variant": "row",
+              "tokens": {
+                "height": "h-5 (20px)",
+                "gap": "gap-2 (8px)",
+                "align": "items-center"
+              }
+            },
+            {
+              "variant": "line",
+              "tokens": {
+                "height": "h-px",
+                "color": "bg base-content/5",
+                "flex": "flex-1"
+              }
+            },
+            {
+              "variant": "vertical bar",
+              "tokens": {
+                "width": "w-0.5 (2px)",
+                "color": "bg base-content/10"
+              }
+            }
           ]
         },
         {
           "category": "Typography",
           "items": [
-            { "variant": "label", "tokens": { "font": "text-sm", "color": "text-base-content" } },
-            { "variant": "sub label", "tokens": { "font": "text-xs", "color": "text-base-content/60" } },
-            { "variant": "value", "tokens": { "font": "text-sm font-mono tabular-nums", "color": "text-base-content" } },
-            { "variant": "sub value", "tokens": { "font": "text-sm font-mono tabular-nums", "color": "text-base-content/60" } },
-            { "variant": "total", "tokens": { "font": "text-sm semibold font-mono tabular-nums", "color": "text-base-content" } }
+            {
+              "variant": "label",
+              "tokens": {
+                "font": "text-sm",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "sub label",
+              "tokens": {
+                "font": "text-xs",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "value",
+              "tokens": {
+                "font": "text-sm font-mono tabular-nums",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "sub value",
+              "tokens": {
+                "font": "text-sm font-mono tabular-nums",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "total",
+              "tokens": {
+                "font": "text-sm semibold font-mono tabular-nums",
+                "color": "text-base-content"
+              }
+            }
           ]
         }
       ]
@@ -1048,18 +2521,66 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "background": "bg-base-200", "padding": "px-4 py-3", "radius": "rounded-lg (8px)", "width": "w-[352px]", "gap": "gap-2 (8px)" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "background": "bg-base-200",
+                "padding": "px-4 py-3",
+                "radius": "rounded-lg (8px)",
+                "width": "w-[352px]",
+                "gap": "gap-2 (8px)"
+              }
+            }
           ]
         },
         {
           "category": "Content",
           "items": [
-            { "variant": "name", "tokens": { "font": "text-xs semibold", "color": "text-base-content" } },
-            { "variant": "address", "tokens": { "font-size": "text-2xs (11px)", "line-height": "leading-4", "color": "text-base-content" } },
-            { "variant": "detail title", "tokens": { "font-size": "text-2xs (11px)", "color": "text-base-content/60", "align": "text-right" } },
-            { "variant": "detail data", "tokens": { "font-size": "text-2xs (11px)", "color": "text-base-content" } },
-            { "variant": "divider", "tokens": { "height": "h-px", "color": "bg base-content/5" } },
-            { "variant": "note", "tokens": { "font-size": "text-2xs (11px)", "line-height": "leading-4", "color": "text-base-content" } }
+            {
+              "variant": "name",
+              "tokens": {
+                "font": "text-xs semibold",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "address",
+              "tokens": {
+                "font-size": "text-2xs (11px)",
+                "line-height": "leading-4",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "detail title",
+              "tokens": {
+                "font-size": "text-2xs (11px)",
+                "color": "text-base-content/60",
+                "align": "text-right"
+              }
+            },
+            {
+              "variant": "detail data",
+              "tokens": {
+                "font-size": "text-2xs (11px)",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "divider",
+              "tokens": {
+                "height": "h-px",
+                "color": "bg base-content/5"
+              }
+            },
+            {
+              "variant": "note",
+              "tokens": {
+                "font-size": "text-2xs (11px)",
+                "line-height": "leading-4",
+                "color": "text-base-content"
+              }
+            }
           ]
         }
       ]
@@ -1076,14 +2597,21 @@
           "name": "Type",
           "type": "enum",
           "default": "Text",
-          "values": ["Text", "Link", "Button"],
+          "values": [
+            "Text",
+            "Link",
+            "Button"
+          ],
           "description": "値の表示タイプ"
         },
         {
           "name": "Line",
           "type": "enum",
           "default": "Single",
-          "values": ["Single", "Multi"],
+          "values": [
+            "Single",
+            "Multi"
+          ],
           "description": "単行 / 複数行"
         },
         {
@@ -1097,17 +2625,62 @@
         {
           "category": "Layout",
           "items": [
-            { "variant": "container", "tokens": { "display": "flex", "gap": "gap-2 (8px)", "align": "items-start", "border-top": "border-t base-content/5", "padding": "py-2" } },
-            { "variant": "title", "tokens": { "width": "w-28 (112px)", "font-size": "text-sm (14px)", "color": "text-base-content/60)" } },
-            { "variant": "Multi list", "tokens": { "display": "flex-col", "gap": "gap-1 (4px)" } }
+            {
+              "variant": "container",
+              "tokens": {
+                "display": "flex",
+                "gap": "gap-2 (8px)",
+                "align": "items-start",
+                "border-top": "border-t base-content/5",
+                "padding": "py-2"
+              }
+            },
+            {
+              "variant": "title",
+              "tokens": {
+                "width": "w-28 (112px)",
+                "font-size": "text-sm (14px)",
+                "color": "text-base-content/60)"
+              }
+            },
+            {
+              "variant": "Multi list",
+              "tokens": {
+                "display": "flex-col",
+                "gap": "gap-1 (4px)"
+              }
+            }
           ]
         },
         {
           "category": "Value Type",
           "items": [
-            { "variant": "Text", "tokens": { "font": "text-sm semibold", "color": "text-base-content" } },
-            { "variant": "Link", "tokens": { "font": "text-sm semibold", "color": "text-secondary-content", "icon": "external-link (12px)" } },
-            { "variant": "Button", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "padding": "px-2 py-1", "radius": "rounded-sm", "font": "text-xs semibold", "color": "text-base-content" } }
+            {
+              "variant": "Text",
+              "tokens": {
+                "font": "text-sm semibold",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Link",
+              "tokens": {
+                "font": "text-sm semibold",
+                "color": "text-secondary-content",
+                "icon": "external-link (12px)"
+              }
+            },
+            {
+              "variant": "Button",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "padding": "px-2 py-1",
+                "radius": "rounded-sm",
+                "font": "text-xs semibold",
+                "color": "text-base-content"
+              }
+            }
           ]
         }
       ]
@@ -1115,7 +2688,8 @@
     {
       "id": "radio-group",
       "name": "RadioGroup",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "単一選択の選択肢",
       "category": "forms",
       "preview": "previews/radio-group.html",
@@ -1125,21 +2699,35 @@
           "name": "Radio / Item - Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "sm=16px, md=20px, lg=24px"
         },
         {
           "name": "Radio / Item - State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Hover", "Selected", "Disabled", "Selected-Disabled"],
+          "values": [
+            "Default",
+            "Hover",
+            "Selected",
+            "Disabled",
+            "Selected-Disabled"
+          ],
           "description": "選択・操作状態"
         },
         {
           "name": "Button / Item - State",
           "type": "enum",
           "default": "Inactive",
-          "values": ["Active", "Inactive", "Hover"],
+          "values": [
+            "Active",
+            "Inactive",
+            "Hover"
+          ],
           "description": "Active=青塗り、Inactive=枠線、Hover=薄青"
         },
         {
@@ -1153,29 +2741,155 @@
         {
           "category": "Radio / Item",
           "items": [
-            { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
-            { "variant": "Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20", "shape": "rounded-full" } },
-            { "variant": "Hover", "tokens": { "border": "border-2 primary", "shape": "rounded-full" } },
-            { "variant": "Selected", "tokens": { "border": "border primary", "dot": "bg-primary", "shape": "rounded-full" } },
-            { "variant": "Disabled", "tokens": { "background": "bg-base-200", "border": "border base-content/10", "label": "text-base-content/30" } },
-            { "variant": "Selected-Disabled", "tokens": { "border": "border base-content/10", "dot": "bg-base-content/10", "label": "text-base-content/30" } }
+            {
+              "variant": "size",
+              "tokens": {
+                "sm": "size-4 (16px)",
+                "md": "size-5 (20px)",
+                "lg": "size-6 (24px)"
+              }
+            },
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "bg-base-100 (white)",
+                "border": "border base-content/20",
+                "shape": "rounded-full"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "border": "border-2 primary",
+                "shape": "rounded-full"
+              }
+            },
+            {
+              "variant": "Selected",
+              "tokens": {
+                "border": "border primary",
+                "dot": "bg-primary",
+                "shape": "rounded-full"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border base-content/10",
+                "label": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "Selected-Disabled",
+              "tokens": {
+                "border": "border base-content/10",
+                "dot": "bg-base-content/10",
+                "label": "text-base-content/30"
+              }
+            }
           ]
         },
         {
           "category": "Button / Item",
           "items": [
-            { "variant": "layout", "tokens": { "height": "h-8 (32px)", "padding": "px-2", "radius": "rounded-md (6px)", "font": "text-sm semibold" } },
-            { "variant": "Active", "tokens": { "background": "bg-primary", "text": "text-primary-content", "count-bg": "bg-white", "count-text": "text-primary" } },
-            { "variant": "Inactive", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/10", "text": "text-base-content", "count-bg": "bg-base-200", "count-text": "text-base-content/60" } },
-            { "variant": "Hover", "tokens": { "background": "bg-secondary", "text": "text-base-content" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "height": "h-8 (32px)",
+                "padding": "px-2",
+                "radius": "rounded-md (6px)",
+                "font": "text-sm semibold"
+              }
+            },
+            {
+              "variant": "Active",
+              "tokens": {
+                "background": "bg-primary",
+                "text": "text-primary-content",
+                "count-bg": "bg-white",
+                "count-text": "text-primary"
+              }
+            },
+            {
+              "variant": "Inactive",
+              "tokens": {
+                "background": "bg-base-100 (white)",
+                "border": "border base-content/10",
+                "text": "text-base-content",
+                "count-bg": "bg-base-200",
+                "count-text": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "background": "bg-secondary",
+                "text": "text-base-content"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Root",
+            "description": "RadioGroup 全体"
+          },
+          {
+            "part": "Radio > Item",
+            "description": "ラジオボタン（circle + dot）+ ラベル"
+          },
+          {
+            "part": "Button > Item",
+            "description": "ボタン型ラジオ（Active/Inactive/Hover）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Unselected → Selected",
+            "trigger": "Item クリック",
+            "effect": "dot 表示 + border primary"
+          },
+          {
+            "transition": "Selected → (別の Item) Selected",
+            "trigger": "別の Item クリック",
+            "effect": "前の Item が Unselected に、新しい Item が Selected に"
+          },
+          {
+            "transition": "Disabled",
+            "trigger": "disabled 属性",
+            "effect": "bg-base-200, border base-content/10"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "単一選択",
+            "detail": "グループ内で1つだけ選択可能。別の Item を選ぶと前の選択が解除"
+          },
+          {
+            "action": "Button 型",
+            "detail": "Active = bg-primary text-primary-content、Inactive = bg-white border"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "ArrowDown/Right",
+            "action": "次の Item を選択"
+          },
+          {
+            "key": "ArrowUp/Left",
+            "action": "前の Item を選択"
+          }
+        ]
+      }
     },
     {
       "id": "checkbox",
       "name": "Checkbox",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "複数選択可能な選択肢",
       "category": "forms",
       "preview": "previews/checkbox.html",
@@ -1185,21 +2899,33 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "sm=16px, md=20px, lg=24px"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Hover", "Disabled"],
+          "values": [
+            "Default",
+            "Hover",
+            "Disabled"
+          ],
           "description": "操作状態"
         },
         {
           "name": "Checked",
           "type": "enum",
           "default": "Unchecked",
-          "values": ["Unchecked", "Checked", "Indeterminate"],
+          "values": [
+            "Unchecked",
+            "Checked",
+            "Indeterminate"
+          ],
           "description": "チェック状態"
         },
         {
@@ -1219,31 +2945,156 @@
         {
           "category": "Box",
           "items": [
-            { "variant": "size", "tokens": { "sm": "size-4 (16px)", "md": "size-5 (20px)", "lg": "size-6 (24px)" } },
-            { "variant": "radius", "tokens": { "all": "rounded-md" } },
-            { "variant": "Unchecked Default", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/20)" } },
-            { "variant": "Unchecked Hover", "tokens": { "background": "bg-base-100 (white)", "border": "border-2 primary" } },
-            { "variant": "Unchecked Disabled", "tokens": { "background": "bg-base-200", "border": "border base-content/10" } },
-            { "variant": "Checked/Indeterminate", "tokens": { "background": "bg-primary", "icon": "white check / minus" } },
-            { "variant": "Checked/Indeterminate Disabled", "tokens": { "background": "bg-base-content/10", "icon": "white check / minus" } }
+            {
+              "variant": "size",
+              "tokens": {
+                "sm": "size-4 (16px)",
+                "md": "size-5 (20px)",
+                "lg": "size-6 (24px)"
+              }
+            },
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md"
+              }
+            },
+            {
+              "variant": "Unchecked Default",
+              "tokens": {
+                "background": "bg-base-100 (white)",
+                "border": "border base-content/20)"
+              }
+            },
+            {
+              "variant": "Unchecked Hover",
+              "tokens": {
+                "background": "bg-base-100 (white)",
+                "border": "border-2 primary"
+              }
+            },
+            {
+              "variant": "Unchecked Disabled",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border base-content/10"
+              }
+            },
+            {
+              "variant": "Checked/Indeterminate",
+              "tokens": {
+                "background": "bg-primary",
+                "icon": "white check / minus"
+              }
+            },
+            {
+              "variant": "Checked/Indeterminate Disabled",
+              "tokens": {
+                "background": "bg-base-content/10",
+                "icon": "white check / minus"
+              }
+            }
           ]
         },
         {
           "category": "Label",
           "items": [
-            { "variant": "sm", "tokens": { "font-size": "text-xs (12px)", "line-height": "leading-4" } },
-            { "variant": "md", "tokens": { "font-size": "text-sm (14px)", "line-height": "leading-5" } },
-            { "variant": "lg", "tokens": { "font-size": "text-base (16px)", "line-height": "leading-6" } },
-            { "variant": "Default/Hover", "tokens": { "color": "text-base-content" } },
-            { "variant": "Disabled", "tokens": { "color": "text-base-content/30)" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "font-size": "text-base (16px)",
+                "line-height": "leading-6"
+              }
+            },
+            {
+              "variant": "Default/Hover",
+              "tokens": {
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "color": "text-base-content/30)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Box",
+            "description": "チェックボックス本体（Unchecked/Checked/Indeterminate）"
+          },
+          {
+            "part": "Label",
+            "description": "ラベルテキスト（Show Label で表示切替）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Unchecked → Checked",
+            "trigger": "クリック",
+            "effect": "Box が bg-primary + check アイコン表示"
+          },
+          {
+            "transition": "Checked → Unchecked",
+            "trigger": "クリック",
+            "effect": "Box が bg-white + border に戻る"
+          },
+          {
+            "transition": "Hover",
+            "trigger": "マウスオーバー",
+            "effect": "border-2 primary"
+          },
+          {
+            "transition": "Disabled",
+            "trigger": "disabled 属性",
+            "effect": "bg-base-200, border base-content/10, label text-base-content/30"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "トグル",
+            "detail": "クリックで Checked ↔ Unchecked を切替"
+          },
+          {
+            "action": "Indeterminate",
+            "detail": "親チェックボックスで子の一部が選択済みの場合に表示。クリックで全選択(Checked)に遷移"
+          },
+          {
+            "action": "ラベルクリック",
+            "detail": "ラベルクリックでも Box の状態が切り替わる"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "Space",
+            "action": "Checked ↔ Unchecked をトグル"
+          }
+        ]
+      }
     },
     {
       "id": "pagination",
       "name": "Pagination",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "テーブルに付属するページ送りナビゲーション",
       "category": "navigation",
       "preview": "previews/pagination.html",
@@ -1266,26 +3117,124 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "display": "flex", "gap": "gap-2 (8px)", "align": "items-center" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "display": "flex",
+                "gap": "gap-2 (8px)",
+                "align": "items-center"
+              }
+            }
           ]
         },
         {
           "category": "Page Button",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-8 (32px)", "padding": "px-1 py-2", "radius": "rounded-sm", "font": "text-xs semibold leading-4" } },
-            { "variant": "Default", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "text": "text-base-content" } },
-            { "variant": "Current", "tokens": { "background": "bg-secondary", "border": "border base-content/5", "text": "text-secondary-content" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "width": "w-8 (32px)",
+                "padding": "px-1 py-2",
+                "radius": "rounded-sm",
+                "font": "text-xs semibold leading-4"
+              }
+            },
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Current",
+              "tokens": {
+                "background": "bg-secondary",
+                "border": "border base-content/5",
+                "text": "text-secondary-content"
+              }
+            }
           ]
         },
         {
           "category": "Prev / Next Button",
           "items": [
-            { "variant": "layout", "tokens": { "padding": "px-3 py-2", "radius": "rounded-sm", "font": "text-xs semibold leading-4", "icon": "chevron-left / chevron-right (14px)" } },
-            { "variant": "Default", "tokens": { "background": "bg-base-200", "border": "border base-content/5", "text": "text-base-content" } },
-            { "variant": "Disabled", "tokens": { "background": "bg-base-300", "border": "none", "text": "text-base-content/30)" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "padding": "px-3 py-2",
+                "radius": "rounded-sm",
+                "font": "text-xs semibold leading-4",
+                "icon": "chevron-left / chevron-right (14px)"
+              }
+            },
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "bg-base-300",
+                "border": "none",
+                "text": "text-base-content/30)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "ページネーション全体"
+          },
+          {
+            "part": "PrevButton",
+            "description": "前へボタン（1ページ目で Disabled）"
+          },
+          {
+            "part": "NextButton",
+            "description": "次へボタン（最終ページで Disabled）"
+          },
+          {
+            "part": "PageButton",
+            "description": "ページ番号ボタン（Current = bg-secondary）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Page N → Page M",
+            "trigger": "PageButton クリック",
+            "effect": "Current ページが切り替わる"
+          },
+          {
+            "transition": "Page N → Page N-1",
+            "trigger": "PrevButton クリック",
+            "effect": "前ページに移動"
+          },
+          {
+            "transition": "Page N → Page N+1",
+            "trigger": "NextButton クリック",
+            "effect": "次ページに移動"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "Disabled",
+            "detail": "1ページ目で Prev が Disabled、最終ページで Next が Disabled"
+          },
+          {
+            "action": "Current 表示",
+            "detail": "現在ページは bg-secondary + text-secondary-content"
+          }
+        ]
+      }
     },
     {
       "id": "document",
@@ -1298,30 +3247,88 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-[768px] (A4縦)", "background": "bg-white", "border": "border base-content/5", "radius": "rounded-lg", "padding": "p-6 (24px)", "gap": "gap-3 (12px)" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "width": "w-[768px] (A4縦)",
+                "background": "bg-white",
+                "border": "border base-content/5",
+                "radius": "rounded-lg",
+                "padding": "p-6 (24px)",
+                "gap": "gap-3 (12px)"
+              }
+            }
           ]
         },
         {
           "category": "Title",
           "items": [
-            { "variant": "title", "tokens": { "font": "text-xl semibold", "color": "text-base-content" } },
-            { "variant": "meta", "tokens": { "font": "text-xs", "color": "text-base-content", "gap": "gap-4" } }
+            {
+              "variant": "title",
+              "tokens": {
+                "font": "text-xl semibold",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "meta",
+              "tokens": {
+                "font": "text-xs",
+                "color": "text-base-content",
+                "gap": "gap-4"
+              }
+            }
           ]
         },
         {
           "category": "Document Header",
           "items": [
-            { "variant": "recipient", "tokens": { "font": "text-base semibold", "flex": "flex-1" } },
-            { "variant": "sender", "tokens": { "width": "w-60 (240px)", "name-font": "text-sm semibold", "detail-font": "text-xs text-base-content/60" } },
-            { "variant": "seal", "tokens": { "size": "60×60px", "shape": "rounded-full border base-content/10" } }
+            {
+              "variant": "recipient",
+              "tokens": {
+                "font": "text-base semibold",
+                "flex": "flex-1"
+              }
+            },
+            {
+              "variant": "sender",
+              "tokens": {
+                "width": "w-60 (240px)",
+                "name-font": "text-sm semibold",
+                "detail-font": "text-xs text-base-content/60"
+              }
+            },
+            {
+              "variant": "seal",
+              "tokens": {
+                "size": "60×60px",
+                "shape": "rounded-full border base-content/10"
+              }
+            }
           ]
         },
         {
           "category": "Composition",
           "items": [
-            { "variant": "明細表", "tokens": { "component": "QuoteTable (品名flex-1, 数量/単価/金額 各w-20)" } },
-            { "variant": "合計ブロック", "tokens": { "layout": "flex gap-14, 備考(flex-1) + Calc(w-60)" } },
-            { "variant": "備考", "tokens": { "label": "text-xs text-base-content/60", "body": "text-xs text-base-content" } }
+            {
+              "variant": "明細表",
+              "tokens": {
+                "component": "QuoteTable (品名flex-1, 数量/単価/金額 各w-20)"
+              }
+            },
+            {
+              "variant": "合計ブロック",
+              "tokens": {
+                "layout": "flex gap-14, 備考(flex-1) + Calc(w-60)"
+              }
+            },
+            {
+              "variant": "備考",
+              "tokens": {
+                "label": "text-xs text-base-content/60",
+                "body": "text-xs text-base-content"
+              }
+            }
           ]
         }
       ]
@@ -1337,38 +3344,110 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "background": "bg-base-100 (white)", "border": "border base-content/5", "radius": "rounded-md (6px)", "overflow": "overflow-clip" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "background": "bg-base-100 (white)",
+                "border": "border base-content/5",
+                "radius": "rounded-md (6px)",
+                "overflow": "overflow-clip"
+              }
+            }
           ]
         },
         {
           "category": "Header",
           "items": [
-            { "variant": "Default", "tokens": { "background": "bg-base-200", "color": "text-base-content/60", "align": "left" } },
-            { "variant": "Number", "tokens": { "background": "bg-base-200", "color": "text-base-content/60", "align": "right (justify-end)" } }
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "bg-base-200",
+                "color": "text-base-content/60",
+                "align": "left"
+              }
+            },
+            {
+              "variant": "Number",
+              "tokens": {
+                "background": "bg-base-200",
+                "color": "text-base-content/60",
+                "align": "right (justify-end)"
+              }
+            }
           ]
         },
         {
           "category": "Cell Size",
           "items": [
-            { "variant": "md", "tokens": { "padding": "px-4 py-3.5 (16px 14px)", "font-size": "text-sm (14px)" } },
-            { "variant": "sm", "tokens": { "padding": "p-3 (12px)", "font-size": "text-xs (12px)" } }
+            {
+              "variant": "md",
+              "tokens": {
+                "padding": "px-4 py-3.5 (16px 14px)",
+                "font-size": "text-sm (14px)"
+              }
+            },
+            {
+              "variant": "sm",
+              "tokens": {
+                "padding": "p-3 (12px)",
+                "font-size": "text-xs (12px)"
+              }
+            }
           ]
         },
         {
           "category": "Cell Type",
           "items": [
-            { "variant": "Text", "tokens": { "flex": "flex-1", "color": "text-base-content" } },
-            { "variant": "Number", "tokens": { "align": "justify-end text-right", "font": "font-mono tabular-nums" } },
-            { "variant": "LinkText", "tokens": { "color": "text-secondary-content" } },
-            { "variant": "MultiText", "tokens": { "layout": "flex-col" } },
-            { "variant": "Badge", "tokens": { "component": "Badge" } },
-            { "variant": "Button", "tokens": { "align": "justify-center", "component": "Button Secondary" } }
+            {
+              "variant": "Text",
+              "tokens": {
+                "flex": "flex-1",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Number",
+              "tokens": {
+                "align": "justify-end text-right",
+                "font": "font-mono tabular-nums"
+              }
+            },
+            {
+              "variant": "LinkText",
+              "tokens": {
+                "color": "text-secondary-content"
+              }
+            },
+            {
+              "variant": "MultiText",
+              "tokens": {
+                "layout": "flex-col"
+              }
+            },
+            {
+              "variant": "Badge",
+              "tokens": {
+                "component": "Badge"
+              }
+            },
+            {
+              "variant": "Button",
+              "tokens": {
+                "align": "justify-center",
+                "component": "Button Secondary"
+              }
+            }
           ]
         },
         {
           "category": "Row",
           "items": [
-            { "variant": "border", "tokens": { "bottom": "border-b base-content/5 (最終行は border なし)" } }
+            {
+              "variant": "border",
+              "tokens": {
+                "bottom": "border-b base-content/5 (最終行は border なし)"
+              }
+            }
           ]
         }
       ]
@@ -1404,22 +3483,61 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-[400px]", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md (6px)", "padding": "p-4 (16px)", "gap": "gap-2 (8px)" } },
-            { "variant": "scroll", "tokens": { "max-height": "max-h-64 (256px)", "overflow": "overflow-y-auto" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "width": "w-[400px]",
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "radius": "rounded-md (6px)",
+                "padding": "p-4 (16px)",
+                "gap": "gap-2 (8px)"
+              }
+            },
+            {
+              "variant": "scroll",
+              "tokens": {
+                "max-height": "max-h-64 (256px)",
+                "overflow": "overflow-y-auto"
+              }
+            }
           ]
         },
         {
           "category": "Legend",
           "items": [
-            { "variant": "position", "tokens": { "absolute": "top-[-9px] left-[15px]" } },
-            { "variant": "font", "tokens": { "size": "text-xs (12px)", "weight": "font-semibold", "color": "text-base-content" } },
-            { "variant": "required", "tokens": { "color": "text-error" } }
+            {
+              "variant": "position",
+              "tokens": {
+                "absolute": "top-[-9px] left-[15px]"
+              }
+            },
+            {
+              "variant": "font",
+              "tokens": {
+                "size": "text-xs (12px)",
+                "weight": "font-semibold",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "color": "text-error"
+              }
+            }
           ]
         },
         {
           "category": "Internal",
           "items": [
-            { "variant": "divider", "tokens": { "height": "h-px", "color": "bg-base-content/5" } }
+            {
+              "variant": "divider",
+              "tokens": {
+                "height": "h-px",
+                "color": "bg-base-content/5"
+              }
+            }
           ]
         }
       ]
@@ -1435,21 +3553,50 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "display": "flex justify-between items-center", "padding": "py-2 (8px)" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "display": "flex justify-between items-center",
+                "padding": "py-2 (8px)"
+              }
+            }
           ]
         },
         {
           "category": "Left",
           "items": [
-            { "variant": "breadcrumbs", "tokens": { "component": "Breadcrumbs" } }
+            {
+              "variant": "breadcrumbs",
+              "tokens": {
+                "component": "Breadcrumbs"
+              }
+            }
           ]
         },
         {
           "category": "Right (Account)",
           "items": [
-            { "variant": "layout", "tokens": { "display": "flex items-center", "gap": "gap-4 (16px)" } },
-            { "variant": "buttons", "tokens": { "type": "IconButton sm Tertiary", "icons": "log-out, settings" } },
-            { "variant": "username", "tokens": { "font": "text-sm", "color": "text-base-content" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "display": "flex items-center",
+                "gap": "gap-4 (16px)"
+              }
+            },
+            {
+              "variant": "buttons",
+              "tokens": {
+                "type": "IconButton sm Tertiary",
+                "icons": "log-out, settings"
+              }
+            },
+            {
+              "variant": "username",
+              "tokens": {
+                "font": "text-sm",
+                "color": "text-base-content"
+              }
+            }
           ]
         }
       ]
@@ -1479,21 +3626,57 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-[400px]", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md (6px)", "padding": "p-4 (16px)", "gap": "gap-2 (8px)" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "width": "w-[400px]",
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "radius": "rounded-md (6px)",
+                "padding": "p-4 (16px)",
+                "gap": "gap-2 (8px)"
+              }
+            }
           ]
         },
         {
           "category": "Header",
           "items": [
-            { "variant": "handle", "tokens": { "icon": "grip-vertical (14px)", "color": "text-base-content" } },
-            { "variant": "title", "tokens": { "font": "text-sm semibold", "color": "text-base-content" } },
-            { "variant": "delete", "tokens": { "type": "IconButton sm", "icon": "trash-2 (12px)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md" } }
+            {
+              "variant": "handle",
+              "tokens": {
+                "icon": "grip-vertical (14px)",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "title",
+              "tokens": {
+                "font": "text-sm semibold",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "delete",
+              "tokens": {
+                "type": "IconButton sm",
+                "icon": "trash-2 (12px)",
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "radius": "rounded-md"
+              }
+            }
           ]
         },
         {
           "category": "Contents",
           "items": [
-            { "variant": "gap", "tokens": { "between-fields": "gap-4 (16px)" } }
+            {
+              "variant": "gap",
+              "tokens": {
+                "between-fields": "gap-4 (16px)"
+              }
+            }
           ]
         }
       ]
@@ -1501,7 +3684,8 @@
     {
       "id": "footer",
       "name": "Footer",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "画面下部固定のアクションバー。コンテンツの上に重なる",
       "category": "navigation",
       "preview": "previews/footer.html",
@@ -1518,28 +3702,102 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "position": "fixed bottom-0", "background": "bg-base-100 (white)", "border-top": "border-t base-content/10", "padding": "px-6 py-4", "gap": "gap-2 (8px)", "z-index": "z-50" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "position": "fixed bottom-0",
+                "background": "bg-base-100 (white)",
+                "border-top": "border-t base-content/10",
+                "padding": "px-6 py-4",
+                "gap": "gap-2 (8px)",
+                "z-index": "z-50"
+              }
+            }
           ]
         },
         {
           "category": "Back Button",
           "items": [
-            { "variant": "style", "tokens": { "type": "Button Tertiary md", "icon": "chevron-left (14px)", "label": "戻る" } }
+            {
+              "variant": "style",
+              "tokens": {
+                "type": "Button Tertiary md",
+                "icon": "chevron-left (14px)",
+                "label": "戻る"
+              }
+            }
           ]
         },
         {
           "category": "CTA",
           "items": [
-            { "variant": "Sub CTA", "tokens": { "type": "Button Tertiary md", "width": "w-48 (192px)", "icon": "save (14px)" } },
-            { "variant": "Main CTA", "tokens": { "type": "Button Primary md", "width": "w-48 (192px)", "icon": "send (14px)" } }
+            {
+              "variant": "Sub CTA",
+              "tokens": {
+                "type": "Button Tertiary md",
+                "width": "w-48 (192px)",
+                "icon": "save (14px)"
+              }
+            },
+            {
+              "variant": "Main CTA",
+              "tokens": {
+                "type": "Button Primary md",
+                "width": "w-48 (192px)",
+                "icon": "send (14px)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "フッター全体（fixed bottom, border-top）"
+          },
+          {
+            "part": "BackButton",
+            "description": "戻るボタン（optional, Tertiary md）"
+          },
+          {
+            "part": "Spacer",
+            "description": "中央の flex-1 スペーサー"
+          },
+          {
+            "part": "CTA",
+            "description": "右端のアクションボタン群（Sub CTA + Main CTA）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default",
+            "trigger": "初期表示",
+            "effect": "Sub CTA + Main CTA のみ表示"
+          },
+          {
+            "transition": "With Back",
+            "trigger": "Back Button = true",
+            "effect": "左に戻るボタンが追加表示"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "固定表示",
+            "detail": "画面下部に固定（fixed bottom-0）、コンテンツの上に重なる"
+          },
+          {
+            "action": "ボタン幅",
+            "detail": "CTA ボタンは w-48 (192px) 固定幅"
+          }
+        ]
+      }
     },
     {
       "id": "filter-menu",
       "name": "FilterMenu",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "縦型フィルターパネル。セクション別Checkbox項目で絞り込み",
       "category": "navigation",
       "preview": "previews/filter-menu.html",
@@ -1556,25 +3814,112 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "layout", "tokens": { "width": "w-56 (224px)", "background": "bg-base-200", "padding": "p-4 (16px)", "radius": "rounded-lg (8px)", "gap": "gap-4 (16px)" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "width": "w-56 (224px)",
+                "background": "bg-base-200",
+                "padding": "p-4 (16px)",
+                "radius": "rounded-lg (8px)",
+                "gap": "gap-4 (16px)"
+              }
+            }
           ]
         },
         {
           "category": "Header",
           "items": [
-            { "variant": "title", "tokens": { "icon": "filter (16px)", "font": "text-base semibold", "color": "text-base-content", "gap": "gap-2 (8px)" } },
-            { "variant": "toggle", "tokens": { "icon": "list-collapse (16px)", "background": "bg-base-200", "border": "border base-content/5", "radius": "rounded-md", "padding": "p-2" } }
+            {
+              "variant": "title",
+              "tokens": {
+                "icon": "filter (16px)",
+                "font": "text-base semibold",
+                "color": "text-base-content",
+                "gap": "gap-2 (8px)"
+              }
+            },
+            {
+              "variant": "toggle",
+              "tokens": {
+                "icon": "list-collapse (16px)",
+                "background": "bg-base-200",
+                "border": "border base-content/5",
+                "radius": "rounded-md",
+                "padding": "p-2"
+              }
+            }
           ]
         },
         {
           "category": "Section",
           "items": [
-            { "variant": "title", "tokens": { "font": "text-sm", "color": "text-base-content/30" } },
-            { "variant": "gap", "tokens": { "between-items": "gap-3 (12px)" } },
-            { "variant": "checkbox", "tokens": { "size": "md (20px)", "label-font": "text-sm", "label-color": "text-base-content", "gap": "gap-2 (8px)" } }
+            {
+              "variant": "title",
+              "tokens": {
+                "font": "text-sm",
+                "color": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "gap",
+              "tokens": {
+                "between-items": "gap-3 (12px)"
+              }
+            },
+            {
+              "variant": "checkbox",
+              "tokens": {
+                "size": "md (20px)",
+                "label-font": "text-sm",
+                "label-color": "text-base-content",
+                "gap": "gap-2 (8px)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "フィルターパネル全体（bg-base-200, rounded-lg）"
+          },
+          {
+            "part": "Header",
+            "description": "filter アイコン + タイトル + トグルボタン"
+          },
+          {
+            "part": "Section",
+            "description": "セクション（タイトル + Checkbox 群）"
+          },
+          {
+            "part": "Checkbox",
+            "description": "個別のフィルター項目（既存 Checkbox コンポーネント）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default",
+            "trigger": "初期表示",
+            "effect": "全セクション・全項目を表示"
+          },
+          {
+            "transition": "Empty",
+            "trigger": "選択肢なし",
+            "effect": "セクションタイトルのみ表示、Checkbox なし"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "フィルタリング",
+            "detail": "Checkbox のオン/オフでリストを絞り込む"
+          },
+          {
+            "action": "Hover",
+            "detail": "Checkbox の hover は既存コンポーネント準拠（border-2-primary）"
+          }
+        ]
+      }
     },
     {
       "id": "breadcrumbs",
@@ -1588,7 +3933,10 @@
           "name": "Type",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Current"],
+          "values": [
+            "Default",
+            "Current"
+          ],
           "description": "Default=灰色リンク、Current=黒文字現在地"
         },
         {
@@ -1614,15 +3962,40 @@
         {
           "category": "Item",
           "items": [
-            { "variant": "layout", "tokens": { "gap (separator)": "gap-2 (8px)", "gap (icon-label)": "gap-1 (4px)", "font-size": "text-sm (14px)", "line-height": "leading-5 (20px)" } },
-            { "variant": "Default", "tokens": { "text": "text-base-content/60)" } },
-            { "variant": "Current", "tokens": { "text": "text-base-content" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "gap (separator)": "gap-2 (8px)",
+                "gap (icon-label)": "gap-1 (4px)",
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)"
+              }
+            },
+            {
+              "variant": "Default",
+              "tokens": {
+                "text": "text-base-content/60)"
+              }
+            },
+            {
+              "variant": "Current",
+              "tokens": {
+                "text": "text-base-content"
+              }
+            }
           ]
         },
         {
           "category": "Separator",
           "items": [
-            { "variant": "icon", "tokens": { "icon": "chevron-right", "size": "14px (w-3.5 h-3.5)", "color": "text-base-content/60" } }
+            {
+              "variant": "icon",
+              "tokens": {
+                "icon": "chevron-right",
+                "size": "14px (w-3.5 h-3.5)",
+                "color": "text-base-content/60"
+              }
+            }
           ]
         }
       ]
@@ -1630,7 +4003,8 @@
     {
       "id": "sidebar",
       "name": "Sidebar",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "左カラムに配置される主ナビゲーション",
       "category": "navigation",
       "preview": "previews/sidebar.html",
@@ -1647,18 +4021,87 @@
         {
           "category": "Container",
           "items": [
-            { "variant": "Open", "tokens": { "width": "w-40 (160px)", "background": "bg-base-200", "padding": "p-2 (8px)", "gap": "gap-4 (16px)" } },
-            { "variant": "Closed", "tokens": { "width": "w-fit", "background": "bg-base-200", "padding": "p-2 (8px)", "gap": "gap-2 (8px)", "align": "items-center" } }
+            {
+              "variant": "Open",
+              "tokens": {
+                "width": "w-40 (160px)",
+                "background": "bg-base-200",
+                "padding": "p-2 (8px)",
+                "gap": "gap-4 (16px)"
+              }
+            },
+            {
+              "variant": "Closed",
+              "tokens": {
+                "width": "w-fit",
+                "background": "bg-base-200",
+                "padding": "p-2 (8px)",
+                "gap": "gap-2 (8px)",
+                "align": "items-center"
+              }
+            }
           ]
         },
         {
           "category": "Section",
           "items": [
-            { "variant": "title", "tokens": { "font-size": "text-xs (12px)", "color": "text-base-content/30)", "padding": "px-3 py-2" } },
-            { "variant": "divider (collapsed)", "tokens": { "height": "h-px (1px)", "width": "w-fit", "color": "border-base-content/10)" } }
+            {
+              "variant": "title",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/30)",
+                "padding": "px-3 py-2"
+              }
+            },
+            {
+              "variant": "divider (collapsed)",
+              "tokens": {
+                "height": "h-px (1px)",
+                "width": "w-fit",
+                "color": "border-base-content/10)"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "サイドバー全体（Open: w-40 / Closed: w-fit）"
+          },
+          {
+            "part": "Section",
+            "description": "セクション（タイトル + MenuButton 群）"
+          },
+          {
+            "part": "MenuButton",
+            "description": "メニュー項目（icon + label）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Open → Closed",
+            "trigger": "トグル操作",
+            "effect": "幅が w-40 → w-fit、ラベル非表示"
+          },
+          {
+            "transition": "Closed → Open",
+            "trigger": "トグル操作",
+            "effect": "幅が w-fit → w-40、ラベル表示"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "展開/折りたたみ",
+            "detail": "Open: アイコン+ラベル表示。Closed: アイコンのみ"
+          },
+          {
+            "action": "Active 表示",
+            "detail": "現在ページの MenuButton が bg-secondary + border"
+          }
+        ]
+      }
     },
     {
       "id": "menu-button",
@@ -1672,14 +4115,21 @@
           "name": "Mode",
           "type": "enum",
           "default": "Expanded",
-          "values": ["Expanded", "Collapsed"],
+          "values": [
+            "Expanded",
+            "Collapsed"
+          ],
           "description": "Expanded=アイコン+ラベル、Collapsed=アイコンのみ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Hover", "Active"],
+          "values": [
+            "Default",
+            "Hover",
+            "Active"
+          ],
           "description": "メニュー項目の状態"
         },
         {
@@ -1699,19 +4149,70 @@
         {
           "category": "Expanded",
           "items": [
-            { "variant": "layout", "tokens": { "padding": "px-3 py-2 (12px 8px)", "gap": "gap-2 (8px)", "radius": "rounded-md (6px)", "icon": "16px", "font-size": "text-sm (14px)" } },
-            { "variant": "Default", "tokens": { "background": "none", "text": "text-base-content" } },
-            { "variant": "Hover", "tokens": { "background": "bg-base-300", "text": "text-base-content" } },
-            { "variant": "Active", "tokens": { "background": "bg-secondary", "border": "border base-content/5", "text": "text-secondary-content" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "padding": "px-3 py-2 (12px 8px)",
+                "gap": "gap-2 (8px)",
+                "radius": "rounded-md (6px)",
+                "icon": "16px",
+                "font-size": "text-sm (14px)"
+              }
+            },
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "none",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "background": "bg-base-300",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Active",
+              "tokens": {
+                "background": "bg-secondary",
+                "border": "border base-content/5",
+                "text": "text-secondary-content"
+              }
+            }
           ]
         },
         {
           "category": "Collapsed",
           "items": [
-            { "variant": "layout", "tokens": { "padding": "p-3 (12px)", "radius": "rounded-md (6px)", "icon": "16px" } },
-            { "variant": "Default", "tokens": { "background": "none" } },
-            { "variant": "Hover", "tokens": { "background": "bg-base-300" } },
-            { "variant": "Active", "tokens": { "background": "bg-secondary", "border": "border base-content/5" } }
+            {
+              "variant": "layout",
+              "tokens": {
+                "padding": "p-3 (12px)",
+                "radius": "rounded-md (6px)",
+                "icon": "16px"
+              }
+            },
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "none"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "background": "bg-base-300"
+              }
+            },
+            {
+              "variant": "Active",
+              "tokens": {
+                "background": "bg-secondary",
+                "border": "border base-content/5"
+              }
+            }
           ]
         }
       ]
@@ -1719,7 +4220,8 @@
     {
       "id": "date-range-picker",
       "name": "DateRangePicker",
-      "hasDemo": true, "demoBgWhite": true,
+      "hasDemo": true,
+      "demoBgWhite": true,
       "description": "期間選択フォーム",
       "category": "forms",
       "preview": "previews/date-range-picker.html",
@@ -1729,14 +4231,24 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "入力欄サイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled",
+            "Filled"
+          ],
           "description": "入力欄の状態"
         },
         {
@@ -1762,20 +4274,125 @@
         {
           "category": "Size",
           "items": [
-            { "variant": "sm", "tokens": { "height": "h-6 (24px)", "padding": "px-2 py-1", "font-size": "text-xs (12px)", "icon": "12px" } },
-            { "variant": "md", "tokens": { "height": "h-8 (32px)", "padding": "px-3 py-2", "font-size": "text-sm (14px)", "icon": "14px" } },
-            { "variant": "lg", "tokens": { "height": "h-10 (40px)", "padding": "px-3 py-2", "font-size": "text-base (16px)", "icon": "16px" } }
+            {
+              "variant": "sm",
+              "tokens": {
+                "height": "h-6 (24px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "icon": "12px"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "height": "h-8 (32px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)",
+                "icon": "14px"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-10 (40px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)",
+                "icon": "16px"
+              }
+            }
           ]
         },
         {
           "category": "Calendar (Range)",
           "items": [
-            { "variant": "container", "tokens": { "width": "264px (content)", "padding": "p-3", "background": "bg-base-100 (white)", "border": "border base-content/10", "radius": "rounded-lg (8px)", "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)" } },
-            { "variant": "Range start/end", "tokens": { "background": "bg-primary", "text": "text-primary-content", "radius": "rounded-full" } },
-            { "variant": "Range middle", "tokens": { "background": "bg-secondary", "text": "text-secondary-content", "radius": "none" } }
+            {
+              "variant": "container",
+              "tokens": {
+                "width": "264px (content)",
+                "padding": "p-3",
+                "background": "bg-base-100 (white)",
+                "border": "border base-content/10",
+                "radius": "rounded-lg (8px)",
+                "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)"
+              }
+            },
+            {
+              "variant": "Range start/end",
+              "tokens": {
+                "background": "bg-primary",
+                "text": "text-primary-content",
+                "radius": "rounded-full"
+              }
+            },
+            {
+              "variant": "Range middle",
+              "tokens": {
+                "background": "bg-secondary",
+                "text": "text-secondary-content",
+                "radius": "none"
+              }
+            }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Root",
+            "description": "コンポーネント全体"
+          },
+          {
+            "part": "Label",
+            "description": "ラベル + 必須マーク"
+          },
+          {
+            "part": "InputRow",
+            "description": "開始日〜終了日の表示欄"
+          },
+          {
+            "part": "Calendar",
+            "description": "ドロップダウンカレンダー（Range モード）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default → Focus",
+            "trigger": "クリック",
+            "effect": "Calendar を表示"
+          },
+          {
+            "transition": "Focus → Selecting",
+            "trigger": "開始日を選択",
+            "effect": "開始日がハイライト、終了日待ち"
+          },
+          {
+            "transition": "Selecting → Filled",
+            "trigger": "終了日を選択",
+            "effect": "範囲がハイライト、Calendar が閉じる"
+          },
+          {
+            "transition": "Error",
+            "trigger": "バリデーションエラー",
+            "effect": "border-2 error"
+          },
+          {
+            "transition": "Disabled",
+            "trigger": "disabled 属性",
+            "effect": "全操作不可"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "範囲選択",
+            "detail": "1回目クリックで開始日、2回目で終了日。開始日より前を選ぶと開始日がリセット"
+          },
+          {
+            "action": "範囲ハイライト",
+            "detail": "開始〜終了間の日付が bg-secondary でハイライト、両端が bg-primary + rounded-full"
+          }
+        ]
+      }
     },
     {
       "id": "number-input",
@@ -1789,14 +4406,24 @@
           "name": "Size",
           "type": "enum",
           "default": "lg",
-          "values": ["sm", "md", "lg"],
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
           "description": "入力欄サイズ"
         },
         {
           "name": "State",
           "type": "enum",
           "default": "Default",
-          "values": ["Default", "Focus", "Error", "Disabled", "Filled"],
+          "values": [
+            "Default",
+            "Focus",
+            "Error",
+            "Disabled",
+            "Filled"
+          ],
           "description": "入力欄の状態"
         }
       ],
@@ -1804,8 +4431,18 @@
         {
           "category": "Differences from Input",
           "items": [
-            { "variant": "font", "tokens": { "font-family": "font-mono (等幅)" } },
-            { "variant": "alignment", "tokens": { "text-align": "text-right (右寄せ)" } }
+            {
+              "variant": "font",
+              "tokens": {
+                "font-family": "font-mono (等幅)"
+              }
+            },
+            {
+              "variant": "alignment",
+              "tokens": {
+                "text-align": "text-right (右寄せ)"
+              }
+            }
           ]
         }
       ]
