@@ -106,8 +106,8 @@ tailwind.config = {
           @keydown.escape="onEscape()"
           @keydown.tab="open = false"
           tabindex="0"
-          class="flex items-center h-8 px-3 py-2 gap-2 rounded-md bg-white cursor-pointer transition-colors outline-none"
-          :class="open ? 'border-2 border-primary' : 'border border-base-content/20'"
+          class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none"
+          :class="open ? 'border-2 border-primary px-[11px] py-[7px]' : 'border border-base-content/20 px-3 py-2'"
         >
           <span class="flex-1 text-sm truncate" :class="selected ? 'text-base-content' : 'text-base-content/30'" x-text="selected || '選択しましょう'"></span>
           <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
