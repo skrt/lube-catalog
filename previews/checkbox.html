@@ -94,27 +94,32 @@ tailwind.config = {
   <div class="space-y-10">
 
     <!-- Demo -->
-    <div id="demo-section" x-data="{
-      items: [
-        { label: '見積依頼', checked: true },
-        { label: '見積書', checked: false },
-        { label: '発注請書', checked: true },
-        { label: '発注書', checked: false },
-        { label: '請求書', checked: false }
-      ],
-      get allState() {
-        const c = this.items.filter(i => i.checked).length;
-        return c === 0 ? 'unchecked' : c === this.items.length ? 'checked' : 'indeterminate';
-      },
-      toggleAll() {
-        const next = this.allState !== 'checked';
-        this.items.forEach(i => i.checked = next);
-      }
-    }">
-      <p class="text-sm text-gray-500 mb-4">クリックで切り替え。全選択で Indeterminate → Checked に変化</p>
+    <div id="demo-section" x-data="checkboxDemo()">
+      <script data-demo-keep>
+        function checkboxDemo() {
+          return {
+            items: [
+              { label: '見積依頼', checked: true },
+              { label: '見積書', checked: false },
+              { label: '発注請書', checked: true },
+              { label: '発注書', checked: false },
+              { label: '請求書', checked: false }
+            ],
+            get allState() {
+              const c = this.items.filter(i => i.checked).length;
+              return c === 0 ? 'unchecked' : c === this.items.length ? 'checked' : 'indeterminate';
+            },
+            toggleAll() {
+              const next = this.allState !== 'checked';
+              this.items.forEach(i => i.checked = next);
+            }
+          };
+        }
+      </script>
+      <p class="text-sm text-gray-500 mb-4">クリック or Enter で切り替え。Tab でフォーカス移動</p>
       <div class="flex flex-col gap-2">
         <!-- Select All (indeterminate capable) -->
-        <div class="flex gap-2 items-center cursor-pointer group" @click="toggleAll()">
+        <div class="flex gap-2 items-center cursor-pointer group outline-none focus:ring-2 focus:ring-primary/30 rounded" tabindex="0" @click="toggleAll()" @keydown.enter.prevent="toggleAll()">
           <div class="relative shrink-0 size-5 rounded"
             :class="allState === 'unchecked' ? 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary' : 'bg-primary'">
             <svg x-show="allState === 'checked'" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
@@ -125,7 +130,7 @@ tailwind.config = {
         <div class="border-t border-base-content/10 my-1"></div>
         <!-- Items -->
         <template x-for="(item, i) in items" :key="i">
-          <div class="flex gap-2 items-center cursor-pointer group" @click="item.checked = !item.checked">
+          <div class="flex gap-2 items-center cursor-pointer group outline-none focus:ring-2 focus:ring-primary/30 rounded" tabindex="0" @click="item.checked = !item.checked" @keydown.enter.prevent="item.checked = !item.checked">
             <div class="relative shrink-0 size-5 rounded"
               :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
