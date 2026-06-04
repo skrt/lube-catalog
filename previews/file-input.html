@@ -95,10 +95,10 @@ tailwind.config = {
 
     <!-- Demo -->
     <div id="demo-section" x-data="{ files: [], loading: false }">
-      <p class="text-sm text-gray-500 mb-4">「データを選択」でファイルを追加（ダミー）。ゴミ箱で削除</p>
+      <p class="text-sm text-gray-500 mb-4">「ファイルを選択」でファイルを追加（ダミー）。ゴミ箱で削除</p>
       <div class="flex flex-col gap-1 w-[480px]">
         <div class="flex gap-1 items-start">
-          <span class="text-xs font-semibold leading-4 text-base-content">データ添付</span>
+          <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
           <span class="text-xs font-semibold leading-4 text-error">*</span>
         </div>
         <!-- File list -->
@@ -129,7 +129,7 @@ tailwind.config = {
           <template x-if="loading">
             <svg class="w-3.5 h-3.5 animate-spin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
           </template>
-          <span x-text="loading ? '処理中...' : 'データを選択'"></span>
+          <span x-text="loading ? '処理中...' : 'ファイルを選択'"></span>
         </button>
         <p class="text-xs leading-4 text-base-content/60">容量の上限：10MB</p>
       </div>
@@ -144,12 +144,12 @@ tailwind.config = {
           <span class="text-[10px] text-gray-400">Empty</span>
           <div class="flex flex-col gap-1 w-[480px]">
             <div class="flex gap-1 items-start">
-              <span class="text-xs font-semibold leading-4 text-base-content">データ添付</span>
+              <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
               <span class="text-xs font-semibold leading-4 text-error">*</span>
             </div>
             <button class="flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 self-start">
               <svg class="w-3.5 h-3.5 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-              <span class="text-xs font-semibold leading-4 text-base-content">データを選択</span>
+              <span class="text-xs font-semibold leading-4 text-base-content">ファイルを選択</span>
             </button>
             <p class="text-xs leading-4 text-base-content/60">容量の上限：10MB</p>
           </div>
@@ -159,7 +159,7 @@ tailwind.config = {
           <span class="text-[10px] text-gray-400">Loading</span>
           <div class="flex flex-col gap-1 w-[480px]">
             <div class="flex gap-1 items-start">
-              <span class="text-xs font-semibold leading-4 text-base-content">データ添付</span>
+              <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
               <span class="text-xs font-semibold leading-4 text-error">*</span>
             </div>
             <button class="flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-300 self-start" disabled>
@@ -174,7 +174,7 @@ tailwind.config = {
           <span class="text-[10px] text-gray-400">Selected</span>
           <div class="flex flex-col gap-1 w-[480px]">
         <div class="flex gap-1 items-start">
-          <span class="text-xs font-semibold leading-4 text-base-content">データ添付</span>
+          <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
           <span class="text-xs font-semibold leading-4 text-error">*</span>
         </div>
         <div class="flex flex-col gap-2">
@@ -207,7 +207,7 @@ tailwind.config = {
           </div>
           <button class="flex gap-2 items-center justify-center px-3 py-2 rounded-md bg-base-200 border border-base-content/5 self-start">
             <svg class="w-3.5 h-3.5 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-            <span class="text-xs font-semibold leading-4 text-base-content">データを選択</span>
+            <span class="text-xs font-semibold leading-4 text-base-content">ファイルを選択</span>
           </button>
         </div>
         <p class="text-xs leading-4 text-base-content/60">容量の上限：10MB</p>
