@@ -851,8 +851,8 @@
           },
           {
             "transition": "Disabled",
-            "trigger": "disabled 属性",
-            "effect": "操作できない状態になる"
+            "trigger": "できない",
+            "effect": "-"
           }
         ],
         "behavior": [
@@ -977,8 +977,8 @@
           },
           {
             "transition": "Disabled",
-            "trigger": "disabled 属性",
-            "effect": "操作できない状態になる"
+            "trigger": "できない",
+            "effect": "-"
           }
         ],
         "behavior": [
@@ -2090,8 +2090,8 @@
           },
           {
             "transition": "Disabled",
-            "trigger": "disabled 属性",
-            "effect": "操作できない状態になる"
+            "trigger": "できない",
+            "effect": "-"
           }
         ],
         "behavior": [
@@ -2815,8 +2815,8 @@
           },
           {
             "transition": "Disabled",
-            "trigger": "disabled 属性",
-            "effect": "操作できない状態になる"
+            "trigger": "できない",
+            "effect": "-"
           }
         ],
         "behavior": [
@@ -3016,8 +3016,8 @@
           },
           {
             "transition": "Disabled",
-            "trigger": "disabled 属性",
-            "effect": "操作できない状態になる"
+            "trigger": "できない",
+            "effect": "-"
           }
         ],
         "behavior": [
@@ -4314,8 +4314,8 @@
           },
           {
             "transition": "Disabled",
-            "trigger": "disabled 属性",
-            "effect": "操作できない状態になる"
+            "trigger": "できない",
+            "effect": "-"
           }
         ],
         "behavior": [
