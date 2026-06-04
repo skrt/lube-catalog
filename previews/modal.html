@@ -208,6 +208,9 @@ tailwind.config = {
         const panel = document.getElementById('modal-panel');
         panel.classList.replace('opacity-0', 'opacity-100');
         panel.classList.replace('scale-95', 'scale-100');
+        // Focus first button in dialog
+        const firstBtn = panel.querySelector('button');
+        if (firstBtn) setTimeout(() => firstBtn.focus(), 100);
       });
     }
 
@@ -226,8 +229,24 @@ tailwind.config = {
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !document.getElementById('modal-container').classList.contains('hidden')) {
+      const container = document.getElementById('modal-container');
+      if (container.classList.contains('hidden')) return;
+      if (e.key === 'Escape') {
         closeModal();
+        return;
+      }
+      // Focus trap
+      if (e.key === 'Tab') {
+        const panel = document.getElementById('modal-panel');
+        const focusable = panel.querySelectorAll('button:not([disabled])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
       }
     });
   </script>
