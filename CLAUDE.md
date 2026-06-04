@@ -53,12 +53,21 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - 利用パターン（テンプレート）がある場合は EXAMPLES セクションタイトルで分離し、サブタイトルで個別パターンを表示
 - 利用例サブタイトルに「利用例：」プレフィックスは不要（EXAMPLES セクション内なので自明）
 
+### バリアントラベル
+- 個別の状態/サイズラベル（sm, md, lg, Default, Hover 等）は `text-[10px] text-gray-400` で統一
+- サブタイトル（ドット付き）とは別物。サブタイトルはセクション見出し、ラベルは個別バリアントの注釈
+
+### Spec 記述ルール
+- **States の effect**: トークン名やCSS値を使わず、自然な日本語で書く（例: ✕「bg-primary + check アイコン表示」→ ○「チェックマークが表示される」）
+- **States と Behavior の重複禁止**: States に書いた遷移（クリック→トグル等）を Behavior で繰り返さない。Behavior は States で表現できない補足情報のみ
+
 ### Alpine.js デモ実装
 - x-data のロジックが長い場合は関数に切り出す（インライン x-data が長いと HTML パーサーが壊れる）
 - 関数定義の `<script>` タグはデモセクション内に配置し `data-demo-keep` 属性を付ける（demo-only モードで除去されないように）
 - `x-for` テンプレート内では Lucide の `<i data-lucide>` タグが初期化されない → inline SVG を使う
 - `@click.away` は入力欄+メニューを包む親要素に配置する（子要素のクリックが away 判定されるのを防ぐ）
 - キーボード操作（ArrowDown/Up, Enter, Escape, Tab）は spec に記載した通りに実装する
+- フォーカスリング（`focus:ring`）と `tabindex` は操作対象の要素に付ける（行全体ではなくボックスやボタン本体）。クリックエリアは親要素で広く取る
 - スクロール: `scrollIntoView({ block: 'nearest' })` でアクティブ項目を追従
 
 ### トークン名の注意
