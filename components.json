@@ -1571,6 +1571,10 @@
           {
             "action": "位置",
             "detail": "画面右下に固定表示される"
+          },
+          {
+            "action": "Footer との共存",
+            "detail": "Footer がある場合は Footer の上部に表示し、重ならないようにする"
           }
         ]
       }
