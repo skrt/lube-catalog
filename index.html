@@ -333,8 +333,8 @@
                       <h4 class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-3"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Keyboard</h4>
                       <div class="space-y-1">
                         <template x-for="k in activeComponent.spec.keyboard" :key="k.key">
-                          <div class="flex items-center px-3 py-1.5 border-b border-gray-100">
-                            <div class="w-40 shrink-0"><kbd class="text-xs font-mono bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded border border-gray-200" x-text="k.key"></kbd></div>
+                          <div class="flex items-start px-3 py-1.5 border-b border-gray-100">
+                            <div class="w-32 shrink-0"><kbd class="text-xs font-mono bg-gray-100 text-gray-700 px-1.5 py-0 rounded border border-gray-200 leading-5" x-text="k.key"></kbd></div>
                             <span class="text-xs text-gray-600" x-text="k.action"></span>
                           </div>
                         </template>
