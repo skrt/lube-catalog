@@ -2785,12 +2785,12 @@
         ],
         "keyboard": [
           {
-            "key": "ArrowDown/Right",
-            "action": "次の Item を選択"
+            "key": "Tab",
+            "action": "次のラジオボタンにフォーカス移動"
           },
           {
-            "key": "ArrowUp/Left",
-            "action": "前の Item を選択"
+            "key": "Enter",
+            "action": "フォーカス中の項目を選択"
           }
         ]
       }

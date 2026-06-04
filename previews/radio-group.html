@@ -100,11 +100,11 @@ tailwind.config = {
 
     <!-- Demo: Radio -->
     <div id="demo-section" x-data="{ radioSelected: 'opt1', buttonSelected: 'all' }">
-      <p class="text-sm text-gray-500 mb-4">クリックで選択切り替え</p>
+      <p class="text-sm text-gray-500 mb-4">クリック or Enter で選択。Tab でフォーカス移動</p>
       <div class="flex flex-col gap-2 mb-8">
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
           <div class="group flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
-            <div class="relative shrink-0 size-5 rounded-full"
+            <div class="relative shrink-0 size-5 rounded-full outline-none focus:ring-2 focus:ring-primary/30" tabindex="0" @keydown.enter.prevent="radioSelected = item.id"
               :class="radioSelected === item.id ? 'bg-white shadow-border-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <div x-show="radioSelected === item.id" class="absolute inset-[5px] rounded-full bg-primary"></div>
             </div>
