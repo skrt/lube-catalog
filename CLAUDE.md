@@ -28,12 +28,40 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 ```
 
 ## ルール
+
+### Tailwind / スタイル
 - Tailwind CSS 標準クラスのみ使用（ハードコードカラー値禁止、`tailwind.config.js` のテーマトークンを使う）
+- Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
+
+### プレビュー構成
 - States セクションは必ず **md サイズ** で作成する（lg や sm ではなく md が基準）
 - States セクションのトークンは Demo セクションにも反映する（`scripts/check-demo-sync.sh` で検証、pre-commit hook で自動チェック）
 - Disabled 状態のみ Demo 不要。意図的な除外は `<!-- demo-skip: token1 token2 -->` で宣言
 - 既存コンポーネントを内包・利用するプレビューでは、そのコンポーネントの挙動（hover, checked, disabled 等の見た目・インタラクション）を踏襲する。既存プレビューの実装を確認してから組み込むこと
-- Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
 - Demo 付きコンポーネントは `demoBgWhite: true` を設定する（DEMO タグのコントラスト確保）
+
+### 見出し体系（セクションタイトル / サブタイトル）
+- **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase`
+- **サブタイトル**（Sizes, States, Color 等）: `flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4` + ドット `<span class="w-1 h-1 rounded-full bg-gray-300"></span>`
+- サブタイトルに `capitalize` / `uppercase` は使わない（md が Md になる問題を防ぐ）
+- サブタイトルにコンポーネント名を含めない（例: ✕ ComboBoxMenu Variants → ○ Menu）
+
+### バリアントと利用例の分離
+- コンポーネント固有のバリアント（Default / States / Sizes 等）は VARIANTS セクション内にサブタイトルで配置
+- 利用パターン（テンプレート）がある場合は EXAMPLES セクションタイトルで分離し、サブタイトルで個別パターンを表示
+- 利用例サブタイトルに「利用例：」プレフィックスは不要（EXAMPLES セクション内なので自明）
+
+### Alpine.js デモ実装
+- x-data のロジックが長い場合は関数に切り出す（インライン x-data が長いと HTML パーサーが壊れる）
+- 関数定義の `<script>` タグはデモセクション内に配置し `data-demo-keep` 属性を付ける（demo-only モードで除去されないように）
+- `x-for` テンプレート内では Lucide の `<i data-lucide>` タグが初期化されない → inline SVG を使う
+- `@click.away` は入力欄+メニューを包む親要素に配置する（子要素のクリックが away 判定されるのを防ぐ）
+- キーボード操作（ArrowDown/Up, Enter, Escape, Tab）は spec に記載した通りに実装する
+- スクロール: `scrollIntoView({ block: 'nearest' })` でアクティブ項目を追従
+
+### トークン名の注意
+- lube のデザインシステムでは `text-primary` = `text-base-content`（#101016、黒）であり、Tailwind デフォルトの primary カラー（青）ではない
+- `text-secondary` = `text-base-content/60`（60% opacity）
+- この対応を間違えやすいので注意

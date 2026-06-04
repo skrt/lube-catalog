@@ -165,8 +165,25 @@
               </div>
             </div>
 
+            <!-- Section Nav (hidden if only 1 section) -->
+            <nav x-show="(1 + (activeComponent.props && activeComponent.props.length > 0 ? 1 : 0) + (activeComponent.tokens && activeComponent.tokens.length > 0 ? 1 : 0) + (activeComponent.hasDemo ? 1 : 0) + (activeComponent.spec ? 1 : 0)) > 1" class="sticky top-0 z-20 bg-white flex gap-5 mt-4 mb-2 border-b border-gray-100 pb-3 pt-3 uppercase text-xs tracking-wider">
+              <a href="#section-variants" @click.prevent="document.getElementById('section-variants').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Variants</a>
+              <template x-if="activeComponent.props && activeComponent.props.length > 0">
+                <a href="#section-props" @click.prevent="document.getElementById('section-props').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Props</a>
+              </template>
+              <template x-if="activeComponent.tokens && activeComponent.tokens.length > 0">
+                <a href="#section-tokens" @click.prevent="document.getElementById('section-tokens').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Tokens</a>
+              </template>
+              <template x-if="activeComponent.hasDemo">
+                <a href="#section-demo" @click.prevent="document.getElementById('section-demo').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Demo</a>
+              </template>
+              <template x-if="activeComponent.spec">
+                <a href="#section-spec" @click.prevent="document.getElementById('section-spec').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Spec</a>
+              </template>
+            </nav>
+
             <!-- Preview -->
-            <section class="py-6">
+            <section id="section-variants" class="py-6 scroll-mt-12">
               <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Variants</h3>
               <iframe
                 :src="activeComponent.preview + '?v=' + cacheKey + (activeComponent.hasDemo ? '&view=preview' : '')"
@@ -179,7 +196,7 @@
 
             <!-- Props -->
             <template x-if="activeComponent.props && activeComponent.props.length > 0">
-              <section class="py-6">
+              <section id="section-props" class="py-6 scroll-mt-12">
                 <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Props</h3>
                 <table class="w-full text-xs">
                   <thead class="bg-[#f8f8fa]">
@@ -219,7 +236,7 @@
 
             <!-- Tokens -->
             <template x-if="activeComponent.tokens && activeComponent.tokens.length > 0">
-              <section class="py-6">
+              <section id="section-tokens" class="py-6 scroll-mt-12">
                 <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Tokens</h3>
                 <div class="space-y-6">
                   <template x-for="group in activeComponent.tokens" :key="group.category">
@@ -248,7 +265,7 @@
 
             <!-- Demo (separate iframe) -->
             <template x-if="activeComponent.hasDemo">
-              <section class="py-6">
+              <section id="section-demo" class="py-6 scroll-mt-12">
                 <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Demo</h3>
                 <div class="relative">
                   <iframe
@@ -264,7 +281,7 @@
 
             <!-- Spec -->
             <template x-if="activeComponent.spec">
-              <section class="py-6">
+              <section id="section-spec" class="py-6 scroll-mt-12">
                 <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Spec</h3>
                 <div class="space-y-8">
 
