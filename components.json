@@ -3821,45 +3821,7 @@
             }
           ]
         }
-      ],
-      "spec": {
-        "anatomy": [
-          {
-            "part": "Container",
-            "description": "フィルターパネル全体（bg-base-200, rounded-lg）"
-          },
-          {
-            "part": "Header",
-            "description": "filter アイコン + タイトル + トグルボタン"
-          },
-          {
-            "part": "Section",
-            "description": "セクション（タイトル + Checkbox 群）"
-          },
-          {
-            "part": "Checkbox",
-            "description": "個別のフィルター項目（既存 Checkbox コンポーネント）"
-          }
-        ],
-        "states": [
-          {
-            "transition": "Default",
-            "trigger": "初期表示",
-            "effect": "全セクション・全項目が表示される"
-          },
-          {
-            "transition": "Empty",
-            "trigger": "選択肢なし",
-            "effect": "セクションタイトルのみ表示される"
-          }
-        ],
-        "behavior": [
-          {
-            "action": "フィルタリング",
-            "detail": "チェックボックスのオン/オフでリストを絞り込む"
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "breadcrumbs",
