@@ -4,25 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>lube Catalog</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary': { DEFAULT: '#0a0ac2', hover: '#080892', content: '#f3f4fe' },
-            'secondary': { DEFAULT: '#e8e8fd', hover: '#e0e0f5', content: '#0a0ac2' },
-            'base-content': 'rgb(16 16 22 / <alpha-value>)',
-            'base-200': '#f8f8fa',
-            'base-300': '#eeeef2',
-          },
-          borderRadius: {
-            'sm': '4px',
-          },
-        },
-      },
-    };
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+@theme {
+  --color-primary: #0a0ac2;
+  --color-primary-hover: #080892;
+  --color-primary-content: #f3f4fe;
+  --color-secondary: #e8e8fd;
+  --color-secondary-hover: #e0e0f5;
+  --color-secondary-content: #0a0ac2;
+  --color-base-content: #101016;
+  --color-base-200: #f8f8fa;
+  --color-base-300: #eeeef2;
+  --radius-sm: 4px;
+}
+</style>
   <style>
     [x-cloak] { display: none !important; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
