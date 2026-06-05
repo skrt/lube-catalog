@@ -2,6 +2,8 @@
 
 lube プロダクト用のコンポーネントカタログ。静的 HTML + Tailwind CSS CDN で構成。
 
+> 🔖 **進行中の作業がある（branch `tailwind-v4-migration`）。作業を再開する場合はまず [`.planning/RESUME.md`](.planning/RESUME.md) を読むこと。** 残タスク・経緯・落とし穴がそこに集約されている。
+
 ## 構成
 ```
 index.html          # カタログビューア（Alpine.js）
