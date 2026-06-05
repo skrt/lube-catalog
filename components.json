@@ -693,7 +693,7 @@
             {
               "variant": "Container",
               "tokens": {
-                "width": "w-[480px]",
+                "width": "w-120",
                 "gap": "gap-1 (4px)",
                 "layout": "flex-col"
               }
@@ -1484,7 +1484,7 @@
             {
               "variant": "sm",
               "tokens": {
-                "size": "size-[108px]",
+                "size": "size-27",
                 "icon": "w-4 (16px)",
                 "text": "text-xs"
               }
@@ -1492,7 +1492,7 @@
             {
               "variant": "md",
               "tokens": {
-                "size": "size-[220px]",
+                "size": "size-55",
                 "icon": "w-5 (20px)",
                 "text": "text-sm"
               }
@@ -1500,7 +1500,7 @@
             {
               "variant": "lg",
               "tokens": {
-                "size": "size-[720px]",
+                "size": "size-180",
                 "icon": "w-6 (24px)",
                 "text": "text-base"
               }
@@ -2861,7 +2861,7 @@
                 "background": "bg-base-200",
                 "padding": "px-4 py-3",
                 "radius": "rounded-lg (8px)",
-                "width": "w-[352px]",
+                "width": "w-88",
                 "gap": "gap-2 (8px)"
               }
             }
@@ -3576,7 +3576,7 @@
             {
               "variant": "layout",
               "tokens": {
-                "width": "w-[768px] (A4縦)",
+                "width": "w-192 (A4縦)",
                 "background": "bg-white",
                 "border": "border base-content/5",
                 "radius": "rounded-lg",
@@ -3812,7 +3812,7 @@
             {
               "variant": "layout",
               "tokens": {
-                "width": "w-[400px]",
+                "width": "w-100",
                 "background": "bg-base-200",
                 "border": "border base-content/5",
                 "radius": "rounded-md (6px)",
@@ -3955,7 +3955,7 @@
             {
               "variant": "layout",
               "tokens": {
-                "width": "w-[400px]",
+                "width": "w-100",
                 "background": "bg-base-200",
                 "border": "border base-content/5",
                 "radius": "rounded-md (6px)",
