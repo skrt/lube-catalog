@@ -54,7 +54,7 @@
     Design Tokens (from Figma):
     DataInput: ファイル添付フォーム
       State: Empty, Loading, Selected
-      Container: w-[480px], flex-col, gap-1 (4px)
+      Container: w-120, flex-col, gap-1 (4px)
       Legend: text-xs semibold, text-base-content, required * text-error
       Button: bg-base-200, border base-content/5, rounded-md (4px), px-3 py-2
         Icon: paperclip (sm/14px), text-base-content
@@ -74,7 +74,7 @@
     <!-- Demo -->
     <div id="demo-section" x-data="{ files: [], loading: false }">
       <p class="text-sm text-gray-500 mb-4">「ファイルを選択」でファイルを追加（ダミー）。ゴミ箱で削除</p>
-      <div class="flex flex-col gap-1 w-[480px]">
+      <div class="flex flex-col gap-1 w-120">
         <div class="flex gap-1 items-start">
           <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
           <span class="text-xs font-semibold leading-4 text-error">*</span>
@@ -120,7 +120,7 @@
         <!-- Empty -->
         <div class="flex flex-col gap-1.5">
           <span class="text-[10px] text-gray-400">Empty</span>
-          <div class="flex flex-col gap-1 w-[480px]">
+          <div class="flex flex-col gap-1 w-120">
             <div class="flex gap-1 items-start">
               <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
               <span class="text-xs font-semibold leading-4 text-error">*</span>
@@ -135,7 +135,7 @@
         <!-- Loading -->
         <div class="flex flex-col gap-1.5">
           <span class="text-[10px] text-gray-400">Loading</span>
-          <div class="flex flex-col gap-1 w-[480px]">
+          <div class="flex flex-col gap-1 w-120">
             <div class="flex gap-1 items-start">
               <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
               <span class="text-xs font-semibold leading-4 text-error">*</span>
@@ -150,7 +150,7 @@
         <!-- Selected -->
         <div class="flex flex-col gap-1.5">
           <span class="text-[10px] text-gray-400">Selected</span>
-          <div class="flex flex-col gap-1 w-[480px]">
+          <div class="flex flex-col gap-1 w-120">
         <div class="flex gap-1 items-start">
           <span class="text-xs font-semibold leading-4 text-base-content">ファイル添付</span>
           <span class="text-xs font-semibold leading-4 text-error">*</span>
