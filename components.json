@@ -133,7 +133,7 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-300",
-                "text": "text-base-content/30)"
+                "text": "text-base-content/30"
               }
             }
           ]
@@ -157,6 +157,12 @@
               "variant": "font",
               "tokens": {
                 "weight": "font-semibold"
+              }
+            },
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 (キーボード時)"
               }
             }
           ]
@@ -252,6 +258,12 @@
               "variant": "border",
               "tokens": {
                 "all": "border base-content/5"
+              }
+            },
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 (キーボード時)"
               }
             }
           ]
@@ -398,7 +410,7 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20)",
+                "border": "border border-base-content/20",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -419,15 +431,52 @@
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10)",
+                "border": "border border-base-content/10",
                 "background": "bg-base-200"
               }
             },
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20)",
+                "border": "border border-base-content/20",
                 "background": "bg-base-100 (white)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "placeholder:text-base-content/30"
+              }
+            },
+            {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
               }
             }
           ]
@@ -526,6 +575,89 @@
                 "padding": "px-3 py-2",
                 "font-size": "text-base (16px)",
                 "label": "text-base (16px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "background": "bg-base-200"
+              }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "resize",
+              "tokens": {
+                "policy": "resize-y (縦方向のみ)"
+              }
+            },
+            {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "placeholder:text-base-content/30"
+              }
+            },
+            {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
               }
             }
           ]
@@ -760,7 +892,100 @@
           ]
         },
         {
-          "category": "SelectMenu Item",
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "background": "bg-base-200",
+                "text": "text-base-content/30"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Menu",
+          "items": [
+            {
+              "variant": "frame",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "radius": "rounded-md (6px)",
+                "shadow": "shadow-lg",
+                "max-height": "max-h-60 (240px)",
+                "offset": "mt-1 (トリガーとの間隔)"
+              }
+            },
+            {
+              "variant": "item",
+              "tokens": {
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Menu Item",
           "items": [
             {
               "variant": "Default",
@@ -787,7 +1012,7 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "transparent",
-                "text": "text-base-content/30)"
+                "text": "text-base-content/30"
               }
             }
           ]
@@ -1076,25 +1301,150 @@
       ],
       "tokens": [
         {
-          "category": "ComboBoxMenu",
+          "category": "Size",
+          "items": [
+            {
+              "variant": "sm",
+              "tokens": {
+                "height": "h-6 (24px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)",
+                "icon": "12px (w-3)"
+              }
+            },
+            {
+              "variant": "md",
+              "tokens": {
+                "height": "h-8 (32px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)",
+                "icon": "14px (w-3.5)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-10 (40px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)",
+                "icon": "16px (w-4)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "background": "bg-base-200",
+                "text": "text-base-content/30"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Menu",
+          "items": [
+            {
+              "variant": "frame",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "radius": "rounded-md (6px)",
+                "shadow": "shadow-lg",
+                "max-height": "max-h-60 (240px)",
+                "offset": "mt-1 (トリガーとの間隔)"
+              }
+            },
+            {
+              "variant": "item",
+              "tokens": {
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Menu State",
           "items": [
             {
               "variant": "Header",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "text": "text-base-content/60)"
+                "text": "text-base-content/60"
               }
             },
             {
               "variant": "Empty",
               "tokens": {
-                "text": "text-base-content/30)"
+                "text": "text-base-content/30"
               }
             },
             {
               "variant": "Loading",
               "tokens": {
                 "spinner": "animate-spin, text-base-content/30"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "placeholder:text-base-content/30"
+              }
+            },
+            {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
               }
             }
           ]
@@ -2041,6 +2391,71 @@
                 "background": "bg-secondary",
                 "text": "text-secondary-content",
                 "radius": "none"
+              }
+            }
+          ]
+        },
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "background": "bg-base-200",
+                "text": "text-base-content/30"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
               }
             }
           ]
@@ -4312,6 +4727,63 @@
               }
             }
           ]
+        },
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "background": "bg-base-200",
+                "text": "text-base-content/30"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
+              }
+            }
+          ]
         }
       ],
       "spec": {
@@ -4407,18 +4879,96 @@
       ],
       "tokens": [
         {
-          "category": "Differences from Input",
+          "category": "Size",
           "items": [
             {
-              "variant": "font",
+              "variant": "sm",
               "tokens": {
-                "font-family": "font-mono (等幅)"
+                "height": "h-6 (24px)",
+                "padding": "px-2 py-1",
+                "font-size": "text-xs (12px)"
               }
             },
             {
-              "variant": "alignment",
+              "variant": "md",
               "tokens": {
-                "text-align": "text-right (右寄せ)"
+                "height": "h-8 (32px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-sm (14px)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "height": "h-10 (40px)",
+                "padding": "px-3 py-2",
+                "font-size": "text-base (16px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "border": "border-2 border-primary",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "border": "border-2 border-error",
+                "background": "bg-base-100 (white)"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "border": "border border-base-content/10",
+                "background": "bg-base-200",
+                "text": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "radius",
+              "tokens": {
+                "all": "rounded-md (6px)"
+              }
+            },
+            {
+              "variant": "font",
+              "tokens": {
+                "font-family": "font-mono (等幅・Input との差分)",
+                "text-align": "text-right (右寄せ・Input との差分)"
+              }
+            },
+            {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
               }
             }
           ]

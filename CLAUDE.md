@@ -42,6 +42,13 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - 既存コンポーネントを内包・利用するプレビューでは、そのコンポーネントの挙動（hover, checked, disabled 等の見た目・インタラクション）を踏襲する。既存プレビューの実装を確認してから組み込むこと
 - Demo 付きコンポーネントは `demoBgWhite: true` を設定する（DEMO タグのコントラスト確保）
 
+### フォーカスリング（focus-visible）
+- すべてのインタラクティブ要素（button, リンク, nav/menu 項目, トグル等）にキーボードフォーカスリングを明示する。daisyUI 剥がす方針のため自動では付かない
+- `focus:` ではなく **`focus-visible:`** を使う（マウス操作時に出さず、キーボード操作時のみ表示）
+- **標準（ボタン・行・リンク等の本体）**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2`
+- **コンパクトな操作子（checkbox/radio の box 等、行内の小さな要素）**: `outline-none focus-visible:ring-2 focus-visible:ring-primary/30`（offset 無し）。`tabindex="0"` と `@keydown.enter` は box に付け、クリックエリアは親行で広く取る
+- リングの色・太さは暫定の提案値。デザイン確定は M（Figma）に確認
+
 ### 見出し体系（セクションタイトル / サブタイトル）
 - **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase`
 - **サブタイトル**（Sizes, States, Color 等）: `flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4` + ドット `<span class="w-1 h-1 rounded-full bg-gray-300"></span>`
@@ -67,7 +74,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - `x-for` テンプレート内では Lucide の `<i data-lucide>` タグが初期化されない → inline SVG を使う
 - `@click.away` は入力欄+メニューを包む親要素に配置する（子要素のクリックが away 判定されるのを防ぐ）
 - キーボード操作（ArrowDown/Up, Enter, Escape, Tab）は spec に記載した通りに実装する
-- フォーカスリング（`focus:ring`）と `tabindex` は操作対象の要素に付ける（行全体ではなくボックスやボタン本体）。クリックエリアは親要素で広く取る
+- フォーカスリング（`focus-visible:ring`、→「フォーカスリング」節参照）と `tabindex` は操作対象の要素に付ける（行全体ではなくボックスやボタン本体）。クリックエリアは親要素で広く取る
 - スクロール: `scrollIntoView({ block: 'nearest' })` でアクティブ項目を追従
 
 ### トークン名の注意
