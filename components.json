@@ -159,7 +159,7 @@
             {
               "variant": "border",
               "tokens": {
-                "all": "border base-content/5"
+                "all": "border border-base-content/5"
               }
             },
             {
@@ -316,7 +316,7 @@
             {
               "variant": "border",
               "tokens": {
-                "all": "border base-content/5"
+                "all": "border border-base-content/5"
               }
             },
             {
@@ -483,6 +483,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -490,6 +491,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -658,6 +660,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -665,6 +668,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -976,6 +980,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -983,6 +988,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -1417,6 +1423,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -1424,6 +1431,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -1456,6 +1464,39 @@
                 "padding": "px-3 py-2",
                 "font-size": "text-sm (14px)",
                 "hover": "hover:bg-base-200"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Menu Item",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "transparent",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "background": "bg-base-200",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Selected",
+              "tokens": {
+                "background": "bg-secondary",
+                "text": "text-secondary-content"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "transparent",
+                "text": "text-base-content/30"
               }
             }
           ]
@@ -2259,7 +2300,7 @@
                 "padding": "px-6 py-4",
                 "gap": "gap-3",
                 "alignment": "justify-end",
-                "button-size": "md (px-3 py-2 text-xs rounded-sm)"
+                "button-size": "md (px-3 py-2 text-xs rounded-md)"
               }
             },
             {
@@ -2445,8 +2486,8 @@
                 "width": "264px (content)",
                 "padding": "p-3",
                 "background": "bg-base-100 (white)",
-                "border": "border base-content/10",
-                "radius": "rounded-lg (8px)",
+                "border": "border border-base-content/10",
+                "radius": "rounded-md (6px)",
                 "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)"
               }
             },
@@ -2466,8 +2507,8 @@
               "tokens": {
                 "size": "24px (p-1.5 + 12px icon)",
                 "background": "bg-base-200",
-                "border": "border base-content/5",
-                "radius": "rounded-sm"
+                "border": "border border-base-content/5",
+                "radius": "rounded-md"
               }
             },
             {
@@ -2520,6 +2561,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[5px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -2527,6 +2569,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[5px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -2706,7 +2749,7 @@
               "variant": "number cell",
               "tokens": {
                 "width": "w-20 (80px)",
-                "border-bottom": "border base-content/10",
+                "border-bottom": "border border-base-content/10",
                 "padding": "px-2 py-1.5",
                 "font": "text-2xs mono tabular-nums",
                 "color": "text-base-content",
@@ -2717,7 +2760,7 @@
               "variant": "checkbox cell",
               "tokens": {
                 "width": "w-8 (32px)",
-                "border-bottom": "border base-content/10",
+                "border-bottom": "border border-base-content/10",
                 "padding": "px-2 py-1.5",
                 "align": "center",
                 "checkbox": "sm (16px)"
@@ -2802,7 +2845,7 @@
                 "font": "text-xs (12px)",
                 "color": "text-base-content",
                 "padding": "p-2",
-                "border-bottom": "border base-content/10"
+                "border-bottom": "border border-base-content/10"
               }
             },
             {
@@ -2831,7 +2874,7 @@
               "tokens": {
                 "width": "w-40 (160px)",
                 "padding": "px-2 py-1.5",
-                "border-bottom": "border base-content/10",
+                "border-bottom": "border border-base-content/10",
                 "font": "text-2xs mono tabular-nums",
                 "color": "text-base-content",
                 "align": "right"
@@ -2897,7 +2940,7 @@
               "variant": "line",
               "tokens": {
                 "height": "h-px",
-                "color": "bg base-content/5",
+                "color": "bg-base-content/5",
                 "flex": "flex-1"
               }
             },
@@ -3032,7 +3075,7 @@
               "variant": "divider",
               "tokens": {
                 "height": "h-px",
-                "color": "bg base-content/5"
+                "color": "bg-base-content/5"
               }
             },
             {
@@ -3093,7 +3136,7 @@
                 "display": "flex",
                 "gap": "gap-2 (8px)",
                 "align": "items-start",
-                "border-top": "border-t base-content/5",
+                "border-top": "border-t border-base-content/5",
                 "padding": "py-2"
               }
             },
@@ -3102,7 +3145,7 @@
               "tokens": {
                 "width": "w-28 (112px)",
                 "font-size": "text-sm (14px)",
-                "color": "text-base-content/60)"
+                "color": "text-base-content/60"
               }
             },
             {
@@ -3136,7 +3179,7 @@
               "variant": "Button",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "padding": "px-2 py-1",
                 "radius": "rounded-sm",
                 "font": "text-xs semibold",
@@ -3215,21 +3258,21 @@
               "variant": "Default",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border base-content/20",
+                "border": "border border-base-content/20",
                 "shape": "rounded-full"
               }
             },
             {
               "variant": "Hover",
               "tokens": {
-                "border": "border-2 primary",
+                "border": "border-2 border-primary",
                 "shape": "rounded-full"
               }
             },
             {
               "variant": "Selected",
               "tokens": {
-                "border": "border primary",
+                "border": "border border-primary",
                 "dot": "bg-primary",
                 "shape": "rounded-full"
               }
@@ -3238,14 +3281,14 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border base-content/10",
+                "border": "border border-base-content/10",
                 "label": "text-base-content/30"
               }
             },
             {
               "variant": "Selected-Disabled",
               "tokens": {
-                "border": "border base-content/10",
+                "border": "border border-base-content/10",
                 "dot": "bg-base-content/10",
                 "label": "text-base-content/30"
               }
@@ -3277,7 +3320,7 @@
               "variant": "Inactive",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border base-content/10",
+                "border": "border border-base-content/10",
                 "text": "text-base-content",
                 "count-bg": "bg-base-200",
                 "count-text": "text-base-content/60"
@@ -3440,21 +3483,21 @@
               "variant": "Unchecked Default",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border base-content/20)"
+                "border": "border border-base-content/20"
               }
             },
             {
               "variant": "Unchecked Hover",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border-2 primary"
+                "border": "border-2 border-primary"
               }
             },
             {
               "variant": "Unchecked Disabled",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border base-content/10"
+                "border": "border border-base-content/10"
               }
             },
             {
@@ -3469,12 +3512,6 @@
               "tokens": {
                 "background": "bg-base-content/10",
                 "icon": "white check / minus"
-              }
-            },
-            {
-              "variant": "Unchecked Hover",
-              "tokens": {
-                "border": "border-2 border-primary"
               }
             }
           ]
@@ -3512,7 +3549,7 @@
             {
               "variant": "Disabled",
               "tokens": {
-                "color": "text-base-content/30)"
+                "color": "text-base-content/30"
               }
             }
           ]
@@ -3641,7 +3678,7 @@
               "variant": "Current",
               "tokens": {
                 "background": "bg-secondary",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "text": "text-secondary-content"
               }
             }
@@ -3754,7 +3791,7 @@
               "tokens": {
                 "width": "w-192 (A4縦)",
                 "background": "bg-white",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "radius": "rounded-lg",
                 "padding": "p-6 (24px)",
                 "gap": "gap-3 (12px)"
@@ -3804,7 +3841,7 @@
               "variant": "seal",
               "tokens": {
                 "size": "size-15 (60px)",
-                "shape": "rounded-full border base-content/10"
+                "shape": "rounded-full border border-base-content/10"
               }
             }
           ]
@@ -3885,7 +3922,7 @@
               "variant": "layout",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "radius": "rounded-md (6px)",
                 "overflow": "overflow-clip"
               }
@@ -3983,7 +4020,7 @@
             {
               "variant": "border",
               "tokens": {
-                "bottom": "border-b base-content/5 (最終行は border なし)"
+                "bottom": "border-b border-base-content/5 (最終行は border なし)"
               }
             },
             {
@@ -4066,7 +4103,7 @@
               "tokens": {
                 "width": "w-100",
                 "background": "bg-base-200",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "radius": "rounded-md (6px)",
                 "padding": "p-4 (16px)",
                 "gap": "gap-2 (8px)"
@@ -4212,7 +4249,7 @@
               "tokens": {
                 "width": "w-100",
                 "background": "bg-base-200",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "radius": "rounded-md (6px)",
                 "padding": "p-4 (16px)",
                 "gap": "gap-2 (8px)"
@@ -4486,7 +4523,7 @@
               "tokens": {
                 "position": "fixed bottom-0",
                 "background": "bg-base-100 (white)",
-                "border-top": "border-t base-content/10",
+                "border-top": "border-t border-base-content/10",
                 "padding": "px-6 py-4",
                 "gap": "gap-2 (8px)",
                 "z-index": "z-50"
@@ -4586,7 +4623,7 @@
               "tokens": {
                 "icon": "list-collapse (16px)",
                 "background": "bg-base-200",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "radius": "rounded-md",
                 "padding": "p-2"
               }
@@ -4684,7 +4721,7 @@
             {
               "variant": "Default",
               "tokens": {
-                "text": "text-base-content/60)"
+                "text": "text-base-content/60"
               }
             },
             {
@@ -4861,7 +4898,7 @@
               "variant": "Active",
               "tokens": {
                 "background": "bg-secondary",
-                "border": "border base-content/5",
+                "border": "border border-base-content/5",
                 "text": "text-secondary-content"
               }
             }
@@ -5002,8 +5039,8 @@
                 "width": "264px (content)",
                 "padding": "p-3",
                 "background": "bg-base-100 (white)",
-                "border": "border base-content/10",
-                "radius": "rounded-lg (8px)",
+                "border": "border border-base-content/10",
+                "radius": "rounded-md (6px)",
                 "shadow": "drop-shadow 0 4px 8px rgba(0,0,0,0.08)"
               }
             },
@@ -5039,6 +5076,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -5046,6 +5084,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -5254,6 +5293,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -5261,6 +5301,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },

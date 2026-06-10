@@ -195,7 +195,7 @@
             <template x-for="(row, i) in rows" :key="i">
               <div class="flex cursor-pointer hover:bg-base-200" @click="row.checked = !row.checked">
                 <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10">
-                  <div class="size-4 rounded relative outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="row.checked = !row.checked" :class="row.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20'">
+                  <div class="size-4 rounded relative outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="row.checked = !row.checked" @keydown.space.prevent="row.checked = !row.checked" :class="row.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20'">
                     <svg x-show="row.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
                   </div>
                 </div>

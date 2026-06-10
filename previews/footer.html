@@ -113,7 +113,7 @@
       <div class="flex flex-col min-h-80">
         <!-- Content area -->
         <div class="flex-1 space-y-4 p-4">
-          <label tabindex="0" class="flex items-center gap-2 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2" @click.prevent="showBack = !showBack">
+          <label tabindex="0" class="flex items-center gap-2 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2" @click.prevent="showBack = !showBack" @keydown.enter.prevent="showBack = !showBack" @keydown.space.prevent="showBack = !showBack">
             <div class="size-5 rounded-sm relative shrink-0" :class="showBack ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <svg x-show="showBack" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
             </div>

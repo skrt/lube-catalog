@@ -98,7 +98,7 @@
       <div class="flex flex-col gap-2">
         <!-- Select All (indeterminate capable) -->
         <div class="flex gap-2 items-center cursor-pointer group" @click="toggleAll()">
-          <div class="relative shrink-0 size-5 rounded outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="toggleAll()"
+          <div class="relative shrink-0 size-5 rounded outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="toggleAll()" @keydown.space.prevent="toggleAll()"
             :class="allState === 'unchecked' ? 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary' : 'bg-primary'">
             <svg x-show="allState === 'checked'" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
             <svg x-show="allState === 'indeterminate'" x-cloak class="absolute inset-0 w-full h-full text-white p-1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
@@ -109,7 +109,7 @@
         <!-- Items -->
         <template x-for="(item, i) in items" :key="i">
           <div class="flex gap-2 items-center cursor-pointer group" @click="item.checked = !item.checked">
-            <div class="relative shrink-0 size-5 rounded outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="item.checked = !item.checked"
+            <div class="relative shrink-0 size-5 rounded outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="item.checked = !item.checked" @keydown.space.prevent="item.checked = !item.checked"
               :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
             </div>

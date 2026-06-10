@@ -59,7 +59,7 @@
           selected: '',
           open: false,
           activeIndex: -1,
-          allOptions: ['にいやま株式会社', '株式会社shizai', '株式会社サプライヤー', 'K.K株式会社', '株式会社ABC', '丸山印刷株式会社', '東京パッケージ工業', '株式会社グリーンプリント', '日本包装資材株式会社', '株式会社フジシール'],
+          allOptions: ['にいやま株式会社', '株式会社shizai', '株式会社サプライヤー', 'K.K株式会社', '株式会社ABC', 'つばめ印刷株式会社', 'ひかりパッケージ工業', '株式会社グリーンプリント', 'あおぞら包装資材株式会社', '株式会社ミドリシール'],
           get filtered() {
             const q = this.selected && this.query === this.selected ? '' : this.query;
             return q ? this.allOptions.filter(o => o.toLowerCase().includes(q.toLowerCase())) : this.allOptions;
@@ -83,8 +83,8 @@
       <label class="block text-sm text-base-content">取引先 <span class="text-error">*</span></label>
       <div class="relative" @click.away="open = false; activeIndex = -1">
         <div
-          class="flex items-center h-8 px-3 py-2 gap-2 rounded-md bg-white transition-colors"
-          :class="open ? 'border-2 border-primary' : 'border border-base-content/20'"
+          class="flex items-center h-8 gap-2 rounded-md bg-white transition-colors"
+          :class="open ? 'border-2 border-primary px-[11px] py-[7px]' : 'border border-base-content/20 px-3 py-2'"
         >
           <input
             x-ref="input"
@@ -122,7 +122,7 @@
           </template>
         </div>
       </div>
-      <p class="text-[10px] text-gray-400">入力して絞り込めます</p>
+      <p class="text-xs text-base-content/60">入力して絞り込めます</p>
     </div>
   </section>
 
@@ -135,21 +135,21 @@
         <div class="flex items-center h-6 px-2 py-1 gap-2 border border-base-content/20 rounded-md bg-white">
           <span class="flex-1 text-xs text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
       <div class="w-56 space-y-1">
         <label class="block text-sm text-base-content">md</label>
         <div class="flex items-center h-8 px-3 py-2 gap-2 border border-base-content/20 rounded-md bg-white">
           <span class="flex-1 text-sm text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
       <div class="w-56 space-y-1">
         <label class="block text-base text-base-content">lg</label>
         <div class="flex items-center h-10 px-3 py-2 gap-2 border border-base-content/20 rounded-md bg-white">
           <span class="flex-1 text-base text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
     </div>
   </section>
@@ -163,28 +163,28 @@
         <div class="flex items-center h-8 px-3 py-2 gap-2 border border-base-content/20 rounded-md bg-white">
           <span class="flex-1 text-sm text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
       <div class="w-52 space-y-1">
         <label class="block text-sm text-base-content">Focus</label>
-        <div class="flex items-center h-8 px-3 py-2 gap-2 border-2 border-primary rounded-md bg-white">
+        <div class="flex items-center h-8 px-[11px] py-[7px] gap-2 border-2 border-primary rounded-md bg-white">
           <span class="flex-1 text-sm text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
       <div class="w-52 space-y-1">
         <label class="block text-sm text-base-content">Error</label>
-        <div class="flex items-center h-8 px-3 py-2 gap-2 border-2 border-error rounded-md bg-white">
+        <div class="flex items-center h-8 px-[11px] py-[7px] gap-2 border-2 border-error rounded-md bg-white">
           <span class="flex-1 text-sm text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
       <div class="w-52 space-y-1">
         <label class="block text-sm text-base-content">Disabled</label>
         <div class="flex items-center h-8 px-3 py-2 gap-2 border border-base-content/10 rounded-md bg-base-200 cursor-not-allowed">
           <span class="flex-1 text-sm text-base-content/30 truncate">プレースホルダー</span>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
       <div class="w-52 space-y-1">
         <label class="block text-sm text-base-content">Filled</label>
@@ -192,7 +192,7 @@
           <span class="flex-1 text-sm text-base-content truncate">プレースホルダー</span>
           <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
         </div>
-        <p class="text-[10px] text-gray-400">ヘルパーテキスト</p>
+        <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
       </div>
     </div>
   </section>
