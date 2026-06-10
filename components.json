@@ -1441,7 +1441,8 @@
               "variant": "item",
               "tokens": {
                 "padding": "px-3 py-2",
-                "font-size": "text-sm (14px)"
+                "font-size": "text-sm (14px)",
+                "hover": "hover:bg-base-200"
               }
             }
           ]
@@ -3431,6 +3432,12 @@
                 "background": "bg-base-content/10",
                 "icon": "white check / minus"
               }
+            },
+            {
+              "variant": "Unchecked Hover",
+              "tokens": {
+                "border": "border-2 border-primary"
+              }
             }
           ]
         },
@@ -3593,7 +3600,8 @@
               "tokens": {
                 "background": "bg-base-200",
                 "border": "border base-content/5",
-                "text": "text-base-content"
+                "text": "text-base-content",
+                "hover": "hover:bg-base-300"
               }
             },
             {
@@ -3623,7 +3631,8 @@
               "tokens": {
                 "background": "bg-base-200",
                 "border": "border base-content/5",
-                "text": "text-base-content"
+                "text": "text-base-content",
+                "hover": "hover:bg-base-300"
               }
             },
             {
