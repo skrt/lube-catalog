@@ -3944,6 +3944,60 @@
               "tokens": {
                 "bottom": "border-b base-content/5 (最終行は border なし)"
               }
+            },
+            {
+              "variant": "hover",
+              "tokens": {
+                "background": "hover:bg-base-200"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Column Width",
+          "items": [
+            {
+              "variant": "Text",
+              "tokens": {
+                "width": "flex-1 (残りスペースを埋める)"
+              }
+            },
+            {
+              "variant": "Number / LinkText / MultiText",
+              "tokens": {
+                "width": "w-40 (160px)"
+              }
+            },
+            {
+              "variant": "Badge / Button",
+              "tokens": {
+                "width": "w-24 (96px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Sticky Header",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
+                "position": "sticky top-0",
+                "z-index": "z-10"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Empty",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
+                "display": "flex items-center justify-center",
+                "padding": "py-16",
+                "text": "text-sm text-base-content/30"
+              }
             }
           ]
         }
