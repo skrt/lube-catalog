@@ -2600,7 +2600,7 @@
               "variant": "Focus",
               "tokens": {
                 "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[5px]（border-2 の分を補正）",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -2608,7 +2608,7 @@
               "variant": "Error",
               "tokens": {
                 "border": "border-2 border-error",
-                "padding": "px-[11px] py-[5px]（border-2 の分を補正）",
+                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
             },
@@ -2885,11 +2885,11 @@
         "keyboard": [
           {
             "key": "Tab",
-            "description": "行のチェックボックス間をフォーカス移動"
+            "action": "行のチェックボックス間をフォーカス移動"
           },
           {
             "key": "Enter",
-            "description": "フォーカス中の行の選択をトグル"
+            "action": "フォーカス中の行の選択をトグル"
           }
         ]
       }
@@ -4726,7 +4726,7 @@
             {
               "variant": "layout",
               "tokens": {
-                "position": "fixed bottom-0",
+                "position": "sticky bottom-0",
                 "background": "bg-base-100 (white)",
                 "border-top": "border-t border-base-content/10",
                 "padding": "px-6 py-4",
@@ -4905,7 +4905,7 @@
         "anatomy": [
           {
             "part": "Header",
-            "description": "filter アイコン + 「フィルター」タイトル + 折りたたみトグルボタン（list-collapse）"
+            "description": "filter アイコン + 「フィルター」タイトル + メニュー切替ボタン（list-collapse）"
           },
           {
             "part": "Section",
@@ -4925,8 +4925,8 @@
             "detail": "チェック変更で即時に一覧へ絞り込みを適用する（適用ボタンは置かない）【仮置き・エンジニアさん確認待ち】"
           },
           {
-            "action": "折りたたみトグル",
-            "detail": "ヘッダー右のボタンで全セクションを折りたたみ／展開する【仮置き・Figma 側に開閉デザインなし、M に確認依頼中】"
+            "action": "メニュー切替",
+            "detail": "ヘッダー右のボタンは FilterMenu 自身ではなく、一覧側の Details カード（Item の Open/Close モード）を一括切替する（ユーザーさん確定 2026-06-10）"
           },
           {
             "action": "Empty セクション",
@@ -5137,7 +5137,7 @@
           },
           {
             "action": "アクティブ表示",
-            "detail": "現在ページに対応する項目が Active 状態（bg-base-300）になる"
+            "detail": "現在ページに対応する項目が Active 状態（bg-secondary）になる"
           }
         ]
       }

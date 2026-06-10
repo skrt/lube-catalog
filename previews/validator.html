@@ -43,7 +43,7 @@
 
   <!--
     Validator（Figma String Variable Collection: `Validator` / VariableCollectionId:3651:145）
-    フォームのエラーメッセージ文言を一元管理する。全14個。
+    フォームのエラーメッセージ文言を一元管理する。全15個。
     各フォームコンポーネントの Error 状態の errorText にこの文言を表示する。
     i18n キーは M 提案の暫定案。Rails config/locales/ja.yml のキー命名とエンジニアさん擦り合わせで確定する。
   -->
@@ -82,6 +82,7 @@
             <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">existence</td><td class="py-1.5 pr-4 text-error">存在しません</td><td class="py-1.5 font-mono text-gray-400">errors.existence.not_found</td></tr>
             <!-- feature -->
             <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / email</td><td class="py-1.5 pr-4 text-error">TOを1個以上選択しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.feature.email.to_required</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / file-input</td><td class="py-1.5 pr-4 text-error">ファイルは合計10MB以下にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.feature.file_input.max_total_10mb</td></tr>
           </tbody>
         </table>
       </div>

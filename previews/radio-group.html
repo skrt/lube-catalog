@@ -93,6 +93,10 @@
             moveRadio(el, dir) {
               const next = this.moveFocus(el, 'radio', dir);
               if (next) this.radioSelected = next.dataset.id;
+            },
+            moveButton(el, dir) {
+              const next = this.moveFocus(el, 'btn', dir);
+              if (next) this.buttonSelected = next.dataset.id;
             }
           };
         }
@@ -118,17 +122,17 @@
       <p class="text-sm text-gray-500 mb-4">クリック or Enter で選択切り替え。矢印キーで項目間移動</p>
       <div class="flex gap-2 items-center">
         <template x-for="item in [{id:'all',label:'すべて'},{id:'unsent',label:'未送付',count:'12'},{id:'sent',label:'送付済み',count:'48'}]" :key="item.id">
-          <div class="flex h-8 items-center justify-center px-2 rounded-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" tabindex="0" data-rg="btn"
+          <div class="flex h-8 items-center justify-center px-2 rounded-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" tabindex="0" data-rg="btn" :data-id="item.id"
             :class="[
               buttonSelected === item.id ? 'bg-primary' : 'bg-white shadow-border-base-content-10 hover:bg-secondary hover:shadow-none',
               item.count ? 'gap-1 py-1' : 'py-1.5'
             ]"
             @click="buttonSelected = item.id"
             @keydown.enter.prevent="buttonSelected = item.id"
-            @keydown.down.prevent="moveFocus($event.target, 'btn', 1)"
-            @keydown.right.prevent="moveFocus($event.target, 'btn', 1)"
-            @keydown.up.prevent="moveFocus($event.target, 'btn', -1)"
-            @keydown.left.prevent="moveFocus($event.target, 'btn', -1)">
+            @keydown.down.prevent="moveButton($event.target, 1)"
+            @keydown.right.prevent="moveButton($event.target, 1)"
+            @keydown.up.prevent="moveButton($event.target, -1)"
+            @keydown.left.prevent="moveButton($event.target, -1)">
             <span class="text-sm font-semibold leading-5" :class="buttonSelected === item.id ? 'text-primary-content' : 'text-base-content'" x-text="item.label"></span>
             <template x-if="item.count">
               <div class="flex items-center justify-center px-2 py-0.5 rounded-full"
