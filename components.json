@@ -1933,6 +1933,17 @@
               }
             }
           ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+              }
+            }
+          ]
         }
       ],
       "spec": {
@@ -2060,6 +2071,17 @@
                 "size": "10×4px (W×H)",
                 "offset": "-3px from tooltip edge",
                 "shape": "CSS triangle (border trick)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
               }
             }
           ]
@@ -2670,6 +2692,17 @@
               }
             }
           ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+              }
+            }
+          ]
         }
       ]
     },
@@ -3218,6 +3251,17 @@
               }
             }
           ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              }
+            }
+          ]
         }
       ],
       "spec": {
@@ -3418,6 +3462,17 @@
               }
             }
           ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              }
+            }
+          ]
         }
       ],
       "spec": {
@@ -3571,6 +3626,17 @@
               }
             }
           ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+              }
+            }
+          ]
         }
       ],
       "spec": {
@@ -3629,7 +3695,12 @@
           "name": "Type",
           "type": "enum",
           "default": "見積書",
-          "values": ["見積書", "発注請書", "発注書", "請求書"],
+          "values": [
+            "見積書",
+            "発注請書",
+            "発注書",
+            "請求書"
+          ],
           "description": "帳票の種類（構成が異なる）"
         }
       ],
@@ -3744,14 +3815,24 @@
           "name": "Size",
           "type": "enum",
           "default": "md",
-          "values": ["md", "sm"],
+          "values": [
+            "md",
+            "sm"
+          ],
           "description": "セルの高さ・padding・文字サイズ"
         },
         {
           "name": "Cell Type",
           "type": "enum",
           "default": "Text",
-          "values": ["Text", "Number", "LinkText", "MultiText", "Badge", "Button"],
+          "values": [
+            "Text",
+            "Number",
+            "LinkText",
+            "MultiText",
+            "Badge",
+            "Button"
+          ],
           "description": "セルの表示タイプ"
         }
       ],
@@ -4092,6 +4173,17 @@
               "variant": "gap",
               "tokens": {
                 "between-fields": "gap-4 (16px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
               }
             }
           ]
@@ -4444,6 +4536,17 @@
               }
             }
           ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+              }
+            }
+          ]
         }
       ]
     },
@@ -4520,6 +4623,17 @@
                 "icon": "chevron-right",
                 "size": "14px (w-3.5 h-3.5)",
                 "color": "text-base-content/60"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
               }
             }
           ]
