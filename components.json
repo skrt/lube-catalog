@@ -135,6 +135,15 @@
                 "background": "bg-base-300",
                 "text": "text-base-content/30"
               }
+            },
+            {
+              "variant": "Loading",
+              "tokens": {
+                "background": "bg-base-300",
+                "text": "text-base-content/30",
+                "cursor": "cursor-not-allowed",
+                "spinner": "w-3.5 h-3.5 animate-spin"
+              }
             }
           ]
         },
