@@ -772,8 +772,15 @@
               "variant": "FileRow",
               "tokens": {
                 "name": "text-xs text-base-content",
-                "size": "text-xs text-base-content/30",
-                "delete": "IconButton sm trash-2"
+                "size": "text-xs text-base-content/30"
+              }
+            },
+            {
+              "variant": "FileRow delete",
+              "tokens": {
+                "ref": "icon-button",
+                "size": "sm",
+                "icon": "trash-2"
               }
             },
             {
@@ -3689,13 +3696,23 @@
             {
               "variant": "明細表",
               "tokens": {
-                "component": "QuoteTable (品名flex-1, 数量/単価/金額 各w-20)"
+                "ref": "quote-table",
+                "columns": "品名 flex-1, 数量/単価/金額 各 w-20"
               }
             },
             {
-              "variant": "合計ブロック",
+              "variant": "合計ブロック layout",
               "tokens": {
-                "layout": "flex gap-14, 備考(flex-1) + Calc(w-60)"
+                "display": "flex gap-14",
+                "left": "備考 (flex-1)",
+                "right": "Calc (w-60)"
+              }
+            },
+            {
+              "variant": "合計ブロック Calc",
+              "tokens": {
+                "ref": "calc",
+                "width": "w-60"
               }
             },
             {
@@ -3803,14 +3820,15 @@
             {
               "variant": "Badge",
               "tokens": {
-                "component": "Badge"
+                "ref": "badge"
               }
             },
             {
               "variant": "Button",
               "tokens": {
-                "align": "justify-center",
-                "component": "Button Secondary"
+                "ref": "button",
+                "color": "Secondary",
+                "align": "justify-center"
               }
             }
           ]
@@ -3945,7 +3963,7 @@
             {
               "variant": "breadcrumbs",
               "tokens": {
-                "component": "Breadcrumbs"
+                "ref": "breadcrumbs"
               }
             }
           ]
@@ -3963,7 +3981,9 @@
             {
               "variant": "buttons",
               "tokens": {
-                "type": "IconButton sm Tertiary",
+                "ref": "icon-button",
+                "size": "sm",
+                "color": "Tertiary",
                 "icons": "log-out, settings"
               }
             },
@@ -4036,11 +4056,9 @@
             {
               "variant": "delete",
               "tokens": {
-                "type": "IconButton sm",
-                "icon": "trash-2 (12px)",
-                "background": "bg-base-200",
-                "border": "border base-content/5",
-                "radius": "rounded-md"
+                "ref": "icon-button",
+                "size": "sm",
+                "icon": "trash-2 (12px)"
               }
             }
           ]
@@ -4287,7 +4305,9 @@
             {
               "variant": "style",
               "tokens": {
-                "type": "Button Tertiary md",
+                "ref": "button",
+                "color": "Tertiary",
+                "size": "md",
                 "icon": "chevron-left (14px)",
                 "label": "戻る"
               }
@@ -4300,7 +4320,9 @@
             {
               "variant": "Sub CTA",
               "tokens": {
-                "type": "Button Tertiary md",
+                "ref": "button",
+                "color": "Tertiary",
+                "size": "md",
                 "width": "w-48 (192px)",
                 "icon": "save (14px)"
               }
@@ -4308,7 +4330,9 @@
             {
               "variant": "Main CTA",
               "tokens": {
-                "type": "Button Primary md",
+                "ref": "button",
+                "color": "Primary",
+                "size": "md",
                 "width": "w-48 (192px)",
                 "icon": "send (14px)"
               }
@@ -4393,10 +4417,8 @@
             {
               "variant": "checkbox",
               "tokens": {
-                "size": "md (20px)",
-                "label-font": "text-sm",
-                "label-color": "text-base-content",
-                "gap": "gap-2 (8px)"
+                "ref": "checkbox",
+                "size": "md (20px)"
               }
             }
           ]
@@ -4551,8 +4573,7 @@
             {
               "variant": "component",
               "tokens": {
-                "ref": "menu-button",
-                "note": "State / Layout トークンを参照"
+                "ref": "menu-button"
               }
             }
           ]
@@ -5245,8 +5266,7 @@
             {
               "variant": "component",
               "tokens": {
-                "ref": "radio-group",
-                "note": "Button バリアント。請求書パターンで使用"
+                "ref": "radio-group"
               }
             }
           ]
