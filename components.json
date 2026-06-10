@@ -3629,21 +3629,13 @@
           "category": "Page Button",
           "items": [
             {
-              "variant": "layout",
+              "variant": "base",
               "tokens": {
+                "ref": "button",
+                "color": "Tertiary",
+                "size": "md",
                 "width": "w-8 (32px)",
-                "padding": "px-1 py-2",
-                "radius": "rounded-sm",
-                "font": "text-xs semibold leading-4"
-              }
-            },
-            {
-              "variant": "Default",
-              "tokens": {
-                "background": "bg-base-200",
-                "border": "border base-content/5",
-                "text": "text-base-content",
-                "hover": "hover:bg-base-300"
+                "padding": "px-1 py-2 (Button padding を上書き)"
               }
             },
             {
@@ -3660,28 +3652,18 @@
           "category": "Prev / Next Button",
           "items": [
             {
-              "variant": "layout",
+              "variant": "base",
               "tokens": {
-                "padding": "px-3 py-2",
-                "radius": "rounded-sm",
-                "font": "text-xs semibold leading-4",
+                "ref": "button",
+                "color": "Tertiary",
+                "size": "md",
                 "icon": "chevron-left / chevron-right (14px)"
-              }
-            },
-            {
-              "variant": "Default",
-              "tokens": {
-                "background": "bg-base-200",
-                "border": "border base-content/5",
-                "text": "text-base-content",
-                "hover": "hover:bg-base-300"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-300",
-                "border": "none",
                 "text": "text-base-content/30"
               }
             }
