@@ -3624,6 +3624,15 @@
       "category": "layout",
       "preview": "previews/document.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3907-4091",
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "見積書",
+          "values": ["見積書", "発注請書", "発注書", "請求書"],
+          "description": "帳票の種類（構成が異なる）"
+        }
+      ],
       "tokens": [
         {
           "category": "Container",
@@ -3730,6 +3739,22 @@
       "category": "data-display",
       "preview": "previews/table.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3743-13682",
+      "props": [
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "md",
+          "values": ["md", "sm"],
+          "description": "セルの高さ・padding・文字サイズ"
+        },
+        {
+          "name": "Cell Type",
+          "type": "enum",
+          "default": "Text",
+          "values": ["Text", "Number", "LinkText", "MultiText", "Badge", "Button"],
+          "description": "セルの表示タイプ"
+        }
+      ],
       "tokens": [
         {
           "category": "Container",
