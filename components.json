@@ -4590,18 +4590,8 @@
       ],
       "tokens": [
         {
-          "category": "Expanded",
+          "category": "State",
           "items": [
-            {
-              "variant": "layout",
-              "tokens": {
-                "padding": "px-3 py-2 (12px 8px)",
-                "gap": "gap-2 (8px)",
-                "radius": "rounded-md (6px)",
-                "icon": "16px",
-                "font-size": "text-sm (14px)"
-              }
-            },
             {
               "variant": "Default",
               "tokens": {
@@ -4612,7 +4602,7 @@
             {
               "variant": "Hover",
               "tokens": {
-                "background": "bg-base-300",
+                "background": "hover:bg-base-300",
                 "text": "text-base-content"
               }
             },
@@ -4627,33 +4617,39 @@
           ]
         },
         {
-          "category": "Collapsed",
+          "category": "Layout",
           "items": [
             {
-              "variant": "layout",
+              "variant": "Expanded",
+              "tokens": {
+                "padding": "px-3 py-2 (12px 8px)",
+                "gap": "gap-2 (8px)",
+                "icon": "16px",
+                "font-size": "text-sm (14px)"
+              }
+            },
+            {
+              "variant": "Collapsed",
               "tokens": {
                 "padding": "p-3 (12px)",
-                "radius": "rounded-md (6px)",
                 "icon": "16px"
               }
-            },
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
             {
-              "variant": "Default",
+              "variant": "radius",
               "tokens": {
-                "background": "none"
+                "all": "rounded-md (6px)"
               }
             },
             {
-              "variant": "Hover",
+              "variant": "focus",
               "tokens": {
-                "background": "bg-base-300"
-              }
-            },
-            {
-              "variant": "Active",
-              "tokens": {
-                "background": "bg-secondary",
-                "border": "border base-content/5"
+                "ring": "focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
               }
             }
           ]

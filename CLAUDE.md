@@ -35,6 +35,13 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
 
+### トークン構成（components.json）
+- トークンカテゴリは **役割軸**（Color/State/Size/Layout/Common 等）で分ける。モード軸（Expanded/Collapsed 等）や部位軸で分けて状態色を重複させない
+- **ボタン系**（button, icon-button 等）: `Color`（色バリアント別の bg/hover/text）→ `Common`（radius/border/focus）→ `Size`
+- **フォーム系**（input, select 等）: `Size` → `State`（Default/Focus/Error/Disabled の border/bg）→ 固有カテゴリ（Menu 等）→ `Common`（radius/placeholder/helperText/errorText/required）
+- **ナビゲーション系**（menu-button 等）: `State`（Default/Hover/Active の bg/text）→ `Layout`（モード別の padding/gap）→ `Common`
+- hover トークンの値には `hover:` プレフィックスを付ける（実装コピペ可能な形式）
+
 ### プレビュー構成
 - States セクションは必ず **md サイズ** で作成する（lg や sm ではなく md が基準）
 - States セクションのトークンは Demo セクションにも反映する（`scripts/check-demo-sync.sh` で検証、pre-commit hook で自動チェック）
