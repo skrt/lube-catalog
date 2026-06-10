@@ -3986,19 +3986,6 @@
               }
             }
           ]
-        },
-        {
-          "category": "Empty",
-          "items": [
-            {
-              "variant": "layout",
-              "tokens": {
-                "display": "flex items-center justify-center",
-                "padding": "py-16",
-                "text": "text-sm text-base-content/30"
-              }
-            }
-          ]
         }
       ]
     },
