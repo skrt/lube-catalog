@@ -73,7 +73,7 @@
         <!-- 前へ -->
         <button
           @click="if (current > 1) current--"
-          class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+          class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
           :class="current === 1 ? 'bg-base-300 text-base-content/30 cursor-not-allowed' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
           :disabled="current === 1"
         >
@@ -84,7 +84,7 @@
         <template x-for="p in pages" :key="p">
           <button
             @click="current = p"
-            class="flex items-center justify-center w-8 py-2 rounded text-xs font-semibold leading-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+            class="flex items-center justify-center w-8 py-2 rounded text-xs font-semibold leading-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
             :class="p === current ? 'bg-secondary shadow-border-base-content-5 text-primary' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
             x-text="p"
           ></button>
@@ -92,7 +92,7 @@
         <!-- 次へ -->
         <button
           @click="if (current < total) current++"
-          class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+          class="flex gap-2 items-center justify-center px-3 py-2 rounded text-xs font-semibold leading-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
           :class="current === total ? 'bg-base-300 text-base-content/30 cursor-not-allowed' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
           :disabled="current === total"
         >

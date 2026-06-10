@@ -82,7 +82,7 @@
       <div class="flex flex-col gap-2 mb-8">
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
           <div class="group flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
-            <div class="relative shrink-0 size-5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary/30" tabindex="0" @keydown.enter.prevent="radioSelected = item.id"
+            <div class="relative shrink-0 size-5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="radioSelected = item.id"
               :class="radioSelected === item.id ? 'bg-white shadow-border-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <div x-show="radioSelected === item.id" class="absolute inset-[5px] rounded-full bg-primary"></div>
             </div>
