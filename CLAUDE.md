@@ -85,6 +85,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 ### Spec 記述ルール
 - **States の effect**: トークン名やCSS値を使わず、自然な日本語で書く（例: ✕「bg-primary + check アイコン表示」→ ○「チェックマークが表示される」）
 - **States と Behavior の重複禁止**: States に書いた遷移（クリック→トグル等）を Behavior で繰り返さない。Behavior は States で表現できない補足情報のみ
+- **デモ→spec 昇格**: デモで実装したインタラクション・表示仕様は、commit 前に components.json の spec（behavior/keyboard）に昇格させる。spec に書けない実験的な挙動はデモに入れない（デモにだけ存在する暗黙仕様を作らない）
 
 ### Alpine.js デモ実装
 - x-data のロジックが長い場合は関数に切り出す（インライン x-data が長いと HTML パーサーが壊れる）
