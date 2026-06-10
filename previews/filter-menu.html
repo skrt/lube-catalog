@@ -196,7 +196,7 @@
           <span class="text-sm leading-5 text-base-content/30">カテゴリー</span>
           <template x-for="(item, i) in categories" :key="i">
             <label class="flex items-center gap-2 cursor-pointer group" @click.prevent="item.checked = !item.checked">
-              <div class="size-5 rounded-sm relative shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="item.checked = !item.checked" @keydown.space.prevent="item.checked = !item.checked" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
+              <div class="size-5 rounded-sm relative shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="item.checked = !item.checked" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
                 <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
               </div>
               <span class="text-sm leading-5 text-base-content" x-text="item.label"></span>
@@ -208,7 +208,7 @@
           <span class="text-sm leading-5 text-base-content/30">サプライヤー</span>
           <template x-for="(item, i) in suppliers" :key="i">
             <label class="flex items-center gap-2 cursor-pointer group" @click.prevent="item.checked = !item.checked">
-              <div class="size-5 rounded-sm relative shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="item.checked = !item.checked" @keydown.space.prevent="item.checked = !item.checked" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
+              <div class="size-5 rounded-sm relative shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" @keydown.enter.prevent="item.checked = !item.checked" :class="item.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
                 <svg x-show="item.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
               </div>
               <span class="text-sm leading-5 text-base-content" x-text="item.label"></span>

@@ -3388,11 +3388,11 @@
         "keyboard": [
           {
             "key": "ArrowDown / ArrowRight",
-            "action": "グループ内の次の項目にフォーカス移動"
+            "action": "グループ内の次の項目に移動して選択"
           },
           {
             "key": "ArrowUp / ArrowLeft",
-            "action": "グループ内の前の項目にフォーカス移動"
+            "action": "グループ内の前の項目に移動して選択"
           },
           {
             "key": "Tab",
@@ -3617,10 +3617,6 @@
           {
             "key": "Enter",
             "action": "チェック状態をトグル"
-          },
-          {
-            "key": "Space",
-            "action": "チェック状態をトグル"
           }
         ]
       }
@@ -3671,7 +3667,7 @@
                 "ref": "button",
                 "color": "Tertiary",
                 "size": "md",
-                "width": "w-8 (32px)"
+                "width": "size-8 (32×32px 固定・正方形)"
               }
             },
             {

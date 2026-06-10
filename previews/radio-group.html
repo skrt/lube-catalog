@@ -88,20 +88,25 @@
               const i = els.indexOf(el);
               const next = els[(i + dir + els.length) % els.length];
               if (next) next.focus();
+              return next;
+            },
+            moveRadio(el, dir) {
+              const next = this.moveFocus(el, 'radio', dir);
+              if (next) this.radioSelected = next.dataset.id;
             }
           };
         }
       </script>
-      <p class="text-sm text-gray-500 mb-4">クリック or Enter で選択。Tab でフォーカス移動、矢印キーで項目間移動</p>
+      <p class="text-sm text-gray-500 mb-4">クリック or Enter で選択。矢印キーで前後の項目に移動して選択</p>
       <div class="flex flex-col gap-2 mb-8">
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
           <div class="group flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
-            <div class="relative shrink-0 size-5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" data-rg="radio"
+            <div class="relative shrink-0 size-5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" data-rg="radio" :data-id="item.id"
               @keydown.enter.prevent="radioSelected = item.id"
-              @keydown.down.prevent="moveFocus($event.target, 'radio', 1)"
-              @keydown.right.prevent="moveFocus($event.target, 'radio', 1)"
-              @keydown.up.prevent="moveFocus($event.target, 'radio', -1)"
-              @keydown.left.prevent="moveFocus($event.target, 'radio', -1)"
+              @keydown.down.prevent="moveRadio($event.target, 1)"
+              @keydown.right.prevent="moveRadio($event.target, 1)"
+              @keydown.up.prevent="moveRadio($event.target, -1)"
+              @keydown.left.prevent="moveRadio($event.target, -1)"
               :class="radioSelected === item.id ? 'bg-white shadow-border-primary' : 'bg-white shadow-border-base-content-20 group-hover:shadow-border-2-primary'">
               <div x-show="radioSelected === item.id" class="absolute inset-[5px] rounded-full bg-primary"></div>
             </div>
