@@ -173,6 +173,12 @@
               "tokens": {
                 "ring": "focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 (キーボード時)"
               }
+            },
+            {
+              "variant": "transition",
+              "tokens": {
+                "all": "transition-colors"
+              }
             }
           ]
         },
@@ -317,6 +323,12 @@
               "variant": "focus",
               "tokens": {
                 "ring": "focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 (キーボード時)"
+              }
+            },
+            {
+              "variant": "transition",
+              "tokens": {
+                "all": "transition-colors"
               }
             }
           ]
@@ -1678,7 +1690,8 @@
               "tokens": {
                 "padding": "px-1.5 py-0",
                 "font-size": "text-xs (12px)",
-                "line-height": "leading-4 (16px)"
+                "line-height": "leading-4 (16px)",
+                "font-weight": "font-semibold"
               }
             },
             {
@@ -1686,7 +1699,8 @@
               "tokens": {
                 "padding": "px-2 py-0.5",
                 "font-size": "text-xs (12px)",
-                "line-height": "leading-4 (16px)"
+                "line-height": "leading-4 (16px)",
+                "font-weight": "font-semibold"
               }
             },
             {
@@ -1694,7 +1708,8 @@
               "tokens": {
                 "padding": "px-2.5 py-0.5",
                 "font-size": "text-sm (14px)",
-                "line-height": "leading-5 (20px)"
+                "line-height": "leading-5 (20px)",
+                "font-weight": "font-semibold"
               }
             }
           ]
@@ -1801,7 +1816,8 @@
                 "padding": "px-4 py-3",
                 "radius": "rounded-lg (8px)",
                 "border": "border border-base-content/5",
-                "gap": "gap-1 (4px)"
+                "gap": "gap-1 (4px)",
+                "icon-size": "w-4 h-4 (16px)"
               }
             }
           ]
@@ -1895,7 +1911,8 @@
                 "padding": "px-4 py-3",
                 "gap": "gap-4 (16px)",
                 "radius": "rounded-lg (8px)",
-                "close-position": "top-3 right-4"
+                "close-position": "top-3 right-4",
+                "icon-size": "w-5 h-5 (20px)"
               }
             }
           ]
@@ -1941,6 +1958,13 @@
               "variant": "auto-dismiss",
               "tokens": {
                 "timeout": "5000ms"
+              }
+            },
+            {
+              "variant": "stacking",
+              "tokens": {
+                "direction": "下から上に積み重ね",
+                "gap": "gap-2 (8px)"
               }
             }
           ]
@@ -5412,7 +5436,9 @@
               "variant": "container",
               "tokens": {
                 "display": "flex items-center",
-                "gap": "gap-6"
+                "gap": "gap-6",
+                "justify": "justify-between",
+                "overflow": "タイトルが長い場合 truncate"
               }
             }
           ]
