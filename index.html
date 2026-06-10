@@ -58,7 +58,7 @@
           >Home</a>
           <div x-show="!search" class="border-t border-gray-200 !mt-3 !mb-3"></div>
           <template x-for="comp in allComponentsSorted" :key="comp.id">
-            <div x-show="!search || comp.name.toLowerCase().includes(search.toLowerCase())">
+            <div x-show="matchesSearch(comp)">
               <div x-show="comp._firstToken && !search" class="border-t border-gray-200 my-3"></div>
               <a
                 :href="'#/' + comp.id"
@@ -68,7 +68,7 @@
               ></a>
             </div>
           </template>
-          <p x-show="search && !allComponentsSorted.some(c => c.name.toLowerCase().includes(search.toLowerCase()))" class="px-3 py-2 text-xs text-gray-400">検索結果がありません</p>
+          <p x-show="search && !allComponentsSorted.some(c => matchesSearch(c))" class="px-3 py-2 text-xs text-gray-400">検索結果がありません</p>
         </nav>
       </div>
     </aside>
@@ -94,7 +94,7 @@
         <div class="flex flex-col gap-10 pt-4">
 
           <!-- UI Components by Category -->
-          <div>
+          <div x-show="filteredUIComponents.length > 0">
             <h2 class="text-4xl font-semibold tracking-tight mb-10">UI Components</h2>
             <div class="flex flex-col gap-10">
           <template x-for="group in uiComponentsByCategory" :key="group.id">
@@ -414,29 +414,27 @@ function catalog() {
       return [...ui, ...tokens];
     },
 
-    get filteredComponents() {
-      return this.components.filter(c => {
-        const q = this.search.toLowerCase();
-        return !q
-          || c.name.toLowerCase().includes(q)
-          || (c.description || '').toLowerCase().includes(q)
-          || c.category.toLowerCase().includes(q);
-      });
+    matchesSearch(c) {
+      const q = this.search.toLowerCase();
+      return !q
+        || c.name.toLowerCase().includes(q)
+        || (c.description || '').toLowerCase().includes(q)
+        || c.category.toLowerCase().includes(q);
     },
 
     get filteredUIComponents() {
-      return this.components.filter(c => c.category !== 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+      return this.components.filter(c => c.category !== 'design-tokens' && this.matchesSearch(c)).sort((a, b) => a.name.localeCompare(b.name));
     },
 
     get filteredTokenComponents() {
-      return this.components.filter(c => c.category === 'design-tokens').sort((a, b) => a.name.localeCompare(b.name));
+      return this.components.filter(c => c.category === 'design-tokens' && this.matchesSearch(c)).sort((a, b) => a.name.localeCompare(b.name));
     },
 
     get uiComponentsByCategory() {
       const cats = this.categories.filter(c => c.id !== 'design-tokens');
       return cats.map(cat => ({
         ...cat,
-        components: this.components.filter(c => c.category === cat.id).sort((a, b) => a.name.localeCompare(b.name))
+        components: this.components.filter(c => c.category === cat.id && this.matchesSearch(c)).sort((a, b) => a.name.localeCompare(b.name))
       })).filter(g => g.components.length > 0);
     },
 

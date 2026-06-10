@@ -19,22 +19,22 @@ tailwind.config = {
           DEFAULT: '#c94043',
           hover: '#b7393c',
           content: '#fff5f5',
-          'bg': '#f7e2e3',
+          'soft': '#f7e2e3',
         },
         'success': {
           DEFAULT: '#479d72',
           content: '#f5fef9',
-          'bg': '#e3f0ea',
+          'soft': '#e3f0ea',
         },
         'warning': {
           DEFAULT: '#de781f',
           content: '#fffcf8',
-          'bg': '#faebdd',
+          'soft': '#faebdd',
         },
         'info': {
           DEFAULT: '#535671',
           content: '#f2f4ff',
-          'bg': '#e5e6ea',
+          'soft': '#e5e6ea',
         },
       },
       borderRadius: {

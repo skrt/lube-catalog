@@ -83,13 +83,13 @@
         {
           "name": "leftIcon",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "左アイコンの表示"
         },
         {
           "name": "rightIcon",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "右アイコンの表示"
         }
       ],
@@ -410,31 +410,31 @@
         {
           "name": "helperText",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "ヘルパーテキストの表示"
         },
         {
           "name": "errorText",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "エラーテキストの表示"
         },
         {
           "name": "required",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "必須マーク（*）の表示"
         },
         {
           "name": "leftIcon",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "左アイコンの表示"
         },
         {
           "name": "rightIcon",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "右アイコンの表示"
         }
       ],
@@ -599,19 +599,19 @@
         {
           "name": "helperText",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "ヘルパーテキストの表示"
         },
         {
           "name": "errorText",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "エラーテキストの表示"
         },
         {
           "name": "required",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "必須マーク（*）の表示"
         }
       ],
@@ -739,7 +739,6 @@
       "id": "file-input",
       "name": "FileInput",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "ファイル添付フォーム",
       "category": "forms",
       "preview": "previews/file-input.html",
@@ -773,7 +772,7 @@
             {
               "variant": "Legend",
               "tokens": {
-                "font": "text-xs semibold",
+                "font": "text-xs font-semibold",
                 "color": "text-base-content",
                 "required": "text-error"
               }
@@ -783,7 +782,7 @@
               "tokens": {
                 "ref": "button",
                 "color": "Tertiary",
-                "font": "text-xs semibold"
+                "font": "text-xs font-semibold"
               }
             },
             {
@@ -875,7 +874,6 @@
       "id": "select",
       "name": "Select",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "プルダウン型の選択フォーム",
       "category": "forms",
       "preview": "previews/select.html",
@@ -900,7 +898,8 @@
             "Default",
             "Focus",
             "Error",
-            "Disabled"
+            "Disabled",
+            "Filled"
           ],
           "description": "セレクトの状態"
         },
@@ -919,19 +918,19 @@
         {
           "name": "helperText",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "ヘルパーテキストの表示"
         },
         {
           "name": "errorText",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "エラーテキストの表示"
         },
         {
           "name": "required",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "必須マーク（*）の表示"
         }
       ],
@@ -1000,6 +999,13 @@
                 "border": "border border-base-content/10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
               }
             }
           ]
@@ -1193,7 +1199,6 @@
       "id": "combobox",
       "name": "ComboBox",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "検索付きの選択フォーム",
       "category": "forms",
       "preview": "previews/combobox.html",
@@ -1362,19 +1367,19 @@
         {
           "name": "helperText",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "ヘルパーテキストの表示"
         },
         {
           "name": "errorText",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "エラーテキストの表示"
         },
         {
           "name": "required",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "必須マーク（*）の表示"
         }
       ],
@@ -1443,6 +1448,13 @@
                 "border": "border border-base-content/10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
               }
             }
           ]
@@ -1588,7 +1600,7 @@
         {
           "name": "Image",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "true=実画像、false=NO IMAGEプレースホルダー"
         }
       ],
@@ -1768,7 +1780,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hasExamples": true
     },
     {
       "id": "info",
@@ -1892,7 +1905,6 @@
       "id": "toast",
       "name": "Toast",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "一時的なフィードバック通知",
       "category": "feedback",
       "preview": "previews/toast.html",
@@ -2007,7 +2019,7 @@
               "variant": "stacking",
               "tokens": {
                 "direction": "下から上に積み重ね",
-                "gap": "gap-2 (8px)"
+                "gap": "gap-3 (12px)"
               }
             }
           ]
@@ -2071,7 +2083,6 @@
       "id": "tooltip",
       "name": "Tooltip",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "ホバー時に表示する吹き出し",
       "category": "feedback",
       "preview": "previews/tooltip.html",
@@ -2199,11 +2210,7 @@
           },
           {
             "action": "表示遅延",
-            "detail": "ホバー後に短い遅延で表示される"
-          },
-          {
-            "action": "表示遅延",
-            "detail": "hover 開始から表示まで短い遅延を入れる（実装時に決定）"
+            "detail": "遅延なし。hover で即座に表示（opacity 0.15s のフェードのみ）"
           }
         ]
       }
@@ -2212,7 +2219,6 @@
       "id": "modal",
       "name": "Modal",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "スクリーン＋中央ダイアログのフルスクリーンモーダル",
       "category": "feedback",
       "preview": "previews/modal.html",
@@ -2227,7 +2233,7 @@
         {
           "name": "Show Count",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "Footer に選択件数テキストを表示"
         },
         {
@@ -2393,7 +2399,6 @@
       "id": "date-picker",
       "name": "DatePicker",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "日付選択フォーム",
       "category": "forms",
       "preview": "previews/date-picker.html",
@@ -2582,6 +2587,13 @@
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
               }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
+              }
             }
           ]
         },
@@ -2706,7 +2718,6 @@
       "id": "price-table",
       "name": "PriceTable",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "単価表。数量別単価テーブルを表示",
       "category": "data-display",
       "preview": "previews/price-table.html",
@@ -2733,7 +2744,7 @@
                 "width": "w-6 (24px)",
                 "background": "bg-base-200",
                 "padding": "px-1 py-2",
-                "font": "text-xs semibold"
+                "font": "text-xs font-semibold"
               }
             },
             {
@@ -2802,7 +2813,7 @@
         {
           "name": "Show Detail",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "品名セルの詳細ブロック（サプライヤー/サイズ/形状/構成/段厚）表示"
         }
       ],
@@ -2897,25 +2908,25 @@
         {
           "name": "showProfit",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "粗利行の表示"
         },
         {
           "name": "showTax",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "消費税行の表示"
         },
         {
           "name": "showBreakdown",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "消費税内訳の表示"
         },
         {
           "name": "showCheckbox",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "合計金額表示チェックボックス"
         }
       ],
@@ -2989,7 +3000,7 @@
             {
               "variant": "total",
               "tokens": {
-                "font": "text-sm semibold font-mono tabular-nums",
+                "font": "text-sm font-semibold font-mono tabular-nums",
                 "color": "text-base-content"
               }
             }
@@ -3008,19 +3019,19 @@
         {
           "name": "showPhone",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "代表電話番号の表示"
         },
         {
           "name": "showPerson",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "担当者の表示"
         },
         {
           "name": "showNote",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "メモ欄の表示"
         }
       ],
@@ -3046,7 +3057,7 @@
             {
               "variant": "name",
               "tokens": {
-                "font": "text-xs semibold",
+                "font": "text-xs font-semibold",
                 "color": "text-base-content"
               }
             },
@@ -3165,14 +3176,14 @@
             {
               "variant": "Text",
               "tokens": {
-                "font": "text-sm semibold",
+                "font": "text-sm font-semibold",
                 "color": "text-base-content"
               }
             },
             {
               "variant": "Link",
               "tokens": {
-                "font": "text-sm semibold",
+                "font": "text-sm font-semibold",
                 "color": "text-secondary-content",
                 "icon": "external-link (12px)"
               }
@@ -3184,7 +3195,7 @@
                 "border": "border border-base-content/5",
                 "padding": "px-2 py-1",
                 "radius": "rounded-sm",
-                "font": "text-xs semibold",
+                "font": "text-xs font-semibold",
                 "color": "text-base-content"
               }
             }
@@ -3196,7 +3207,6 @@
       "id": "radio-group",
       "name": "RadioGroup",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "単一選択の選択肢",
       "category": "forms",
       "preview": "previews/radio-group.html",
@@ -3240,7 +3250,7 @@
         {
           "name": "Button / Item - Count",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "件数バッジ表示"
         }
       ],
@@ -3306,7 +3316,7 @@
                 "height": "h-8 (32px)",
                 "padding": "px-2",
                 "radius": "rounded-md (6px)",
-                "font": "text-sm semibold"
+                "font": "text-sm font-semibold"
               }
             },
             {
@@ -3411,7 +3421,6 @@
       "id": "checkbox",
       "name": "Checkbox",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "複数選択可能な選択肢",
       "category": "forms",
       "preview": "previews/checkbox.html",
@@ -3453,7 +3462,7 @@
         {
           "name": "Show Label",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "ラベル表示切替"
         },
         {
@@ -3627,7 +3636,6 @@
       "id": "pagination",
       "name": "Pagination",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "テーブルに付属するページ送りナビゲーション",
       "category": "navigation",
       "preview": "previews/pagination.html",
@@ -3636,13 +3644,13 @@
         {
           "name": "currentPage",
           "type": "number",
-          "default": "1",
+          "default": 1,
           "description": "現在のページ番号"
         },
         {
           "name": "totalPages",
           "type": "number",
-          "default": "5",
+          "default": 5,
           "description": "総ページ数"
         }
       ],
@@ -3804,7 +3812,7 @@
             {
               "variant": "title",
               "tokens": {
-                "font": "text-xl semibold",
+                "font": "text-xl font-semibold",
                 "color": "text-base-content"
               }
             },
@@ -3824,7 +3832,7 @@
             {
               "variant": "recipient",
               "tokens": {
-                "font": "text-base semibold",
+                "font": "text-base font-semibold",
                 "flex": "flex-1"
               }
             },
@@ -3832,7 +3840,7 @@
               "variant": "sender",
               "tokens": {
                 "width": "w-60 (240px)",
-                "name-font": "text-sm semibold",
+                "name-font": "text-sm font-semibold",
                 "detail-font": "text-xs text-base-content/60"
               }
             },
@@ -4064,7 +4072,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hasExamples": true
     },
     {
       "id": "group-box",
@@ -4083,13 +4092,13 @@
         {
           "name": "required",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "見出し横の必須マーク（*）表示"
         },
         {
           "name": "scroll",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "max-h-64でスクロール表示"
         }
       ],
@@ -4154,7 +4163,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hasExamples": true
     },
     {
       "id": "header",
@@ -4229,13 +4239,13 @@
         {
           "name": "Show Handle",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "ドラッグハンドルの表示"
         },
         {
           "name": "Show Delete",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "削除ボタンの表示"
         }
       ],
@@ -4269,7 +4279,7 @@
             {
               "variant": "title",
               "tokens": {
-                "font": "text-sm semibold",
+                "font": "text-sm font-semibold",
                 "color": "text-base-content"
               }
             },
@@ -4305,7 +4315,8 @@
             }
           ]
         }
-      ]
+      ],
+      "hasExamples": true
     },
     {
       "id": "details",
@@ -4328,7 +4339,7 @@
         {
           "name": "Open",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "本体の展開/折りたたみ"
         },
         {
@@ -4500,7 +4511,6 @@
       "id": "footer",
       "name": "Footer",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "画面下部固定のアクションバー。コンテンツの上に重なる",
       "category": "navigation",
       "preview": "previews/footer.html",
@@ -4509,7 +4519,7 @@
         {
           "name": "Back Button",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "戻るボタンの表示"
         }
       ],
@@ -4576,7 +4586,6 @@
       "id": "filter-menu",
       "name": "FilterMenu",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "縦型フィルターパネル。セクション別Checkbox項目で絞り込み",
       "category": "navigation",
       "preview": "previews/filter-menu.html",
@@ -4612,7 +4621,7 @@
               "variant": "title",
               "tokens": {
                 "icon": "filter (16px)",
-                "font": "text-base semibold",
+                "font": "text-base font-semibold",
                 "color": "text-base-content",
                 "gap": "gap-2 (8px)"
               }
@@ -4688,13 +4697,13 @@
         {
           "name": "Chevron",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "chevron-right セパレーター表示（先頭アイテムはfalse）"
         },
         {
           "name": "Icon",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "ラベル前のアイコン表示"
         },
         {
@@ -4761,7 +4770,6 @@
       "id": "sidebar",
       "name": "Sidebar",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "左カラムに配置される主ナビゲーション",
       "category": "navigation",
       "preview": "previews/sidebar.html",
@@ -4770,7 +4778,7 @@
         {
           "name": "Open",
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "展開(true=w-40) / 折りたたみ(false=w-fit)"
         }
       ],
@@ -4889,7 +4897,7 @@
             {
               "variant": "Hover",
               "tokens": {
-                "background": "hover:bg-base-300",
+                "background": "bg-base-300",
                 "text": "text-base-content"
               }
             },
@@ -4947,7 +4955,6 @@
       "id": "date-range-picker",
       "name": "DateRangePicker",
       "hasDemo": true,
-      "demoBgWhite": true,
       "description": "期間選択フォーム",
       "category": "forms",
       "preview": "previews/date-range-picker.html",
@@ -4992,7 +4999,7 @@
         {
           "name": "required",
           "type": "boolean",
-          "default": "false",
+          "default": false,
           "description": "必須マーク表示"
         }
       ],
@@ -5093,6 +5100,13 @@
                 "border": "border border-base-content/10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
+              }
+            },
+            {
+              "variant": "Filled",
+              "tokens": {
+                "border": "border border-base-content/20",
+                "background": "bg-base-100 (white)"
               }
             }
           ]
@@ -5347,6 +5361,8 @@
               "variant": "helperText",
               "tokens": {
                 "font-size": "text-xs (12px)",
+                "font": "font-mono（SF Mono、数値と揃える）",
+                "align": "text-right",
                 "color": "text-base-content/60"
               }
             },

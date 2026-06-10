@@ -41,14 +41,14 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - **ボタン系**（button, icon-button 等）: `Color`（色バリアント別の bg/hover/text + Disabled）→ `Common`（radius/border/focus）→ `Size`
 - **フォーム系**（input, select 等）: `Size` → `State`（Default/Focus/Error/Disabled の border/bg）→ 固有カテゴリ（Menu 等）→ `Common`（radius/placeholder/helperText/errorText/required）
 - **ナビゲーション系**（menu-button 等）: `State`（Default/Hover/Active の bg/text）→ `Layout`（モード別の padding/gap）→ `Common`
-- hover トークンの値には `hover:` プレフィックスを付ける（実装コピペ可能な形式）
+- **`hover:` プレフィックスの規約**: key が `hover` の行（例: `"hover": "hover:bg-primary-hover"`）は `hover:` 付き（実装コピペ可能な形式）。variant が `Hover` 状態を表す行は、状態側で hover を表現しているため値はプレフィックス無しの素のクラス（例: `"background": "bg-base-200"`）
 
 ### プレビュー構成
 - States セクションは必ず **md サイズ** で作成する（lg や sm ではなく md が基準）
 - States セクションのトークンは Demo セクションにも反映する（`scripts/check-demo-sync.sh` で検証、pre-commit hook で自動チェック）
 - Disabled 状態のみ Demo 不要。意図的な除外は `<!-- demo-skip: token1 token2 -->` で宣言
 - 既存コンポーネントを内包・利用するプレビューでは、そのコンポーネントの挙動（hover, checked, disabled 等の見た目・インタラクション）を踏襲する。既存プレビューの実装を確認してから組み込むこと
-- Demo 付きコンポーネントは `demoBgWhite: true` を設定する（DEMO タグのコントラスト確保）
+- デモ背景はプレビュー内の `.in-iframe.demo-only body` CSS で指定する（components.json にフラグは持たない）
 
 ### フォーカス表現
 - **ボタン系・ナビ系**: `ring`（box-shadow）でフォーカスを表現。レイアウトに影響しない
