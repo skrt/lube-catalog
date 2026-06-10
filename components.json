@@ -3982,8 +3982,7 @@
             {
               "variant": "layout",
               "tokens": {
-                "position": "sticky top-0",
-                "z-index": "z-10"
+                "position": "sticky top-0"
               }
             }
           ]
