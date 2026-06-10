@@ -50,11 +50,15 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - 既存コンポーネントを内包・利用するプレビューでは、そのコンポーネントの挙動（hover, checked, disabled 等の見た目・インタラクション）を踏襲する。既存プレビューの実装を確認してから組み込むこと
 - Demo 付きコンポーネントは `demoBgWhite: true` を設定する（DEMO タグのコントラスト確保）
 
-### フォーカスリング（focus-visible）
-- すべてのインタラクティブ要素（button, リンク, nav/menu 項目, トグル等）にキーボードフォーカスリングを明示する。daisyUI 剥がす方針のため自動では付かない
+### フォーカス表現
+- **ボタン系・ナビ系**: `ring`（box-shadow）でフォーカスを表現。レイアウトに影響しない
+  - **標準**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2`
+  - **コンパクト（checkbox/radio の box 等）**: `outline-none focus-visible:ring-2 focus-visible:ring-secondary`（offset 無し）
+- **フォーム系**（input, select, combobox, date-picker 等）: `border-2` でフォーカスを表現（Focus: `border-2 border-primary`、Error: `border-2 border-error`）。ring は使わない
+  - border-2 によるサイズ変動は padding 補正で吸収する（例: `px-[11px]`）
+  - 理由: Error 状態も border-2 を使うため、ring に統一しても padding 補正は残る。2つの仕組みを混在させるより border-2 で統一した方がシンプル
 - `focus:` ではなく **`focus-visible:`** を使う（マウス操作時に出さず、キーボード操作時のみ表示）
-- **標準（ボタン・行・リンク等の本体）**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2`
-- **コンパクトな操作子（checkbox/radio の box 等、行内の小さな要素）**: `outline-none focus-visible:ring-2 focus-visible:ring-secondary`（offset 無し）。`tabindex="0"` と `@keydown.enter` は box に付け、クリックエリアは親行で広く取る
+- `tabindex="0"` と `@keydown.enter` は操作対象の要素に付け、クリックエリアは親要素で広く取る
 
 ### 見出し体系（セクションタイトル / サブタイトル）
 - **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase`
