@@ -52,8 +52,8 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 
 ### フォーカス表現
 - **ボタン系・ナビ系**: `ring`（box-shadow）でフォーカスを表現。レイアウトに影響しない
-  - **標準**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2`
-  - **コンパクト（checkbox/radio の box 等）**: `outline-none focus-visible:ring-2 focus-visible:ring-secondary`（offset 無し）
+  - **標準**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`
+  - **コンパクト（checkbox/radio の box 等）**: `outline-none focus-visible:ring-2 focus-visible:ring-primary`（offset 無し）
 - **フォーム系**（input, select, combobox, date-picker 等）: `border-2` でフォーカスを表現（Focus: `border-2 border-primary`、Error: `border-2 border-error`）。ring は使わない
   - border-2 によるサイズ変動は padding 補正で吸収する（例: `px-[11px]`）
   - 理由: Error 状態も border-2 を使うため、ring に統一しても padding 補正は残る。2つの仕組みを混在させるより border-2 で統一した方がシンプル

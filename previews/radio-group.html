@@ -101,7 +101,7 @@
       <div class="flex flex-col gap-2 mb-8">
         <template x-for="item in [{id:'opt1',label:'オプション 1'},{id:'opt2',label:'オプション 2'},{id:'opt3',label:'オプション 3'},{id:'opt4',label:'オプション 4'}]" :key="item.id">
           <div class="group flex gap-2 items-center cursor-pointer" @click="radioSelected = item.id">
-            <div class="relative shrink-0 size-5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-secondary" tabindex="0" data-rg="radio" :data-id="item.id"
+            <div class="relative shrink-0 size-5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0" data-rg="radio" :data-id="item.id"
               @keydown.enter.prevent="radioSelected = item.id"
               @keydown.down.prevent="moveRadio($event.target, 1)"
               @keydown.right.prevent="moveRadio($event.target, 1)"
@@ -118,7 +118,7 @@
       <p class="text-sm text-gray-500 mb-4">クリック or Enter で選択切り替え。矢印キーで項目間移動</p>
       <div class="flex gap-2 items-center">
         <template x-for="item in [{id:'all',label:'すべて'},{id:'unsent',label:'未送付',count:'12'},{id:'sent',label:'送付済み',count:'48'}]" :key="item.id">
-          <div class="flex h-8 items-center justify-center px-2 rounded-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2" tabindex="0" data-rg="btn"
+          <div class="flex h-8 items-center justify-center px-2 rounded-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" tabindex="0" data-rg="btn"
             :class="[
               buttonSelected === item.id ? 'bg-primary' : 'bg-white shadow-border-base-content-10 hover:bg-secondary hover:shadow-none',
               item.count ? 'gap-1 py-1' : 'py-1.5'

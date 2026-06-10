@@ -171,7 +171,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 (キーボード時)"
+                "ring": "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 (キーボード時)"
               }
             },
             {
@@ -322,7 +322,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 (キーボード時)"
+                "ring": "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 (キーボード時)"
               }
             },
             {
@@ -2016,7 +2016,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -2157,7 +2157,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -2782,7 +2782,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -3341,7 +3341,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+                "ring": "outline-none focus-visible:ring-2 focus-visible:ring-primary"
               }
             }
           ]
@@ -3560,7 +3560,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+                "ring": "outline-none focus-visible:ring-2 focus-visible:ring-primary"
               }
             }
           ]
@@ -3707,7 +3707,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -4297,7 +4297,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -4657,7 +4657,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -4747,7 +4747,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
@@ -4933,7 +4933,7 @@
             {
               "variant": "focus",
               "tokens": {
-                "ring": "focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                "ring": "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               }
             }
           ]
