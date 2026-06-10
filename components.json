@@ -734,7 +734,8 @@
           "values": [
             "Empty",
             "Loading",
-            "Selected"
+            "Selected",
+            "Error"
           ],
           "description": "フォームの状態"
         }
@@ -2132,6 +2133,10 @@
           {
             "action": "表示遅延",
             "detail": "ホバー後に短い遅延で表示される"
+          },
+          {
+            "action": "表示遅延",
+            "detail": "hover 開始から表示まで短い遅延を入れる（実装時に決定）"
           }
         ]
       }
@@ -3315,6 +3320,14 @@
         ],
         "keyboard": [
           {
+            "key": "ArrowDown / ArrowRight",
+            "action": "グループ内の次の項目にフォーカス移動"
+          },
+          {
+            "key": "ArrowUp / ArrowLeft",
+            "action": "グループ内の前の項目にフォーカス移動"
+          },
+          {
             "key": "Tab",
             "action": "次のラジオボタンにフォーカス移動"
           },
@@ -3542,6 +3555,10 @@
           },
           {
             "key": "Enter",
+            "action": "チェック状態をトグル"
+          },
+          {
+            "key": "Space",
             "action": "チェック状態をトグル"
           }
         ]
@@ -5129,6 +5146,28 @@
           {
             "action": "範囲ハイライト",
             "detail": "開始〜終了間の日付がハイライトされ、両端が丸く強調される"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "ArrowLeft / ArrowRight",
+            "action": "日付を1日ずつ移動"
+          },
+          {
+            "key": "ArrowUp / ArrowDown",
+            "action": "日付を1週間ずつ移動"
+          },
+          {
+            "key": "Enter",
+            "action": "範囲の開始日または終了日を確定"
+          },
+          {
+            "key": "Escape",
+            "action": "カレンダーを閉じる"
+          },
+          {
+            "key": "Tab",
+            "action": "カレンダーを閉じてフォーカスを次の要素に移動"
           }
         ]
       }
