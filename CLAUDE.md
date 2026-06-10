@@ -53,9 +53,8 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 ### フォーカスリング（focus-visible）
 - すべてのインタラクティブ要素（button, リンク, nav/menu 項目, トグル等）にキーボードフォーカスリングを明示する。daisyUI 剥がす方針のため自動では付かない
 - `focus:` ではなく **`focus-visible:`** を使う（マウス操作時に出さず、キーボード操作時のみ表示）
-- **標準（ボタン・行・リンク等の本体）**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2`
-- **コンパクトな操作子（checkbox/radio の box 等、行内の小さな要素）**: `outline-none focus-visible:ring-2 focus-visible:ring-primary/30`（offset 無し）。`tabindex="0"` と `@keydown.enter` は box に付け、クリックエリアは親行で広く取る
-- リングの色・太さは暫定の提案値。デザイン確定は M（Figma）に確認
+- **標準（ボタン・行・リンク等の本体）**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2`
+- **コンパクトな操作子（checkbox/radio の box 等、行内の小さな要素）**: `outline-none focus-visible:ring-2 focus-visible:ring-secondary`（offset 無し）。`tabindex="0"` と `@keydown.enter` は box に付け、クリックエリアは親行で広く取る
 
 ### 見出し体系（セクションタイトル / サブタイトル）
 - **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase`
