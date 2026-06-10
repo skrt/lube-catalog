@@ -264,7 +264,14 @@
                             <template x-for="(tokenVal, tokenKey) in item.tokens" :key="tokenKey">
                               <div class="flex items-center px-3 py-1.5 border-b border-gray-100">
                                 <span class="w-40 shrink-0 text-xs text-gray-500" x-text="tokenKey"></span>
-                                <code class="text-xs text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-mono" x-text="tokenVal"></code>
+                                <template x-if="tokenKey === 'ref'">
+                                  <span class="text-xs">
+                                    <a :href="'#/' + tokenVal" class="text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-mono underline hover:text-purple-900" x-text="components.find(c => c.id === tokenVal)?.name || tokenVal"></a>
+                                  </span>
+                                </template>
+                                <template x-if="tokenKey !== 'ref'">
+                                  <code class="text-xs text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-mono" x-text="tokenVal"></code>
+                                </template>
                               </div>
                             </template>
                           </div>

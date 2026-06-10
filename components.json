@@ -4551,7 +4551,8 @@
             {
               "variant": "component",
               "tokens": {
-                "ref": "MenuButton（State / Layout トークンを参照）"
+                "ref": "menu-button",
+                "note": "State / Layout トークンを参照"
               }
             }
           ]
@@ -5244,7 +5245,8 @@
             {
               "variant": "component",
               "tokens": {
-                "ref": "RadioGroup / Button（請求書パターンで使用。トークンは RadioGroup を参照）"
+                "ref": "radio-group",
+                "note": "Button バリアント。請求書パターンで使用"
               }
             }
           ]
