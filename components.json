@@ -133,6 +133,7 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-300",
+                "border": "border border-transparent（サイズ維持）",
                 "text": "text-base-content/30"
               }
             },
@@ -299,6 +300,7 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-300",
+                "border": "border border-transparent（サイズ維持）",
                 "text": "text-base-content/30"
               }
             }
@@ -3696,6 +3698,7 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-300",
+                "border": "border border-transparent（サイズ維持）",
                 "text": "text-base-content/30"
               }
             }
