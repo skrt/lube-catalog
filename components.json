@@ -2447,7 +2447,8 @@
                 "size": "36px square",
                 "font-size": "text-sm (14px)",
                 "in-month": "text-base-content",
-                "out-of-month": "text-base-content/30"
+                "out-of-month": "text-base-content/30",
+                "hover": "hover:bg-base-200"
               }
             },
             {
