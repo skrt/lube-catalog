@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+@theme {
+  --color-primary: #0a0ac2;
+  --color-primary-hover: #080892;
+  --color-primary-content: #f3f4fe;
+  --color-secondary: #e8e8fd;
+  --color-secondary-hover: #e0e0f5;
+  --color-secondary-content: #0a0ac2;
+  --color-base-content: #101016;
+  --color-base-100: #ffffff;
+  --color-base-200: #f8f8fa;
+  --color-base-300: #eeeef2;
+  --color-error: #c94043;
+  --color-error-hover: #b7393c;
+  --color-error-content: #fff5f5;
+  --color-error-soft: #f7e2e3;
+  --color-success: #479d72;
+  --color-success-content: #f5fef9;
+  --color-success-soft: #e3f0ea;
+  --color-warning: #de781f;
+  --color-warning-content: #fffcf8;
+  --color-warning-soft: #faebdd;
+  --color-info: #535671;
+  --color-info-content: #f2f4ff;
+  --color-info-soft: #e5e6ea;
+  --radius-sm: 4px;
+}
+</style>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Validator（Figma String Variable Collection: `Validator` / VariableCollectionId:3651:145）
+    フォームのエラーメッセージ文言を一元管理する。全14個。
+    各フォームコンポーネントの Error 状態の errorText にこの文言を表示する。
+    i18n キーは M 提案の暫定案。Rails config/locales/ja.yml のキー命名とエンジニアさん擦り合わせで確定する。
+  -->
+
+  <div class="space-y-10">
+
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Messages</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs">
+          <thead>
+            <tr class="text-left border-b border-gray-200">
+              <th class="pb-2 pr-4 font-semibold text-gray-700">Category</th>
+              <th class="pb-2 pr-4 font-semibold text-gray-700">文言</th>
+              <th class="pb-2 font-semibold text-gray-700">i18n key（暫定）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- required -->
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">required</td><td class="py-1.5 pr-4 text-error">入力しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.required.input</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">選択しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.required.select</td></tr>
+            <!-- format -->
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">format</td><td class="py-1.5 pr-4 text-error">メールアドレスの形式にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.email</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">半角英数で入力しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.alphanumeric</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">1以上の整数にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.integer_positive</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">小数点第6位までで入力しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.decimal_6</td></tr>
+            <!-- length -->
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">length</td><td class="py-1.5 pr-4 text-error">32文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_32</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">256文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_256</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">512文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_512</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">5000文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_5000</td></tr>
+            <!-- duplicate -->
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">duplicate</td><td class="py-1.5 pr-4 text-error">すでに登録されています</td><td class="py-1.5 font-mono text-gray-400">errors.duplicate.exists</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-error">重複しています</td><td class="py-1.5 font-mono text-gray-400">errors.duplicate.in_list</td></tr>
+            <!-- existence -->
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">existence</td><td class="py-1.5 pr-4 text-error">存在しません</td><td class="py-1.5 font-mono text-gray-400">errors.existence.not_found</td></tr>
+            <!-- feature -->
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / email</td><td class="py-1.5 pr-4 text-error">TOを1個以上選択しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.feature.email.to_required</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Rules</p>
+      <ul class="text-xs text-base-content/60 space-y-1.5 list-disc pl-4 max-w-2xl">
+        <li>トーンは「〜しましょう」推奨形に統一する。例外: duplicate / existence 系は状態説明なので「〜しています」「〜ません」も可。「〜できます」（許可形）は使わない</li>
+        <li>表示位置は各フォームコンポーネントの errorText（<span class="font-mono">text-xs text-error</span>、フィールド下）。見た目のトークンは各コンポーネントの State / Common を参照</li>
+        <li>文字数制限は固定値（32 / 256 / 512 / 5000）。実装側での <span class="font-mono">t('errors.length.max', count: N)</span> 補間運用との関係はエンジニアさんと要相談</li>
+        <li>機能固有の文言は <span class="font-mono">feature/{機能名}/{specifier}</span> 命名で追加する（機能名は kebab-case）</li>
+        <li>i18n キーは暫定案。Rails <span class="font-mono">config/locales/ja.yml</span> の命名と擦り合わせて確定する</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

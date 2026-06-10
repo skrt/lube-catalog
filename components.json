@@ -38,6 +38,13 @@
       "preview": "previews/colors.html"
     },
     {
+      "id": "validator",
+      "name": "Validator",
+      "description": "バリデーションエラーメッセージの文言一覧（Figma String Variable 準拠）",
+      "category": "design-tokens",
+      "preview": "previews/validator.html"
+    },
+    {
       "id": "button",
       "name": "Button",
       "description": "汎用ボタン",
@@ -814,6 +821,13 @@
                 "font": "text-xs",
                 "color": "text-base-content/60"
               }
+            },
+            {
+              "variant": "ErrorText",
+              "tokens": {
+                "font": "text-xs",
+                "color": "text-error"
+              }
             }
           ]
         }
@@ -856,6 +870,16 @@
             "transition": "Selected → Empty",
             "trigger": "削除ボタンクリック",
             "effect": "ファイルが削除され、初期状態に戻る"
+          },
+          {
+            "transition": "Empty / Selected → Error",
+            "trigger": "容量超過（10MB）のファイル選択 / アップロード失敗",
+            "effect": "ヘルパーテキストの代わりにエラーメッセージが表示される（例:「10MB以内のファイルにしましょう」）"
+          },
+          {
+            "transition": "Error → Loading",
+            "trigger": "ファイルを再選択",
+            "effect": "エラーメッセージが消え、アップロードをやり直す"
           }
         ],
         "behavior": [
@@ -866,6 +890,10 @@
           {
             "action": "個別削除",
             "detail": "各ファイルのゴミ箱アイコンで削除できる"
+          },
+          {
+            "action": "Error の判定",
+            "detail": "容量超過（10MB）はクライアント側で選択時に即判定、アップロード失敗はサーバ応答で判定する【仮置き・エンジニアさん確認待ち】。ボタンや選択済みファイルの見た目は変えず、エラーメッセージのみで表現する"
           }
         ]
       }
@@ -1302,6 +1330,10 @@
           {
             "action": "非同期読み込み",
             "detail": "選択肢の取得中はスピナーを表示"
+          },
+          {
+            "action": "件数ヘッダー",
+            "detail": "メニュー先頭に「検索結果：N件」を表示し、絞り込みに連動して件数が変わる"
           }
         ],
         "keyboard": [
@@ -1999,7 +2031,7 @@
             {
               "variant": "position",
               "tokens": {
-                "fixed": "bottom-4 right-4 z-50"
+                "fixed": "bottom-4 right-4 z-40"
               }
             },
             {
@@ -2692,6 +2724,14 @@
           {
             "action": "月切替",
             "detail": "前月/次月ボタンで表示月を変更できる"
+          },
+          {
+            "action": "手入力パース",
+            "detail": "yyyy/mm/dd・yyyy-mm-dd・yyyymmdd の3形式を受け付ける。確定した値は yyyy/mm/dd 形式で表示する"
+          },
+          {
+            "action": "部分入力の追従",
+            "detail": "yyyy/mm（yyyymm）まで入力するとカレンダーの表示月が追従する"
           }
         ],
         "keyboard": [
@@ -2800,7 +2840,59 @@
             }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Side Label",
+            "description": "左端の縦書き「単価表」ラベル"
+          },
+          {
+            "part": "Header",
+            "description": "数量 / 原価 / 単価 の列見出し"
+          },
+          {
+            "part": "Row",
+            "description": "数量帯ごとの行。先頭にチェックボックス"
+          },
+          {
+            "part": "Tax Note",
+            "description": "右下の税区分注記（例: 税区分：10%）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Unchecked → Checked",
+            "trigger": "行クリック / チェックボックスで Enter",
+            "effect": "その数量帯が選択される"
+          },
+          {
+            "transition": "Checked → Unchecked",
+            "trigger": "行クリック / チェックボックスで Enter",
+            "effect": "選択が解除される"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "クリックエリア",
+            "detail": "チェックボックスだけでなく行全体がクリック可能（hover で行の背景色が変わる）"
+          },
+          {
+            "action": "複数選択",
+            "detail": "複数の数量帯を同時に選択できる（排他ではない）"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "Tab",
+            "description": "行のチェックボックス間をフォーカス移動"
+          },
+          {
+            "key": "Enter",
+            "description": "フォーカス中の行の選択をトグル"
+          }
+        ]
+      }
     },
     {
       "id": "quote-table",
@@ -2961,7 +3053,7 @@
               "variant": "vertical bar",
               "tokens": {
                 "width": "w-0.5 (2px)",
-                "color": "bg base-content/10"
+                "color": "bg-base-content/10"
               }
             }
           ]
@@ -3006,7 +3098,61 @@
             }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Row",
+            "description": "主要金額行（小計 / 消費税 / 合計金額）。ラベル + 点線 + 右揃え金額"
+          },
+          {
+            "part": "Sub row",
+            "description": "粗利行。縦バー付きインデント、ラベルに粗利率(%)を併記"
+          },
+          {
+            "part": "Breakdown",
+            "description": "消費税の課税区分内訳（10%対象 / 軽減8%対象 / 対象外）。値は税抜の対象金額"
+          },
+          {
+            "part": "Total",
+            "description": "合計金額行（font-semibold）"
+          },
+          {
+            "part": "Checkbox",
+            "description": "「合計金額を見積書に表示」トグル（showCheckbox=true 時のみ）"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "表示専用",
+            "detail": "計算はサーバ側で実行し、本コンポーネントは結果の表示のみを行う（クライアントでの再計算はしない）"
+          },
+          {
+            "action": "小計",
+            "detail": "明細行の税抜金額の合計。内訳3区分（10%対象 + 軽減8%対象 + 対象外）の合計と一致する"
+          },
+          {
+            "action": "消費税",
+            "detail": "課税区分ごとに「対象額 × 税率」を計算し合算する（インボイス準拠の区分単位計算）。端数は区分単位で切り捨て【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "合計金額",
+            "detail": "小計 + 消費税"
+          },
+          {
+            "action": "粗利",
+            "detail": "小計（売価・税抜）− 原価合計。粗利率 = 粗利 ÷ 小計（売価基準）【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "内訳の値",
+            "detail": "税額ではなく税抜の課税対象金額を表示する（例: 10%対象 20,000 → 税額 2,000）"
+          },
+          {
+            "action": "デモ数値の関係",
+            "detail": "小計 32,000 = 20,000 + 5,000 + 7,000 ／ 消費税 2,400 = 20,000×10% + 5,000×8% ／ 合計 34,400 = 32,000 + 2,400 ／ 粗利 4,000 = 32,000 × 12.5%"
+          }
+        ]
+      }
     },
     {
       "id": "place",
@@ -3764,6 +3910,14 @@
           {
             "action": "端の無効化",
             "detail": "1ページ目で前へボタン、最終ページで次へボタンが無効になる"
+          },
+          {
+            "action": "ページ番号のウィンドウ",
+            "detail": "ページ番号ボタンは最大5個表示。現在ページを中心としたスライディングウィンドウで、端では詰める。省略記号（…）は使わない"
+          },
+          {
+            "action": "ページの保持",
+            "detail": "現在ページは URL クエリ（?page=N）で保持する【仮置き・エンジニアさん確認待ち】"
           }
         ]
       }
@@ -4067,13 +4221,55 @@
             {
               "variant": "layout",
               "tokens": {
-                "position": "sticky top-0"
+                "position": "sticky top-0",
+                "z-index": "z-30"
               }
             }
           ]
         }
       ],
-      "hasExamples": true
+      "hasExamples": true,
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "テーブル全体（border + rounded-md、overflow-clip）"
+          },
+          {
+            "part": "Header",
+            "description": "列見出し行。sticky top-0 でスクロール時に上部固定"
+          },
+          {
+            "part": "Row",
+            "description": "データ行。hover で背景色が変わる"
+          },
+          {
+            "part": "Cell",
+            "description": "Text / Number / LinkText / MultiText / Badge / Button の6タイプ"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Row: Default → Hover",
+            "trigger": "行にマウスオーバー",
+            "effect": "行の背景色が変わる"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "スクロール",
+            "detail": "テーブル自体は max-height を持たず全行表示し、ページ全体をスクロールする。Header は sticky でビューポート上部に固定される"
+          },
+          {
+            "action": "行クリック",
+            "detail": "行全体クリックで詳細画面へ遷移する。LinkText セルは別対象（取引先等）へのリンク【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "0件時の表示",
+            "detail": "Empty state は Figma デザイン確定待ち（未定義）。確定後にトークン + プレビューを追加する"
+          }
+        ]
+      }
     },
     {
       "id": "group-box",
@@ -4535,7 +4731,7 @@
                 "border-top": "border-t border-base-content/10",
                 "padding": "px-6 py-4",
                 "gap": "gap-2 (8px)",
-                "z-index": "z-50"
+                "z-index": "z-30"
               }
             }
           ]
@@ -4580,7 +4776,37 @@
             }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "BackButton",
+            "description": "左端の戻るボタン（オプション、Tertiary md + chevron-left）"
+          },
+          {
+            "part": "Spacer",
+            "description": "中央の伸縮領域（flex-1）"
+          },
+          {
+            "part": "CTA Group",
+            "description": "右端のサブCTA（Tertiary）+ メインCTA（Primary）。各 w-48"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "固定表示",
+            "detail": "sticky bottom-0（z-30）で画面下部に固定され、コンテンツがその下をスクロールする"
+          },
+          {
+            "action": "BackButton の表示",
+            "detail": "画面による（ウィザード等の戻り先がある画面のみ表示）"
+          },
+          {
+            "action": "Toast との共存",
+            "detail": "Toast は Footer の上部に重ならない位置に表示される（Toast spec 参照）"
+          }
+        ]
+      }
     },
     {
       "id": "filter-menu",
@@ -4674,7 +4900,40 @@
             }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Header",
+            "description": "filter アイコン + 「フィルター」タイトル + 折りたたみトグルボタン（list-collapse）"
+          },
+          {
+            "part": "Section",
+            "description": "セクションタイトル（カテゴリー / サプライヤー）+ チェックボックスリスト"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Item: Unchecked ⇄ Checked",
+            "trigger": "行クリック / Enter",
+            "effect": "該当条件での絞り込みが切り替わる"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "フィルタの適用",
+            "detail": "チェック変更で即時に一覧へ絞り込みを適用する（適用ボタンは置かない）【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "折りたたみトグル",
+            "detail": "ヘッダー右のボタンで全セクションを折りたたみ／展開する【仮置き・Figma 側に開閉デザインなし、M に確認依頼中】"
+          },
+          {
+            "action": "Empty セクション",
+            "detail": "選択肢がないセクションはタイトルのみ表示し、上に詰める"
+          }
+        ]
+      }
     },
     {
       "id": "breadcrumbs",
@@ -4839,7 +5098,49 @@
             }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Header",
+            "description": "ロゴ + 開閉トグルボタン"
+          },
+          {
+            "part": "Menu",
+            "description": "MenuButton の縦並びリスト"
+          },
+          {
+            "part": "Tooltip",
+            "description": "折りたたみ時のホバーで項目ラベルを右側に表示"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Expanded → Collapsed",
+            "trigger": "トグルボタンクリック",
+            "effect": "アイコンのみの幅に折りたたまれ、ラベルが非表示になる"
+          },
+          {
+            "transition": "Collapsed → Expanded",
+            "trigger": "トグルボタンクリック",
+            "effect": "元の幅に展開され、ラベルが表示される"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "折りたたみ時のラベル",
+            "detail": "Collapsed 状態で項目にホバーすると、ラベルを Tooltip（右向き配置）で表示する"
+          },
+          {
+            "action": "開閉状態の永続化",
+            "detail": "開閉状態は localStorage に保存し、ページ遷移・リロード後も維持する【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "アクティブ表示",
+            "detail": "現在ページに対応する項目が Active 状態（bg-base-300）になる"
+          }
+        ]
+      }
     },
     {
       "id": "menu-button",
@@ -5569,7 +5870,33 @@
           ]
         }
       ],
-      "hasExamples": true
+      "hasExamples": true,
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Container",
+            "description": "一覧画面上部の検索フィルタ領域。画面ごとにフィールド構成が異なる"
+          },
+          {
+            "part": "Fields",
+            "description": "テキスト入力 / Select / DateRangePicker 等のフォームコンポーネントの組み合わせ"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "検索の発火",
+            "detail": "検索ボタンは置かず、フィールドの値確定で即時 GET 検索する（テキストは Enter、Select / DatePicker 系は選択確定時）【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "条件の保持",
+            "detail": "検索条件は URL クエリパラメータに反映し、リロード・ブラウザバックで復元できる【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "ページ番号のリセット",
+            "detail": "検索条件を変更したら Pagination は1ページ目に戻る"
+          }
+        ]
+      }
     }
   ]
 }

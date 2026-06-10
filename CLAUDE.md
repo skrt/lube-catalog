@@ -35,6 +35,13 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
 
+### z-index スケール
+- `z-10`: ドロップダウン / ポップアップ系（SelectMenu, ComboBoxMenu, Calendar, FilterMenu）。ローカルな重なり（GroupBox ラベル、Sidebar ホバー Tooltip 等）もここ
+- `z-30`: sticky 要素（Footer, Table の Sticky Header）
+- `z-40`: Toast
+- `z-50`: Modal（最前面。Modal 表示中の Toast は Modal オーバーレイの下に隠れる仕様）
+- これ以外の z 値は使わない。新コンポーネントはこのスケールに割り当てる
+
 ### トークン構成（components.json）
 - トークンカテゴリは **役割軸**（Color/State/Size/Layout/Common 等）で分ける。モード軸（Expanded/Collapsed 等）や部位軸で分けて状態色を重複させない
 - **Color vs State の使い分け**: 色バリアントを**選べる**コンポーネント（Primary/Secondary 等）→ `Color`。色バリアントがなく**操作で状態が変わる**だけ → `State`
