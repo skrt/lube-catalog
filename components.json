@@ -3933,7 +3933,8 @@
               "variant": "layout",
               "tokens": {
                 "display": "flex justify-between items-center",
-                "padding": "py-2 (8px)"
+                "padding": "py-2 (8px)",
+                "background": "bg-base-100 (white)"
               }
             }
           ]
@@ -4530,7 +4531,7 @@
               "variant": "title",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-base-content/30)",
+                "color": "text-base-content/30",
                 "padding": "px-3 py-2"
               }
             },
@@ -4539,7 +4540,18 @@
               "tokens": {
                 "height": "h-px (1px)",
                 "width": "w-fit",
-                "color": "border-base-content/10)"
+                "color": "border-base-content/10"
+              }
+            }
+          ]
+        },
+        {
+          "category": "NavItem",
+          "items": [
+            {
+              "variant": "component",
+              "tokens": {
+                "ref": "MenuButton（State / Layout トークンを参照）"
               }
             }
           ]
@@ -5222,6 +5234,17 @@
               "tokens": {
                 "width": "flex-1",
                 "helper": "text-xs text-base-content/60"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Status Tabs",
+          "items": [
+            {
+              "variant": "component",
+              "tokens": {
+                "ref": "RadioGroup / Button（請求書パターンで使用。トークンは RadioGroup を参照）"
               }
             }
           ]
