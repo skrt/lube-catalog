@@ -2457,6 +2457,12 @@
                 "font-size": "text-xs (12px)",
                 "color": "text-error"
               }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
+              }
             }
           ]
         }
@@ -4778,6 +4784,20 @@
               }
             },
             {
+              "variant": "helperText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
+              }
+            },
+            {
               "variant": "required",
               "tokens": {
                 "mark": "* text-error"
@@ -4965,10 +4985,29 @@
               }
             },
             {
+              "variant": "placeholder",
+              "tokens": {
+                "color": "placeholder:text-base-content/30"
+              }
+            },
+            {
               "variant": "helperText",
               "tokens": {
                 "font-size": "text-xs (12px)",
                 "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "errorText",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "color": "text-error"
+              }
+            },
+            {
+              "variant": "required",
+              "tokens": {
+                "mark": "* text-error"
               }
             }
           ]
