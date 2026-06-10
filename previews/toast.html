@@ -51,8 +51,8 @@
 
   <!--
     Design Tokens (from Figma):
-    Success: bg #479d72, text #f5fef9, icon circle-check
-    Error:   bg #c94043, text #fff5f5, icon circle-alert
+    Success: bg-success, text-success-content, icon circle-check
+    Error:   bg-error, text-error-content, icon circle-alert
     Layout:  w-96 h-16, px-4 py-3, gap-4, rounded-lg
     Title:   text-sm font-bold (700) leading-5
     Desc:    text-xs (12px) leading-4
@@ -120,15 +120,15 @@
   <script>
     const TOAST_CONFIG = {
       success: {
-        bg: '#479d72',
-        text: '#f5fef9',
+        bgClass: 'bg-success',
+        textClass: 'text-success-content',
         title: '送信しました',
         desc: 'メッセージを送信しました',
         icon: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'
       },
       error: {
-        bg: '#c94043',
-        text: '#fff5f5',
+        bgClass: 'bg-error',
+        textClass: 'text-error-content',
         title: '送信に失敗しました',
         desc: '時間をおいて再度お試しください',
         icon: '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>'
@@ -138,9 +138,7 @@
     function showToast(type) {
       const cfg = TOAST_CONFIG[type];
       const el = document.createElement('div');
-      el.className = 'relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg overflow-hidden pointer-events-auto';
-      el.style.backgroundColor = cfg.bg;
-      el.style.color = cfg.text;
+      el.className = `relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-lg overflow-hidden pointer-events-auto ${cfg.bgClass} ${cfg.textClass}`;
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
