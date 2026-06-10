@@ -101,7 +101,7 @@
               "variant": "Primary",
               "tokens": {
                 "background": "bg-primary",
-                "hover": "hover:bg-primary",
+                "hover": "hover:bg-primary-hover",
                 "text": "text-primary-content"
               }
             },
@@ -109,7 +109,7 @@
               "variant": "Secondary",
               "tokens": {
                 "background": "bg-secondary",
-                "hover": "hover:bg-secondary",
+                "hover": "hover:bg-secondary-hover",
                 "text": "text-secondary-content"
               }
             },
@@ -125,7 +125,7 @@
               "variant": "Danger",
               "tokens": {
                 "background": "bg-error",
-                "hover": "hover:bg-error",
+                "hover": "hover:bg-error-hover",
                 "text": "text-error-content"
               }
             },
@@ -245,6 +245,50 @@
         }
       ],
       "tokens": [
+        {
+          "category": "Color",
+          "items": [
+            {
+              "variant": "Primary",
+              "tokens": {
+                "background": "bg-primary",
+                "hover": "hover:bg-primary-hover",
+                "text": "text-primary-content"
+              }
+            },
+            {
+              "variant": "Secondary",
+              "tokens": {
+                "background": "bg-secondary",
+                "hover": "hover:bg-secondary-hover",
+                "text": "text-secondary-content"
+              }
+            },
+            {
+              "variant": "Tertiary",
+              "tokens": {
+                "background": "bg-base-200",
+                "hover": "hover:bg-base-300",
+                "text": "text-base-content"
+              }
+            },
+            {
+              "variant": "Danger",
+              "tokens": {
+                "background": "bg-error",
+                "hover": "hover:bg-error-hover",
+                "text": "text-error-content"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "bg-base-300",
+                "text": "text-base-content/30"
+              }
+            }
+          ]
+        },
         {
           "category": "Common",
           "items": [
