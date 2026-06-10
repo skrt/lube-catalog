@@ -753,10 +753,8 @@
             {
               "variant": "Button",
               "tokens": {
-                "background": "bg-base-200",
-                "border": "border base-content/5",
-                "radius": "rounded-sm",
-                "padding": "px-3 py-2",
+                "ref": "button",
+                "color": "Tertiary",
                 "font": "text-xs semibold"
               }
             },
@@ -3684,7 +3682,7 @@
             {
               "variant": "seal",
               "tokens": {
-                "size": "60×60px",
+                "size": "size-15 (60px)",
                 "shape": "rounded-full border base-content/10"
               }
             }
@@ -3704,8 +3702,7 @@
               "variant": "合計ブロック layout",
               "tokens": {
                 "display": "flex gap-14",
-                "left": "備考 (flex-1)",
-                "right": "Calc (w-60)"
+                "left": "備考 (flex-1)"
               }
             },
             {
