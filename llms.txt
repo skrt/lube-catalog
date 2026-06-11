@@ -1,0 +1,51 @@
+# lube-catalog
+
+> lube プロダクトのコンポーネントカタログ。デザイン（Figma）とプロダクト実装の間に立つ「実装仕様の正」。
+> このファイルは AI エージェント向けのインデックス。実装・参照時はまずここを読み、必要な箇所だけ辿ること。
+
+## このカタログの役割
+
+lube には3つの参照先がある。役割分担:
+
+- **Figma**: デザインの原本（ビジュアルの正）。デザイナーが管理
+- **lube proto**（別リポ `lube`）: 画面プロトタイプ。画面構成・フローの検証用
+- **lube-catalog**（このリポ）: **コンポーネント実装仕様の正**。エンジニア・AI はここだけ見れば、Figma を開かずにコンポーネントを実装できる状態を目指している
+
+カタログと Figma が食い違う場合は、原則カタログが新しい（Figma 側変更は伝言板経由でカタログに追随する運用）。食い違いを見つけたら実装で勝手に解釈せず報告すること。
+
+## ファイル構成と読み方
+
+- `components.json` — **全コンポーネントの構造化定義。実装時の一次情報**
+  - `props`: コンポーネントのプロパティ（enum / boolean、default 付き）
+  - `tokens`: スタイル値。**実装にコピペ可能な Tailwind クラス形式**（カテゴリ × variant の表）
+  - `spec`: 実装仕様
+    - `anatomy`: 構成パーツの分解（パーツ名 + 役割。tokens / states の「Item」「Menu」等はここで定義された名前を指す）
+    - `states`: 状態遷移（transition / trigger / effect）
+    - `behavior`: 遷移で表現できない挙動の補足
+    - `keyboard`: キーボード操作仕様
+- `previews/*.html` — 各コンポーネントの動くプレビュー（見た目とインタラクションの正）。クラス列はそのままコピペ可能。デモは Alpine.js
+- `index.html` — カタログビューア。`python3 -m http.server 8766` で起動
+- `scripts/check-demo-sync.sh` — States と Demo のトークン同期チェック（pre-commit で自動実行）
+- `CLAUDE.md` — カタログ自体を編集する AI 向けの作業規約（参照だけなら読まなくてよい）
+
+## 重要な規約（誤解しやすい順）
+
+1. **`text-primary` は黒**: lube では `text-primary` = `text-base-content`（#101016）。Tailwind デフォルトの青ではない。`primary`（#0a0ac2、青）は**ボタン等の背景色**。`text-secondary` = `text-base-content/60`
+2. **ステータス淡色背景は `*-soft`**（`error-soft` 等）。`*-bg` という命名は存在しない
+3. **z-index スケール**: `z-10` ドロップダウン/ポップアップ ／ `z-30` sticky（Footer・Table ヘッダー）／ `z-40` Toast ／ `z-50` Modal。これ以外の z 値は使わない。Modal 表示中の Toast はオーバーレイの下に隠れる仕様
+4. **フォーカス表現は2系統**: ボタン系・ナビ系 = `focus-visible:ring-2 ring-primary`（+offset-2）／フォーム系 = `border-2 border-primary` + padding 補正（例 `px-[11px]`）で外形維持。`focus:` ではなく `focus-visible:` を使う
+5. **角丸**: ボタン系・フォーム系・ポップアップ系は `rounded-md`（6px）統一。例外: Checkbox の Box と Tooltip は `rounded-sm`（4px）
+6. **Disabled のボタンは `border border-transparent`**: border 有無で外形が 2px 変わるのを防ぐ
+7. **アイコンは Lucide**、フォントは Tailwind デフォルト（Google Fonts 不使用）
+8. **トークンの `hover:` 表記**: key が `hover` の行は `hover:` プレフィックス付き（コピペ用）。variant 名が `Hover` の行は状態側で hover を表しているため素のクラス
+9. **`Filled` state は実装上 Default と同一スタイル**（Figma 管理用の variant）
+
+## 未確定の仕様
+
+components.json 内の **【仮置き・エンジニアさん確認待ち】** マークが付いた仕様は未確定（Calc の税計算丸め、検索発火タイミング、URL クエリ保持、Table 行クリック、Sidebar 永続化、FilterMenu 絞り込みタイミング、FileInput の Error 判定等）。実装前に確定状況を確認すること。
+
+## デザイントークン
+
+- カラー: `previews/colors.html`（Figma Primitive Variables 準拠、全30色）
+- バリデーション文言: `previews/validator.html`（全15文言 + i18n キー案）
+- components.json のトークン値にハードコード hex は書かない（テーマトークンを使う）
