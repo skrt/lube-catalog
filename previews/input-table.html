@@ -326,6 +326,7 @@
               e.dataTransfer.effectAllowed = 'move'
               e.dataTransfer.setData('text/plain', '')
               const row = e.currentTarget.parentElement
+              row.classList.add('bg-base-200')
               const rect = row.getBoundingClientRect()
               e.dataTransfer.setDragImage(row, e.clientX - rect.left, e.clientY - rect.top)
             },
@@ -375,9 +376,9 @@
         </div>
         <!-- Data Rows -->
         <template x-for="(row, i) in rows" :key="i">
-          <div class="flex items-stretch" :class="dragIndex === i ? 'opacity-50' : ''" @dragenter.prevent="dragEnter(i)" @dragover.prevent>
+          <div class="flex items-stretch" :class="dragIndex === i ? 'opacity-50 bg-base-200' : ''" @dragenter.prevent="dragEnter(i)" @dragover.prevent>
             <!-- Drug -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200" draggable="true" @dragstart="dragStart($event, i)" @dragend="dragIndex = null">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200" draggable="true" @dragstart="dragStart($event, i)" @dragend="dragIndex = null; $event.currentTarget.parentElement.classList.remove('bg-base-200')">
               <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
             </div>
             <!-- 表示トグル (Cell Button) -->
