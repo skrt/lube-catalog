@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+@theme {
+  --color-primary: #0a0ac2;
+  --color-primary-hover: #080892;
+  --color-primary-content: #f3f4fe;
+  --color-secondary: #e8e8fd;
+  --color-secondary-hover: #e0e0f5;
+  --color-secondary-content: #0a0ac2;
+  --color-base-content: #101016;
+  --color-base-200: #f8f8fa;
+  --color-base-300: #eeeef2;
+  --color-error: #c94043;
+  --color-error-hover: #b7393c;
+  --color-error-content: #fff5f5;
+  --color-error-soft: #f7e2e3;
+  --color-success: #479d72;
+  --color-success-content: #f5fef9;
+  --color-success-soft: #e3f0ea;
+  --color-warning: #de781f;
+  --color-warning-content: #fffcf8;
+  --color-warning-soft: #faebdd;
+  --color-info: #535671;
+  --color-info-content: #f2f4ff;
+  --color-info-soft: #e5e6ea;
+  --radius-sm: 4px;
+  --shadow-border-base-content-5: inset 0 0 0 1px rgba(16, 16, 22, 0.05);
+  --shadow-border-base-content-10: inset 0 0 0 1px rgba(16, 16, 22, 0.1);
+  --shadow-border-base-content-20: inset 0 0 0 1px rgba(16, 16, 22, 0.2);
+  --shadow-border-2-base-content-10: inset 0 0 0 2px rgba(16, 16, 22, 0.1);
+  --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
+  --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
+  --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
+  --shadow-border-error: inset 0 0 0 1px #c94043;
+  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+}
+</style>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: white !important; box-shadow: inset 0 0 0 0.5px rgba(16,16,22,0.1) !important; border-radius: 8px !important; padding: 36px 32px 32px !important; min-height: 200px !important; box-sizing: border-box; }
+.in-iframe.demo-only, .in-iframe.demo-only body { scrollbar-width: none; }
+.in-iframe.demo-only::-webkit-scrollbar, .in-iframe.demo-only body::-webkit-scrollbar { display: none; }</style>
+<script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
+</head>
+<body class="bg-white p-8">
+  <a href="../" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 mb-4" id="back-link">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    一覧に戻る
+  </a>
+
+  <!--
+    Design Tokens (from Figma):
+    InputTable: 編集可能テーブル。Header + Cell（Text / Icon / Radio / Button）の組み合わせで構成
+      Header: bg-base-200, p-2, text-xs leading-4 text-base-content/60
+        Text: 左揃え。Required 時はタイトル直後に * (text-error)
+        Number: 右揃え (justify-end)
+        Open: 「仕様」+ Divider (flex-1 h-px bg-base-content/10) + panel-left-close 14px。仕様列の折りたたみトグル
+        Close: 「仕様」+ panel-left-open 14px, justify-center gap-1。幅はコンテンツ依存（約58px）
+        None: 空ヘッダー (w-7、アイコン列用)
+      Cell / Text: border-b base-content/10, min-h-12, text-xs leading-4
+        Default: px-2 py-3, text-base-content
+        Hover: セル py-2 px-0、インライン入力欄が出現 (h-6 px-2 py-1 bg-white border base-content/20 rounded-md)
+        Focus: セル p-0、入力欄 border-2 primary (padding 補正 px-[7px] py-[3px])
+        Error: セル p-0、入力欄 border-2 error (padding 補正 px-[7px] py-[3px])
+        Disabled: px-2 py-3, bg-base-100 (white), text-base-content/60
+      Cell / Text (仕様セル Props=True): p-2, 行 h-6 gap-1
+        行: ラベル w-15 (60px) 右揃え text-base-content/60 leading-5 + 値 px-2 text-base-content leading-5
+        Hover: 値が Select (カテゴリー w-28 + chevron-down 12px) / Input (flex-1) に変わる
+        Disabled: px-3 py-2。品名 + 要約リスト (ラベル列 border-l-2 base-content/10 pl-1.5 text-base-content/30 右揃え / 値列 text-base-content/60)
+      Cell / Icon: w-7 h-13 (52px) centered, アイコン 14px text-base-content/60
+        Drug: grip-vertical (行の並び替えハンドル) / Copy: copy / Delete: trash
+      Cell / Radio: size-12 centered。Radio 20px は radio-group の Radio 型と同スタイル
+        ON: shadow-border-primary + 中央ドット bg-primary / OFF: shadow-border-base-content-20
+      Cell / Button: size-12 centered。IconButton p-2 rounded-md border base-content/5
+        ON: bg-secondary + eye 16px text-secondary-content / OFF: bg-base-200 + eye-off 16px text-base-content
+  -->
+
+  <div class="space-y-10">
+
+    <!-- Header -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Header</p>
+      <div class="flex flex-wrap gap-6 items-end">
+        <div>
+          <div class="bg-base-200 flex items-start p-2 w-72 text-xs leading-4">
+            <p class="text-base-content/60">タイトル</p>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Text</p>
+        </div>
+        <div>
+          <div class="bg-base-200 flex items-start p-2 w-72 text-xs leading-4">
+            <p class="text-base-content/60">タイトル</p>
+            <p class="text-error">*</p>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Text / Required</p>
+        </div>
+        <div>
+          <div class="bg-base-200 flex items-start justify-end p-2 w-72 text-xs leading-4">
+            <p class="text-base-content/60">タイトル</p>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Number</p>
+        </div>
+        <div>
+          <div class="bg-base-200 flex gap-1 items-center p-2 w-72">
+            <p class="text-xs leading-4 text-base-content/60">仕様</p>
+            <div class="flex-1 h-px bg-base-content/10"></div>
+            <i data-lucide="panel-left-close" class="w-3.5 h-3.5 text-base-content/60"></i>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Open</p>
+        </div>
+        <div>
+          <div class="bg-base-200 flex gap-1 items-center justify-center p-2">
+            <p class="text-xs leading-4 text-base-content/60">仕様</p>
+            <i data-lucide="panel-left-open" class="w-3.5 h-3.5 text-base-content/60"></i>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Close</p>
+        </div>
+        <div>
+          <div class="bg-base-200 h-8 w-7"></div>
+          <p class="text-[10px] text-gray-400 mt-1.5">None</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell Text States -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Text States</p>
+      <div class="flex flex-wrap gap-6 items-end">
+        <div>
+          <div class="w-72 min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center">
+            <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Default</p>
+        </div>
+        <div>
+          <div class="w-72 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center">
+            <div class="h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center">
+              <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Hover</p>
+        </div>
+        <div>
+          <div class="w-72 min-h-12 p-0 border-b border-base-content/10 flex flex-col justify-center">
+            <div class="h-6 w-full px-[7px] py-[3px] bg-white border-2 border-primary rounded-md flex items-center">
+              <p class="text-xs leading-4 text-base-content"></p>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Focus</p>
+        </div>
+        <div>
+          <div class="w-72 min-h-12 p-0 border-b border-base-content/10 flex flex-col justify-center">
+            <div class="h-6 w-full px-[7px] py-[3px] bg-white border-2 border-error rounded-md flex items-center">
+              <p class="text-xs leading-4 text-base-content"></p>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Error</p>
+        </div>
+        <!-- Disabled -->
+        <div>
+          <div class="w-72 min-h-12 px-2 py-3 bg-white border-b border-base-content/10 flex flex-col justify-center">
+            <p class="text-xs leading-4 text-base-content/60">60サイズブランドボックス</p>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Disabled</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell Text Spec States (仕様セル Props=True) -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Text 仕様セル</p>
+      <div class="flex flex-wrap gap-6 items-start">
+        <div>
+          <div class="w-72 p-2 border-b border-base-content/10 flex flex-col gap-1">
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">カテゴリー</p><p class="px-2 text-xs leading-5 text-base-content">ダンボール</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">サイズ</p><p class="px-2 text-xs leading-5 text-base-content">組立外寸 W310×D230×H280mm</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">形状</p><p class="px-2 text-xs leading-5 text-base-content">A式</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">構成</p><p class="px-2 text-xs leading-5 text-base-content">C5/120/C5</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">段厚</p><p class="px-2 text-xs leading-5 text-base-content">EF</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">印刷</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">加工</p></div>
+            <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">その他</p></div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Default</p>
+        </div>
+        <div>
+          <div class="w-72 p-2 border-b border-base-content/10 flex flex-col gap-1">
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">カテゴリー</p>
+              <div class="w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex gap-2 items-center"><p class="flex-1 text-xs leading-4 text-base-content">ダンボール</p><i data-lucide="chevron-down" class="w-3 h-3 text-base-content"></i></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">サイズ</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"><p class="text-xs leading-4 text-base-content">組立外寸 W310×D230×H280mm</p></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">形状</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"><p class="text-xs leading-4 text-base-content">A式</p></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">構成</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"><p class="text-xs leading-4 text-base-content">C5/120/C5</p></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">段厚</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"><p class="text-xs leading-4 text-base-content">EF</p></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">印刷</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">加工</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"></div>
+            </div>
+            <div class="flex gap-2 items-center"><p class="w-15 text-right text-xs leading-5 text-base-content/60">その他</p>
+              <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"></div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Hover（編集モード）</p>
+        </div>
+        <!-- Disabled -->
+        <div>
+          <div class="w-72 px-3 py-2 bg-white border-b border-base-content/10 flex flex-col gap-1">
+            <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
+            <div class="flex gap-2 pl-1 text-xs leading-5">
+              <div class="flex flex-col items-end border-l-2 border-base-content/10 pl-1.5 text-right text-base-content/30">
+                <p>カテゴリー</p><p>サイズ</p><p>形状</p><p>構成</p><p>段厚</p>
+              </div>
+              <div class="flex-1 flex flex-col text-base-content/60">
+                <p>ダンボール</p><p>組立外寸 W310×D230×H280mm</p><p>A式</p><p>C5/120/C5</p><p>EF</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Disabled（要約表示）</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell Icon -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Icon</p>
+      <div class="flex gap-6 items-end">
+        <div>
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center">
+            <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content/60"></i>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Drug</p>
+        </div>
+        <div>
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center">
+            <i data-lucide="copy" class="w-3.5 h-3.5 text-base-content/60"></i>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Copy</p>
+        </div>
+        <div>
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center">
+            <i data-lucide="trash" class="w-3.5 h-3.5 text-base-content/60"></i>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Delete</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell Radio -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Radio</p>
+      <div class="flex gap-6 items-end">
+        <div>
+          <div class="size-12 border-b border-base-content/10 flex items-center justify-center">
+            <div class="relative size-5 rounded-full bg-white shadow-border-primary">
+              <div class="absolute inset-[5px] rounded-full bg-primary"></div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">ON</p>
+        </div>
+        <div>
+          <div class="size-12 border-b border-base-content/10 flex items-center justify-center">
+            <div class="relative size-5 rounded-full bg-white shadow-border-base-content-20"></div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">OFF</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell Button -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Button</p>
+      <div class="flex gap-6 items-end">
+        <div>
+          <div class="size-12 border-b border-base-content/10 flex items-center justify-center">
+            <button class="p-2 rounded-md bg-secondary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+              <i data-lucide="eye" class="w-4 h-4 text-secondary-content"></i>
+            </button>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">ON</p>
+        </div>
+        <div>
+          <div class="size-12 border-b border-base-content/10 flex items-center justify-center">
+            <button class="p-2 rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+              <i data-lucide="eye-off" class="w-4 h-4 text-base-content"></i>
+            </button>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">OFF</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo -->
+    <div id="demo-section" x-data="inputTableDemo()">
+      <script data-demo-keep>
+        function inputTableDemo() {
+          return {
+            specOpen: true,
+            rows: [
+              { name: '60サイズブランドボックス', qty: '1,000', visible: true, nameError: false, qtyError: false,
+                spec: { category: 'ダンボール', size: '組立外寸 W310×D230×H280mm', shape: 'A式' } },
+              { name: 'ショッパー', qty: '2,000', visible: true, nameError: false, qtyError: false,
+                spec: { category: 'ダンボール', size: '巾着外寸 W350×D120×H400mm', shape: '平紐' } }
+            ],
+            mails: [
+              { addr: 'test-test@example.com', dest: 'to' },
+              { addr: 'test-test2@example.com', dest: 'cc' }
+            ],
+            copyRow(i) { this.rows.splice(i + 1, 0, JSON.parse(JSON.stringify(this.rows[i]))) },
+            deleteRow(i) { if (this.rows.length > 1) this.rows.splice(i, 1) },
+            validate(row, key) { row[key + 'Error'] = !row[key].trim() },
+            cellInputClass(error) {
+              return error
+                ? 'bg-white border-2 border-error px-[7px] py-[3px]'
+                : 'bg-transparent border border-transparent px-2 py-1 hover:bg-white hover:border-base-content/20 focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]'
+            }
+          }
+        }
+      </script>
+
+      <!-- 明細テーブル -->
+      <div class="min-w-2xl">
+        <!-- Header Row -->
+        <div class="flex items-stretch">
+          <div class="bg-base-200 w-7 shrink-0"></div>
+          <div class="bg-base-200 flex items-start p-2 flex-1 text-xs leading-4">
+            <p class="text-base-content/60">品名</p>
+            <p class="text-error">*</p>
+          </div>
+          <button x-show="specOpen" @click="specOpen = false" class="bg-base-200 flex gap-1 items-center p-2 w-72 shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <p class="text-xs leading-4 text-base-content/60">仕様</p>
+            <div class="flex-1 h-px bg-base-content/10"></div>
+            <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m16 15-3-3 3-3"/></svg>
+          </button>
+          <button x-show="!specOpen" @click="specOpen = true" class="bg-base-200 flex gap-1 items-center justify-center p-2 shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <p class="text-xs leading-4 text-base-content/60">仕様</p>
+            <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg>
+          </button>
+          <div class="bg-base-200 flex items-start justify-end p-2 w-24 shrink-0 text-xs leading-4">
+            <p class="text-base-content/60">数量</p>
+            <p class="text-error">*</p>
+          </div>
+          <div class="bg-base-200 w-12 shrink-0"></div>
+          <div class="bg-base-200 w-7 shrink-0"></div>
+          <div class="bg-base-200 w-7 shrink-0"></div>
+        </div>
+        <!-- Data Rows -->
+        <template x-for="(row, i) in rows" :key="i">
+          <div class="flex items-stretch">
+            <!-- Drug -->
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab">
+              <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+            </div>
+            <!-- 品名 (Cell Text) -->
+            <div class="flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center">
+              <input x-model="row.name" @blur="validate(row, 'name')" @input="row.nameError = false"
+                class="h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none"
+                :class="cellInputClass(row.nameError)">
+            </div>
+            <!-- 仕様 (Cell Text 仕様セル) -->
+            <div x-show="specOpen" class="w-72 shrink-0 p-2 border-b border-base-content/10 flex flex-col gap-1 justify-center">
+              <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">カテゴリー</p><p class="px-2 text-xs leading-5 text-base-content" x-text="row.spec.category"></p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">サイズ</p><p class="px-2 text-xs leading-5 text-base-content" x-text="row.spec.size"></p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">形状</p><p class="px-2 text-xs leading-5 text-base-content" x-text="row.spec.shape"></p></div>
+            </div>
+            <div x-show="!specOpen" class="w-[58px] shrink-0 border-b border-base-content/10"></div>
+            <!-- 数量 (Cell Text / Number) -->
+            <div class="w-24 shrink-0 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center">
+              <input x-model="row.qty" @blur="validate(row, 'qty')" @input="row.qtyError = false"
+                class="h-6 w-full text-xs leading-4 text-base-content text-right rounded-md focus-visible:outline-none"
+                :class="cellInputClass(row.qtyError)">
+            </div>
+            <!-- 表示トグル (Cell Button) -->
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+              <button @click="row.visible = !row.visible" class="p-2 rounded-md border border-base-content/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" :class="row.visible ? 'bg-secondary' : 'bg-base-200'">
+                <svg x-show="row.visible" class="w-4 h-4 text-secondary-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg x-show="!row.visible" class="w-4 h-4 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+              </button>
+            </div>
+            <!-- Copy -->
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+              <button @click="copyRow(i)" class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              </button>
+            </div>
+            <!-- Delete -->
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+              <button @click="deleteRow(i)" class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+              </button>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- メール宛先テーブル (Cell Radio) -->
+      <div class="mt-8 max-w-xl">
+        <div class="flex items-stretch">
+          <div class="bg-base-200 flex items-start justify-center p-2 w-12 shrink-0 text-xs leading-4"><p class="text-base-content/60">TO</p></div>
+          <div class="bg-base-200 flex items-start justify-center p-2 w-12 shrink-0 text-xs leading-4"><p class="text-base-content/60">CC</p></div>
+          <div class="bg-base-200 flex items-start p-2 flex-1 text-xs leading-4">
+            <p class="text-base-content/60">メールアドレス</p>
+            <p class="text-error">*</p>
+          </div>
+        </div>
+        <template x-for="(mail, i) in mails" :key="i">
+          <div class="flex items-stretch">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+              <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
+                :class="mail.dest === 'to' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
+                @click="mail.dest = 'to'" @keydown.enter.prevent="mail.dest = 'to'">
+                <div x-show="mail.dest === 'to'" class="absolute inset-[5px] rounded-full bg-primary"></div>
+              </div>
+            </div>
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+              <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
+                :class="mail.dest === 'cc' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
+                @click="mail.dest = 'cc'" @keydown.enter.prevent="mail.dest = 'cc'">
+                <div x-show="mail.dest === 'cc'" class="absolute inset-[5px] rounded-full bg-primary"></div>
+              </div>
+            </div>
+            <div class="flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center">
+              <input x-model="mail.addr"
+                class="h-6 w-full text-xs leading-4 text-base-content rounded-md bg-transparent border border-transparent px-2 py-1 hover:bg-white hover:border-base-content/20 focus-visible:outline-none focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]">
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

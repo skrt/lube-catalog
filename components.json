@@ -5928,6 +5928,393 @@
           }
         ]
       }
+    },
+    {
+      "id": "input-table",
+      "name": "InputTable",
+      "description": "編集可能テーブル。明細行の入力・並び替え・複製・削除を行う。Header + Cell（Text / Icon / Radio / Button）の組み合わせで構成",
+      "category": "forms",
+      "preview": "previews/input-table.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3946-14421",
+      "props": [
+        {
+          "name": "Header - Type",
+          "type": "enum",
+          "default": "Text",
+          "values": [
+            "Text",
+            "Number",
+            "Open",
+            "Close",
+            "None"
+          ],
+          "description": "列見出しのタイプ。Number は右揃え、Open/Close は仕様列の折りたたみトグル、None はアイコン列用の空ヘッダー"
+        },
+        {
+          "name": "Header - Required",
+          "type": "boolean",
+          "default": false,
+          "description": "必須マーク（*）をタイトル直後に表示"
+        },
+        {
+          "name": "Cell / Text - State",
+          "type": "enum",
+          "default": "Default",
+          "values": [
+            "Default",
+            "Hover",
+            "Focus",
+            "Error",
+            "Disabled",
+            "None"
+          ],
+          "description": "Hover でインライン入力欄が出現、Focus で編集、Error は赤の太枠、Disabled はグレー文字。None は空セル"
+        },
+        {
+          "name": "Cell / Text - Props",
+          "type": "boolean",
+          "default": false,
+          "description": "仕様セル（カテゴリー〜その他の属性 8行構成）にする。Disabled 時は要約表示"
+        },
+        {
+          "name": "Cell / Icon - Type",
+          "type": "enum",
+          "default": "Drug",
+          "values": [
+            "Drug",
+            "Copy",
+            "Delete"
+          ],
+          "description": "Drug=並び替えハンドル、Copy=行複製、Delete=行削除"
+        },
+        {
+          "name": "Cell / Radio - Toggle",
+          "type": "enum",
+          "default": "ON",
+          "values": [
+            "ON",
+            "OFF"
+          ],
+          "description": "択一選択の選択状態（メール宛先 TO/CC 等）"
+        },
+        {
+          "name": "Cell / Button - Toggle",
+          "type": "enum",
+          "default": "ON",
+          "values": [
+            "ON",
+            "OFF"
+          ],
+          "description": "表示/非表示トグルの状態（eye / eye-off）"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Header",
+          "items": [
+            {
+              "variant": "Text",
+              "tokens": {
+                "background": "bg-base-200",
+                "padding": "p-2 (8px)",
+                "font": "text-xs leading-4",
+                "color": "text-base-content/60",
+                "required": "* は text-error"
+              }
+            },
+            {
+              "variant": "Number",
+              "tokens": {
+                "align": "right (justify-end)"
+              }
+            },
+            {
+              "variant": "Open",
+              "tokens": {
+                "layout": "gap-1 items-center",
+                "divider": "flex-1 h-px bg-base-content/10",
+                "icon": "panel-left-close 14px (w-3.5 h-3.5) text-base-content/60"
+              }
+            },
+            {
+              "variant": "Close",
+              "tokens": {
+                "layout": "justify-center gap-1（幅はコンテンツ依存・約58px）",
+                "icon": "panel-left-open 14px (w-3.5 h-3.5) text-base-content/60"
+              }
+            },
+            {
+              "variant": "None",
+              "tokens": {
+                "size": "w-7（アイコン列用の空ヘッダー）"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Cell Text State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "padding": "px-2 py-3",
+                "min-height": "min-h-12 (48px)",
+                "font": "text-xs leading-4",
+                "color": "text-base-content"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "cell-padding": "py-2 px-0",
+                "input": "h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md"
+              }
+            },
+            {
+              "variant": "Focus",
+              "tokens": {
+                "cell-padding": "p-0",
+                "input": "h-6 bg-white border-2 border-primary rounded-md",
+                "padding-fix": "px-[7px] py-[3px]（border-2 のサイズ変動を補正）"
+              }
+            },
+            {
+              "variant": "Error",
+              "tokens": {
+                "cell-padding": "p-0",
+                "input": "h-6 bg-white border-2 border-error rounded-md",
+                "padding-fix": "px-[7px] py-[3px]（border-2 のサイズ変動を補正）"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "bg-base-100 (white)",
+                "color": "text-base-content/60"
+              }
+            }
+          ]
+        },
+        {
+          "category": "仕様セル (Props)",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "padding": "p-2",
+                "row": "h-6 gap-2 items-center（行間 gap-1）",
+                "label": "w-15 (60px) text-right text-xs leading-5 text-base-content/60",
+                "value": "px-2 text-xs leading-5 text-base-content"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "select": "w-28 h-6 px-2 py-1 border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）",
+                "input": "flex-1 h-6 px-2 py-1 border border-base-content/20 rounded-md（その他の行）"
+              }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "padding": "px-3 py-2",
+                "label-column": "border-l-2 border-base-content/10 pl-1.5 text-right text-base-content/30",
+                "value-column": "text-base-content/60",
+                "font": "text-xs leading-5"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Cell Icon",
+          "items": [
+            {
+              "variant": "Common",
+              "tokens": {
+                "size": "w-7 h-13 (28×52px)",
+                "icon": "14px (w-3.5 h-3.5)",
+                "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "Drug",
+              "tokens": {
+                "icon-name": "grip-vertical",
+                "cursor": "cursor-grab"
+              }
+            },
+            {
+              "variant": "Copy",
+              "tokens": {
+                "icon-name": "copy"
+              }
+            },
+            {
+              "variant": "Delete",
+              "tokens": {
+                "icon-name": "trash"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Cell Radio",
+          "items": [
+            {
+              "variant": "Common",
+              "tokens": {
+                "cell-size": "size-12 (48px)",
+                "radio": "size-5 rounded-full bg-white（radio-group の Radio 型と同スタイル）",
+                "ref": "radio-group"
+              }
+            },
+            {
+              "variant": "ON",
+              "tokens": {
+                "border": "shadow-border-primary",
+                "dot": "inset-[5px] rounded-full bg-primary"
+              }
+            },
+            {
+              "variant": "OFF",
+              "tokens": {
+                "border": "shadow-border-base-content-20",
+                "hover": "hover:shadow-border-2-primary"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Cell Button",
+          "items": [
+            {
+              "variant": "Common",
+              "tokens": {
+                "cell-size": "size-12 (48px)",
+                "button": "p-2 rounded-md border border-base-content/5",
+                "icon": "16px (w-4 h-4)",
+                "ref": "icon-button"
+              }
+            },
+            {
+              "variant": "ON",
+              "tokens": {
+                "background": "bg-secondary",
+                "icon-name": "eye",
+                "icon-color": "text-secondary-content"
+              }
+            },
+            {
+              "variant": "OFF",
+              "tokens": {
+                "background": "bg-base-200",
+                "icon-name": "eye-off",
+                "icon-color": "text-base-content"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
+                "cell-border": "border-b border-base-content/10",
+                "focus": "ボタン・ラジオ系は focus-visible:ring-2 ring-primary、入力セルは border-2 border-primary"
+              }
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "Header",
+            "description": "列見出し。Text / Number / Open / Close / None の5タイプ。Open/Close は仕様列の折りたたみトグルを兼ねる"
+          },
+          {
+            "part": "Cell / Text",
+            "description": "テキスト入力セル。Props=True で仕様セル（カテゴリー〜その他の属性 8行）になる"
+          },
+          {
+            "part": "Cell / Icon",
+            "description": "行操作アイコンセル。Drug=並び替えハンドル / Copy=行複製 / Delete=行削除"
+          },
+          {
+            "part": "Cell / Radio",
+            "description": "択一選択セル（メール宛先 TO/CC 等）。radio-group の Radio 型と同スタイル"
+          },
+          {
+            "part": "Cell / Button",
+            "description": "表示/非表示トグルセル（eye / eye-off）。icon-button 準拠"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Cell Text: Default → Hover",
+            "trigger": "セルにマウスオーバー",
+            "effect": "インライン入力欄が表示される"
+          },
+          {
+            "transition": "Cell Text: Hover → Focus",
+            "trigger": "入力欄をクリック or Tab でフォーカス",
+            "effect": "入力欄が青の太枠になり編集できる"
+          },
+          {
+            "transition": "Cell Text: Focus → Error",
+            "trigger": "必須セルを空のまま確定（blur）",
+            "effect": "入力欄が赤の太枠になる"
+          },
+          {
+            "transition": "仕様セル: Default → Hover",
+            "trigger": "セルにマウスオーバー",
+            "effect": "各行の値が Select / Input に変わり編集できる"
+          },
+          {
+            "transition": "Cell Button: ON ⇄ OFF",
+            "trigger": "クリック",
+            "effect": "表示（eye）と非表示（eye-off）が切り替わる"
+          },
+          {
+            "transition": "Cell Radio: OFF → ON",
+            "trigger": "クリック",
+            "effect": "選択され、同一行の他の宛先（TO/CC）は解除される"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "行の複製・削除",
+            "detail": "Copy は自行の直下に複製を挿入する。Delete は自行を削除する（最終行のみの場合は削除不可）"
+          },
+          {
+            "action": "行の並び替え",
+            "detail": "Drug ハンドルのドラッグ&ドロップで行を並び替える（D&D の実装方式はエンジニア側で決定）【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "仕様列の折りたたみ",
+            "detail": "Header の Open/Close クリックで仕様列を開閉する。Close 時は列がコンテンツ幅（約58px）に縮み、セル内容は非表示になる"
+          },
+          {
+            "action": "Error の判定タイミング",
+            "detail": "必須セルが空のまま blur した時に Error にする。再入力で解除【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "Disabled の仕様セル",
+            "detail": "編集不可の要約表示になる（品名 + ラベル/値の圧縮リスト、空の属性行は省略）"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "Tab / Shift+Tab",
+            "action": "入力セル間のフォーカス移動（ブラウザ標準）"
+          },
+          {
+            "key": "Enter",
+            "action": "Radio セル: フォーカス中の宛先を選択"
+          }
+        ]
+      }
     }
   ]
 }
