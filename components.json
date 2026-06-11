@@ -5932,6 +5932,7 @@
     {
       "id": "input-table",
       "name": "InputTable",
+      "hasDemo": true,
       "description": "編集可能テーブル。明細行の入力・並び替え・複製・削除を行う。Header + Cell（Text / Icon / Radio / Button）の組み合わせで構成",
       "category": "forms",
       "preview": "previews/input-table.html",
