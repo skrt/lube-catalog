@@ -320,6 +320,14 @@
               { addr: 'test-test@example.com', dest: 'to' },
               { addr: 'test-test2@example.com', dest: 'cc' }
             ],
+            dragIndex: null,
+            dragStart(e, i) { this.dragIndex = i; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', '') },
+            dragEnter(i) {
+              if (this.dragIndex === null || this.dragIndex === i) return
+              const moved = this.rows.splice(this.dragIndex, 1)[0]
+              this.rows.splice(i, 0, moved)
+              this.dragIndex = i
+            },
             copyRow(i) { this.rows.splice(i + 1, 0, JSON.parse(JSON.stringify(this.rows[i]))) },
             deleteRow(i) { if (this.rows.length > 1) this.rows.splice(i, 1) },
             validate(row, key) { row[key + 'Error'] = !row[key].trim() },
@@ -360,9 +368,9 @@
         </div>
         <!-- Data Rows -->
         <template x-for="(row, i) in rows" :key="i">
-          <div class="flex items-stretch">
+          <div class="flex items-stretch" :class="dragIndex === i ? 'opacity-50' : ''" @dragenter.prevent="dragEnter(i)" @dragover.prevent>
             <!-- Drug -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200" draggable="true" @dragstart="dragStart($event, i)" @dragend="dragIndex = null">
               <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
             </div>
             <!-- 品名 (Cell Text) -->
@@ -401,14 +409,14 @@
               </button>
             </div>
             <!-- Copy -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
-              <button @click="copyRow(i)" class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="copyRow(i)">
+              <button class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
               </button>
             </div>
             <!-- Delete -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
-              <button @click="deleteRow(i)" class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="deleteRow(i)">
+              <button class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
               </button>
             </div>
@@ -428,17 +436,17 @@
         </div>
         <template x-for="(mail, i) in mails" :key="i">
           <div class="flex items-stretch">
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="mail.dest = 'to'">
               <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
                 :class="mail.dest === 'to' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
-                @click="mail.dest = 'to'" @keydown.enter.prevent="mail.dest = 'to'">
+                @keydown.enter.prevent="mail.dest = 'to'">
                 <div x-show="mail.dest === 'to'" class="absolute inset-[5px] rounded-full bg-primary"></div>
               </div>
             </div>
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="mail.dest = 'cc'">
               <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
                 :class="mail.dest === 'cc' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
-                @click="mail.dest = 'cc'" @keydown.enter.prevent="mail.dest = 'cc'">
+                @keydown.enter.prevent="mail.dest = 'cc'">
                 <div x-show="mail.dest === 'cc'" class="absolute inset-[5px] rounded-full bg-primary"></div>
               </div>
             </div>
