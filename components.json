@@ -6066,8 +6066,9 @@
             {
               "variant": "Hover",
               "tokens": {
+                "cell-background": "bg-base-200",
                 "cell-padding": "py-2 px-0",
-                "input": "h-6 w-full px-2 py-1 bg-base-200 border border-base-content/20 rounded-md"
+                "input": "h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md"
               }
             },
             {
@@ -6110,8 +6111,9 @@
             {
               "variant": "Hover",
               "tokens": {
-                "select": "w-28 h-6 px-2 py-1 bg-base-200 border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）",
-                "input": "flex-1 h-6 px-2 py-1 bg-base-200 border border-base-content/20 rounded-md（その他の行）"
+                "cell-background": "bg-base-200",
+                "select": "w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）",
+                "input": "flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md（その他の行）"
               }
             },
             {
@@ -6254,7 +6256,7 @@
           {
             "transition": "Cell Text: Default → Hover",
             "trigger": "セルにマウスオーバー",
-            "effect": "インライン入力欄が表示される"
+            "effect": "セルの背景がグレーになり、インライン入力欄が表示される"
           },
           {
             "transition": "Cell Text: Hover → Focus",
@@ -6269,7 +6271,7 @@
           {
             "transition": "仕様セル: Default → Hover",
             "trigger": "セルにマウスオーバー",
-            "effect": "各行の値が Select / Input に変わり編集できる"
+            "effect": "セルの背景がグレーになり、各行の値が Select / Input に変わり編集できる"
           },
           {
             "transition": "Cell Button: ON ⇄ OFF",
