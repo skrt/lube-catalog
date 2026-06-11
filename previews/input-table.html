@@ -321,7 +321,14 @@
               { addr: 'test-test2@example.com', dest: 'cc' }
             ],
             dragIndex: null,
-            dragStart(e, i) { this.dragIndex = i; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', '') },
+            dragStart(e, i) {
+              this.dragIndex = i
+              e.dataTransfer.effectAllowed = 'move'
+              e.dataTransfer.setData('text/plain', '')
+              const row = e.currentTarget.parentElement
+              const rect = row.getBoundingClientRect()
+              e.dataTransfer.setDragImage(row, e.clientX - rect.left, e.clientY - rect.top)
+            },
             dragEnter(i) {
               if (this.dragIndex === null || this.dragIndex === i) return
               const moved = this.rows.splice(this.dragIndex, 1)[0]
@@ -345,6 +352,7 @@
         <!-- Header Row -->
         <div class="flex items-stretch">
           <div class="bg-base-200 w-7 shrink-0"></div>
+          <div class="bg-base-200 w-12 shrink-0"></div>
           <div class="bg-base-200 flex items-start p-2 flex-1 text-xs leading-4">
             <p class="text-base-content/60">品名</p>
             <p class="text-error">*</p>
@@ -362,7 +370,6 @@
             <p class="text-base-content/60">数量</p>
             <p class="text-error">*</p>
           </div>
-          <div class="bg-base-200 w-12 shrink-0"></div>
           <div class="bg-base-200 w-7 shrink-0"></div>
           <div class="bg-base-200 w-7 shrink-0"></div>
         </div>
@@ -372,6 +379,13 @@
             <!-- Drug -->
             <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200" draggable="true" @dragstart="dragStart($event, i)" @dragend="dragIndex = null">
               <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+            </div>
+            <!-- 表示トグル (Cell Button) -->
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+              <button @click="row.visible = !row.visible" class="p-2 rounded-md border border-base-content/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" :class="row.visible ? 'bg-secondary' : 'bg-base-200'">
+                <svg x-show="row.visible" class="w-4 h-4 text-secondary-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg x-show="!row.visible" class="w-4 h-4 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+              </button>
             </div>
             <!-- 品名 (Cell Text) -->
             <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
@@ -400,13 +414,6 @@
               <input x-model="row.qty" @blur="validate(row, 'qty')" @input="row.qtyError = false"
                 class="h-6 w-full text-xs leading-4 text-base-content text-right rounded-md focus-visible:outline-none"
                 :class="cellInputClass(row.qtyError)">
-            </div>
-            <!-- 表示トグル (Cell Button) -->
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
-              <button @click="row.visible = !row.visible" class="p-2 rounded-md border border-base-content/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" :class="row.visible ? 'bg-secondary' : 'bg-base-200'">
-                <svg x-show="row.visible" class="w-4 h-4 text-secondary-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
-                <svg x-show="!row.visible" class="w-4 h-4 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
-              </button>
             </div>
             <!-- Copy -->
             <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="copyRow(i)">
