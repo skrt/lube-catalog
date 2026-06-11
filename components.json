@@ -6067,7 +6067,7 @@
               "variant": "Hover",
               "tokens": {
                 "cell-padding": "py-2 px-0",
-                "input": "h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md"
+                "input": "h-6 w-full px-2 py-1 bg-base-200 border border-base-content/20 rounded-md"
               }
             },
             {
@@ -6110,8 +6110,8 @@
             {
               "variant": "Hover",
               "tokens": {
-                "select": "w-28 h-6 px-2 py-1 border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）",
-                "input": "flex-1 h-6 px-2 py-1 border border-base-content/20 rounded-md（その他の行）"
+                "select": "w-28 h-6 px-2 py-1 bg-base-200 border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）",
+                "input": "flex-1 h-6 px-2 py-1 bg-base-200 border border-base-content/20 rounded-md（その他の行）"
               }
             },
             {
