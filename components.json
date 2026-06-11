@@ -6113,7 +6113,7 @@
               "variant": "Hover",
               "tokens": {
                 "cell-background": "bg-base-200",
-                "select": "w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）",
+                "select": "w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）。Menu は select コンポーネント準拠",
                 "input": "flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md（その他の行）"
               }
             },
@@ -6312,6 +6312,10 @@
           {
             "action": "Error の判定タイミング",
             "detail": "必須セルが空のまま blur した時に Error にする。再入力で解除【仮置き・エンジニアさん確認待ち】"
+          },
+          {
+            "action": "カテゴリーの選択",
+            "detail": "仕様セルのカテゴリー Select クリックで SelectMenu が開く（Menu のスタイル・挙動は select コンポーネント準拠）。選択肢: ダンボール / 軟包材 / 化粧箱 / 紙袋 / その他"
           },
           {
             "action": "Disabled の仕様セル",
