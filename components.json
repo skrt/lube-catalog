@@ -3389,9 +3389,10 @@
           "values": [
             "Active",
             "Inactive",
-            "Hover"
+            "Hover",
+            "Disabled"
           ],
-          "description": "Active=青塗り、Inactive=枠線、Hover=薄青"
+          "description": "Active=青塗り、Inactive=枠線、Hover=薄青、Disabled=グレー非活性"
         },
         {
           "name": "Button / Item - Count",
@@ -3490,6 +3491,17 @@
                 "background": "bg-secondary",
                 "text": "text-base-content"
               }
+            },
+            {
+              "variant": "Disabled",
+              "tokens": {
+                "background": "bg-base-300",
+                "text": "text-base-content/30",
+                "border": "なし",
+                "count-bg": "bg-white",
+                "count-text": "text-base-content/30",
+                "cursor": "cursor-not-allowed"
+              }
             }
           ]
         },
@@ -3517,7 +3529,7 @@
           },
           {
             "part": "Button > Item",
-            "description": "ボタン型ラジオ（Active/Inactive/Hover）"
+            "description": "ボタン型ラジオ（Active/Inactive/Hover/Disabled）"
           }
         ],
         "states": [

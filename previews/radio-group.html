@@ -64,13 +64,15 @@
       Label Disabled: text-base-content/30
 
     RadioGroup / Button / Item:
-      State: Active, Inactive, Hover
+      State: Active, Inactive, Hover, Disabled
       Active: bg-primary, text-primary-content, rounded-md (6px), h-8
       Inactive: bg-white, border base-content/10, text-base-content
       Hover: bg-secondary, text-base-content
+      Disabled: bg-base-300, text-base-content/30, 枠線なし
       Count badge (optional):
         Active: bg-white, text-primary
         Inactive: bg-base-200, text-base-content/60
+        Disabled: bg-white, text-base-content/30
       Font: text-sm font-semibold
   -->
 
@@ -145,7 +147,7 @@
       </div>
     </div>
 
-    <!-- demo-skip: bg-base-content/10 -->
+    <!-- demo-skip: bg-base-content/10 bg-base-300 -->
     <!-- Radio: States (md) -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Radio States (md)</p>
@@ -222,6 +224,12 @@
           <span class="text-sm font-semibold leading-5 text-base-content">Hover</span>
           <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-base-200">
             <span class="text-sm leading-5 text-base-content/60">100</span>
+          </div>
+        </div>
+        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-base-300 cursor-not-allowed">
+          <span class="text-sm font-semibold leading-5 text-base-content/30">Disabled</span>
+          <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-white">
+            <span class="text-sm leading-5 text-base-content/30">100</span>
           </div>
         </div>
       </div>
