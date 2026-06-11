@@ -4709,10 +4709,29 @@
                 "font": "text-xs font-semibold",
                 "icons": "file-down + chevron-right 12px"
               }
+            },
+            {
+              "variant": "Error text (RadioButton 行)",
+              "tokens": {
+                "font": "text-xs",
+                "color": "text-error"
+              }
             }
           ]
         }
       ],
+      "spec": {
+        "behavior": [
+          {
+            "action": "RadioButton 行のエラー表示",
+            "detail": "form モード（Add 等）の RadioButton 系 prop 行（区分 / 納品先）で未選択のままバリデーションされた場合、radio-group の下にエラー文言「選択しましょう」（validator/required/選択しましょう、i18n: errors.required.select）を表示する"
+          },
+          {
+            "action": "社内メモ（TextArea 行）のエラー表示",
+            "detail": "TextArea の既存 Error 仕組みをそのまま使用（State=Error + ErrorText、errors.length.max_5000）"
+          }
+        ]
+      },
       "hasExamples": true
     },
     {
