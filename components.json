@@ -4744,7 +4744,7 @@
               "tokens": {
                 "ref": "button",
                 "color": "Tertiary",
-                "size": "md",
+                "size": "lg",
                 "icon": "chevron-left (14px)",
                 "label": "戻る"
               }
@@ -4759,7 +4759,7 @@
               "tokens": {
                 "ref": "button",
                 "color": "Tertiary",
-                "size": "md",
+                "size": "lg",
                 "width": "w-48 (192px)",
                 "icon": "save (14px)"
               }
@@ -4769,7 +4769,7 @@
               "tokens": {
                 "ref": "button",
                 "color": "Primary",
-                "size": "md",
+                "size": "lg",
                 "width": "w-48 (192px)",
                 "icon": "send (14px)"
               }
@@ -4781,7 +4781,7 @@
         "anatomy": [
           {
             "part": "BackButton",
-            "description": "左端の戻るボタン（オプション、Tertiary md + chevron-left）"
+            "description": "左端の戻るボタン（オプション、Tertiary lg + chevron-left）"
           },
           {
             "part": "Spacer",
@@ -4789,7 +4789,7 @@
           },
           {
             "part": "CTA Group",
-            "description": "右端のサブCTA（Tertiary）+ メインCTA（Primary）。各 w-48"
+            "description": "右端のサブCTA（Tertiary lg）+ メインCTA（Primary lg）。各 w-48"
           }
         ],
         "behavior": [
