@@ -326,7 +326,7 @@
             cellInputClass(error) {
               return error
                 ? 'bg-white border-2 border-error px-[7px] py-[3px]'
-                : 'bg-transparent border border-transparent px-2 py-1 hover:bg-white hover:border-base-content/20 focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]'
+                : 'bg-transparent border border-transparent px-2 py-1 group-hover:bg-white group-hover:border-base-content/20 focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]'
             }
           }
         }
@@ -366,7 +366,7 @@
               <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
             </div>
             <!-- 品名 (Cell Text) -->
-            <div class="flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200">
+            <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
               <input x-model="row.name" @blur="validate(row, 'name')" @input="row.nameError = false"
                 class="h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none"
                 :class="cellInputClass(row.nameError)">
@@ -379,7 +379,7 @@
             </div>
             <div x-show="!specOpen" class="w-[58px] shrink-0 border-b border-base-content/10"></div>
             <!-- 数量 (Cell Text / Number) -->
-            <div class="w-24 shrink-0 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200">
+            <div class="group w-24 shrink-0 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
               <input x-model="row.qty" @blur="validate(row, 'qty')" @input="row.qtyError = false"
                 class="h-6 w-full text-xs leading-4 text-base-content text-right rounded-md focus-visible:outline-none"
                 :class="cellInputClass(row.qtyError)">
@@ -433,9 +433,9 @@
                 <div x-show="mail.dest === 'cc'" class="absolute inset-[5px] rounded-full bg-primary"></div>
               </div>
             </div>
-            <div class="flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200">
+            <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
               <input x-model="mail.addr"
-                class="h-6 w-full text-xs leading-4 text-base-content rounded-md bg-transparent border border-transparent px-2 py-1 hover:bg-white hover:border-base-content/20 focus-visible:outline-none focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]">
+                class="h-6 w-full text-xs leading-4 text-base-content rounded-md bg-transparent border border-transparent px-2 py-1 group-hover:bg-white group-hover:border-base-content/20 focus-visible:outline-none focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]">
             </div>
           </div>
         </template>
