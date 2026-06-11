@@ -72,9 +72,9 @@
         行: ラベル w-15 (60px) 右揃え text-base-content/60 leading-5 + 値 px-2 text-base-content leading-5
         Hover: セル bg-base-200、値が Select (カテゴリー w-28 + chevron-down 12px) / Input (flex-1) に変わる
         Disabled: px-3 py-2。品名 + 要約リスト (ラベル列 border-l-2 base-content/10 pl-1.5 text-base-content/30 右揃え / 値列 text-base-content/60)
-      Cell / Icon: w-7 h-13 (52px) centered, アイコン 14px text-base-content/60
+      Cell / Icon: w-7 h-13 (52px) centered, アイコン 14px text-base-content/60。hover でセル bg-base-200
         Drug: grip-vertical (行の並び替えハンドル) / Copy: copy / Delete: trash
-      Cell / Radio: size-12 centered。Radio 20px は radio-group の Radio 型と同スタイル
+      Cell / Radio: size-12 centered。Radio 20px は radio-group の Radio 型と同スタイル。hover でセル bg-base-200
         ON: shadow-border-primary + 中央ドット bg-primary / OFF: shadow-border-base-content-20
       Cell / Button: size-12 centered。IconButton p-2 rounded-md border base-content/5
         ON: bg-secondary + eye 16px text-secondary-content / OFF: bg-base-200 + eye-off 16px text-base-content
@@ -240,19 +240,19 @@
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Icon</p>
       <div class="flex gap-6 items-end">
         <div>
-          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center">
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
             <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content/60"></i>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Drug</p>
         </div>
         <div>
-          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center">
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
             <i data-lucide="copy" class="w-3.5 h-3.5 text-base-content/60"></i>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Copy</p>
         </div>
         <div>
-          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center">
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
             <i data-lucide="trash" class="w-3.5 h-3.5 text-base-content/60"></i>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Delete</p>
@@ -265,7 +265,7 @@
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Radio</p>
       <div class="flex gap-6 items-end">
         <div>
-          <div class="size-12 border-b border-base-content/10 flex items-center justify-center">
+          <div class="size-12 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
             <div class="relative size-5 rounded-full bg-white shadow-border-primary">
               <div class="absolute inset-[5px] rounded-full bg-primary"></div>
             </div>
@@ -273,7 +273,7 @@
           <p class="text-[10px] text-gray-400 mt-1.5">ON</p>
         </div>
         <div>
-          <div class="size-12 border-b border-base-content/10 flex items-center justify-center">
+          <div class="size-12 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
             <div class="relative size-5 rounded-full bg-white shadow-border-base-content-20"></div>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">OFF</p>
@@ -362,7 +362,7 @@
         <template x-for="(row, i) in rows" :key="i">
           <div class="flex items-stretch">
             <!-- Drug -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200">
               <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
             </div>
             <!-- 品名 (Cell Text) -->
@@ -401,13 +401,13 @@
               </button>
             </div>
             <!-- Copy -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
               <button @click="copyRow(i)" class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
               </button>
             </div>
             <!-- Delete -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
               <button @click="deleteRow(i)" class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
               </button>
@@ -428,14 +428,14 @@
         </div>
         <template x-for="(mail, i) in mails" :key="i">
           <div class="flex items-stretch">
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
               <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
                 :class="mail.dest === 'to' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
                 @click="mail.dest = 'to'" @keydown.enter.prevent="mail.dest = 'to'">
                 <div x-show="mail.dest === 'to'" class="absolute inset-[5px] rounded-full bg-primary"></div>
               </div>
             </div>
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
               <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
                 :class="mail.dest === 'cc' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
                 @click="mail.dest = 'cc'" @keydown.enter.prevent="mail.dest = 'cc'">

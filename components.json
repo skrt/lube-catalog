@@ -6136,7 +6136,8 @@
               "tokens": {
                 "size": "w-7 h-13 (28×52px)",
                 "icon": "14px (w-3.5 h-3.5)",
-                "color": "text-base-content/60"
+                "color": "text-base-content/60",
+                "cell-hover": "hover:bg-base-200"
               }
             },
             {
@@ -6168,6 +6169,7 @@
               "tokens": {
                 "cell-size": "size-12 (48px)",
                 "radio": "size-5 rounded-full bg-white（radio-group の Radio 型と同スタイル）",
+                "cell-hover": "hover:bg-base-200",
                 "ref": "radio-group"
               }
             },
@@ -6273,6 +6275,11 @@
             "transition": "仕様セル: Default → Hover",
             "trigger": "セルにマウスオーバー",
             "effect": "セルの背景がグレーになり、各行の値が Select / Input に変わり編集できる"
+          },
+          {
+            "transition": "Cell Icon / Cell Radio: Default → Hover",
+            "trigger": "セルにマウスオーバー",
+            "effect": "セルの背景がグレーになる"
           },
           {
             "transition": "Cell Button: ON ⇄ OFF",
