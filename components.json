@@ -6067,9 +6067,9 @@
             {
               "variant": "Hover",
               "tokens": {
-                "cell-background": "bg-base-200",
+                "row-background": "bg-base-200（行 hover で行全体に適用）",
                 "cell-padding": "py-2 px-0",
-                "input": "h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md"
+                "input": "h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md（セル hover で出現）"
               }
             },
             {
@@ -6112,9 +6112,9 @@
             {
               "variant": "Hover",
               "tokens": {
-                "cell-background": "bg-base-200",
-                "select": "w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行）。Menu は select コンポーネント準拠",
-                "input": "flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md（その他の行）"
+                "row-background": "bg-base-200（行 hover で行全体に適用）",
+                "select": "w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行、セル hover で出現）。Menu は select コンポーネント準拠",
+                "input": "flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md（その他の行、セル hover で出現）"
               }
             },
             {
@@ -6137,7 +6137,8 @@
                 "size": "w-7 h-13 (28×52px)",
                 "icon": "14px (w-3.5 h-3.5)",
                 "color": "text-base-content/60",
-                "cell-hover": "hover:bg-base-200"
+                "row-hover": "bg-base-200（行 hover で行全体に適用）",
+                "cell-hover": "hover:bg-base-300（行背景より一段暗い）"
               }
             },
             {
@@ -6169,7 +6170,7 @@
               "tokens": {
                 "cell-size": "size-12 (48px)",
                 "radio": "size-5 rounded-full bg-white（radio-group の Radio 型と同スタイル）",
-                "cell-hover": "hover:bg-base-200",
+                "row-hover": "bg-base-200（行 hover で行全体に適用）",
                 "ref": "radio-group"
               }
             },
@@ -6257,9 +6258,14 @@
         ],
         "states": [
           {
+            "transition": "行: Default → Hover",
+            "trigger": "行にマウスオーバー",
+            "effect": "行全体の背景がグレーになる"
+          },
+          {
             "transition": "Cell Text: Default → Hover",
             "trigger": "セルにマウスオーバー",
-            "effect": "セルの背景がグレーになり、インライン入力欄が表示される"
+            "effect": "インライン入力欄が表示される"
           },
           {
             "transition": "Cell Text: Hover → Focus",
@@ -6274,12 +6280,12 @@
           {
             "transition": "仕様セル: Default → Hover",
             "trigger": "セルにマウスオーバー",
-            "effect": "セルの背景がグレーになり、各行の値が Select / Input に変わり編集できる"
+            "effect": "各行の値が Select / Input に変わり編集できる"
           },
           {
-            "transition": "Cell Icon / Cell Radio: Default → Hover",
+            "transition": "Cell Icon: Default → Hover",
             "trigger": "セルにマウスオーバー",
-            "effect": "セルの背景がグレーになる"
+            "effect": "セルの背景が行の背景より一段暗くなる"
           },
           {
             "transition": "Cell Button: ON ⇄ OFF",

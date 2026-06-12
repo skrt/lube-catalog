@@ -64,17 +64,17 @@
         None: 空ヘッダー (w-7、アイコン列用)
       Cell / Text: border-b base-content/10, min-h-12, text-xs leading-4
         Default: px-2 py-3, text-base-content
-        Hover: セル bg-base-200 py-2 px-0、インライン入力欄が出現 (h-6 px-2 py-1 bg-white border base-content/20 rounded-md)
+        Hover: 行 hover で行全体が bg-base-200。セル hover でインライン入力欄が出現 (セル py-2 px-0、入力欄 h-6 px-2 py-1 bg-white border base-content/20 rounded-md)
         Focus: セル p-0、入力欄 border-2 primary (padding 補正 px-[7px] py-[3px])
         Error: セル p-0、入力欄 border-2 error (padding 補正 px-[7px] py-[3px])
         Disabled: px-2 py-3, bg-base-100 (white), text-base-content/60
       Cell / Text (仕様セル Props=True): p-2, 行 h-6 gap-1
         行: ラベル w-15 (60px) 右揃え text-base-content/60 leading-5 + 値 px-2 text-base-content leading-5
-        Hover: セル bg-base-200、値が Select (カテゴリー w-28 + chevron-down 12px) / Input (flex-1) に変わる
+        Hover: 行 hover で bg-base-200。セル hover で値が Select (カテゴリー w-28 + chevron-down 12px) / Input (flex-1) に変わる
         Disabled: px-3 py-2。品名 + 要約リスト (ラベル列 border-l-2 base-content/10 pl-1.5 text-base-content/30 右揃え / 値列 text-base-content/60)
-      Cell / Icon: w-7 h-13 (52px) centered, アイコン 14px text-base-content/60。hover でセル bg-base-200
+      Cell / Icon: w-7 h-13 (52px) centered, アイコン 14px text-base-content/60。行 hover で bg-base-200、セル hover で一段暗い bg-base-300
         Drug: grip-vertical (行の並び替えハンドル) / Copy: copy / Delete: trash
-      Cell / Radio: size-12 centered。Radio 20px は radio-group の Radio 型と同スタイル。hover でセル bg-base-200
+      Cell / Radio: size-12 centered。Radio 20px は radio-group の Radio 型と同スタイル。行 hover で bg-base-200
         ON: shadow-border-primary + 中央ドット bg-primary / OFF: shadow-border-base-content-20
       Cell / Button: size-12 centered。IconButton p-2 rounded-md border base-content/5
         ON: bg-secondary + eye 16px text-secondary-content / OFF: bg-base-200 + eye-off 16px text-base-content
@@ -240,19 +240,19 @@
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Cell Icon</p>
       <div class="flex gap-6 items-end">
         <div>
-          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-300">
             <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content/60"></i>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Drug</p>
         </div>
         <div>
-          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-300">
             <i data-lucide="copy" class="w-3.5 h-3.5 text-base-content/60"></i>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Copy</p>
         </div>
         <div>
-          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200">
+          <div class="w-7 h-13 border-b border-base-content/10 flex items-center justify-center hover:bg-base-300">
             <i data-lucide="trash" class="w-3.5 h-3.5 text-base-content/60"></i>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Delete</p>
@@ -378,9 +378,9 @@
         </div>
         <!-- Data Rows -->
         <template x-for="(row, i) in rows" :key="i">
-          <div class="flex items-stretch" :class="dragIndex === i ? 'opacity-50 bg-base-200' : ''" @dragenter.prevent="dragEnter(i)" @dragover.prevent>
+          <div class="flex items-stretch hover:bg-base-200" :class="dragIndex === i ? 'opacity-50 bg-base-200' : ''" @dragenter.prevent="dragEnter(i)" @dragover.prevent>
             <!-- Drug -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-200" draggable="true" @dragstart="dragStart($event, i)" @dragend="dragIndex = null; $event.currentTarget.parentElement.classList.remove('bg-base-200')">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-grab hover:bg-base-300" draggable="true" @dragstart="dragStart($event, i)" @dragend="dragIndex = null; $event.currentTarget.parentElement.classList.remove('bg-base-200')">
               <svg class="w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
             </div>
             <!-- 表示トグル (Cell Button) -->
@@ -391,13 +391,13 @@
               </button>
             </div>
             <!-- 品名 (Cell Text) -->
-            <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
+            <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
               <input x-model="row.name" @blur="validate(row, 'name')" @input="row.nameError = false"
                 class="h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none"
                 :class="cellInputClass(row.nameError)">
             </div>
             <!-- 仕様 (Cell Text 仕様セル) -->
-            <div x-show="specOpen" class="group w-72 shrink-0 p-2 border-b border-base-content/10 flex flex-col gap-1 justify-center hover:bg-base-200">
+            <div x-show="specOpen" class="group w-72 shrink-0 p-2 border-b border-base-content/10 flex flex-col gap-1 justify-center">
               <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60 shrink-0">カテゴリー</p>
                 <div class="relative" @click.away="catOpen === i && (catOpen = null)">
                   <div class="w-28 h-6 rounded-md flex gap-2 items-center cursor-pointer outline-none" tabindex="0"
@@ -426,19 +426,19 @@
             </div>
             <div x-show="!specOpen" class="w-[58px] shrink-0 border-b border-base-content/10"></div>
             <!-- 数量 (Cell Text / Number) -->
-            <div class="group w-24 shrink-0 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
+            <div class="group w-24 shrink-0 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
               <input x-model="row.qty" @blur="validate(row, 'qty')" @input="row.qtyError = false"
                 class="h-6 w-full text-xs leading-4 text-base-content text-right rounded-md focus-visible:outline-none"
                 :class="cellInputClass(row.qtyError)">
             </div>
             <!-- Copy -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="copyRow(i)">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-300 cursor-pointer" @click="copyRow(i)">
               <button class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
               </button>
             </div>
             <!-- Delete -->
-            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="deleteRow(i)">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-300 cursor-pointer" @click="deleteRow(i)">
               <button class="text-base-content/60 hover:text-base-content rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
               </button>
@@ -458,22 +458,22 @@
           </div>
         </div>
         <template x-for="(mail, i) in mails" :key="i">
-          <div class="flex items-stretch">
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="mail.dest = 'to'">
+          <div class="flex items-stretch hover:bg-base-200">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-pointer" @click="mail.dest = 'to'">
               <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
                 :class="mail.dest === 'to' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
                 @keydown.enter.prevent="mail.dest = 'to'">
                 <div x-show="mail.dest === 'to'" class="absolute inset-[5px] rounded-full bg-primary"></div>
               </div>
             </div>
-            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center hover:bg-base-200 cursor-pointer" @click="mail.dest = 'cc'">
+            <div class="w-12 shrink-0 border-b border-base-content/10 flex items-center justify-center cursor-pointer" @click="mail.dest = 'cc'">
               <div class="relative size-5 rounded-full bg-white cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0"
                 :class="mail.dest === 'cc' ? 'shadow-border-primary' : 'shadow-border-base-content-20 hover:shadow-border-2-primary'"
                 @keydown.enter.prevent="mail.dest = 'cc'">
                 <div x-show="mail.dest === 'cc'" class="absolute inset-[5px] rounded-full bg-primary"></div>
               </div>
             </div>
-            <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center hover:bg-base-200 cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
+            <div class="group flex-1 min-h-12 py-2 px-0 border-b border-base-content/10 flex flex-col justify-center cursor-text" @click="$event.currentTarget.querySelector('input').focus()">
               <input x-model="mail.addr"
                 class="h-6 w-full text-xs leading-4 text-base-content rounded-md bg-transparent border border-transparent px-2 py-1 group-hover:bg-white group-hover:border-base-content/20 focus-visible:outline-none focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]">
             </div>
