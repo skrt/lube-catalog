@@ -410,7 +410,7 @@
                   </div>
                   <div x-show="catOpen === i" x-transition class="absolute top-full left-0 w-28 mt-1 max-h-60 overflow-y-auto py-1 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
                     <template x-for="opt in categories" :key="opt">
-                      <div @click="row.spec.category = opt; catOpen = null" class="flex items-center px-3 py-2 cursor-pointer text-sm text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
+                      <div @click="row.spec.category = opt; catOpen = null" class="flex items-center h-6 px-2 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
                         <span x-text="opt"></span>
                       </div>
                     </template>
