@@ -1047,6 +1047,7 @@
                 "border": "border border-base-content/10",
                 "radius": "rounded-md (6px)",
                 "shadow": "shadow-lg",
+                "padding": "py-1.5 (6px)",
                 "max-height": "max-h-60 (240px)",
                 "offset": "mt-1 (トリガーとの間隔)"
               }
@@ -1055,7 +1056,7 @@
               "variant": "item / sm",
               "tokens": {
                 "height": "h-6 (24px)",
-                "padding": "px-2",
+                "padding": "px-3",
                 "font-size": "text-xs (12px)"
               }
             },
@@ -1063,7 +1064,7 @@
               "variant": "item / md",
               "tokens": {
                 "height": "h-8 (32px)",
-                "padding": "px-3",
+                "padding": "px-4",
                 "font-size": "text-sm (14px)"
               }
             },
@@ -1071,7 +1072,7 @@
               "variant": "item / lg",
               "tokens": {
                 "height": "h-10 (40px)",
-                "padding": "px-3",
+                "padding": "px-4",
                 "font-size": "text-base (16px)"
               }
             }

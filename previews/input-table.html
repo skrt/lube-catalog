@@ -408,9 +408,9 @@
                     <p class="flex-1 text-xs leading-4 text-base-content truncate" x-text="row.spec.category"></p>
                     <svg class="w-3 h-3 text-base-content shrink-0 transition-transform" :class="catOpen === i ? 'opacity-100 rotate-180' : 'opacity-0 group-hover:opacity-100'" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                   </div>
-                  <div x-show="catOpen === i" x-transition class="absolute top-full left-0 w-28 mt-1 max-h-60 overflow-y-auto py-1 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+                  <div x-show="catOpen === i" x-transition class="absolute top-full left-0 w-28 mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
                     <template x-for="opt in categories" :key="opt">
-                      <div @click="row.spec.category = opt; catOpen = null" class="flex items-center h-6 px-2 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
+                      <div @click="row.spec.category = opt; catOpen = null" class="flex items-center h-6 px-3 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
                         <span x-text="opt"></span>
                       </div>
                     </template>
