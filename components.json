@@ -1884,6 +1884,12 @@
           "type": "string",
           "default": "補足メッセージ",
           "description": "本文テキスト"
+        },
+        {
+          "name": "Show Description",
+          "type": "boolean",
+          "default": true,
+          "description": "補足メッセージの表示/非表示。falseでアイコン+タイトルのみのコンパクト表示"
         }
       ],
       "tokens": [
@@ -4146,6 +4152,8 @@
               "variant": "Default",
               "tokens": {
                 "background": "bg-base-200",
+                "padding": "px-4 py-2 (16px 8px)",
+                "font-size": "text-sm (14px)",
                 "color": "text-base-content/60",
                 "align": "left"
               }
@@ -4154,6 +4162,8 @@
               "variant": "Number",
               "tokens": {
                 "background": "bg-base-200",
+                "padding": "px-4 py-2 (16px 8px)",
+                "font-size": "text-sm (14px)",
                 "color": "text-base-content/60",
                 "align": "right (justify-end)"
               }
@@ -5781,7 +5791,7 @@
           "name": "Actions",
           "type": "slot",
           "default": "-",
-          "description": "右側のアクションボタン群"
+          "description": "右側のアクションボタン群（最大4個。4つ目は任意表示）"
         }
       ],
       "tokens": [
