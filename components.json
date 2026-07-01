@@ -932,6 +932,12 @@
           "description": "セレクトの状態"
         },
         {
+          "name": "multiple",
+          "type": "boolean",
+          "default": false,
+          "description": "複数選択。選択項目は背景色（bg-secondary + text-primary）で表現しチェックマークは使わない。トリガー表示は選択値を「/」区切りで連結、未選択時はプレースホルダー。メニューはクリックで開閉維持（都度閉じない）"
+        },
+        {
           "name": "label",
           "type": "string",
           "default": "ラベル",

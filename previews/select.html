@@ -108,6 +108,51 @@
     </div>
   </section>
 
+  <!-- 複数選択 -->
+  <section x-data="multiSelectDemo()">
+    <script data-demo-keep>
+      function multiSelectDemo() {
+        return {
+          open: false,
+          selected: [],
+          options: ['山田 花子', '田中 太郎', '佐藤 次郎', '鈴木 三郎', '高橋 美咲'],
+          toggle(o) { const i = this.selected.indexOf(o); if (i >= 0) this.selected.splice(i, 1); else this.selected.push(o); },
+          isSelected(o) { return this.selected.includes(o); },
+          get label() { return this.selected.length ? this.selected.join(' / ') : '複数選択できます'; }
+        };
+      }
+    </script>
+    <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>複数選択</p>
+    <div class="w-72 space-y-1">
+      <label class="block text-sm text-base-content">担当者 <span class="text-error">*</span></label>
+      <div class="relative" @click.away="open = false">
+        <div
+          @click="open = !open"
+          @keydown.escape="open = false"
+          tabindex="0"
+          @keydown.enter.prevent="open = !open"
+          class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none"
+          :class="open ? 'border-2 border-primary px-[11px] py-[7px]' : 'border border-base-content/20 px-3 py-2'"
+        >
+          <span class="flex-1 text-sm truncate" :class="selected.length ? 'text-base-content' : 'text-base-content/30'" x-text="label"></span>
+          <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div x-show="open" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+          <template x-for="option in options" :key="option">
+            <div
+              @click="toggle(option)"
+              class="flex items-center h-8 px-4 cursor-pointer text-sm"
+              :class="isSelected(option) ? 'bg-secondary text-primary' : 'text-base-content hover:bg-base-200'"
+            >
+              <span class="flex-1 truncate" x-text="option"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+      <p class="text-xs text-base-content/60">選択済みは「/」区切りで表示。選択項目は背景色で表現（チェックマークなし）</p>
+    </div>
+  </section>
+
   <!-- Sizes -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>Sizes</p>
