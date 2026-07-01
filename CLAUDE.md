@@ -9,18 +9,65 @@ components.json     # コンポーネント登録簿
 previews/           # 各コンポーネントの HTML プレビューファイル
 ```
 
-## コンポーネント追加手順
-1. `previews/` に HTML ファイルを作成（例: `button.html`）
-2. `components.json` の `components` 配列にエントリを追加:
+## カタログ構造仕様（テンプレート）
+
+カタログは **ビューア `index.html` が定義する固定テンプレート**で構成される。各コンポーネントは components.json のフラグで**必要なセクションだけを点灯**させる（統一テンプレートからの取捨選択）。追加・変更は必ずこの構造に従う。
+
+### セクション（固定順・出所・点灯条件）
+
+| # | セクション | 出所 | 点灯条件 |
+|---|---|---|---|
+| 1 | Variants | preview HTML（`?view=preview`） | 常時 |
+| 2 | Examples | preview の `#examples-section`（`?view=examples`） | components.json `hasExamples: true` |
+| 3 | Props | components.json `props[]` | props が非空 |
+| 4 | Tokens | components.json `tokens[]` | tokens が非空 |
+| 5 | Demo | preview の `#demo-section`（`?view=demo`） | components.json `hasDemo: true` |
+| 6 | Spec | components.json `spec`（states / behavior / keyboard / anatomy） | spec が存在 |
+
+- preview HTML が持つのは **Variants 本体 ＋（任意で）`#demo-section` / `#examples-section`** だけ。
+- **Props / Tokens / Spec は preview に書かない**。すべて components.json のデータ（ビューアが表で描画）。
+- **セクション見出し（`text-xl uppercase`）はビューアが描画する。preview に手書きしない**（二重見出しになる）。
+
+### 追加物 → 行き先（配置判断マップ）
+
+| 入ってくるもの | 行き先 | 実体 |
+|---|---|---|
+| 状態 / サイズ等のバリアント | Variants | preview 本体に dot小見出し（`text-xs text-gray-400 tracking-wider` ＋ドット）で追加 |
+| 操作できるデモ | Demo | preview に `#demo-section` ＋ components.json `hasDemo: true` |
+| 利用パターン / 画面例 | Examples | preview に `#examples-section` ＋ `hasExamples: true` ＋ top-script を view 3分割対応に |
+| プロパティ | Props | components.json `props[]`（既存の粒度・順序に合わせる） |
+| デザイントークン | Tokens | components.json `tokens[]`（category → items → tokens 構造） |
+| 挙動 / 状態遷移 / キー操作 | Spec | components.json `spec.{states, behavior, keyboard}` |
+
+迷ったら**新セクション見出しを作らず既存に寄せる**。テンプレにきれいに収まらない場合は勝手に作らず**ユーザーに確認**する。
+
+### 不変則（追加・変更後の必須セルフレビュー）
+
+- **フラグ↔マーカーは必ずペア**：`hasDemo` ⇔ `#demo-section` / `hasExamples` ⇔ `#examples-section`（片方だけは禁止）
+- Examples を持つ preview は top-script が `view === "examples"` を処理していること
+- components.json の各エントリは同じキー構成を保つ：`id / name / description / category / preview / figmaUrl / hasDemo / hasExamples / props / tokens / spec`
+- `category` は既存7種から選ぶ：`design-tokens / actions / forms / data-display / feedback / navigation / layout`
+- preview にセクション見出し（`text-xl uppercase`）を書いていないこと
+
+## コンポーネント追加・変更手順
+0. **着手前に上記「カタログ構造仕様」と、対象ファイル（該当 preview ＋ components.json エントリ）の既存構成を確認する。** 末尾に単純追加せず、配置判断マップに従って行き先を決める
+1. `previews/` に HTML ファイルを作成/編集（Variants 本体 ＋ 必要なら `#demo-section` / `#examples-section`）
+2. `components.json` の `components` 配列にエントリを追加/更新（既存エントリと同じキー構成）:
    ```json
    {
      "id": "button",
      "name": "Button",
-     "file": "button.html",
-     "category": "actions"
+     "description": "ボタン",
+     "category": "actions",
+     "preview": "previews/button.html",
+     "hasDemo": false,
+     "hasExamples": false,
+     "props": [],
+     "tokens": []
    }
    ```
 3. lube 本体の `CLAUDE.md` のコンポーネント一覧も更新する
+4. 不変則（上記）をセルフレビューする
 
 ## プレビューサーバー
 ```bash
@@ -68,7 +115,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - `tabindex="0"` と `@keydown.enter` は操作対象の要素に付け、クリックエリアは親要素で広く取る
 
 ### 見出し体系（セクションタイトル / サブタイトル）
-- **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase`
+- **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase` ※これは**ビューアが描画する**スタイル。preview HTML には手書きしない（→「カタログ構造仕様」参照）。preview 内で使うのはサブタイトル以下
 - **サブタイトル**（Sizes, States, Color 等）: `flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4` + ドット `<span class="w-1 h-1 rounded-full bg-gray-300"></span>`
 - サブタイトルに `capitalize` / `uppercase` は使わない（md が Md になる問題を防ぐ）
 - サブタイトルにコンポーネント名を含めない（例: ✕ ComboBoxMenu Variants → ○ Menu）
