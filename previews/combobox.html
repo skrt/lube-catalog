@@ -92,6 +92,7 @@
             x-model="query"
             @input="open = true; activeIndex = -1"
             @click="open = true"
+            @focus="open = true"
             @keydown.arrow-down.prevent="onArrowDown()"
             @keydown.arrow-up.prevent="onArrowUp()"
             @keydown.enter.prevent="onEnter()"

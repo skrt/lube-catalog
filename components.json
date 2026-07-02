@@ -1193,8 +1193,8 @@
         "states": [
           {
             "transition": "Default → Focus",
-            "trigger": "クリック",
-            "effect": "ドロップダウンメニューが開く"
+            "trigger": "クリック or Tab フォーカス",
+            "effect": "クリックではメニューが開く。Tab フォーカス時は枠が強調表示されるだけでメニューは開かない（キーボード操作時のみ・マウスクリックのフォーカスでは出さない）"
           },
           {
             "transition": "Focus → Filled",

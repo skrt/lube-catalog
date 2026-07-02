@@ -96,7 +96,7 @@
             @keydown.escape="onEscape()"
             @keydown.tab="open = false"
             tabindex="0"
-            class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none border border-base-content/20 px-3 py-2"
+            class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none border border-base-content/20 px-3 py-2 focus-visible:border-2 focus-visible:border-primary focus-visible:px-[11px] focus-visible:py-[7px]"
             :class="{ 'border-2 border-primary px-[11px] py-[7px]': open, 'border border-base-content/20 px-3 py-2': !open }"
           >
             <span class="flex-1 text-sm truncate" :class="selected ? 'text-base-content' : 'text-base-content/30'" x-text="selected || '選択しましょう'"></span>
@@ -127,7 +127,7 @@
             @keydown.escape="open = false"
             tabindex="0"
             @keydown.enter.prevent="open = !open"
-            class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none border border-base-content/20 px-3 py-2"
+            class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none border border-base-content/20 px-3 py-2 focus-visible:border-2 focus-visible:border-primary focus-visible:px-[11px] focus-visible:py-[7px]"
             :class="{ 'border-2 border-primary px-[11px] py-[7px]': open, 'border border-base-content/20 px-3 py-2': !open }"
           >
             <span class="flex-1 text-sm truncate" :class="selected.length ? 'text-base-content' : 'text-base-content/30'" x-text="label"></span>
