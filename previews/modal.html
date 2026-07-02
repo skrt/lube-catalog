@@ -57,7 +57,7 @@
     Content:  px-6 py-4, text-sm (14px) leading-5, text-base-content/60
     Footer:   px-6 py-4 gap-3, justify-end
               Count text (optional): text-sm, text-base-content/60
-              Buttons: md size (px-3 py-2 text-xs font-semibold rounded-md)
+              Buttons: md size (h-8 px-3 py-2 text-xs font-semibold rounded-md)
     Behavior (shizai-pro):
       - opacity 0 → 1 (200ms) for backdrop
       - opacity 0 + scale-95 → opacity 1 + scale-100 (200ms) for panel
@@ -72,11 +72,11 @@
       <div class="flex flex-wrap items-center gap-3">
         <button
           onclick="openModal('confirm')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          class="inline-flex items-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >確認モーダルを開く</button>
         <button
           onclick="openModal('delete')"
-          class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          class="inline-flex items-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >削除確認モーダルを開く</button>
       </div>
     </div>
@@ -93,8 +93,8 @@
             <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
           </div>
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
+            <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
           </div>
         </div>
       </div>
@@ -108,8 +108,8 @@
         <div>
           <div class="w-96 rounded-xl bg-white border border-gray-200">
             <div class="flex items-center justify-end gap-3 px-6 py-4">
-              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
             </div>
           </div>
           <p class="text-[10px] text-gray-400 mt-1 ml-1">Without count</p>
@@ -119,8 +119,8 @@
           <div class="w-96 rounded-xl bg-white border border-gray-200">
             <div class="flex items-center justify-end gap-3 px-6 py-4">
               <p class="flex-1 text-sm leading-5 text-base-content/60">0件選択中</p>
-              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
             </div>
           </div>
           <p class="text-[10px] text-gray-400 mt-1 ml-1">With count</p>
@@ -129,8 +129,8 @@
         <div>
           <div class="w-96 rounded-xl bg-white border border-gray-200">
             <div class="flex items-center justify-end gap-3 px-6 py-4">
-              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-error-content rounded-md bg-error border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">削除</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-error-content rounded-md bg-error border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">削除</button>
             </div>
           </div>
           <p class="text-[10px] text-gray-400 mt-1 ml-1">Danger</p>
@@ -151,8 +151,8 @@
             <p class="text-sm leading-5 text-base-content/60">この操作を実行してよろしいですか？この操作は取り消せません</p>
           </div>
           <div class="flex items-center justify-end gap-3 px-6 py-4">
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-            <button class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
+            <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
+            <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">承認</button>
           </div>
         </div>
       </div>
@@ -173,8 +173,8 @@
         <p id="modal-body" class="text-sm leading-5 text-base-content/60"></p>
       </div>
       <div class="flex items-center justify-end gap-3 px-6 py-4">
-        <button onclick="closeModal()" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-        <button id="modal-confirm" onclick="closeModal()" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded-md border border-base-content/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"></button>
+        <button onclick="closeModal()" class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
+        <button id="modal-confirm" onclick="closeModal()" class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold rounded-md border border-base-content/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"></button>
       </div>
     </div>
   </div>
@@ -201,7 +201,7 @@
       document.getElementById('modal-body').textContent = cfg.body;
       const confirmBtn = document.getElementById('modal-confirm');
       confirmBtn.textContent = cfg.confirmLabel;
-      confirmBtn.className = 'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded-md border border-base-content/5 transition-colors ' + cfg.confirmClass;
+      confirmBtn.className = 'inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold rounded-md border border-base-content/5 transition-colors ' + cfg.confirmClass;
 
       const container = document.getElementById('modal-container');
       container.classList.remove('hidden');

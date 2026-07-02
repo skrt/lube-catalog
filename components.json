@@ -196,6 +196,7 @@
             {
               "variant": "sm",
               "tokens": {
+                "height": "h-6 (24px)",
                 "padding": "px-2 py-1",
                 "font-size": "text-xs (12px)",
                 "line-height": "leading-4 (16px)",
@@ -205,6 +206,7 @@
             {
               "variant": "md",
               "tokens": {
+                "height": "h-8 (32px)",
                 "padding": "px-3 py-2",
                 "font-size": "text-xs (12px)",
                 "line-height": "leading-4 (16px)",
@@ -214,6 +216,7 @@
             {
               "variant": "lg",
               "tokens": {
+                "height": "h-10 (40px)",
                 "padding": "px-4 py-2.5",
                 "font-size": "text-sm (14px)",
                 "line-height": "leading-5 (20px)",
@@ -348,21 +351,21 @@
             {
               "variant": "sm",
               "tokens": {
-                "padding": "p-1.5",
+                "size": "w-6 h-6 (24px)",
                 "icon": "12px (w-3)"
               }
             },
             {
               "variant": "md",
               "tokens": {
-                "padding": "p-2",
+                "size": "w-8 h-8 (32px)",
                 "icon": "16px (w-4)"
               }
             },
             {
               "variant": "lg",
               "tokens": {
-                "padding": "p-2.5",
+                "size": "w-10 h-10 (40px)",
                 "icon": "20px (w-5)"
               }
             }
@@ -5874,7 +5877,7 @@
             {
               "variant": "container (Page・Actionsなし)",
               "tokens": {
-                "min-height": "min-h-10.5 (42px)"
+                "min-height": "min-h-10 (40px)"
               }
             }
           ]
@@ -5884,7 +5887,7 @@
         "behavior": [
           {
             "action": "行高の安定化（Page）",
-            "detail": "Page タイトル行はアクションボタン（lg・高さ42px）の有無で高さが変わらないよう、ボタンなしの場合も同じ42pxを最小高さとして維持する（画面遷移時にタイトル位置がガタつくのを防ぐ）"
+            "detail": "Page タイトル行はアクションボタン（lg・h-10=40px）の有無で高さが変わらないよう、ボタンなしの場合も min-h-10（40px）を最小高さとして維持する（画面遷移時にタイトル位置がガタつくのを防ぐ）"
           }
         ]
       }
