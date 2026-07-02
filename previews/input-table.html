@@ -514,6 +514,16 @@
       <!-- 見積書 -->
       <div>
         <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>見積書</p>
+        <!-- 顧客単価の一括変更バー（明細セクション先頭・InputTable直上 gap12。legendスタイル＝ラベルが箱の上辺に半分重なる） -->
+        <div class="relative w-fit flex items-center gap-4 bg-base-200 rounded-md p-4 mt-2 mb-3">
+          <p class="absolute -top-2 left-4 text-xs font-semibold leading-4 text-base-content">顧客単価の一括変更</p>
+          <div class="flex items-center gap-1">
+            <span class="text-sm leading-5 text-base-content">仕入単価 ×</span>
+            <input type="text" value="130" class="w-20 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
+            <span class="text-sm leading-5 text-base-content">%</span>
+          </div>
+          <button class="inline-flex items-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary rounded-md bg-secondary border border-base-content/5 hover:bg-secondary-hover transition-colors">適用</button>
+        </div>
         <div class="w-full min-w-7xl">
           <!-- Header Row -->
           <div class="flex items-stretch w-full">

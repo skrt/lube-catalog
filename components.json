@@ -1962,7 +1962,7 @@
               "variant": "all",
               "tokens": {
                 "padding": "px-4 py-3",
-                "radius": "rounded-lg (8px)",
+                "radius": "rounded-md (6px)",
                 "border": "border border-base-content/5",
                 "gap": "gap-1 (4px)",
                 "icon-size": "w-4 h-4 (16px)"
@@ -2057,7 +2057,7 @@
                 "height": "h-16 (64px)",
                 "padding": "px-4 py-3",
                 "gap": "gap-4 (16px)",
-                "radius": "rounded-lg (8px)",
+                "radius": "rounded-md (6px)",
                 "close-position": "top-3 right-4",
                 "icon-size": "w-5 h-5 (20px)"
               }
@@ -2333,6 +2333,22 @@
           "type": "slot",
           "default": "-",
           "description": "Footer のアクションボタン群"
+        },
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "sm",
+          "values": [
+            "sm",
+            "lg"
+          ],
+          "description": "ダイアログ幅。sm=max-w-sm(384px)／lg=max-w-lg(512px)。命名・値は Tailwind max-width スケール準拠（中間が必要になったら md=448）"
+        },
+        {
+          "name": "Close Icon",
+          "type": "boolean",
+          "default": false,
+          "description": "Header 右端の×ボタン（optional・既定OFF）"
         }
       ],
       "tokens": [
@@ -2352,9 +2368,20 @@
           "category": "Dialog",
           "items": [
             {
+              "variant": "sm",
+              "tokens": {
+                "width": "max-w-sm (384px)"
+              }
+            },
+            {
+              "variant": "lg",
+              "tokens": {
+                "width": "max-w-lg (512px)"
+              }
+            },
+            {
               "variant": "all",
               "tokens": {
-                "width": "w-96 (384px)",
                 "background": "bg-base-100 (white)",
                 "radius": "rounded-xl (12px)",
                 "shadow": "drop-shadow 0 16px 16px rgba(0,0,0,0.18)"
@@ -4929,7 +4956,7 @@
                 "width": "w-56 (224px)",
                 "background": "bg-base-200",
                 "padding": "p-4 (16px)",
-                "radius": "rounded-lg (8px)",
+                "radius": "なし（角丸なし・0）",
                 "gap": "gap-4 (16px)"
               }
             }
@@ -6413,6 +6440,10 @@
           {
             "action": "Disabled の仕様セル",
             "detail": "編集不可の要約表示になる（品名 + ラベル/値の圧縮リスト、空の属性行は省略）"
+          },
+          {
+            "action": "顧客単価の一括変更（見積書 Type）",
+            "detail": "テーブル直上（明細セクション先頭・gap12）の一括変更バーで「仕入単価 × N%」を入力し適用を押すと、全明細行の顧客単価に一括セットする（その場の操作のみ・永続化しない。バーの構成は EXAMPLES 見積書を参照）"
           }
         ],
         "keyboard": [
