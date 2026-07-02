@@ -312,15 +312,25 @@
             specOpen: true,
             rows: [
               { name: '60サイズブランドボックス', qty: '1,000', visible: true, nameError: false, qtyError: false,
-                spec: { category: 'ダンボール', size: '組立外寸 W310×D230×H280mm', shape: 'A式' } },
+                spec: { category: 'ダンボール', size: '組立外寸 W310×D230×H280mm', shape: 'A式', composition: '', thickness: '', paper: '', handle: '', printing: '', processing: '', other: '' } },
               { name: 'ショッパー', qty: '2,000', visible: true, nameError: false, qtyError: false,
-                spec: { category: 'ダンボール', size: '巾着外寸 W350×D120×H400mm', shape: '平紐' } }
+                spec: { category: 'ダンボール', size: '巾着外寸 W350×D120×H400mm', shape: '平紐', composition: '', thickness: '', paper: '', handle: '', printing: '', processing: '', other: '' } }
             ],
             mails: [
               { addr: 'test-test@example.com', dest: 'to' },
               { addr: 'test-test2@example.com', dest: 'cc' }
             ],
             categories: ['ダンボール', '軟包材', '化粧箱', '紙袋', 'その他'],
+            // カテゴリ別の仕様フィールド定義（[key, ラベル]）。カテゴリ変更で切り替わり、共通keyの入力値は引き継がれる
+            specFieldDefs: {
+              'ダンボール': [['size', 'サイズ'], ['shape', '形状'], ['composition', '構成'], ['thickness', '段厚'], ['printing', '印刷'], ['processing', '加工'], ['other', 'その他']],
+              '軟包材': [['size', 'サイズ'], ['shape', '形状'], ['composition', '構成'], ['printing', '印刷'], ['processing', '加工'], ['other', 'その他']],
+              '化粧箱': [['size', 'サイズ'], ['shape', '形状'], ['paper', '用紙'], ['printing', '印刷'], ['processing', '加工'], ['other', 'その他']],
+              '紙袋': [['size', 'サイズ'], ['paper', '用紙'], ['printing', '印刷'], ['processing', '加工'], ['handle', '持ち手'], ['other', 'その他']],
+              'その他': [['other', 'その他']],
+            },
+            specFields(row) { return this.specFieldDefs[row.spec.category] || [] },
+            specSingle(row) { return this.specFields(row).length === 1 },
             catOpen: null,
             dragIndex: null,
             dragStart(e, i) {
@@ -422,12 +432,18 @@
                   </div>
                 </div>
               </div>
-              <div class="flex gap-2 items-center h-6 cursor-text" @click="$event.currentTarget.querySelector('input').focus()"><p class="w-15 text-right text-xs leading-5 text-base-content/60 shrink-0">サイズ</p>
-                <input x-model="row.spec.size" class="flex-1 h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)">
-              </div>
-              <div class="flex gap-2 items-center h-6 cursor-text" @click="$event.currentTarget.querySelector('input').focus()"><p class="w-15 text-right text-xs leading-5 text-base-content/60 shrink-0">形状</p>
-                <input x-model="row.spec.shape" class="flex-1 h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)">
-              </div>
+              <!-- カテゴリ別の仕様フィールド（その他は複数行1フィールド） -->
+              <template x-for="f in specFields(row)" :key="f[0]">
+                <div class="flex gap-2 cursor-text" :class="specSingle(row) ? 'items-start' : 'items-center h-6'" @click="$event.currentTarget.querySelector('input, textarea')?.focus()">
+                  <p class="w-15 text-right text-xs leading-5 text-base-content/60 shrink-0" x-text="f[1]"></p>
+                  <template x-if="!specSingle(row)">
+                    <input x-model="row.spec[f[0]]" class="flex-1 h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)">
+                  </template>
+                  <template x-if="specSingle(row)">
+                    <textarea x-model="row.spec[f[0]]" rows="1" class="flex-1 w-full min-h-6 resize-y text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)"></textarea>
+                  </template>
+                </div>
+              </template>
             </div>
             <div x-show="!specOpen" class="w-[58px] shrink-0 border-b border-base-content/10"></div>
             <!-- 数量 (Cell Text / Number) -->
