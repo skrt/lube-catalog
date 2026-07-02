@@ -102,7 +102,7 @@
             <span class="flex-1 text-sm truncate" :class="selected ? 'text-base-content' : 'text-base-content/30'" x-text="selected || '選択しましょう'"></span>
             <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </div>
-          <div x-show="open" x-transition x-ref="menu" class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+          <div x-show="open" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 scale-y-75" x-transition:enter-end="opacity-100 scale-y-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-y-100" x-transition:leave-end="opacity-0 scale-y-75" x-ref="menu" class="origin-top absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
             <template x-for="(option, idx) in options" :key="option">
               <div
                 @click="select(option)"
@@ -133,7 +133,7 @@
             <span class="flex-1 text-sm truncate" :class="selected.length ? 'text-base-content' : 'text-base-content/30'" x-text="label"></span>
             <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </div>
-          <div x-show="open" x-transition class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+          <div x-show="open" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 scale-y-75" x-transition:enter-end="opacity-100 scale-y-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-y-100" x-transition:leave-end="opacity-0 scale-y-75" class="origin-top absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
             <template x-for="option in options" :key="option">
               <div
                 @click="toggle(option)"
