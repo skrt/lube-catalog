@@ -4855,9 +4855,10 @@
                 "position": "sticky bottom-0",
                 "background": "bg-base-100 (white)",
                 "border-top": "border-t border-base-content/10",
-                "padding": "px-6 py-4",
+                "padding": "px-6 py-3",
                 "gap": "gap-2 (8px)",
-                "z-index": "z-30"
+                "z-index": "z-30",
+                "height": "h-16 (64px) ＝ ボタン h-10(40) + 上下 py-3(12)"
               }
             }
           ]
