@@ -41,7 +41,7 @@
 }
 </style>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 360px !important; box-sizing: border-box; }</style>
+<style>[x-cloak] { display: none !important; } #back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 360px !important; box-sizing: border-box; }</style>
 <script>if (window !== window.top) { document.documentElement.classList.add("in-iframe"); var view = new URLSearchParams(location.search).get("view"); if (view === "demo") document.documentElement.classList.add("demo-only"); document.addEventListener("DOMContentLoaded", function() { var el = document.getElementById("back-link"); if (el) el.remove(); var demo = document.getElementById("demo-section"); if (view === "demo" && demo) { document.body.appendChild(demo); Array.from(document.body.children).forEach(function(c) { if (c === demo || c.tagName === "SCRIPT" || c.hasAttribute("data-demo-keep")) return; c.remove(); }); } else if (view === "preview" && demo) { demo.remove(); } }); }</script>
 </head>
 <body class="bg-white p-8 space-y-10">
@@ -83,8 +83,8 @@
       <label class="block text-sm text-base-content">取引先 <span class="text-error">*</span></label>
       <div class="relative" @click.away="open = false; activeIndex = -1">
         <div
-          class="flex items-center h-8 gap-2 rounded-md bg-white transition-colors"
-          :class="open ? 'border-2 border-primary px-[11px] py-[7px]' : 'border border-base-content/20 px-3 py-2'"
+          class="flex items-center h-8 gap-2 rounded-md bg-white transition-colors border border-base-content/20 px-3 py-2"
+          :class="{ 'border-2 border-primary px-[11px] py-[7px]': open, 'border border-base-content/20 px-3 py-2': !open }"
         >
           <input
             x-ref="input"
@@ -100,11 +100,11 @@
             placeholder="検索..."
             class="flex-1 text-sm text-base-content placeholder:text-base-content/30 outline-none bg-transparent min-w-0"
           >
-          <button x-show="query" @click.stop="clear()" class="shrink-0 text-base-content/60 hover:text-base-content">
+          <button x-show="query" x-cloak @click.stop="clear()" class="shrink-0 text-base-content/60 hover:text-base-content">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
           </button>
         </div>
-        <div x-show="open" x-ref="menu" class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+        <div x-show="open" x-ref="menu" x-cloak class="absolute top-full left-0 w-full mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
           <div class="flex items-center h-8 px-4 text-xs text-base-content/30" x-text="'検索結果：' + filtered.length + '件'"></div>
           <template x-if="filtered.length === 0">
             <div class="flex items-center h-8 px-4 text-sm text-base-content/30">該当する結果がありません</div>
