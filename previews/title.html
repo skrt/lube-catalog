@@ -57,6 +57,7 @@
 
     Page:    text-3xl(30px) font-semibold leading-9(36px) text-base-content
              Actions: Button lg (px-4 py-2.5 text-sm font-semibold rounded-md)
+             Actions なしの場合は container に min-h-10.5(42px) を付け、ボタン有り時（lg Button=42px）と行高を揃える
     Section: text-xl(20px) font-semibold leading-7(28px) text-base-content
              Actions: Button md (px-3 py-2 text-xs font-semibold rounded-md)
     Sub:     text-base(16px) font-semibold leading-6(24px) text-base-content
@@ -104,6 +105,14 @@
               PDFダウンロード
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- Page (no actions): ボタン無しでも min-h-10.5(42px) で行高を維持（遷移時のガタつき防止） -->
+      <div class="flex items-start gap-4">
+        <p class="shrink-0 w-20 pt-1 text-[10px] text-gray-400">Page (0)</p>
+        <div class="flex-1 flex gap-6 items-center min-h-10.5">
+          <p class="flex-1 min-w-0 text-3xl font-semibold leading-9 text-base-content">タイトル</p>
         </div>
       </div>
 

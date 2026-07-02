@@ -5870,10 +5870,24 @@
                 "justify": "justify-between",
                 "overflow": "タイトルが長い場合 truncate"
               }
+            },
+            {
+              "variant": "container (Page・Actionsなし)",
+              "tokens": {
+                "min-height": "min-h-10.5 (42px)"
+              }
             }
           ]
         }
-      ]
+      ],
+      "spec": {
+        "behavior": [
+          {
+            "action": "行高の安定化（Page）",
+            "detail": "Page タイトル行はアクションボタン（lg・高さ42px）の有無で高さが変わらないよう、ボタンなしの場合も同じ42pxを最小高さとして維持する（画面遷移時にタイトル位置がガタつくのを防ぐ）"
+          }
+        ]
+      }
     },
     {
       "id": "filter-area",
