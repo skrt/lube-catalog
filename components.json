@@ -4683,7 +4683,6 @@
                 "background": "bg-base-200",
                 "height": "h-11 (44px)",
                 "padding": "px-4",
-                "border": "border-b border-base-content/5",
                 "title": "text-sm font-semibold text-base-content",
                 "gap": "gap-4"
               }
@@ -4959,10 +4958,11 @@
               "variant": "layout",
               "tokens": {
                 "width": "w-56 (224px)",
-                "background": "bg-base-200",
+                "background": "bg-white",
                 "padding": "p-4 (16px)",
                 "radius": "なし（角丸なし・0）",
-                "gap": "gap-4 (16px)"
+                "gap": "gap-4 (16px)",
+                "border": "border-r border-base-content/10 (右辺のみ)"
               }
             }
           ]
