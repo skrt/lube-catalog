@@ -5964,8 +5964,9 @@
               "variant": "container",
               "tokens": {
                 "display": "flex items-start",
-                "gap": "gap-4",
-                "width": "w-full"
+                "gap": "gap-3",
+                "width": "w-full",
+                "gap-note": "フィールド間12px。請求書のみ内側Form Row=gap-4"
               }
             }
           ]

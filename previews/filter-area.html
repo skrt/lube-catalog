@@ -53,12 +53,12 @@
     Design Tokens (from Figma):
     FilterArea — 一覧画面の検索フィルタテンプレート
       Type: 見積依頼 / 見積書 / 発注書 / 発注請書 / 請求書 / デマンド / サプライヤー
-      Layout: flex items-start gap-4, w-full
+      Layout: flex items-start gap-3, w-full（フィールド間 gap-3=12px）
       Fields: Input(w-40) / ComboBox(w-40,w-32) / DateRangePicker(w-72) / フリーワード(flex-1)
       All fields: label text-sm text-base-content + input h-8 border border-base-content/20 rounded-md px-3 py-2
       ComboBox: chevron-down icon right
       DateRangePicker: calendar-range icon left, circle-x icon right
-      請求書: 2行構成 (Form Row + Status Tabs)
+      請求書: 2行構成 (Form Row + Status Tabs)。外側 flex-col gap-3 / Form Row 内フィールドは gap-4 / Status Tabs gap-2
   -->
 
   <div id="examples-section" class="space-y-10">
@@ -66,7 +66,7 @@
   <!-- 見積依頼 -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>見積依頼</p>
-    <div class="flex items-start gap-4 w-full max-w-5xl">
+    <div class="flex items-start gap-3 w-full max-w-5xl">
       <!-- フリーワード -->
       <div class="flex-1 min-w-0 flex flex-col gap-1">
         <p class="text-sm text-base-content">フリーワード</p>
@@ -105,7 +105,7 @@
   <!-- 見積書 / 発注書 -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>見積書 / 発注書</p>
-    <div class="flex items-start gap-4 w-full max-w-5xl">
+    <div class="flex items-start gap-3 w-full max-w-5xl">
       <div class="shrink-0 w-40 flex flex-col gap-1">
         <p class="text-sm text-base-content">デマンド</p>
         <div class="h-8 bg-white border border-base-content/20 rounded-md px-3 py-2 flex items-center gap-2">
@@ -133,7 +133,7 @@
   <!-- 発注請書 -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>発注請書</p>
-    <div class="flex items-start gap-4 w-full max-w-5xl">
+    <div class="flex items-start gap-3 w-full max-w-5xl">
       <div class="shrink-0 w-40 flex flex-col gap-1">
         <p class="text-sm text-base-content">受注番号</p>
         <div class="h-8 bg-white border border-base-content/20 rounded-md px-3 py-2 flex items-center">
@@ -174,7 +174,7 @@
   <!-- 請求書 -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>請求書</p>
-    <div class="flex flex-col gap-4 w-full max-w-5xl">
+    <div class="flex flex-col gap-3 w-full max-w-5xl">
       <!-- Form Row -->
       <div class="flex items-start gap-4">
         <div class="shrink-0 w-40 flex flex-col gap-1">
