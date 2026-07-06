@@ -5966,7 +5966,7 @@
                 "display": "flex items-start",
                 "gap": "gap-3",
                 "width": "w-full",
-                "gap-note": "フィールド間12px。請求書のみ内側Form Row=gap-4"
+                "gap-note": "フィールド間12px。請求書は外側flex-col・内側Form Rowともgap-3、Status Tabsはgap-2"
               }
             }
           ]
