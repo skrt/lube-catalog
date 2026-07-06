@@ -238,8 +238,9 @@
           <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
           <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
           <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
-          <button class="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">
-            <i data-lucide="trash" class="w-4 h-4 text-base-content"></i>
+          <!-- 行が1行のときは削除ボタンは Disabled（最後の1行は消せない） -->
+          <button disabled class="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-md bg-base-300 border border-transparent cursor-not-allowed transition-colors">
+            <i data-lucide="trash" class="w-4 h-4 text-base-content/30"></i>
           </button>
         </div>
         <!-- 行追加（Tertiary md・FILL・circle-plus） -->
