@@ -2475,6 +2475,10 @@
             "description": "タイトルテキスト"
           },
           {
+            "part": "Close Icon",
+            "description": "Header右端の×（IconButton sm/Tertiary）。optional・既定OFF。作業/閲覧系でのみ表示"
+          },
+          {
             "part": "Content",
             "description": "本文エリア"
           },
@@ -2491,7 +2495,7 @@
           },
           {
             "transition": "Open → Closed",
-            "trigger": "キャンセル / Scrim クリック / Escape",
+            "trigger": "× / キャンセル / Scrim クリック / Escape",
             "effect": "ダイアログがフェードアウトし、背景が元に戻る"
           }
         ],
@@ -2499,6 +2503,10 @@
           {
             "action": "フォーカストラップ",
             "detail": "開いている間、Tab フォーカスがダイアログ内に閉じ込められる"
+          },
+          {
+            "action": "×/キャンセルの排他（役割で使い分け・両方置かない）",
+            "detail": "確認系（選択を迫る）＝×なし・フッターにキャンセル＋実行CTA。作業/閲覧系（フォーム・選択リスト・エラー修正）＝×あり・フッターは実行CTAのみ（キャンセルは置かない）。Close Icon 既定=false"
           }
         ],
         "keyboard": [
