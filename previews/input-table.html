@@ -603,6 +603,72 @@
           </div>
         </div>
       </div>
+
+      <!-- 見積依頼 -->
+      <div>
+        <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4"><span class="w-1 h-1 rounded-full bg-gray-300"></span>見積依頼</p>
+        <div class="w-full min-w-7xl">
+          <!-- Header Row（記載トグルなし・年間発注量/数量/希望価格） -->
+          <div class="flex items-stretch w-full">
+            <div class="bg-base-200 w-7 shrink-0 h-8"></div>
+            <div class="bg-base-200 flex-1 min-w-px flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">品名</p><p class="text-error">*</p></div>
+            <div class="bg-base-200 flex-1 min-w-72 flex gap-1 items-center p-2">
+              <p class="text-xs leading-4 text-base-content/60">仕様</p>
+              <div class="flex-1 h-px bg-base-content/10"></div>
+              <i data-lucide="panel-left-close" class="w-3.5 h-3.5 text-base-content/60"></i>
+            </div>
+            <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">年間発注量</p></div>
+            <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">数量</p><p class="text-error">*</p></div>
+            <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">希望価格</p></div>
+            <div class="bg-base-200 w-7 shrink-0 h-8"></div>
+            <div class="bg-base-200 w-7 shrink-0 h-8"></div>
+          </div>
+
+          <!-- Body: 60サイズブランドボックス（数量・希望価格＝3段） -->
+          <div class="flex items-stretch w-full">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center self-stretch"><i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content/60"></i></div>
+            <div class="flex-1 min-w-px min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center self-stretch"><p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p></div>
+            <div class="flex-1 min-w-72 p-2 border-b border-base-content/10 flex flex-col gap-1 justify-center self-stretch">
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">カテゴリー</p><p class="px-2 text-xs leading-5 text-base-content">ダンボール</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">サイズ</p><p class="px-2 text-xs leading-5 text-base-content">組立外寸 W310×D230×H280mm</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">形状</p><p class="px-2 text-xs leading-5 text-base-content">A式</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">構成</p><p class="px-2 text-xs leading-5 text-base-content">C5/120/C5</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">段厚</p><p class="px-2 text-xs leading-5 text-base-content">EF</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">印刷</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">加工</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">その他</p></div>
+            </div>
+            <div class="w-31 shrink-0 min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center self-stretch"><p class="text-xs leading-4 text-base-content text-right font-mono tabular-nums">100,000</p></div>
+            <div class="w-31 shrink-0 border-b border-base-content/10 flex flex-col self-stretch">
+              <div class="flex-1 flex items-center justify-end px-2 py-1.5 text-xs leading-4 text-base-content font-mono tabular-nums">1,000</div>
+              <div class="flex-1 flex items-center justify-end px-2 py-1.5 text-xs leading-4 text-base-content font-mono tabular-nums">2,000</div>
+              <div class="flex-1 flex items-center justify-end px-2 py-1.5 text-xs leading-4 text-base-content font-mono tabular-nums">3,000</div>
+            </div>
+            <div class="w-31 shrink-0 border-b border-base-content/10 flex flex-col self-stretch">
+              <div class="flex-1 flex items-center justify-end px-2 py-1.5 text-xs leading-4 text-base-content font-mono tabular-nums">100</div>
+              <div class="flex-1 flex items-center justify-end px-2 py-1.5 text-xs leading-4 text-base-content font-mono tabular-nums">100</div>
+              <div class="flex-1 flex items-center justify-end px-2 py-1.5 text-xs leading-4 text-base-content font-mono tabular-nums">100</div>
+            </div>
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center self-stretch"><i data-lucide="copy" class="w-3.5 h-3.5 text-base-content/60"></i></div>
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center self-stretch"><i data-lucide="trash" class="w-3.5 h-3.5 text-base-content/60"></i></div>
+          </div>
+
+          <!-- Body: 配送費（費用行・数量/希望価格＝単一段） -->
+          <div class="flex items-stretch w-full">
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center self-stretch"><i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content/60"></i></div>
+            <div class="flex-1 min-w-px min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center self-stretch"><p class="text-xs leading-4 text-base-content">配送費</p></div>
+            <div class="flex-1 min-w-72 p-2 border-b border-base-content/10 flex flex-col gap-1 justify-center self-stretch">
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">カテゴリー</p><p class="px-2 text-xs leading-5 text-base-content">費用</p></div>
+              <div class="flex gap-2 items-center h-6"><p class="w-15 shrink-0 text-right text-xs leading-5 text-base-content/60">その他</p></div>
+            </div>
+            <div class="w-31 shrink-0 min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center self-stretch"><p class="text-xs leading-4 text-base-content text-right font-mono tabular-nums">3,000</p></div>
+            <div class="w-31 shrink-0 min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center self-stretch"><p class="text-xs leading-4 text-base-content text-right font-mono tabular-nums">3,000</p></div>
+            <div class="w-31 shrink-0 min-h-12 px-2 py-3 border-b border-base-content/10 flex flex-col justify-center self-stretch"><p class="text-xs leading-4 text-base-content text-right font-mono tabular-nums">1,000</p></div>
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center self-stretch"><i data-lucide="copy" class="w-3.5 h-3.5 text-base-content/60"></i></div>
+            <div class="w-7 shrink-0 border-b border-base-content/10 flex items-center justify-center self-stretch"><i data-lucide="trash" class="w-3.5 h-3.5 text-base-content/60"></i></div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
