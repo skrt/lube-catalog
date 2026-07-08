@@ -250,7 +250,7 @@
                         <template x-for="(item, i) in activeComponent.usage.vs" :key="i">
                           <div class="flex items-start gap-2">
                             <span class="w-1 h-1 rounded-full bg-gray-300 mt-2.5 shrink-0"></span>
-                            <span class="text-sm leading-6 text-gray-700" x-text="item"></span>
+                            <span class="text-sm leading-6 text-gray-700" x-html="linkifyVs(item)"></span>
                           </div>
                         </template>
                       </div>
@@ -521,6 +521,19 @@ function catalog() {
     getCategoryLabel(id) {
       const cat = this.categories.find(c => c.id === id);
       return cat ? cat.label : id;
+    },
+
+    // 使い分けテキスト中のコンポーネント名をリンク化（長い名前優先・自分自身は除外）
+    linkifyVs(text) {
+      const esc = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const names = this.components
+        .filter(c => c.id !== this.activeComponentId)
+        .map(c => ({ name: c.name, id: c.id }))
+        .sort((a, b) => b.name.length - a.name.length);
+      if (!names.length) return esc;
+      const re = new RegExp(names.map(n => n.name).join('|'), 'g');
+      const byName = Object.fromEntries(names.map(n => [n.name, n.id]));
+      return esc.replace(re, m => `<a href="#/${byName[m]}" class="text-indigo-600 underline underline-offset-2 hover:text-indigo-800">${m}</a>`);
     },
 
     usageGroups(usage) {
