@@ -1754,15 +1754,15 @@
         {
           "name": "Color",
           "type": "enum",
-          "default": "Primary",
+          "default": "Blue",
           "values": [
-            "Primary",
-            "Success",
-            "Warning",
-            "Error",
-            "Info"
+            "Blue",
+            "Green",
+            "Orange",
+            "Red",
+            "Gray"
           ],
-          "description": "バッジの色バリアント"
+          "description": "バッジの色バリアント（ADR-016で用途名→色名にリネーム。旧 Primary/Success/Warning/Error/Info。実装クラス名は daisy剥がし時に色名系へ）"
         },
         {
           "name": "Size",
@@ -1787,35 +1787,35 @@
           "category": "Color",
           "items": [
             {
-              "variant": "Primary",
+              "variant": "Blue",
               "tokens": {
                 "background": "bg-primary",
                 "text": "text-primary-content"
               }
             },
             {
-              "variant": "Success",
+              "variant": "Green",
               "tokens": {
                 "background": "bg-success",
                 "text": "text-success-content"
               }
             },
             {
-              "variant": "Warning",
+              "variant": "Orange",
               "tokens": {
                 "background": "bg-warning",
                 "text": "text-warning-content"
               }
             },
             {
-              "variant": "Error",
+              "variant": "Red",
               "tokens": {
                 "background": "bg-error",
                 "text": "text-error-content"
               }
             },
             {
-              "variant": "Info",
+              "variant": "Gray",
               "tokens": {
                 "background": "bg-info",
                 "text": "text-info-content"
