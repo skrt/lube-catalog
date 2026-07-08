@@ -203,9 +203,9 @@
                         </template>
                       </div>
                       <template x-if="activeComponent.usage.tables">
-                        <div class="mt-4 pl-6 space-y-6">
+                        <div class="mt-4 space-y-6">
                           <template x-for="tbl in activeComponent.usage.tables" :key="tbl.title">
-                            <table class="w-full text-sm">
+                            <table class="w-full text-xs">
                               <thead class="bg-[#f8f8fa]">
                                 <tr class="text-left">
                                   <th class="px-3 py-2 font-semibold text-gray-700 w-44" x-text="tbl.title"></th>
@@ -216,7 +216,7 @@
                                 <template x-for="row in tbl.items" :key="row.label">
                                   <tr class="border-b border-gray-100">
                                     <td class="px-3 py-2 align-top font-mono text-indigo-600" x-text="row.label"></td>
-                                    <td class="px-3 py-2 text-gray-600 leading-6" x-text="row.desc"></td>
+                                    <td class="px-3 py-2 text-gray-600" x-text="row.desc"></td>
                                   </tr>
                                 </template>
                               </tbody>
