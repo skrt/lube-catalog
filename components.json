@@ -35,14 +35,24 @@
       "name": "Colors",
       "description": "カラートークン一覧",
       "category": "design-tokens",
-      "preview": "previews/colors.html"
+      "preview": "previews/colors.html",
+      "usage": {
+        "when": [
+          "カラートークンの参照表。実装ではハードコードせず @theme トークンクラスを使う"
+        ]
+      }
     },
     {
       "id": "validator",
       "name": "Validator",
       "description": "バリデーションエラーメッセージの文言一覧（Figma String Variable 準拠）",
       "category": "design-tokens",
-      "preview": "previews/validator.html"
+      "preview": "previews/validator.html",
+      "usage": {
+        "when": [
+          "バリデーションエラー文言の正（「入力しましょう」「選択しましょう」等）。表示ルールは CLAUDE.md「バリデーションエラーの表示ルール」が正"
+        ]
+      }
     },
     {
       "id": "button",
@@ -51,6 +61,26 @@
       "category": "actions",
       "preview": "previews/button.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1763",
+      "usage": {
+        "when": [
+          "ラベル付きの操作全般。色の意味論: Primary=画面の中で一番大事なアクション（連発しない・定位置は Footer）／Secondary=変更・詳細への導線／Tertiary=補助・キャンセル・補助的な削除／Danger=破壊的アクションの最終確認（確認モーダルCTA）と、破棄/適用の判断自体が画面の主目的である画面の破棄ボタン",
+          "サイズ: lg=エリアに余裕がある場合（Footer・画面レベル）／md=モーダル内・セクション内／sm=テーブル行内。Primary は視認性のため大きく扱うのが原則"
+        ],
+        "avoid": [
+          "社内向け画面のセクション内追加系アクションに Primary を使わない（Tertiary/Secondary へ）。例外: サプライヤー向け画面では「使わなくても先に進める」任意アクションこそ Primary で認識させる（lube に不慣れ＋オンボーディングが薄いため）",
+          "赤い削除ボタンの常設。削除が補助的な操作の画面では Tertiary で控えめに置き、破壊性は確認モーダルの Danger CTA で伝える"
+        ],
+        "vs": [
+          "IconButton → ラベルを置けない狭い場所のみ。迷ったら Button",
+          "ラベル文言 → 短く。「〜する」の「する」は取る（削除する→削除）。名詞か動詞か紛らわしい時のみ付けてよい",
+          "「削除」と「破棄」 → 削除=永続化済みのデータ本体を消す／破棄=本体未反映の下書き・申請を捨てる（本体は無傷）。キャンセルは操作の中断であって何かを捨てる約束をしない"
+        ],
+        "examples": [
+          "見積依頼作成「見積依頼を送る」(Primary lg/Footer)・「下書き保存」(Tertiary lg/Footer)",
+          "一覧の「詳細」(Secondary sm/Table内)・デマンド詳細「削除」(Tertiary lg)",
+          "見積回答「商品見積を追加」(Primary md・サプライヤー向け例外)"
+        ]
+      },
       "props": [
         {
           "name": "Color",
@@ -234,6 +264,22 @@
       "category": "actions",
       "preview": "previews/icon-button.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3694-438",
+      "usage": {
+        "when": [
+          "アイコンだけで意味が自明な操作に限定する（削除 trash・閉じる ×・メール・メッセージ・ホーム・追加 ＋ など、一般に広く意味が通じるもの）"
+        ],
+        "avoid": [
+          "意味が伝わるか怪しいアイコンの単独使用。迷ったら Button（ラベル付き）"
+        ],
+        "vs": [
+          "やむを得ず狭い場所で使う場合の補助 → hover で Tooltip にラベルを表示する／テーブル内ならヘッダーにラベルを記載する"
+        ],
+        "examples": [
+          "モーダルの閉じる×（sm/Tertiary）",
+          "ファイル行・明細行の削除（trash）",
+          "見積回答テーブルのコピー/削除"
+        ]
+      },
       "props": [
         {
           "name": "Color",
@@ -380,6 +426,21 @@
       "category": "forms",
       "preview": "previews/input.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1762",
+      "usage": {
+        "when": [
+          "1行のテキスト入力（案件名・メール件名・商品名・会社名）",
+          "日付の自由記述が適切な場合（例: 見積有効期限「発行から1ヶ月間」）"
+        ],
+        "vs": [
+          "NumberInput → 数値・金額・数量",
+          "TextArea → 複数行の自由記述",
+          "DatePicker → 定型の日付入力（今後実装）"
+        ],
+        "examples": [
+          "見積依頼作成「案件名」「メール件名」",
+          "商品登録「商品名」"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -569,6 +630,22 @@
       "category": "forms",
       "preview": "previews/text-area.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3687-2817",
+      "usage": {
+        "when": [
+          "複数行の自由記述（備考・メモ・条件文）。高さは用途ごとに固定・resize-y"
+        ],
+        "avoid": [
+          "placeholder は基本置かない。テンプレート文や前回値を初期値として埋めるケースが多い"
+        ],
+        "vs": [
+          "Input → 1行で足りるもの"
+        ],
+        "examples": [
+          "見積依頼「その他の条件」（テンプレ文入り）",
+          "商品「社内メモ」",
+          "見積回答「貴社の共通見積条件」（前回値プリフィル）"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -753,6 +830,15 @@
       "category": "forms",
       "preview": "previews/file-input.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3804-9497",
+      "usage": {
+        "when": [
+          "ファイル添付。ボタンは Tertiary（Primary にしない）"
+        ],
+        "examples": [
+          "見積依頼「ファイル添付」（必須・上限10MB）",
+          "商品「その他のデータ」（任意）"
+        ]
+      },
       "props": [
         {
           "name": "State",
@@ -909,6 +995,22 @@
       "category": "forms",
       "preview": "previews/select.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3684-2493",
+      "usage": {
+        "when": [
+          "選択肢が10個以下の選択。固定リスト（税区分・カテゴリー・納品先等）が典型",
+          "複数選択（担当者等）は Select multiple（トリガー表示は選択値の「/」連結・選択項目は背景色で表現）",
+          "「名前＋説明」で選ばせる場合は説明行付きメニュー item を使う（SelectMenu Type=Description・メニュー幅 w-100 固定）"
+        ],
+        "vs": [
+          "ComboBox → 選択肢が11個以上、またはマスタデータで名前検索したい場合",
+          "RadioGroup → 選択肢を常時全部見せたい排他選択"
+        ],
+        "examples": [
+          "税区分（3択）・カテゴリー（5択）・納品先（4択）",
+          "担当者（複数選択）",
+          "一覧フィルタは shared/_list_select を render"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -1262,6 +1364,19 @@
       "category": "forms",
       "preview": "previews/combobox.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3695-780",
+      "usage": {
+        "when": [
+          "選択肢が11個以上、またはマスタデータからの検索選択（デマンド・サプライヤー・商品など「名前で探す」対象）"
+        ],
+        "vs": [
+          "Select → 選択肢10個以下の固定リスト"
+        ],
+        "examples": [
+          "見積依頼作成「デマンド」",
+          "商品登録「サプライヤー」",
+          "一覧フィルタは shared/_list_filter を render"
+        ]
+      },
       "spec": {
         "anatomy": [
           {
@@ -1671,6 +1786,15 @@
       "category": "data-display",
       "preview": "previews/image.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3892-3499",
+      "usage": {
+        "when": [
+          "商品画像のサムネイル（sm=108/md=220/lg=720 の正方形・radius-lg・無画像時は NO IMAGE プレースホルダー）"
+        ],
+        "examples": [
+          "商品写真グリッドは sm を WRAP で並べる（商品登録/編集の7枚＋追加タイル）",
+          "デマンド詳細の Details 内（sm）"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -1750,6 +1874,20 @@
       "category": "data-display",
       "preview": "previews/badge.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3707-2770",
+      "usage": {
+        "when": [
+          "ステータス・種別のラベル表示（Table のステータス列・詳細画面のタイトル横）",
+          "色の選び方は2系統: (1) 注意喚起=注意して見るべきステータスは Orange・処理済みで注意度が低いものは Gray／(2) 識別=意味は持たせず複数パターンを見分けるためだけの色分け"
+        ],
+        "vs": [
+          "新しいステータスに色を割る時は「注意が要るか」でまず判断。識別だけなら空いている色（Blue/Red 含む）を使ってよい"
+        ],
+        "examples": [
+          "請求書: 未送付=Orange / 送付済み=Gray",
+          "発注請書: リピート=Green / 新規発注=Orange",
+          "タスクリスト: バージョンアップ=Green（Figma 先行）"
+        ]
+      },
       "props": [
         {
           "name": "Color",
@@ -1876,6 +2014,19 @@
       "category": "feedback",
       "preview": "previews/info.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3793-9098",
+      "usage": {
+        "when": [
+          "画面を開いた時に事前に知っておいてほしい情報の常駐表示（ヘルプ・仕様の断り書き・入力前から見せる警告）。Help/Info のほか Error/Warning/Success（soft 背景）もあるが、いずれも操作への応答ではない"
+        ],
+        "vs": [
+          "Toast → 操作アクションへの応答",
+          "インライン赤文言 → 入力エラー"
+        ],
+        "examples": [
+          "見積書作成の「記載スイッチ」「一時的な割引」説明",
+          "リピート発注画面の案内"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -2001,6 +2152,20 @@
       "category": "feedback",
       "preview": "previews/toast.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3796-9185",
+      "usage": {
+        "when": [
+          "操作アクション（作成・削除・上書き保存等）の結果通知。「操作したら必ずフィードバックを返す」原則の標準手段",
+          "基本は5秒で自動消去する一時通知。サーバー通信エラー等の見逃せない通知は、ユーザーが閉じるまで持続表示するパターンあり"
+        ],
+        "vs": [
+          "Info → 画面に常駐させたい事前情報",
+          "Tooltip/インライン → 入力エラー"
+        ],
+        "examples": [
+          "見積書作成/編集の保存完了（Success・自動消去）",
+          "Excel 行数上限エラー（Error・spec 上）"
+        ]
+      },
       "props": [
         {
           "name": "Color",
@@ -2179,6 +2344,20 @@
       "category": "feedback",
       "preview": "previews/tooltip.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3799-9205",
+      "usage": {
+        "when": [
+          "hover での補足表示。Default(bg-info)=アイコンの意味・無効理由の説明",
+          "Error(bg-error)=InputTable セルエラーの文言表示（セルは赤枠のみにして hover で文言を出す）"
+        ],
+        "vs": [
+          "通常フォームのエラー → 直下に赤文言（Tooltip は使わない）。テーブル内だけの例外"
+        ],
+        "examples": [
+          "Sidebar 折畳時のメニュー名",
+          "「行数が上限です」（disabled ボタンの理由）",
+          "見積回答セルの「入力しましょう」"
+        ]
+      },
       "props": [
         {
           "name": "Color",
@@ -2315,6 +2494,27 @@
       "category": "feedback",
       "preview": "previews/modal.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3719-502",
+      "usage": {
+        "when": [
+          "sm(w-96)=確認系: ×なし・キャンセル(Tertiary)＋決定(Primary・破壊的なら Danger)の2ボタン",
+          "lg(w-128)=作業系: ×あり・実行CTAのみ（キャンセルは置かない）",
+          "優先度のない選択肢の提示: Primary を平等に並べ、上部に閉じる×を設置（Figma 実例はまだ無い・初出時は M に声かけ）"
+        ],
+        "avoid": [
+          "「はい/いいえ」で選択を迫らない。決定ボタンは具体的なアクション名（削除・承認・送る）にする",
+          "×とキャンセルを同一モーダルに両方置かない（役割で排他）",
+          "ボタンは基本2つまで・最大3つ。それ以上必要ならモーダルで選択させる設計自体を見直す",
+          "「キャンセルのキャンセル」問題（否定形の重なり）を作らない"
+        ],
+        "vs": [
+          "別画面 → 入力項目が多い・別の操作体験になる場合（CLAUDE.md「パターン vs 別画面」参照）"
+        ],
+        "examples": [
+          "送信確認・Excel 上書き確認（sm）",
+          "メール送信先選択・担当者0件案内（lg）",
+          "納品先削除・破棄確認（sm・Danger CTA・Figma 先行）"
+        ]
+      },
       "props": [
         {
           "name": "Contents",
@@ -2530,6 +2730,18 @@
       "category": "forms",
       "preview": "previews/date-picker.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3024",
+      "usage": {
+        "when": [
+          "単一日付の入力（ピッカー本体はこれから実装）"
+        ],
+        "vs": [
+          "Input → 「発行から1ヶ月間」のような自由記述が適切な場合",
+          "DateRangePicker → 期間（開始〜終了）"
+        ],
+        "examples": [
+          "実装実績なし・今後の画面で使用予定"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -2857,6 +3069,19 @@
       "category": "data-display",
       "preview": "previews/price-table.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3721-1743",
+      "usage": {
+        "when": [
+          "数量別単価表の表示（左に縦書き「単価表」ラベル）",
+          "Checkbox 版: 登録済みの単価行から「使うもの」を選択する文脈",
+          "Diff 版: タスクリスト差分ビューの変更前/変更後表示（Figma 先行）"
+        ],
+        "avoid": [
+          "入力には使わない。単価を入力する表は GroupBox の単価表バリアント＋NumberInput（items 登録/編集がこれ）"
+        ],
+        "examples": [
+          "デマンド詳細の Details 内（表示版）"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -2996,6 +3221,20 @@
       "category": "data-display",
       "preview": "previews/quote-table.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3791-8997",
+      "usage": {
+        "when": [
+          "見積条件・見積回答の明細表示（読み取り専用）。品名セルに仕様詳細を左ボーダー付きでネストできるのが Table との違い",
+          "5列目「見積単価」を足すと回答表示になる（quote_col オプション）"
+        ],
+        "vs": [
+          "Table → 一覧画面の行データ",
+          "InputTable → 入力を伴う明細"
+        ],
+        "examples": [
+          "見積依頼詳細・見積書詳細・請求書詳細の明細",
+          "見積書詳細の「単価表」セクションも実体はこれ（PriceTable ではないので注意）"
+        ]
+      },
       "props": [
         {
           "name": "Show Detail",
@@ -3091,6 +3330,14 @@
       "category": "data-display",
       "preview": "previews/calc.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1615",
+      "usage": {
+        "when": [
+          "金額集計の縦積み表示（小計→粗利→消費税→内訳→合計）。幅 w-60 固定"
+        ],
+        "examples": [
+          "見積書作成/編集・見積書詳細・請求書詳細"
+        ]
+      },
       "props": [
         {
           "name": "showProfit",
@@ -3260,6 +3507,15 @@
       "category": "data-display",
       "preview": "previews/place.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1597",
+      "usage": {
+        "when": [
+          "納品先・住所ブロックの表示。Document テンプレートの構成要素として登場するほか、発注請書の作成画面などで単独表示もする"
+        ],
+        "examples": [
+          "帳票内の納品先",
+          "発注請書作成の納品先表示"
+        ]
+      },
       "props": [
         {
           "name": "showPhone",
@@ -3355,6 +3611,19 @@
       "category": "data-display",
       "preview": "previews/props.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-936",
+      "usage": {
+        "when": [
+          "詳細画面の「ラベル: 値」ペア列挙（概要・会社情報）。読み取り専用"
+        ],
+        "vs": [
+          "GroupBox＋フォーム部品 → 入力を伴う場合",
+          "Details → 仕様＋画像＋表を1カードにまとめる場合"
+        ],
+        "examples": [
+          "見積依頼詳細の概要",
+          "デマンド詳細「会社情報」（3列分割）"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -3456,6 +3725,25 @@
       "category": "forms",
       "preview": "previews/radio-group.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3707-2671",
+      "usage": {
+        "when": [
+          "排他選択を全選択肢見せたまま選ばせる時。2形態を使い分ける",
+          "ボタン型: 一覧絞り込みのステータスタブ、およびフォーム内の少数排他選択（テキスト2〜3択）の標準。フォーム内では件数ピルなし",
+          "丸型: テーブル行内のコンパクトな択一マーク（ラベルは列ヘッダーが担う）"
+        ],
+        "avoid": [
+          "縦積みの丸ラジオリストは現状未使用（フォーム内の排他選択はボタン型が標準）。説明文付き選択肢の縦並び比較が必要になったらその時に用途を定義する"
+        ],
+        "vs": [
+          "Select → 選択肢が隠れてよい場合",
+          "Checkbox → 複数選択"
+        ],
+        "examples": [
+          "請求書一覧のステータスタブ（すべて/未送付/送付済み・件数ピル付き）",
+          "明細編集フォームの商品区分「新規/仕様変更」・費用区分（Figma 先行）",
+          "送付先テーブルの TO/CC/除外 択一（丸型・Figma 先行）"
+        ]
+      },
       "props": [
         {
           "name": "Radio / Item - Size",
@@ -3682,6 +3970,22 @@
       "category": "forms",
       "preview": "previews/checkbox.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3701-2553",
+      "usage": {
+        "when": [
+          "単発のオプションON/OFF",
+          "リスト行の複数選択（行クリックでトグル）",
+          "FilterMenu の絞り込み条件",
+          "PriceTable の行選択"
+        ],
+        "vs": [
+          "RadioGroup → 排他選択（1つだけ選ぶ）"
+        ],
+        "examples": [
+          "見積書作成「合計金額を見積書に表示」（Calc 内）",
+          "メール送信先選択モーダルの連絡先行",
+          "デマンド詳細 FilterMenu"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -3897,6 +4201,14 @@
       "category": "navigation",
       "preview": "previews/pagination.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3815-4734",
+      "usage": {
+        "when": [
+          "一覧テーブルのページ送り（前へ・ページ番号・次へ を右寄せ）。フィルタと連動する（絞り込みで1ページ目に戻る・0件で empty 表示）"
+        ],
+        "examples": [
+          "全一覧7画面（FilterArea＋Table とセット）"
+        ]
+      },
       "props": [
         {
           "name": "currentPage",
@@ -4040,6 +4352,17 @@
       "category": "layout",
       "preview": "previews/document.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3907-4091",
+      "usage": {
+        "when": [
+          "帳票プレビュー（見積書/発注請書/発注書/請求書の4種。請求書のみ横長）。bg-base-200 のエリアで中央寄せ（レイアウト共通ルール参照）"
+        ],
+        "avoid": [
+          "発行元の取り違え: 発注書のみ「株式会社shizai」（うち→仕入先に出す書類のため）、他はサプライヤー側発行"
+        ],
+        "examples": [
+          "見積書詳細・発注書詳細の書類プレビュー"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -4160,6 +4483,20 @@
       "category": "data-display",
       "preview": "previews/table.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3743-13682",
+      "usage": {
+        "when": [
+          "一覧画面の行データ表示。FilterArea＋Table＋Pagination の三点セットが一覧画面の定型",
+          "列の型: テキスト列(flex-1可変)／リンク列／金額列(右揃え・font-mono・固定幅)／ステータス列(Badge)／操作列(Button sm)"
+        ],
+        "vs": [
+          "QuoteTable → 見積条件・回答の階層明細",
+          "InputTable → 入力を伴うテーブル"
+        ],
+        "examples": [
+          "全一覧7画面",
+          "デマンド詳細「納品先」"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -4393,6 +4730,20 @@
       "category": "layout",
       "preview": "previews/group-box.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3858-8095",
+      "usage": {
+        "when": [
+          "浮きラベル付きの枠で情報をまとめる汎用コンテナ。フォーム入力に限らない: フォームのグルーピング（仕様・単価表・住所）／テキスト表示（社内メモ・デマンドメモ）／リスト表示（案件管理=関連書類への紐づけ）／ステータス表示（請求書ステータス）"
+        ],
+        "vs": [
+          "Card → ユーザー操作で増減するブロック",
+          "PriceTable → 単価表の表示専用。入力する単価表はこの単価表バリアント＋NumberInput"
+        ],
+        "examples": [
+          "商品登録「仕様」「単価表」",
+          "デマンド詳細「デマンドメモ」",
+          "詳細画面の「関連書類」（案件管理 variant。行単位で 詳細(Secondary)/作成(Primary)/ボタンなし を出し分け・Figma 先行）"
+        ]
+      },
       "props": [
         {
           "name": "Legend",
@@ -4484,6 +4835,14 @@
       "category": "navigation",
       "preview": "previews/header.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3827-2130",
+      "usage": {
+        "when": [
+          "全画面共通のトップバー（左=Breadcrumbs・右=アカウント操作）"
+        ],
+        "examples": [
+          "全画面（layouts/app）"
+        ]
+      },
       "tokens": [
         {
           "category": "Container",
@@ -4546,6 +4905,19 @@
       "category": "data-display",
       "preview": "previews/card.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3885-2893",
+      "usage": {
+        "when": [
+          "ユーザー操作で増減する同型ブロック（タイトル＋削除＋本体フォーム）。「追加タイル」と組で使う",
+          "ドラッグハンドルはオプショナル: 要素の並び替えが重要な場合のみ表示（ハンドルが無いから Card ではない、という判定はしない）"
+        ],
+        "vs": [
+          "GroupBox → 増減しない静的なまとまり"
+        ],
+        "examples": [
+          "見積依頼作成の「見積先」カード（＋追加タイル・ハンドルあり）",
+          "サプライヤー登録の担当者カード"
+        ]
+      },
       "props": [
         {
           "name": "Show Handle",
@@ -4636,6 +5008,17 @@
       "category": "data-display",
       "preview": "previews/details.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3912-7775",
+      "usage": {
+        "when": [
+          "1つの対象（商品等）の確定情報を1カードにまとめて表示する（仕様テーブル＋画像＋Props＋単価表）。展開/折畳は任意の挙動で、定義の核ではない"
+        ],
+        "vs": [
+          "編集フォーム版（Add）・確認モード版（Confirm）の variant が Figma 先行であり、書類作成フローの「明細を追加→確認」で使う想定"
+        ],
+        "examples": [
+          "デマンド詳細「商品」セクション（FilterMenu と組で使用）"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -4844,6 +5227,18 @@
       "category": "navigation",
       "preview": "previews/footer.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3850-5749",
+      "usage": {
+        "when": [
+          "作成/編集画面の画面下部固定アクションバー。構成は2型のみ: 単一CTA型（右端に Primary 1個）／2ボタン型（Tertiary＋Primary）"
+        ],
+        "avoid": [
+          "mt-auto の付け忘れ（短コンテンツ時に Footer が画面中程に浮く。実装は CLAUDE.md レイアウト共通ルール参照）"
+        ],
+        "examples": [
+          "見積書作成「作成」・編集「上書き保存」（単一CTA）",
+          "見積依頼作成「下書き保存」＋「見積依頼を送る」（2ボタン）"
+        ]
+      },
       "props": [
         {
           "name": "Back Button",
@@ -4950,6 +5345,17 @@
       "category": "navigation",
       "preview": "previews/filter-menu.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3891-3340",
+      "usage": {
+        "when": [
+          "詳細画面内のコンテンツ絞り込み（チェックボックス群の左サイドバー・リセットボタン付き）"
+        ],
+        "vs": [
+          "FilterArea → 一覧画面の絞り込み"
+        ],
+        "examples": [
+          "デマンド詳細「商品」（カテゴリー・サプライヤーで Details カードを絞る）"
+        ]
+      },
       "props": [
         {
           "name": "sections",
@@ -5077,6 +5483,14 @@
       "category": "navigation",
       "preview": "previews/breadcrumbs.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3824-5228",
+      "usage": {
+        "when": [
+          "詳細・作成・編集画面の階層ナビ（一覧画面には置かない）"
+        ],
+        "examples": [
+          "見積依頼詳細・商品登録 等（Header 内左側）"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -5168,6 +5582,17 @@
       "category": "navigation",
       "preview": "previews/sidebar.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3854-7031",
+      "usage": {
+        "when": [
+          "全画面の左ナビ（w-40 固定・折畳可）。ナビ項目は MenuButton"
+        ],
+        "vs": [
+          "共有コンポへの項目追加は「既定非表示（visible=false）で入れて既存画面への波及ゼロ」が定石（例: タスクリスト項目）"
+        ],
+        "examples": [
+          "全画面（layouts/app）。サプライヤー向け外部フォーム（layouts/answer）には置かない"
+        ]
+      },
       "props": [
         {
           "name": "Open",
@@ -5284,6 +5709,17 @@
       "category": "navigation",
       "preview": "previews/menu-button.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3855-7384",
+      "usage": {
+        "when": [
+          "Sidebar やメニューのナビゲーションボタン（Mode=Expanded/Collapsed・State=Default/Hover/Active）"
+        ],
+        "avoid": [
+          "ドロップダウン（1トリガーに複数アクション）用途ではない。それは shizai-pro 側の MenuButton で、lube では別物（混同注意）"
+        ],
+        "examples": [
+          "Sidebar のナビ項目として全画面で使用（パーシャル内に組み込まれるため screens.yml の components には現れない）"
+        ]
+      },
       "props": [
         {
           "name": "Mode",
@@ -5395,6 +5831,18 @@
       "category": "forms",
       "preview": "previews/date-range-picker.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3328",
+      "usage": {
+        "when": [
+          "期間（開始〜終了）の入力。一覧フィルタの期間絞り込みが現状の登場箇所（トリガーUIのみ実装済み・カレンダー挙動はこれから実装）"
+        ],
+        "vs": [
+          "DatePicker → 単一日付"
+        ],
+        "examples": [
+          "請求書一覧「請求日」",
+          "発注請書一覧「確定納品日」"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -5672,6 +6120,18 @@
       "category": "forms",
       "preview": "previews/number-input.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3901-3022",
+      "usage": {
+        "when": [
+          "数量・単価・金額など数値の入力。常に右揃え text-right＋font-mono tabular-nums＋inputmode=numeric"
+        ],
+        "vs": [
+          "Input → 数値以外のテキスト"
+        ],
+        "examples": [
+          "見積回答の数量・見積単価（InputTable セル内）",
+          "単価表（GroupBox 内）の数量・仕入単価・顧客単価"
+        ]
+      },
       "props": [
         {
           "name": "Size",
@@ -5826,6 +6286,16 @@
       "category": "layout",
       "preview": "previews/title.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3824-5554",
+      "usage": {
+        "when": [
+          "Page(h1・text-3xl)=画面タイトル／Section(h2・text-xl)=セクション見出し／Sub(text-base)=第3階層の小見出し。右側にアクションボタンを置ける"
+        ],
+        "examples": [
+          "一覧=Title＋作成ボタン（Breadcrumbs なし）",
+          "詳細=Breadcrumbs＋Title＋削除等",
+          "作成/編集=Breadcrumbs＋Title＋Footer"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -5939,6 +6409,17 @@
       "category": "navigation",
       "preview": "previews/filter-area.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3844-5515",
+      "usage": {
+        "when": [
+          "一覧画面の上部絞り込み。テキスト検索＋フィルタ（shared/_list_filter・_list_select）＋日付範囲＋ステータスタブ（RadioGroup ボタン型）を水平配置。タブとフィルタは AND で両立"
+        ],
+        "vs": [
+          "FilterMenu → 詳細画面内のコンテンツ絞り込み"
+        ],
+        "examples": [
+          "全一覧7画面（構成は画面ごとに取捨選択）"
+        ]
+      },
       "props": [
         {
           "name": "Type",
@@ -6057,6 +6538,24 @@
       "category": "forms",
       "preview": "previews/input-table.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3946-14421",
+      "usage": {
+        "when": [
+          "行の追加・削除を伴う明細入力。セルの中身は NumberInput が主体・行操作は IconButton",
+          "書類ごとに列構成・列幅が確定済み（Figma の Type variant 8種）。新しい書類の明細を組む時は、まず該当 variant の有無を確認する"
+        ],
+        "avoid": [
+          "セルのエラーに文言を直接置かない（赤枠のみにして、hover で Tooltip(Error) に文言を表示する）"
+        ],
+        "vs": [
+          "QuoteTable → 読み取り専用の明細表示",
+          "青ヘッダー（Header Type=Input）は「サプライヤーが入力する列」の専用表現（見積回答のみ）。社内向け書類は全列グレーヘッダー"
+        ],
+        "examples": [
+          "見積依頼「見積条件」",
+          "見積回答の明細（品名>形式>印刷の階層＋行追加）・費用の追加",
+          "空状態は「まだ○○がありません」の1行"
+        ]
+      },
       "props": [
         {
           "name": "Header - Type",

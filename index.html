@@ -162,7 +162,10 @@
             </div>
 
             <!-- Section Nav (hidden if only 1 section) -->
-            <nav x-show="(1 + (activeComponent.props && activeComponent.props.length > 0 ? 1 : 0) + (activeComponent.tokens && activeComponent.tokens.length > 0 ? 1 : 0) + (activeComponent.hasDemo ? 1 : 0) + (activeComponent.spec ? 1 : 0) + (activeComponent.hasExamples ? 1 : 0)) > 1" class="sticky top-0 z-20 bg-white flex gap-5 mt-4 mb-2 border-b border-gray-100 pb-3 pt-3 uppercase text-xs tracking-wider">
+            <nav x-show="(1 + (activeComponent.usage ? 1 : 0) + (activeComponent.props && activeComponent.props.length > 0 ? 1 : 0) + (activeComponent.tokens && activeComponent.tokens.length > 0 ? 1 : 0) + (activeComponent.hasDemo ? 1 : 0) + (activeComponent.spec ? 1 : 0) + (activeComponent.hasExamples ? 1 : 0)) > 1" class="sticky top-0 z-20 bg-white flex gap-5 mt-4 mb-2 border-b border-gray-100 pb-3 pt-3 uppercase text-xs tracking-wider">
+              <template x-if="activeComponent.usage">
+                <a href="#section-usage" @click.prevent="document.getElementById('section-usage').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Usage</a>
+              </template>
               <a href="#section-variants" @click.prevent="document.getElementById('section-variants').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Variants</a>
               <template x-if="activeComponent.hasExamples">
                 <a href="#section-examples" @click.prevent="document.getElementById('section-examples').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Examples</a>
@@ -180,6 +183,28 @@
                 <a href="#section-spec" @click.prevent="document.getElementById('section-spec').scrollIntoView({ behavior: 'smooth' })" class="text-base-content/60 hover:text-secondary-content pb-3 -mb-3 border-b-2 border-transparent hover:border-secondary-content transition-all">Spec</a>
               </template>
             </nav>
+
+            <!-- Usage: いつ・何に使うか（components.json usage。「作る前に読む」情報なので Variants より上） -->
+            <template x-if="activeComponent.usage">
+              <section id="section-usage" class="py-6 scroll-mt-12">
+                <h3 class="text-xl font-normal text-base-content mb-4 uppercase">Usage</h3>
+                <div class="space-y-6">
+                  <template x-for="grp in usageGroups(activeComponent.usage)" :key="grp.key">
+                    <div>
+                      <h4 class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-3"><span class="w-1 h-1 rounded-full bg-gray-300"></span><span x-text="grp.label"></span></h4>
+                      <div>
+                        <template x-for="(item, i) in grp.items" :key="i">
+                          <div class="flex items-start gap-2 px-3 py-2 border-b border-gray-100">
+                            <span class="w-1 h-1 rounded-full bg-gray-300 mt-1.5 shrink-0"></span>
+                            <span class="text-xs leading-5 text-gray-700" x-text="item"></span>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </section>
+            </template>
 
             <!-- Preview -->
             <section id="section-variants" class="py-6 scroll-mt-12">
@@ -441,6 +466,18 @@ function catalog() {
     getCategoryLabel(id) {
       const cat = this.categories.find(c => c.id === id);
       return cat ? cat.label : id;
+    },
+
+    usageGroups(usage) {
+      const defs = [
+        { key: 'when', label: 'いつ使うか' },
+        { key: 'avoid', label: '使わないケース・注意' },
+        { key: 'vs', label: '使い分け' },
+        { key: 'examples', label: '実例' },
+      ];
+      return defs
+        .filter(d => usage[d.key] && usage[d.key].length > 0)
+        .map(d => ({ ...d, items: usage[d.key] }));
     },
 
     resizeIframe(iframe) {
