@@ -38,7 +38,7 @@
       "preview": "previews/colors.html",
       "usage": {
         "when": [
-          "カラートークンの参照表"
+          "カラートークンの参照表です。"
         ],
         "rules": [
           "実装は @theme トークンクラスを使う（ハードコード禁止）"
@@ -53,7 +53,7 @@
       "preview": "previews/validator.html",
       "usage": {
         "when": [
-          "バリデーションエラー文言の参照表（「入力しましょう」「選択しましょう」など）"
+          "バリデーションエラー文言の参照表です。"
         ],
         "rules": [
           "表示ルールは CLAUDE.md「バリデーションエラーの表示ルール」が正"
@@ -303,7 +303,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3694-438",
       "usage": {
         "when": [
-          "意味がアイコンだけで自明な操作（削除・閉じる・メール・追加＋など）"
+          "アイコンだけで意味が伝わる操作を、ラベルを置けない狭いスペースで実行させるときに使用します。"
         ],
         "avoid": [
           "意味が伝わるか怪しいアイコンの単独使用（迷ったら Button）"
@@ -464,8 +464,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1762",
       "usage": {
         "when": [
-          "1行のテキスト入力（案件名・件名・商品名など）",
-          "日付の自由記述が適切な場合（例: 「発行から1ヶ月間」）"
+          "1行のテキストを入力してもらうときに使用します。"
         ],
         "vs": [
           "NumberInput → 数値・金額・数量",
@@ -664,7 +663,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3687-2817",
       "usage": {
         "when": [
-          "複数行の自由記述（備考・メモ・条件文）"
+          "備考やメモなど、複数行の自由記述を入力してもらうときに使用します。"
         ],
         "rules": [
           "placeholder は基本置かない。テンプレート文や前回値を初期値として入れることが多い",
@@ -860,8 +859,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3804-9497",
       "usage": {
         "when": [
-          "メール送付の際に、書類以外で添付が必要なファイルがあるとき",
-          "商品マスターに紐付けておきたいファイルがあるとき"
+          "ファイルを添付してもらうときに使用します。メール送付時の書類以外の添付や、商品マスタに紐付けたいファイルが対象です。"
         ],
         "rules": [
           "ボタンは Tertiary（Primary にしない）"
@@ -1025,7 +1023,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3684-2493",
       "usage": {
         "when": [
-          "選択肢が10個以下の固定リスト（税区分・カテゴリー・納品先など）"
+          "10個以下の固定リストから選択してもらうときに使用します。単一選択と複数選択（multiple）があります。"
         ],
         "rules": [
           "複数選択は multiple（選択値を「/」連結で表示）",
@@ -1391,8 +1389,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3695-780",
       "usage": {
         "when": [
-          "選択肢が11個以上",
-          "マスタデータから名前で探して選ぶ（デマンド・サプライヤー・商品）"
+          "選択肢が11個以上のとき、またはマスタデータから名前で検索して選んでもらうときに使用します。"
         ],
         "vs": [
           "Select → 10個以下の固定リスト"
@@ -1809,7 +1806,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3892-3499",
       "usage": {
         "when": [
-          "商品画像のサムネイル（無画像時は NO IMAGE プレースホルダー）"
+          "商品画像のサムネイルを表示するときに使用します。"
         ],
         "rules": [
           "商品写真グリッドは sm を WRAP で並べる（登録/編集の7枚＋追加タイル）"
@@ -2058,7 +2055,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3793-9098",
       "usage": {
         "when": [
-          "画面を開いた時に事前に知っておいてほしい常駐情報（ヘルプ・仕様の断り書き・入力前から見せる警告）"
+          "画面を開いた時点で事前に知っておいてほしい情報を、常駐で表示するときに使用します。"
         ],
         "avoid": [
           "操作への応答に使わない（それは Toast）"
@@ -2199,7 +2196,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3796-9185",
       "usage": {
         "when": [
-          "操作（作成・削除・上書き保存など）の結果通知"
+          "操作の結果を通知するときに使用します。"
         ],
         "rules": [
           "「操作したら必ずフィードバックを返す」原則の標準手段",
@@ -2389,7 +2386,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3799-9205",
       "usage": {
         "when": [
-          "hover での補足表示"
+          "hover での補足説明を表示するときに使用します。通常の補足（Default）とテーブル内エラー（Error）の2色があります。"
         ],
         "rules": [
           "通常フォームのエラーは直下に赤文言（Tooltip を使うのはテーブル内だけの例外）"
@@ -2548,7 +2545,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3719-502",
       "usage": {
         "when": [
-          "その場で完結する確認・小さい作業"
+          "その場で完結する確認や小さい作業を差し込むときに使用します。確認系（sm）と作業系（lg）の2型があります。"
         ],
         "avoid": [
           "「はい/いいえ」で選択を迫る（決定ボタンは具体的なアクション名に）",
@@ -2798,7 +2795,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3024",
       "usage": {
         "when": [
-          "単一日付の入力"
+          "単一の日付を入力してもらうときに使用します。"
         ],
         "vs": [
           "Input → 「発行から1ヶ月間」など自由記述が適切な場合",
@@ -3134,7 +3131,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3721-1743",
       "usage": {
         "when": [
-          "数量別単価表の表示（縦書き「単価表」ラベル）"
+          "数量別の単価表を表示するときに使用します。表示・行選択（Checkbox）・差分（Diff）の3タイプがあります。"
         ],
         "avoid": [
           "入力用途（入力する単価表は GroupBox 単価表バリアント＋NumberInput）"
@@ -3300,8 +3297,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3791-8997",
       "usage": {
         "when": [
-          "見積条件・見積回答の明細表示（読み取り専用）",
-          "品名セルに仕様詳細をネストしたい時（Table との違い）"
+          "見積条件・見積回答の明細を読み取り専用で表示するときに使用します。品名セルに仕様の詳細をネストできます。"
         ],
         "rules": [
           "「見積単価」列を足すと回答表示になる（quote_col オプション）",
@@ -3409,7 +3405,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1615",
       "usage": {
         "when": [
-          "金額集計の縦積み表示（小計→粗利→消費税→内訳→合計）"
+          "小計から合計金額までの金額集計を縦積みで表示するときに使用します。"
         ],
         "rules": [
           "幅 w-60 固定"
@@ -3574,7 +3570,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-1597",
       "usage": {
         "when": [
-          "納品先・住所ブロックの表示（Document 内の構成要素としても、単独でも使う）"
+          "納品先・住所のブロックを表示するときに使用します。"
         ]
       },
       "props": [
@@ -3674,7 +3670,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3720-936",
       "usage": {
         "when": [
-          "詳細画面の「ラベル: 値」ペア列挙（読み取り専用）"
+          "詳細画面で「ラベル: 値」のペアを列挙して表示するときに使用します（読み取り専用）。"
         ],
         "vs": [
           "GroupBox＋フォーム部品 → 入力を伴う場合",
@@ -3784,7 +3780,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3707-2671",
       "usage": {
         "when": [
-          "選択肢を全部見せたまま1つ選ばせる時"
+          "選択肢を全部見せたまま、1つだけ選んでもらうときに使用します。ボタン型と丸型の2形態があります。"
         ],
         "avoid": [
           "縦積みの丸ラジオリスト（フォーム内の排他選択はボタン型が標準）"
@@ -4037,9 +4033,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3701-2553",
       "usage": {
         "when": [
-          "リスト行の複数選択（行クリックでトグル）",
-          "絞り込み条件の選択（2項目以上の条件を同時に設定できるとき）",
-          "単発のオプションON/OFF"
+          "リスト行の複数選択や、2項目以上を同時に設定できる絞り込み条件に使用します。単発のオプションのON/OFFにも使えます。"
         ],
         "vs": [
           "RadioGroup → 1つだけ選ぶ排他選択（絞り込みで同時に1つしか選べない場合もこちら）"
@@ -4262,7 +4256,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3815-4734",
       "usage": {
         "when": [
-          "一覧テーブルのページ送り（右寄せ）"
+          "一覧テーブルのページ送りに使用します。"
         ],
         "rules": [
           "フィルタと連動（絞り込みで1ページ目に戻る・0件で empty 表示）"
@@ -4413,7 +4407,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3907-4091",
       "usage": {
         "when": [
-          "帳票プレビュー（書類詳細画面の書類表示エリア）"
+          "帳票（見積書・発注請書・発注書・請求書）のプレビューを表示するときに使用します。"
         ],
         "rules": [
           "bg-base-200 rounded-lg p-6 flex justify-center のエリアで囲み、Document カードを中央揃えにする（レイアウト共通ルール）",
@@ -4542,7 +4536,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3743-13682",
       "usage": {
         "when": [
-          "一覧画面の行データ表示"
+          "一覧画面の行データを表示するときに使用します。"
         ],
         "rules": [
           "FilterArea＋Table＋Pagination の三点セットが一覧画面の定型"
@@ -4814,7 +4808,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3858-8095",
       "usage": {
         "when": [
-          "浮きラベル付きの枠で情報をまとめる汎用コンテナ（フォーム入力に限らない）"
+          "浮きラベル付きの枠で情報をひとまとめにするときに使用します。フォーム・テキスト・リスト・ステータスの用途パターンがあります。"
         ],
         "tables": [
           {
@@ -4949,7 +4943,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3827-2130",
       "usage": {
         "when": [
-          "全画面共通のトップバー（左=Breadcrumbs・右=アカウント）"
+          "全画面共通のトップバーとして使用します。"
         ]
       },
       "tokens": [
@@ -5016,8 +5010,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3885-2893",
       "usage": {
         "when": [
-          "ユーザー操作で増減する同型ブロック",
-          "Card と同じサイズの追加ボタン（Tertiary カラー）と組みで使う"
+          "ユーザー操作で増減する同型ブロックを並べるときに使用します。Card と同サイズの追加ボタン（Tertiary）と組みで使います。"
         ],
         "rules": [
           "並び順: 右に向かって横に並べ、画面端を超える場合は折り返して次の行の左から並べる",
@@ -5119,7 +5112,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3912-7775",
       "usage": {
         "when": [
-          "商品（商品マスター）の確定情報を1カードにまとめて表示する（仕様＋画像＋Props＋単価表）。他マスターへの転用可能性はあるが、基本は商品用"
+          "商品（商品マスタ）の確定情報を1カードにまとめて表示するときに使用します。表示・Add・Confirm の3タイプがあります。"
         ],
         "tables": [
           {
@@ -5351,7 +5344,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3850-5749",
       "usage": {
         "when": [
-          "作成/編集画面の下部固定アクションバー"
+          "作成・編集画面の下部に、画面の結論となるアクションを固定表示するときに使用します。"
         ],
         "avoid": [
           "mt-auto の付け忘れ（短コンテンツ時に Footer が浮く）"
@@ -5480,7 +5473,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3891-3340",
       "usage": {
         "when": [
-          "詳細画面内のコンテンツ絞り込み。マスター情報や件数が多い情報を、詳細画面内でさらに絞り込んで整理・表示したいときに使う"
+          "詳細画面内のコンテンツを絞り込むときに使用します。マスタ情報や件数が多い情報を、さらに整理して表示したい場合に使います。"
         ],
         "vs": [
           "FilterArea → 一覧画面の絞り込み"
@@ -5711,10 +5704,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3854-7031",
       "usage": {
         "when": [
-          "全画面の左ナビ（w-40 固定・折畳可）。ナビ項目は MenuButton"
-        ],
-        "avoid": [
-          "サプライヤー向け外部フォーム（layouts/answer）には置かない"
+          "全画面の左ナビゲーションとして使用します（サプライヤー向け外部フォームを除く）。"
         ],
         "rules": [
           "項目追加は既定非表示（visible=false）で入れて既存画面への波及ゼロが定石"
@@ -5838,7 +5828,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3855-7384",
       "usage": {
         "when": [
-          "Sidebar やメニューのナビゲーション項目（全画面の Sidebar で使用）"
+          "Sidebar やメニューのナビゲーション項目として使用します。展開・折畳の2モードがあります。"
         ],
         "avoid": [
           "ドロップダウン用途（それは shizai-pro の MenuButton。lube では別物）"
@@ -5972,7 +5962,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3328",
       "usage": {
         "when": [
-          "開始から終了の期間の入力が必要なとき"
+          "開始から終了までの期間を入力してもらうときに使用します。"
         ],
         "avoid": [
           "カレンダーアイコンは DatePicker と別物（レンジ用の calendar-range。DatePicker は calendar）。取り違えに注意"
@@ -6263,7 +6253,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3901-3022",
       "usage": {
         "when": [
-          "数量・単価・金額の入力"
+          "数量・単価・金額など、数値を入力してもらうときに使用します。"
         ],
         "rules": [
           "常に右揃え・等幅数字（text-right / font-mono tabular-nums / inputmode=numeric）"
@@ -6428,7 +6418,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3824-5554",
       "usage": {
         "when": [
-          "画面・セクションの見出し。右側にアクションボタンを置ける"
+          "画面やセクションの見出しを表示するときに使用します。Page・Section・Sub の3階層があります。"
         ],
         "tables": [
           {
@@ -6565,7 +6555,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3844-5515",
       "usage": {
         "when": [
-          "一覧画面に表示しているテーブルの情報を絞り込みたいとき"
+          "一覧画面に表示しているテーブルの情報を絞り込みたいときに使用します。"
         ],
         "rules": [
           "タブとフィルタは AND で両立（pagination controller）",
@@ -6695,7 +6685,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3946-14421",
       "usage": {
         "when": [
-          "行の追加・削除を伴う明細入力"
+          "行を追加・削除しながら明細を入力してもらうときに使用します。書類ごとに列構成が確定した8種の variant があります。"
         ],
         "avoid": [
           "セルにエラー文言を直接置かない（赤枠のみ＋hover で Tooltip に文言）"
