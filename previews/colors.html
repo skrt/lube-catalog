@@ -16,10 +16,10 @@
   --color-base-100: #ffffff;
   --color-base-200: #f8f8fa;
   --color-base-300: #eeeef2;
-  --color-error: #c94043;
-  --color-error-hover: #b7393c;
-  --color-error-content: #fff5f5;
-  --color-error-soft: #f7e2e3;
+  --color-danger: #c94043;
+  --color-danger-hover: #b7393c;
+  --color-danger-content: #fff5f5;
+  --color-danger-soft: #f7e2e3;
   --color-success: #479d72;
   --color-success-content: #f5fef9;
   --color-success-soft: #e3f0ea;
@@ -37,8 +37,8 @@
   --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
   --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
   --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
-  --shadow-border-error: inset 0 0 0 1px #c94043;
-  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+  --shadow-border-danger: inset 0 0 0 1px #c94043;
+  --shadow-border-2-danger: inset 0 0 0 2px #c94043;
 }
 </style>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
@@ -79,10 +79,10 @@
           <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">content</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-primary"></div><span class="font-mono text-gray-500">secondary-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#0A0AC2</td></tr>
           <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-secondary-hover"></div><span class="font-mono text-gray-500">secondary-hover</span></div></td><td class="py-1.5 font-mono text-gray-400">#E0E0F5</td></tr>
           <!-- color / danger（ADR-014。実装クラスは daisy剥がしまで error のまま） -->
-          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">color / danger</td><td class="py-1.5 pr-4 text-gray-600">danger</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-error"></div><span class="font-mono text-gray-500">error</span></div></td><td class="py-1.5 font-mono text-gray-400">#C94043</td></tr>
-          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">content</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-error-content"></div><span class="font-mono text-gray-500">error-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#FFF5F5</td></tr>
-          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-error-hover"></div><span class="font-mono text-gray-500">error-hover</span></div></td><td class="py-1.5 font-mono text-gray-400">#B7393C</td></tr>
-          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">soft</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-error-soft"></div><span class="font-mono text-gray-500">error-soft</span></div></td><td class="py-1.5 font-mono text-gray-400">#F7E2E3</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">color / danger</td><td class="py-1.5 pr-4 text-gray-600">danger</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-danger"></div><span class="font-mono text-gray-500">danger</span></div></td><td class="py-1.5 font-mono text-gray-400">#C94043</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">content</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-danger-content"></div><span class="font-mono text-gray-500">danger-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#FFF5F5</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">hover</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-danger-hover"></div><span class="font-mono text-gray-500">danger-hover</span></div></td><td class="py-1.5 font-mono text-gray-400">#B7393C</td></tr>
+          <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">soft</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-danger-soft"></div><span class="font-mono text-gray-500">danger-soft</span></div></td><td class="py-1.5 font-mono text-gray-400">#F7E2E3</td></tr>
           <!-- color / success -->
           <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">color / success</td><td class="py-1.5 pr-4 text-gray-600">success</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-success"></div><span class="font-mono text-gray-500">success</span></div></td><td class="py-1.5 font-mono text-gray-400">#479D72</td></tr>
           <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">content</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border border-gray-200 shrink-0 bg-success-content"></div><span class="font-mono text-gray-500">success-content</span></div></td><td class="py-1.5 font-mono text-gray-400">#F5FEF9</td></tr>
@@ -101,7 +101,7 @@
           <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-gray-600">20</td><td class="py-1.5 pr-4"><div class="flex items-center gap-2"><div class="w-4 h-4 rounded border-2 border-base-content/20 shrink-0"></div><span class="font-mono text-gray-500">base-content/20</span></div></td><td class="py-1.5 font-mono text-gray-400">#101016 20%</td></tr>
         </tbody>
       </table>
-        <p class="mt-3 text-xs text-gray-400">※ Primitive の赤系は Figma では <span class="font-mono">color/danger/*</span>（ADR-014・2026-07-07）。実装クラス（<span class="font-mono">bg-error</span> 等）は daisyUI を剥がすタイミングで danger 系に置換予定のため、Class 列は現行実装の error のまま。Semantic（status/error 等）は「エラー」の意味で使う場所なので error が正</p>
+        <p class="mt-3 text-xs text-gray-400">※ 赤系は Primitive（Figma <span class="font-mono">color/danger/*</span>）・実装クラス（<span class="font-mono">bg-danger</span> 等）とも danger（ADR-014・実装は 2026-07-09 に前倒しリネーム済み）。Figma の Semantic（status/error 等）だけは「エラー」の意味で使う場所なので error 名を維持</p>
     </div>
   </div>
 

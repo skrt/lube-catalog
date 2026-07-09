@@ -15,10 +15,10 @@
   --color-base-content: #101016;
   --color-base-200: #f8f8fa;
   --color-base-300: #eeeef2;
-  --color-error: #c94043;
-  --color-error-hover: #b7393c;
-  --color-error-content: #fff5f5;
-  --color-error-soft: #f7e2e3;
+  --color-danger: #c94043;
+  --color-danger-hover: #b7393c;
+  --color-danger-content: #fff5f5;
+  --color-danger-soft: #f7e2e3;
   --color-success: #479d72;
   --color-success-content: #f5fef9;
   --color-success-soft: #e3f0ea;
@@ -36,8 +36,8 @@
   --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
   --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
   --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
-  --shadow-border-error: inset 0 0 0 1px #c94043;
-  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+  --shadow-border-danger: inset 0 0 0 1px #c94043;
+  --shadow-border-2-danger: inset 0 0 0 2px #c94043;
 }
 </style>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -57,7 +57,7 @@
     Design Tokens (from Figma):
     InputTable: 編集可能テーブル。Header + Cell（Text / Icon / Radio / Button）の組み合わせで構成
       Header: bg-base-200, p-2, text-xs leading-4 text-base-content/60
-        Text: 左揃え。Required 時はタイトル直後に * (text-error)
+        Text: 左揃え。Required 時はタイトル直後に * (text-danger)
         Number: 右揃え (justify-end)
         Open: 「仕様」+ Divider (flex-1 h-px bg-base-content/10) + panel-left-close 14px。仕様列の折りたたみトグル
         Close: 「仕様」+ panel-left-open 14px, justify-center gap-1。幅はコンテンツ依存（約58px）
@@ -95,7 +95,7 @@
         <div>
           <div class="bg-base-200 flex items-start p-2 w-72 text-xs leading-4">
             <p class="text-base-content/60">タイトル</p>
-            <p class="text-error">*</p>
+            <p class="text-danger">*</p>
           </div>
           <p class="text-[10px] text-gray-400 mt-1.5">Text / Required</p>
         </div>
@@ -155,7 +155,7 @@
         </div>
         <div>
           <div class="w-72 min-h-12 p-0 border-b border-base-content/10 flex flex-col justify-center">
-            <div class="h-6 w-full px-[7px] py-[3px] bg-white border-2 border-error rounded-md flex items-center">
+            <div class="h-6 w-full px-[7px] py-[3px] bg-white border-2 border-danger rounded-md flex items-center">
               <p class="text-xs leading-4 text-base-content"></p>
             </div>
           </div>
@@ -353,7 +353,7 @@
             validate(row, key) { row[key + 'Error'] = !row[key].trim() },
             cellInputClass(error) {
               return error
-                ? 'bg-white border-2 border-error px-[7px] py-[3px]'
+                ? 'bg-white border-2 border-danger px-[7px] py-[3px]'
                 : 'bg-transparent border border-transparent px-2 py-1 group-hover:bg-white group-hover:border-base-content/20 focus-visible:bg-white focus-visible:border-2 focus-visible:border-primary focus-visible:px-[7px] focus-visible:py-[3px]'
             }
           }
@@ -368,7 +368,7 @@
           <div class="bg-base-200 w-12 shrink-0"></div>
           <div class="bg-base-200 flex items-start p-2 flex-1 text-xs leading-4">
             <p class="text-base-content/60">品名</p>
-            <p class="text-error">*</p>
+            <p class="text-danger">*</p>
           </div>
           <button x-show="specOpen" @click="specOpen = false" class="bg-base-200 flex gap-1 items-center p-2 w-72 shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
             <p class="text-xs leading-4 text-base-content/60">仕様</p>
@@ -381,7 +381,7 @@
           </button>
           <div class="bg-base-200 flex items-start justify-end p-2 w-24 shrink-0 text-xs leading-4">
             <p class="text-base-content/60">数量</p>
-            <p class="text-error">*</p>
+            <p class="text-danger">*</p>
           </div>
           <div class="bg-base-200 w-7 shrink-0"></div>
           <div class="bg-base-200 w-7 shrink-0"></div>
@@ -407,7 +407,7 @@
                   class="h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none"
                   :class="cellInputClass(row.nameError)">
                 <div x-show="row.nameError" x-cloak class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                  <div class="relative px-2 py-1 rounded-sm bg-error text-error-content text-sm leading-5 whitespace-nowrap">入力しましょう<span class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-error"></span></div>
+                  <div class="relative px-2 py-1 rounded-sm bg-danger text-danger-content text-sm leading-5 whitespace-nowrap">入力しましょう<span class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-danger"></span></div>
                 </div>
               </div>
             </div>
@@ -453,7 +453,7 @@
                   class="h-6 w-full text-xs leading-4 text-base-content text-right rounded-md focus-visible:outline-none"
                   :class="cellInputClass(row.qtyError)">
                 <div x-show="row.qtyError" x-cloak class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                  <div class="relative px-2 py-1 rounded-sm bg-error text-error-content text-sm leading-5 whitespace-nowrap">入力しましょう<span class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-error"></span></div>
+                  <div class="relative px-2 py-1 rounded-sm bg-danger text-danger-content text-sm leading-5 whitespace-nowrap">入力しましょう<span class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-danger"></span></div>
                 </div>
               </div>
             </div>
@@ -480,7 +480,7 @@
           <div class="bg-base-200 flex items-start justify-center p-2 w-12 shrink-0 text-xs leading-4"><p class="text-base-content/60">CC</p></div>
           <div class="bg-base-200 flex items-start p-2 flex-1 text-xs leading-4">
             <p class="text-base-content/60">メールアドレス</p>
-            <p class="text-error">*</p>
+            <p class="text-danger">*</p>
           </div>
         </div>
         <template x-for="(mail, i) in mails" :key="i">
@@ -529,15 +529,15 @@
           <div class="flex items-stretch w-full">
             <div class="bg-base-200 w-7 shrink-0 h-8"></div>
             <div class="bg-base-200 w-12 shrink-0 flex items-start justify-center p-2 text-xs leading-4"><p class="text-base-content/60">記載</p></div>
-            <div class="bg-base-200 flex-1 min-w-px flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">品名</p><p class="text-error">*</p></div>
+            <div class="bg-base-200 flex-1 min-w-px flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">品名</p><p class="text-danger">*</p></div>
             <div class="bg-base-200 flex-1 min-w-72 flex gap-1 items-center p-2">
               <p class="text-xs leading-4 text-base-content/60">仕様</p>
               <div class="flex-1 h-px bg-base-content/10"></div>
               <i data-lucide="panel-left-close" class="w-3.5 h-3.5 text-base-content/60"></i>
             </div>
-            <div class="bg-base-200 w-20 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">数量</p><p class="text-error">*</p></div>
-            <div class="bg-base-200 w-25 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">仕入単価</p><p class="text-error">*</p></div>
-            <div class="bg-base-200 w-30 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">顧客単価</p><p class="text-error">*</p></div>
+            <div class="bg-base-200 w-20 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">数量</p><p class="text-danger">*</p></div>
+            <div class="bg-base-200 w-25 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">仕入単価</p><p class="text-danger">*</p></div>
+            <div class="bg-base-200 w-30 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">顧客単価</p><p class="text-danger">*</p></div>
             <div class="bg-base-200 w-24 shrink-0 flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">税区分</p></div>
             <div class="bg-base-200 w-32 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">金額(税抜)</p></div>
             <div class="bg-base-200 w-7 shrink-0 h-8"></div>
@@ -611,14 +611,14 @@
           <!-- Header Row（記載トグルなし・年間発注量/数量/希望価格） -->
           <div class="flex items-stretch w-full">
             <div class="bg-base-200 w-7 shrink-0 h-8"></div>
-            <div class="bg-base-200 flex-1 min-w-px flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">品名</p><p class="text-error">*</p></div>
+            <div class="bg-base-200 flex-1 min-w-px flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">品名</p><p class="text-danger">*</p></div>
             <div class="bg-base-200 flex-1 min-w-72 flex gap-1 items-center p-2">
               <p class="text-xs leading-4 text-base-content/60">仕様</p>
               <div class="flex-1 h-px bg-base-content/10"></div>
               <i data-lucide="panel-left-close" class="w-3.5 h-3.5 text-base-content/60"></i>
             </div>
             <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">年間発注量</p></div>
-            <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">数量</p><p class="text-error">*</p></div>
+            <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">数量</p><p class="text-danger">*</p></div>
             <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">希望価格</p></div>
             <div class="bg-base-200 w-7 shrink-0 h-8"></div>
             <div class="bg-base-200 w-7 shrink-0 h-8"></div>

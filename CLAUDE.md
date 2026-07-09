@@ -120,7 +120,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - **ボタン系・ナビ系**: `ring`（box-shadow）でフォーカスを表現。レイアウトに影響しない
   - **標準**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`
   - **コンパクト（checkbox/radio の box 等）**: `outline-none focus-visible:ring-2 focus-visible:ring-primary`（offset 無し）
-- **フォーム系**（input, select, combobox, date-picker 等）: `border-2` でフォーカスを表現（Focus: `border-2 border-primary`、Error: `border-2 border-error`）。ring は使わない
+- **フォーム系**（input, select, combobox, date-picker 等）: `border-2` でフォーカスを表現（Focus: `border-2 border-primary`、Error: `border-2 border-danger`）。ring は使わない
   - border-2 によるサイズ変動は padding 補正で吸収する（例: `px-[11px]`）
   - 理由: Error 状態も border-2 を使うため、ring に統一しても padding 補正は残る。2つの仕組みを混在させるより border-2 で統一した方がシンプル
 - `focus:` ではなく **`focus-visible:`** を使う（マウス操作時に出さず、キーボード操作時のみ表示）
@@ -139,7 +139,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 
 ### バリアントラベル
 - 個別の状態/サイズラベル（sm, md, lg, Default, Hover 等）は `text-[10px] text-gray-400` で統一
-- サブタイトル（ドット付き）とは別物。サブタイトルはセクション見出し、ラベルは個別バリアントの注釈
+- サブタイトルとは別物。サブタイトルはセクション見出し、ラベルは個別バリアントの注釈
 
 ### Spec 記述ルール
 - **States の effect**: トークン名やCSS値を使わず、自然な日本語で書く（例: ✕「bg-primary + check アイコン表示」→ ○「チェックマークが表示される」）

@@ -15,10 +15,10 @@
   --color-base-content: #101016;
   --color-base-200: #f8f8fa;
   --color-base-300: #eeeef2;
-  --color-error: #c94043;
-  --color-error-hover: #b7393c;
-  --color-error-content: #fff5f5;
-  --color-error-soft: #f7e2e3;
+  --color-danger: #c94043;
+  --color-danger-hover: #b7393c;
+  --color-danger-content: #fff5f5;
+  --color-danger-soft: #f7e2e3;
   --color-success: #479d72;
   --color-success-content: #f5fef9;
   --color-success-soft: #e3f0ea;
@@ -36,8 +36,8 @@
   --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
   --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
   --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
-  --shadow-border-error: inset 0 0 0 1px #c94043;
-  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+  --shadow-border-danger: inset 0 0 0 1px #c94043;
+  --shadow-border-2-danger: inset 0 0 0 2px #c94043;
 }
 </style>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 280px !important; box-sizing: border-box; }</style>
@@ -52,7 +52,7 @@
   <!--
     Design Tokens (from Figma):
     Success: bg-success, text-success-content, icon circle-check
-    Error:   bg-error, text-error-content, icon circle-alert
+    Error:   bg-danger, text-danger-content, icon circle-alert
     Layout:  w-96 h-16, px-4 py-3, gap-4, rounded-md
     Title:   text-sm font-bold (700) leading-5
     Desc:    text-xs (12px) leading-4
@@ -98,13 +98,13 @@
         </div>
 
         <!-- Error -->
-        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-md bg-error overflow-hidden">
-          <svg class="w-4 h-4 shrink-0 text-error-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
-          <div class="flex-1 flex flex-col min-w-0 text-error-content">
+        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-md bg-danger overflow-hidden">
+          <svg class="w-4 h-4 shrink-0 text-danger-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <div class="flex-1 flex flex-col min-w-0 text-danger-content">
             <p class="text-sm font-bold leading-5">Error</p>
             <p class="text-xs leading-4">時間をおいて再度お試しください</p>
           </div>
-          <button class="absolute top-3 right-4 text-error-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          <button class="absolute top-3 right-4 text-danger-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>
@@ -127,8 +127,8 @@
         icon: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'
       },
       error: {
-        bgClass: 'bg-error',
-        textClass: 'text-error-content',
+        bgClass: 'bg-danger',
+        textClass: 'text-danger-content',
         title: '送信に失敗しました',
         desc: '時間をおいて再度お試しください',
         icon: '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>'

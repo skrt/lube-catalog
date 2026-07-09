@@ -15,10 +15,10 @@
   --color-base-content: #101016;
   --color-base-200: #f8f8fa;
   --color-base-300: #eeeef2;
-  --color-error: #c94043;
-  --color-error-hover: #b7393c;
-  --color-error-content: #fff5f5;
-  --color-error-soft: #f7e2e3;
+  --color-danger: #c94043;
+  --color-danger-hover: #b7393c;
+  --color-danger-content: #fff5f5;
+  --color-danger-soft: #f7e2e3;
   --color-success: #479d72;
   --color-success-content: #f5fef9;
   --color-success-soft: #e3f0ea;
@@ -36,8 +36,8 @@
   --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
   --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
   --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
-  --shadow-border-error: inset 0 0 0 1px #c94043;
-  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+  --shadow-border-danger: inset 0 0 0 1px #c94043;
+  --shadow-border-2-danger: inset 0 0 0 2px #c94043;
 }
 </style>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 100vh !important; box-sizing: border-box; }</style>
@@ -89,7 +89,7 @@
         </div>
         <div class="w-52 space-y-1">
           <label class="block text-sm text-base-content">Error</label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-[11px] py-[7px] text-sm rounded-md bg-white border-2 border-error placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-[11px] py-[7px] text-sm rounded-md bg-white border-2 border-danger placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
           <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-52 space-y-1">
@@ -110,14 +110,14 @@
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Required</p>
       <div class="flex flex-wrap items-start gap-6">
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-base-content">Default <span class="text-error">*</span></label>
+          <label class="block text-sm text-base-content">Default <span class="text-danger">*</span></label>
           <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-3 py-2 text-sm rounded-md bg-white border border-base-content/20 placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
           <p class="text-xs text-base-content/60">ヘルパーテキスト</p>
         </div>
         <div class="w-56 space-y-1">
-          <label class="block text-sm text-base-content">Error <span class="text-error">*</span></label>
-          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-[11px] py-[7px] text-sm rounded-md bg-white border-2 border-error placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
-          <p class="text-xs text-error">入力しましょう</p>
+          <label class="block text-sm text-base-content">Error <span class="text-danger">*</span></label>
+          <textarea rows="1" placeholder="プレースホルダー" class="block w-full h-16 px-[11px] py-[7px] text-sm rounded-md bg-white border-2 border-danger placeholder:text-base-content/30 text-base-content outline-none resize-y"></textarea>
+          <p class="text-xs text-danger">入力しましょう</p>
         </div>
       </div>
     </div>

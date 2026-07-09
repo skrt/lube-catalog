@@ -15,10 +15,10 @@
   --color-base-content: #101016;
   --color-base-200: #f8f8fa;
   --color-base-300: #eeeef2;
-  --color-error: #c94043;
-  --color-error-hover: #b7393c;
-  --color-error-content: #fff5f5;
-  --color-error-soft: #f7e2e3;
+  --color-danger: #c94043;
+  --color-danger-hover: #b7393c;
+  --color-danger-content: #fff5f5;
+  --color-danger-soft: #f7e2e3;
   --color-success: #479d72;
   --color-success-content: #f5fef9;
   --color-success-soft: #e3f0ea;
@@ -36,8 +36,8 @@
   --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
   --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
   --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
-  --shadow-border-error: inset 0 0 0 1px #c94043;
-  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+  --shadow-border-danger: inset 0 0 0 1px #c94043;
+  --shadow-border-2-danger: inset 0 0 0 2px #c94043;
 }
 </style>
 <style>#back-link { display: inline-flex; } .in-iframe #back-link { display: none; } .in-iframe body { padding: 0 !important; } .in-iframe.demo-only body { background: #f8f8fa !important; padding: 36px 32px 32px !important; min-height: 400px !important; box-sizing: border-box; }</style>
@@ -154,7 +154,7 @@
           <div class="w-96 rounded-xl bg-white border border-gray-200">
             <div class="flex items-center justify-end gap-3 px-6 py-4">
               <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">キャンセル</button>
-              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-error-content rounded-md bg-error border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">削除</button>
+              <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-danger-content rounded-md bg-danger border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">削除</button>
             </div>
           </div>
           <p class="text-[10px] text-gray-400 mt-1 ml-1">Danger</p>
@@ -215,7 +215,7 @@
         title: '本当に削除しますか？',
         body: 'この操作は取り消せません。関連するデータも削除されます',
         confirmLabel: '削除',
-        confirmClass: 'text-error-content bg-error hover:bg-error-hover'
+        confirmClass: 'text-danger-content bg-danger hover:bg-danger-hover'
       }
     };
 

@@ -15,10 +15,10 @@
   --color-base-content: #101016;
   --color-base-200: #f8f8fa;
   --color-base-300: #eeeef2;
-  --color-error: #c94043;
-  --color-error-hover: #b7393c;
-  --color-error-content: #fff5f5;
-  --color-error-soft: #f7e2e3;
+  --color-danger: #c94043;
+  --color-danger-hover: #b7393c;
+  --color-danger-content: #fff5f5;
+  --color-danger-soft: #f7e2e3;
   --color-success: #479d72;
   --color-success-content: #f5fef9;
   --color-success-soft: #e3f0ea;
@@ -36,8 +36,8 @@
   --shadow-border-2-base-content-20: inset 0 0 0 2px rgba(16, 16, 22, 0.2);
   --shadow-border-primary: inset 0 0 0 1px #0a0ac2;
   --shadow-border-2-primary: inset 0 0 0 2px #0a0ac2;
-  --shadow-border-error: inset 0 0 0 1px #c94043;
-  --shadow-border-2-error: inset 0 0 0 2px #c94043;
+  --shadow-border-danger: inset 0 0 0 1px #c94043;
+  --shadow-border-2-danger: inset 0 0 0 2px #c94043;
 }
 </style>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -131,7 +131,7 @@
         <div class="flex flex-col gap-4">
           <div class="flex gap-2">
             <div class="flex-1 min-w-0 flex flex-col gap-1">
-              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">姓</span><span class="text-error">*</span></div>
+              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">姓</span><span class="text-danger">*</span></div>
               <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"><span class="text-sm leading-5 text-base-content">佐藤</span></div>
             </div>
             <div class="flex-1 min-w-0 flex flex-col gap-1">
@@ -161,7 +161,7 @@
         <div class="flex flex-col gap-4">
           <div class="flex gap-2">
             <div class="flex-1 min-w-0 flex flex-col gap-1">
-              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">姓</span><span class="text-error">*</span></div>
+              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">姓</span><span class="text-danger">*</span></div>
               <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"><span class="text-sm leading-5 text-base-content">鈴木</span></div>
             </div>
             <div class="flex-1 min-w-0 flex flex-col gap-1">
@@ -170,7 +170,7 @@
             </div>
           </div>
           <div class="flex flex-col gap-1">
-            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">メールアドレス</span><span class="text-error">*</span></div>
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">メールアドレス</span><span class="text-danger">*</span></div>
             <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"><span class="text-sm leading-5 text-base-content">i.suzuki@example.com</span></div>
           </div>
           <div class="flex flex-col gap-1">
@@ -197,7 +197,7 @@
         <div class="flex flex-col gap-4">
           <div class="flex flex-col gap-2">
             <div class="flex flex-col gap-1">
-              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">サプライヤー</span><span class="text-error">*</span></div>
+              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">サプライヤー</span><span class="text-danger">*</span></div>
               <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
                 <span class="text-sm leading-5 text-base-content flex-1">株式会社ツムギパック</span>
                 <i data-lucide="x" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
@@ -210,7 +210,7 @@
           </div>
           <div class="flex flex-col gap-2">
             <div class="flex flex-col gap-1 h-80">
-              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">メッセージ</span><span class="text-error">*</span></div>
+              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">メッセージ</span><span class="text-danger">*</span></div>
               <div class="bg-white border border-base-content/20 rounded-md flex-1 flex items-start px-3 py-2 overflow-hidden">
                 <div class="text-sm leading-5 text-base-content">
                   <p>株式会社ツムギパック</p>

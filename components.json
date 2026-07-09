@@ -200,9 +200,9 @@
             {
               "variant": "Danger",
               "tokens": {
-                "background": "bg-error",
-                "hover": "hover:bg-error-hover",
-                "text": "text-error-content"
+                "background": "bg-danger",
+                "hover": "hover:bg-danger-hover",
+                "text": "text-danger-content"
               }
             },
             {
@@ -385,9 +385,9 @@
             {
               "variant": "Danger",
               "tokens": {
-                "background": "bg-error",
-                "hover": "hover:bg-error-hover",
-                "text": "text-error-content"
+                "background": "bg-danger",
+                "hover": "hover:bg-danger-hover",
+                "text": "text-danger-content"
               }
             },
             {
@@ -597,7 +597,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -644,13 +644,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -786,7 +786,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -839,13 +839,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -899,7 +899,7 @@
               "tokens": {
                 "font": "text-xs font-semibold",
                 "color": "text-base-content",
-                "required": "text-error"
+                "required": "text-danger"
               }
             },
             {
@@ -944,7 +944,7 @@
               "variant": "ErrorText",
               "tokens": {
                 "font": "text-xs",
-                "color": "text-error"
+                "color": "text-danger"
               }
             }
           ]
@@ -1154,7 +1154,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -1242,13 +1242,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -1645,7 +1645,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -1792,13 +1792,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -1982,8 +1982,8 @@
             {
               "variant": "Red",
               "tokens": {
-                "background": "bg-error",
-                "text": "text-error-content"
+                "background": "bg-danger",
+                "text": "text-danger-content"
               }
             },
             {
@@ -2120,8 +2120,8 @@
             {
               "variant": "Error",
               "tokens": {
-                "background": "bg-error-content",
-                "text": "text-error",
+                "background": "bg-danger-content",
+                "text": "text-danger",
                 "icon": "circle-alert"
               }
             },
@@ -2240,8 +2240,8 @@
             {
               "variant": "Error",
               "tokens": {
-                "background": "bg-error",
-                "text": "text-error-content",
+                "background": "bg-danger",
+                "text": "text-danger-content",
                 "icon": "circle-alert"
               }
             }
@@ -2446,8 +2446,8 @@
             {
               "variant": "Error",
               "tokens": {
-                "background": "bg-error",
-                "text": "text-error-content"
+                "background": "bg-danger",
+                "text": "text-danger-content"
               }
             }
           ]
@@ -2900,7 +2900,7 @@
                 "font-size": "text-xs (12px)",
                 "color": "base-content/30",
                 "土 color": "text-primary",
-                "日 color": "text-error"
+                "日 color": "text-danger"
               }
             },
             {
@@ -2969,7 +2969,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -3017,13 +3017,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -4926,7 +4926,7 @@
             {
               "variant": "required",
               "tokens": {
-                "color": "text-error"
+                "color": "text-danger"
               }
             }
           ]
@@ -5310,7 +5310,7 @@
               "variant": "Error text (RadioButton 行)",
               "tokens": {
                 "font": "text-xs",
-                "color": "text-error"
+                "color": "text-danger"
               }
             }
           ]
@@ -6103,7 +6103,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -6151,13 +6151,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -6338,7 +6338,7 @@
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-error",
+                "border": "border-2 border-danger",
                 "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
                 "background": "bg-base-100 (white)"
               }
@@ -6395,13 +6395,13 @@
               "variant": "errorText",
               "tokens": {
                 "font-size": "text-xs (12px)",
-                "color": "text-error"
+                "color": "text-danger"
               }
             },
             {
               "variant": "required",
               "tokens": {
-                "mark": "* text-error"
+                "mark": "* text-danger"
               }
             }
           ]
@@ -6783,7 +6783,7 @@
                 "padding": "p-2 (8px)",
                 "font": "text-xs leading-4",
                 "color": "text-base-content/60",
-                "required": "* は text-error"
+                "required": "* は text-danger"
               }
             },
             {
@@ -6847,7 +6847,7 @@
               "variant": "Error",
               "tokens": {
                 "cell-padding": "p-0",
-                "input": "h-6 bg-white border-2 border-error rounded-md",
+                "input": "h-6 bg-white border-2 border-danger rounded-md",
                 "padding-fix": "px-[7px] py-[3px]（border-2 のサイズ変動を補正）"
               }
             },
