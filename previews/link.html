@@ -54,7 +54,7 @@
     Link: テキストリンク（Button / IconButton の Tertiary でも強すぎる補助的な導線）
       Color: text-primary (#0a0ac2 青)。※lube では text-primary と text-secondary-content は同値の青
       Hover: hover:underline（下線は hover 時のみ）
-      Weight: Bold=font-semibold / Normal=font-normal
+      Weight: Semibold=font-semibold / Normal=font-normal
       Size: md=text-sm/leading-5 (14px) / sm=text-xs/leading-4 (12px・テーブル等の密なエリア)
       Focus: focus-visible:ring-2 ring-primary ring-offset-2
       実装: <a>（link_to）に以下クラス。静的プレビューは span+tabindex で表現
@@ -62,9 +62,9 @@
 
   <div class="space-y-10">
 
-    <!-- Bold -->
+    <!-- Semibold -->
     <div>
-      <p class="text-xs font-normal text-gray-400 tracking-wider mb-4">Bold</p>
+      <p class="text-xs font-normal text-gray-400 tracking-wider mb-4">Semibold</p>
       <div class="flex items-center gap-8">
         <div class="flex flex-col gap-1.5 items-start">
           <span tabindex="0" class="text-sm font-semibold leading-5 text-primary hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">株式会社コトハ商事</span>

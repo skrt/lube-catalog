@@ -460,7 +460,7 @@
       "preview": "previews/link.html",
       "usage": {
         "when": [
-          "Button や IconButton の Tertiary でも強すぎる、補助的なテキストリンクに使用します。強調したい導線は Bold（太字）、テーブル内など密なエリアは Normal（通常）を字面の太さで使い分けます。"
+          "Button や IconButton の Tertiary でも強すぎる、補助的なテキストリンクに使用します。強調したい導線は Semibold、テーブル内など密なエリアは Normal を字面の太さで使い分けます。"
         ],
         "avoid": [
           "画面の主要アクション（Footer の結論ボタン等）— Button を使う",
@@ -468,7 +468,7 @@
         ],
         "rules": [
           "テキストカラーは text-primary（青）。下線は hover 時のみ表示",
-          "太字＝font-semibold、通常＝font-normal",
+          "Semibold＝font-semibold、Normal＝font-normal",
           "サイズは文脈に追従（標準 text-sm、テーブル等の密なエリアは text-xs）"
         ],
         "vs": [
@@ -484,10 +484,10 @@
           "type": "enum",
           "default": "Normal",
           "values": [
-            "Bold",
+            "Semibold",
             "Normal"
           ],
-          "description": "Bold=font-semibold（強調導線）、Normal=font-normal（テーブル等）"
+          "description": "Semibold=font-semibold（強調導線）、Normal=font-normal（テーブル等）"
         },
         {
           "name": "Size",
@@ -511,7 +511,7 @@
           "category": "Type",
           "items": [
             {
-              "variant": "Bold",
+              "variant": "Semibold",
               "tokens": {
                 "font-weight": "font-semibold"
               }
