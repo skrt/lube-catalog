@@ -69,11 +69,10 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3619-1763",
       "usage": {
         "when": [
-          "ラベル付きの操作全般"
+          "アクションの実行やページ遷移のトリガーとして使用します。画面内における重要度に応じて使い分けられる複数のカラーとサイズがあります。"
         ],
         "rules": [
-          "Primary は視認性のため大きいサイズで扱うのが原則",
-          "ラベルの文言・語彙のルールは lube 本体 CLAUDE.md「デザイン原則」が正（ここには書かない）"
+          "Primary は視認性のため大きいサイズで扱うのが原則"
         ],
         "tables": [
           {
@@ -1897,7 +1896,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3707-2770",
       "usage": {
         "when": [
-          "ステータス・種別のラベル表示"
+          "ステータスや種別のラベル表示を行いたい場合に使用します。注意の要否に応じて使い分ける5色があります。"
         ],
         "rules": [
           "色に迷ったら、まず「注意が必要かどうか」で判断する（注意が必要=暖色系 Orange/Red／不要・処理済み=寒色系・無彩色 Green/Gray/Blue）",
@@ -5616,7 +5615,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3824-5228",
       "usage": {
         "when": [
-          "画面の階層ナビ（Header 内左側）。一覧画面では単一項目、詳細・作成・編集では階層を表示"
+          "画面の階層ナビゲーションを表示するときに使用します（Header 内左側）。一覧画面では単一項目、詳細・作成・編集では階層を表示します。"
         ]
       },
       "props": [
