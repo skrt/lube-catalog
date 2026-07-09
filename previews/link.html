@@ -51,8 +51,8 @@
 
   <!--
     Design Tokens:
-    Link: テキストリンク（Button / IconButton の Tertiary でも強すぎる補助的な導線）
-      Color: text-primary (#0a0ac2 青)。※lube では text-primary と text-secondary-content は同値の青
+    Link: テキストリンク（Button / IconButton の Tertiary よりも優先度の低い補助的な導線）
+      Color: text-secondary-content (#0a0ac2 青)。Props の Link / Table の LinkText と同じ
       Hover: hover:underline（下線は hover 時のみ）
       Weight: Semibold=font-semibold / Normal=font-normal
       Size: md=text-sm/leading-5 (14px) / sm=text-xs/leading-4 (12px・テーブル等の密なエリア)
@@ -67,11 +67,11 @@
       <p class="text-xs font-normal text-gray-400 tracking-wider mb-4">Semibold</p>
       <div class="flex items-center gap-8">
         <div class="flex flex-col gap-1.5 items-start">
-          <span tabindex="0" class="text-sm font-semibold leading-5 text-primary hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">株式会社コトハ商事</span>
+          <span tabindex="0" class="text-sm font-semibold leading-5 text-secondary-content hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">株式会社コトハ商事</span>
           <span class="text-[10px] text-gray-400">Default</span>
         </div>
         <div class="flex flex-col gap-1.5 items-start">
-          <span class="text-sm font-semibold leading-5 text-primary underline cursor-pointer">株式会社コトハ商事</span>
+          <span class="text-sm font-semibold leading-5 text-secondary-content underline cursor-pointer">株式会社コトハ商事</span>
           <span class="text-[10px] text-gray-400">Hover</span>
         </div>
       </div>
@@ -82,11 +82,11 @@
       <p class="text-xs font-normal text-gray-400 tracking-wider mb-4">Normal</p>
       <div class="flex items-center gap-8">
         <div class="flex flex-col gap-1.5 items-start">
-          <span tabindex="0" class="text-sm font-normal leading-5 text-primary hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">リンクテキスト</span>
+          <span tabindex="0" class="text-sm font-normal leading-5 text-secondary-content hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">リンクテキスト</span>
           <span class="text-[10px] text-gray-400">Default</span>
         </div>
         <div class="flex flex-col gap-1.5 items-start">
-          <span class="text-sm font-normal leading-5 text-primary underline cursor-pointer">リンクテキスト</span>
+          <span class="text-sm font-normal leading-5 text-secondary-content underline cursor-pointer">リンクテキスト</span>
           <span class="text-[10px] text-gray-400">Hover</span>
         </div>
       </div>
@@ -97,11 +97,11 @@
       <p class="text-xs font-normal text-gray-400 tracking-wider mb-4">Sizes</p>
       <div class="flex items-center gap-8">
         <div class="flex flex-col gap-1.5 items-start">
-          <span tabindex="0" class="text-sm font-normal leading-5 text-primary hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">リンクテキスト</span>
+          <span tabindex="0" class="text-sm font-normal leading-5 text-secondary-content hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">リンクテキスト</span>
           <span class="text-[10px] text-gray-400">md (text-sm)</span>
         </div>
         <div class="flex flex-col gap-1.5 items-start">
-          <span tabindex="0" class="text-xs font-normal leading-4 text-primary hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">リンクテキスト</span>
+          <span tabindex="0" class="text-xs font-normal leading-4 text-secondary-content hover:underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">リンクテキスト</span>
           <span class="text-[10px] text-gray-400">sm (text-xs)</span>
         </div>
       </div>

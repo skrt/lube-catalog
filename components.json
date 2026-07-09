@@ -460,11 +460,10 @@
       "preview": "previews/link.html",
       "usage": {
         "when": [
-          "Button や IconButton の Tertiary よりも優先度の低い、補助的なテキストリンクに使用します。強調したい導線は Semibold、テーブル内など密なエリアは Normal を字面の太さで使い分けます。"
+          "Button や IconButton の Tertiary よりも優先度の低い補助的な導線や、1画面に多くの導線を並べる必要がある場面で使用します。強調したい導線は Semibold、テーブル内など密なエリアは Normal を字面の太さで使い分けます。"
         ],
         "avoid": [],
         "rules": [
-          "テキストカラーは text-primary（青）。下線は hover 時のみ表示",
           "Semibold＝font-semibold、Normal＝font-normal",
           "サイズは文脈に追従（標準 text-sm、テーブル等の密なエリアは text-xs）"
         ],
@@ -528,14 +527,14 @@
             {
               "variant": "Default",
               "tokens": {
-                "text": "text-primary",
+                "text": "text-secondary-content",
                 "decoration": "下線なし"
               }
             },
             {
               "variant": "Hover",
               "tokens": {
-                "text": "text-primary",
+                "text": "text-secondary-content",
                 "decoration": "hover:underline"
               }
             }
@@ -591,7 +590,7 @@
         ],
         "behavior": [
           "実装は <a>（link_to）。静的プレビューでは span + tabindex で表現している",
-          "色は text-primary。lube では text-primary と text-secondary-content は同値の青（#0a0ac2）"
+          "色は text-secondary-content（青 #0a0ac2）。Props の Link・Table の LinkText と同じトークン"
         ],
         "keyboard": [
           "Tab: フォーカス移動",
