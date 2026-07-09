@@ -861,7 +861,8 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3804-9497",
       "usage": {
         "when": [
-          "ファイル添付（見積依頼の添付・商品のその他データなど）"
+          "メール送付の際に、書類以外で添付が必要なファイルがあるとき",
+          "商品マスターに紐付けておきたいファイルがあるとき"
         ],
         "rules": [
           "ボタンは Tertiary（Primary にしない）"
@@ -4417,8 +4418,7 @@
         ],
         "rules": [
           "bg-base-200 rounded-lg p-6 flex justify-center のエリアで囲み、Document カードを中央揃えにする（レイアウト共通ルール）",
-          "発行元は発注書のみ株式会社shizai（shizai→仕入先に出す唯一の書類）、他はサプライヤー発行。帳票を増やす時は「誰が誰に出す書類か」で決める",
-          "請求書のみ横長・発行元テキストを持たない別レイアウト"
+          "請求書のみ横長の別レイアウト"
         ]
       },
       "props": [
@@ -5120,11 +5120,26 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3912-7775",
       "usage": {
         "when": [
-          "1つの対象の確定情報を1カードにまとめて表示（仕様＋画像＋Props＋単価表）"
+          "商品（商品マスター）の確定情報を1カードにまとめて表示する（仕様＋画像＋Props＋単価表）。他マスターへの転用可能性はあるが、基本は商品用"
         ],
-        "rules": [
-          "展開/折畳は任意の挙動（常時展開でもよい）",
-          "編集フォーム版（Add）・確認版（Confirm）が Figma 先行。Add=ヘッダーボタン非表示・Props がフォーム化（区分/納品先=RadioGroup ボタン型・社内メモ=TextArea・単価表=PriceTable Checkbox）。書類作成の「明細を追加→確認」フロー用"
+        "tables": [
+          {
+            "title": "タイプの使い分け",
+            "items": [
+              {
+                "label": "表示",
+                "desc": "登録済みの商品の確定情報を閲覧する時（デマンド詳細の商品一覧など）"
+              },
+              {
+                "label": "Add",
+                "desc": "書類作成の中で明細（商品・費用）を新規追加・編集する時。Props がフォームになり、単価表は PriceTable の Checkbox 版（登録済みの単価から使う行を選択）になる"
+              },
+              {
+                "label": "Confirm",
+                "desc": "Add で入力した内容を、確定前に読み取り表示で確認する時（明細を追加→確認のフロー）"
+              }
+            ]
+          }
         ]
       },
       "props": [
@@ -5466,7 +5481,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3891-3340",
       "usage": {
         "when": [
-          "詳細画面内のコンテンツ絞り込み（チェックボックス群の左サイドバー）"
+          "詳細画面内のコンテンツ絞り込み。マスター情報や件数が多い情報を、詳細画面内でさらに絞り込んで整理・表示したいときに使う"
         ],
         "vs": [
           "FilterArea → 一覧画面の絞り込み"
@@ -5958,7 +5973,13 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3696-3328",
       "usage": {
         "when": [
-          "期間（開始〜終了）の入力。一覧フィルタの期間絞り込みが現状の用途"
+          "開始から終了の期間の入力が必要なとき"
+        ],
+        "avoid": [
+          "カレンダーアイコンは DatePicker と別物（レンジ用の calendar-range。DatePicker は calendar）。取り違えに注意"
+        ],
+        "rules": [
+          "フィルターとして使う場合は、Placeholder として「全期間」が入った状態でスタートする"
         ],
         "vs": [
           "DatePicker → 単一日付"
@@ -6545,7 +6566,7 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3844-5515",
       "usage": {
         "when": [
-          "一覧画面の上部絞り込み（テキスト検索＋フィルタ＋日付範囲＋ステータスタブを水平配置）"
+          "一覧画面に表示しているテーブルの情報を絞り込みたいとき"
         ],
         "rules": [
           "タブとフィルタは AND で両立（pagination controller）",
