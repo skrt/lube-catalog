@@ -453,6 +453,155 @@
       ]
     },
     {
+      "id": "link",
+      "name": "Link",
+      "description": "テキストリンク",
+      "category": "actions",
+      "preview": "previews/link.html",
+      "usage": {
+        "when": [
+          "Button や IconButton の Tertiary でも強すぎる、補助的なテキストリンクに使用します。強調したい導線は Bold（太字）、テーブル内など密なエリアは Normal（通常）を字面の太さで使い分けます。"
+        ],
+        "avoid": [
+          "画面の主要アクション（Footer の結論ボタン等）— Button を使う",
+          "アイコンのみで表現する操作 — IconButton を使う"
+        ],
+        "rules": [
+          "テキストカラーは text-primary（青）。下線は hover 時のみ表示",
+          "太字＝font-semibold、通常＝font-normal",
+          "サイズは文脈に追従（標準 text-sm、テーブル等の密なエリアは text-xs）"
+        ],
+        "vs": [
+          "Button (Tertiary): 枠・背景を持つ弱めのボタン。Link はそれより弱い純テキストの導線",
+          "Breadcrumbs: 階層ナビ専用の灰色リンク。Link は本文・テーブル内の青リンク"
+        ]
+      },
+      "hasDemo": false,
+      "hasExamples": false,
+      "props": [
+        {
+          "name": "Type",
+          "type": "enum",
+          "default": "Normal",
+          "values": [
+            "Bold",
+            "Normal"
+          ],
+          "description": "Bold=font-semibold（強調導線）、Normal=font-normal（テーブル等）"
+        },
+        {
+          "name": "Size",
+          "type": "enum",
+          "default": "md",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "description": "md=text-sm、sm=text-xs（密なエリア）"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "リンクテキスト",
+          "description": "リンクのテキスト"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "Type",
+          "items": [
+            {
+              "variant": "Bold",
+              "tokens": {
+                "font-weight": "font-semibold"
+              }
+            },
+            {
+              "variant": "Normal",
+              "tokens": {
+                "font-weight": "font-normal"
+              }
+            }
+          ]
+        },
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "text": "text-primary",
+                "decoration": "下線なし"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "text": "text-primary",
+                "decoration": "hover:underline"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Size",
+          "items": [
+            {
+              "variant": "md",
+              "tokens": {
+                "font-size": "text-sm (14px)",
+                "line-height": "leading-5 (20px)"
+              }
+            },
+            {
+              "variant": "sm",
+              "tokens": {
+                "font-size": "text-xs (12px)",
+                "line-height": "leading-4 (16px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "cursor",
+              "tokens": {
+                "cursor": "cursor-pointer"
+              }
+            },
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              }
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "states": [
+          {
+            "state": "Default",
+            "effect": "青いテキストで表示される（下線なし）"
+          },
+          {
+            "state": "Hover",
+            "effect": "テキストに下線が表示される"
+          }
+        ],
+        "behavior": [
+          "実装は <a>（link_to）。静的プレビューでは span + tabindex で表現している",
+          "色は text-primary。lube では text-primary と text-secondary-content は同値の青（#0a0ac2）"
+        ],
+        "keyboard": [
+          "Tab: フォーカス移動",
+          "Enter: リンク先へ遷移"
+        ]
+      }
+    },
+    {
       "id": "input",
       "name": "Input",
       "description": "テキスト入力フォーム",
