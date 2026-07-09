@@ -45,7 +45,6 @@
     Validator（Figma String Variable Collection: `Validator` / VariableCollectionId:3651:145）
     フォームのエラーメッセージ文言を一元管理する。全15個。
     各フォームコンポーネントの Error 状態の errorText にこの文言を表示する。
-    i18n キーは M 提案の暫定案。Rails config/locales/ja.yml のキー命名とエンジニアさん擦り合わせで確定する。
   -->
 
   <div class="space-y-10">
@@ -58,33 +57,29 @@
             <tr class="text-left border-b border-gray-200">
               <th class="pb-2 pr-4 font-semibold text-gray-700">Category</th>
               <th class="pb-2 pr-4 font-semibold text-gray-700">文言</th>
-              <th class="pb-2 font-semibold text-gray-700">i18n key（暫定）</th>
+              
             </tr>
           </thead>
           <tbody>
             <!-- required -->
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">required</td><td class="py-1.5 pr-4 text-danger">入力しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.required.input</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">選択しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.required.select</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">required</td><td class="py-1.5 pr-4 text-danger">入力しましょう</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">選択しましょう</td></tr>
             <!-- format -->
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">format</td><td class="py-1.5 pr-4 text-danger">メールアドレスの形式にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.email</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">半角英数で入力しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.alphanumeric</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">1以上の整数にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.integer_positive</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">小数点第6位までで入力しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.format.decimal_6</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">format</td><td class="py-1.5 pr-4 text-danger">メールアドレスの形式にしましょう</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">半角英数で入力しましょう</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">1以上の整数にしましょう</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">小数点第6位までで入力しましょう</td></tr>
             <!-- length -->
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">length</td><td class="py-1.5 pr-4 text-danger">32文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_32</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">256文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_256</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">512文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_512</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">5000文字以内にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.length.max_5000</td></tr>
             <!-- duplicate -->
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">duplicate</td><td class="py-1.5 pr-4 text-danger">すでに登録されています</td><td class="py-1.5 font-mono text-gray-400">errors.duplicate.exists</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">重複しています</td><td class="py-1.5 font-mono text-gray-400">errors.duplicate.in_list</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">duplicate</td><td class="py-1.5 pr-4 text-danger">すでに登録されています</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">重複しています</td></tr>
             <!-- existence -->
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">existence</td><td class="py-1.5 pr-4 text-danger">存在しません</td><td class="py-1.5 font-mono text-gray-400">errors.existence.not_found</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">existence</td><td class="py-1.5 pr-4 text-danger">存在しません</td></tr>
             <!-- feature -->
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / email</td><td class="py-1.5 pr-4 text-danger">TOを1個以上選択しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.feature.email.to_required</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / file-input</td><td class="py-1.5 pr-4 text-danger">ファイルは合計10MB以下にしましょう</td><td class="py-1.5 font-mono text-gray-400">errors.feature.file_input.max_total_10mb</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / quote-request</td><td class="py-1.5 pr-4 text-danger">依頼済みのサプライヤーです</td><td class="py-1.5 font-mono text-gray-400">errors.feature.quote_request.already_requested</td></tr>
-            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">見積条件を追加しましょう</td><td class="py-1.5 font-mono text-gray-400">errors.feature.quote_request.conditions_required</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / email</td><td class="py-1.5 pr-4 text-danger">TOを1個以上選択しましょう</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / file-input</td><td class="py-1.5 pr-4 text-danger">ファイルは合計10MB以下にしましょう</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4 font-semibold text-gray-700">feature / quote-request</td><td class="py-1.5 pr-4 text-danger">依頼済みのサプライヤーです</td></tr>
+            <tr class="border-b border-gray-50"><td class="py-1.5 pr-4"></td><td class="py-1.5 pr-4 text-danger">見積条件を追加しましょう</td></tr>
           </tbody>
         </table>
       </div>
@@ -95,9 +90,7 @@
       <ul class="text-xs text-base-content/60 space-y-1.5 list-disc pl-4 max-w-2xl">
         <li>トーンは「〜しましょう」推奨形に統一する。例外: duplicate / existence 系は状態説明なので「〜しています」「〜ません」も可。「〜できます」（許可形）は使わない</li>
         <li>表示位置は各フォームコンポーネントの errorText（<span class="font-mono">text-xs text-danger</span>、フィールド下）。見た目のトークンは各コンポーネントの State / Common を参照</li>
-        <li>文字数制限は固定値（32 / 256 / 512 / 5000）。実装側での <span class="font-mono">t('errors.length.max', count: N)</span> 補間運用との関係はエンジニアさんと要相談</li>
         <li>機能固有の文言は <span class="font-mono">feature/{機能名}/{specifier}</span> 命名で追加する（機能名は kebab-case）</li>
-        <li>i18n キーは暫定案。Rails <span class="font-mono">config/locales/ja.yml</span> の命名と擦り合わせて確定する</li>
       </ul>
     </div>
 

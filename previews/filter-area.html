@@ -56,7 +56,7 @@
       Layout: flex items-start gap-3, w-full（フィールド間 gap-3=12px）
       Fields: Input(w-40) / ComboBox(w-40,w-32) / DateRangePicker(w-72) / フリーワード(flex-1)
       All fields: label text-sm text-base-content + input h-8 border border-base-content/20 rounded-md px-3 py-2
-      ComboBox: chevron-down icon right
+      ComboBox（デマンド/サプライヤー）: chevron なし（一覧フィルタ仕様）／ Select（担当者）: chevron-down icon right
       DateRangePicker: calendar-range icon left, circle-x icon right
       請求書: 2行構成 (Form Row + Status Tabs)。外側 flex-col gap-3 / Form Row 内フィールドも gap-3 / Status Tabs gap-2
   -->
@@ -181,7 +181,6 @@
           <p class="text-sm text-base-content">デマンド</p>
           <div class="h-8 bg-white border border-base-content/20 rounded-md px-3 py-2 flex items-center gap-2">
             <span class="flex-1 text-sm text-base-content">すべて</span>
-            <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </div>
         </div>
         <div class="shrink-0 w-32 flex flex-col gap-1">
