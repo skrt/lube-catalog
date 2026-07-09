@@ -156,7 +156,8 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - フォーカスリング（`focus-visible:ring`、→「フォーカスリング」節参照）と `tabindex` は操作対象の要素に付ける（行全体ではなくボックスやボタン本体）。クリックエリアは親要素で広く取る
 - スクロール: `scrollIntoView({ block: 'nearest' })` でアクティブ項目を追従
 
-### トークン名の注意
-- lube のデザインシステムでは `text-primary` = `text-base-content`（#101016、黒）であり、Tailwind デフォルトの primary カラー（青）ではない
-- `text-secondary` = `text-base-content/60`（60% opacity）
-- この対応を間違えやすいので注意
+### トークン名の注意（実 @theme 値・混同しやすい）
+- 黒い本文・見出し = `text-base-content`（#101016）。補助のグレー文字は `text-base-content/60`
+- 青い文字（リンク・Secondary ボタン文字）= `text-secondary-content`（#0a0ac2）。Link・Table の LinkText・Props の Link はこれを使う
+- `text-primary` も #0a0ac2 の青（`--color-primary`）だが、**青文字は `text-secondary-content` に統一**する（`text-primary`/`bg-primary` は Primary ボタン等のブランド青用）
+- `text-secondary` は文字色ではなく薄いラベンダーの**背景色**（#e8e8fd・`bg-secondary` 用）。文字色として使わない

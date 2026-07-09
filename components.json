@@ -576,27 +576,7 @@
             }
           ]
         }
-      ],
-      "spec": {
-        "states": [
-          {
-            "state": "Default",
-            "effect": "青いテキストで表示される（下線なし）"
-          },
-          {
-            "state": "Hover",
-            "effect": "テキストに下線が表示される"
-          }
-        ],
-        "behavior": [
-          "実装は <a>（link_to）。静的プレビューでは span + tabindex で表現している",
-          "色は text-secondary-content（青 #0a0ac2）。Props の Link・Table の LinkText と同じトークン"
-        ],
-        "keyboard": [
-          "Tab: フォーカス移動",
-          "Enter: リンク先へ遷移"
-        ]
-      }
+      ]
     },
     {
       "id": "input",
