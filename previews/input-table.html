@@ -670,39 +670,39 @@
         </div>
       </div>
 
-      <!-- 見積回答（サプライヤー向け回答テーブル。列ベース・rowspanはネストflexのstretch。数量/見積単価=入力列（青ヘッダー bg-primary・NumberInput md）＋操作列（下に1行追加+削除）。カテゴリー違い（紙袋等）はヘッダーoverride: 形式→用紙/構成→持ち手/加工→その他） -->
+      <!-- 見積回答（サプライヤー向け回答テーブル。列ベース・rowspanはネストflexのstretch。数量/見積単価=入力列（青ヘッダー bg-primary・NumberInput md）＋操作列（下に1行追加+削除）。カテゴリー違い（紙袋等）はヘッダーoverride: 形式→用紙/構成→持ち手/加工→その他。文字サイズは社内variantより1段大きい: 値=text-sm(14px)/ヘッダー=text-xs(12px)＝Figma実測） -->
       <div>
         <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">見積回答</p>
         <div class="flex flex-col w-full min-w-270">
           <!-- Header Row（グレー列＋入力列は青ヘッダー） -->
           <div class="flex items-stretch w-full h-8">
-            <div class="bg-base-200 flex-1 min-w-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">品名</span></div>
-            <div class="bg-base-200 w-36 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">サイズ</span></div>
-            <div class="bg-base-200 w-28 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">形式</span></div>
-            <div class="bg-base-200 w-24 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">構成</span></div>
-            <div class="bg-base-200 w-14 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">印刷</span></div>
-            <div class="bg-base-200 w-32 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">加工</span></div>
-            <div class="bg-base-200 w-28 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">年間発注数量</span></div>
-            <div class="bg-base-200 w-22 shrink-0 flex items-center px-2"><span class="text-[11px] leading-4 text-base-content/60">希望価格</span></div>
-            <div class="bg-primary w-36 shrink-0 flex items-center justify-center px-2"><span class="text-[11px] leading-4 font-semibold text-primary-content">数量</span></div>
-            <div class="bg-primary w-36 shrink-0 flex items-center justify-center px-2"><span class="text-[11px] leading-4 font-semibold text-primary-content">見積単価</span></div>
+            <div class="bg-base-200 flex-1 min-w-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">品名</span></div>
+            <div class="bg-base-200 w-36 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">サイズ</span></div>
+            <div class="bg-base-200 w-28 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">形式</span></div>
+            <div class="bg-base-200 w-24 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">構成</span></div>
+            <div class="bg-base-200 w-14 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">印刷</span></div>
+            <div class="bg-base-200 w-32 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">加工</span></div>
+            <div class="bg-base-200 w-28 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">年間発注数量</span></div>
+            <div class="bg-base-200 w-22 shrink-0 flex items-center px-2"><span class="text-xs leading-4 text-base-content/60">希望価格</span></div>
+            <div class="bg-primary w-36 shrink-0 flex items-center justify-center px-2"><span class="text-xs leading-4 font-semibold text-primary-content">数量</span></div>
+            <div class="bg-primary w-36 shrink-0 flex items-center justify-center px-2"><span class="text-xs leading-4 font-semibold text-primary-content">見積単価</span></div>
             <div class="bg-base-200 w-36 shrink-0"></div>
           </div>
           <div class="flex items-stretch w-full">
-            <div class="flex-1 min-w-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">NEW60サイズダンボール</p></div>
-            <div class="w-36 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">191×151×87(外寸)</p></div>
+            <div class="flex-1 min-w-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">NEW60サイズダンボール</p></div>
+            <div class="w-36 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">191×151×87(外寸)</p></div>
             <div class="shrink-0 flex flex-col">
               <div class="flex items-stretch">
-                <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">A式</p></div>
-                <div class="w-24 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">C5/120</p></div>
+                <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">A式</p></div>
+                <div class="w-24 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">C5/120</p></div>
                 <div class="shrink-0 flex flex-col">
                   <div class="flex items-stretch">
-                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">1C</p></div>
-                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">撥水</p></div>
-                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">100,000</p></div>
+                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">1C</p></div>
+                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">撥水</p></div>
+                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">100,000</p></div>
                     <div class="shrink-0 flex flex-col">
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">12</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">12</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -711,7 +711,7 @@
                         </div>
                       </div>
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">11.5</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">11.5</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -720,7 +720,7 @@
                         </div>
                       </div>
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">10</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">10</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -731,12 +731,12 @@
                     </div>
                   </div>
                   <div class="flex items-stretch">
-                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">4C</p></div>
-                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">-</p></div>
-                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">100,000</p></div>
+                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">4C</p></div>
+                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">-</p></div>
+                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">100,000</p></div>
                     <div class="shrink-0 flex flex-col">
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">15</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">15</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -745,7 +745,7 @@
                         </div>
                       </div>
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">13</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">13</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -758,16 +758,16 @@
                 </div>
               </div>
               <div class="flex items-stretch">
-                <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">B式</p></div>
-                <div class="w-24 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">白C6/120</p></div>
+                <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">B式</p></div>
+                <div class="w-24 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">白C6/120</p></div>
                 <div class="shrink-0 flex flex-col">
                   <div class="flex items-stretch">
-                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">1C</p></div>
-                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">-</p></div>
-                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">100,000</p></div>
+                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">1C</p></div>
+                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">-</p></div>
+                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">100,000</p></div>
                     <div class="shrink-0 flex flex-col">
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">18</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">18</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -776,7 +776,7 @@
                         </div>
                       </div>
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">16</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">16</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
@@ -791,20 +791,20 @@
             </div>
           </div>
           <div class="flex items-stretch w-full">
-            <div class="flex-1 min-w-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">NEW80サイズダンボール</p></div>
-            <div class="w-36 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">191×151×87(外寸)</p></div>
+            <div class="flex-1 min-w-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">NEW80サイズダンボール</p></div>
+            <div class="w-36 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">191×151×87(外寸)</p></div>
             <div class="shrink-0 flex flex-col">
               <div class="flex items-stretch">
-                <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">A式</p></div>
-                <div class="w-24 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">白C6/120</p></div>
+                <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">A式</p></div>
+                <div class="w-24 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">白C6/120</p></div>
                 <div class="shrink-0 flex flex-col">
                   <div class="flex items-stretch">
-                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">1C</p></div>
-                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content">-</p></div>
-                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">100,000</p></div>
+                    <div class="w-14 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">1C</p></div>
+                    <div class="w-32 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content">-</p></div>
+                    <div class="w-28 shrink-0 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">100,000</p></div>
                     <div class="shrink-0 flex flex-col">
                       <div class="flex items-stretch">
-                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-xs leading-4 text-base-content font-mono tabular-nums">32</p></div>
+                        <div class="w-22 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><p class="text-sm leading-5 text-base-content font-mono tabular-nums">32</p></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center px-2"><input type="text" class="w-full h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none"></div>
                         <div class="w-36 shrink-0 h-12 border-b border-base-content/10 flex items-center gap-1 px-2">
