@@ -37,6 +37,9 @@ tailwind.config = {
           'soft': '#e5e6ea',
         },
       },
+      fontSize: {
+        '2xs': ['11px', { lineHeight: '16px' }],
+      },
       borderRadius: {
         'sm': '4px',
       },
