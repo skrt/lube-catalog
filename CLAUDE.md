@@ -90,6 +90,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 
 ### Tailwind / スタイル
 - Tailwind CSS 標準クラスのみ使用（ハードコードカラー値禁止、`tailwind.config.js` のテーマトークンを使う）
+- **カスタム text トークンを使う preview は `@theme` にその定義を必ず含める**。特に `text-2xs`（11px）は Tailwind 標準に無いため、`@theme` に `--text-2xs: 11px; --text-2xs--line-height: 16px;` が無いと CDN Tailwind がクラスを生成せず**既定16pxにフォールバックして文字が巨大化する**（2026-07-14 に place/price-table/document/details/quote-table で発生）。app 側 `application.css` の @theme と揃える
 - Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
