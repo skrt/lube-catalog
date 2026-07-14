@@ -7186,6 +7186,10 @@
             "detail": "クリックエリアはセル全体。Cell Text はセル内のどこをクリックしても内包する入力欄にフォーカスし、Cell Icon（Copy/Delete）・Cell Radio はセルのどこをクリックしても操作が発火する"
           },
           {
+            "action": "品名セルの複数行入力",
+            "detail": "品名は Enter で改行できる（textarea）。高さは内容に合わせて自動で可変し（field-sizing: content）、手動リサイズはできない（resize-none）"
+          },
+          {
             "action": "行の複製・削除",
             "detail": "Copy は自行の直下に複製を挿入する。Delete は自行を削除する（最終行のみの場合は削除不可）"
           },
