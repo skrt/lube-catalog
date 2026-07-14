@@ -68,7 +68,7 @@
         Focus: セル p-0、入力欄 border-2 primary (padding 補正 px-[7px] py-[3px])
         Error: セル p-0、入力欄 border-2 error (padding 補正 px-[7px] py-[3px])
         Disabled: px-2 py-3, bg-base-100 (white), text-base-content/60
-        品名セルは複数行入力可: textarea rows=1 + field-sizing-content で内容に合わせて高さ自動可変（resize-none＝手動リサイズなし）
+        品名セル・仕様フィールド（カテゴリー除く）は複数行入力可: textarea rows=1 + field-sizing-content で内容に合わせて高さ自動可変（resize-none＝手動リサイズなし）
       Cell / Text (仕様セル Props=True): p-2, 行 h-6 gap-1
         行: ラベル w-15 (60px) 右揃え text-base-content/60 leading-5 + 値 px-2 text-base-content leading-5
         Hover: 行 hover で bg-base-200。セル hover で値が Select (カテゴリー w-28 + chevron-down 12px) / Input (flex-1) に変わる
@@ -331,7 +331,6 @@
               'その他': [['other', 'その他']],
             },
             specFields(row) { return this.specFieldDefs[row.spec.category] || [] },
-            specSingle(row) { return this.specFields(row).length === 1 },
             catOpen: null,
             dragIndex: null,
             dragStart(e, i) {
@@ -433,16 +432,11 @@
                   </div>
                 </div>
               </div>
-              <!-- カテゴリ別の仕様フィールド（その他は複数行1フィールド） -->
+              <!-- カテゴリ別の仕様フィールド: 全フィールド複数行入力可（field-sizing-content で高さ自動可変・手動リサイズなし）。ラベルは leading-6 で1行時の入力欄(h-6)と天地センターが揃う -->
               <template x-for="f in specFields(row)" :key="f[0]">
-                <div class="flex gap-2 cursor-text" :class="specSingle(row) ? 'items-start' : 'items-center h-6'" @click="$event.currentTarget.querySelector('input, textarea')?.focus()">
-                  <p class="w-15 text-right text-xs leading-5 text-base-content/60 shrink-0" x-text="f[1]"></p>
-                  <template x-if="!specSingle(row)">
-                    <input x-model="row.spec[f[0]]" class="flex-1 h-6 w-full text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)">
-                  </template>
-                  <template x-if="specSingle(row)">
-                    <textarea x-model="row.spec[f[0]]" rows="1" class="flex-1 w-full min-h-6 resize-y text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)"></textarea>
-                  </template>
+                <div class="flex gap-2 items-start cursor-text" @click="$event.currentTarget.querySelector('textarea').focus()">
+                  <p class="w-15 text-right text-xs leading-6 text-base-content/60 shrink-0" x-text="f[1]"></p>
+                  <textarea x-model="row.spec[f[0]]" rows="1" class="flex-1 w-full min-h-6 resize-none field-sizing-content text-xs leading-4 text-base-content rounded-md focus-visible:outline-none" :class="cellInputClass(false)"></textarea>
                 </div>
               </template>
             </div>
