@@ -322,7 +322,7 @@
               { addr: 'test-test2@example.com', dest: 'cc' }
             ],
             categories: ['ダンボール', '軟包材', '化粧箱', '紙袋', 'その他'],
-            // カテゴリ別の仕様フィールド定義（[key, ラベル]）。カテゴリ変更で切り替わり、共通keyの入力値は引き継がれる
+            // カテゴリ別の仕様フィールド定義（[key, ラベル]）。カテゴリーごとに独立した仕様フォームとして扱う（切替時の退避/復帰は changeCategory）
             specFieldDefs: {
               'ダンボール': [['size', 'サイズ'], ['shape', '形状'], ['composition', '構成'], ['thickness', '段厚'], ['printing', '印刷'], ['processing', '加工'], ['other', 'その他']],
               '軟包材': [['size', 'サイズ'], ['shape', '形状'], ['composition', '構成'], ['printing', '印刷'], ['processing', '加工'], ['other', 'その他']],
@@ -331,6 +331,15 @@
               'その他': [['other', 'その他']],
             },
             specFields(row) { return this.specFieldDefs[row.spec.category] || [] },
+            // カテゴリー切替: 現カテゴリーの入力値を row.specStash に退避してフォームは空でスタート、元のカテゴリーに戻すと退避分を復帰
+            changeCategory(row, opt) {
+              if (row.spec.category === opt) return
+              row.specStash = row.specStash || {}
+              row.specStash[row.spec.category] = Object.fromEntries(this.specFields(row).map((f) => [f[0], row.spec[f[0]]]))
+              row.spec.category = opt
+              const saved = row.specStash[opt] || {}
+              this.specFields(row).forEach((f) => { row.spec[f[0]] = saved[f[0]] || '' })
+            },
             catOpen: null,
             dragIndex: null,
             dragStart(e, i) {
@@ -425,7 +434,7 @@
                   </div>
                   <div x-show="catOpen === i" class="absolute top-full left-0 w-28 mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
                     <template x-for="opt in categories" :key="opt">
-                      <div @click="row.spec.category = opt; catOpen = null" class="flex items-center h-6 px-3 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
+                      <div @click="changeCategory(row, opt); catOpen = null" class="flex items-center h-6 px-3 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
                         <span x-text="opt"></span>
                       </div>
                     </template>
