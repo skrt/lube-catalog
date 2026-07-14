@@ -1017,7 +1017,7 @@
             {
               "variant": "Legend",
               "tokens": {
-                "font": "text-xs font-semibold",
+                "font": "text-xs",
                 "color": "text-base-content",
                 "required": "text-danger"
               }
