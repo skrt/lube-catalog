@@ -3284,9 +3284,10 @@
           "default": "Default",
           "values": [
             "Default",
-            "Checkbox"
+            "Checkbox",
+            "Diff"
           ],
-          "description": "Default=数量+単価のみ、Checkbox=行選択チェックボックス付き"
+          "description": "Default=数量+単価のみ、Checkbox=行選択チェックボックス付き、Diff=差分表示（行・セル単位の追加/削除/変更ハイライト）"
         }
       ],
       "tokens": [
@@ -3354,6 +3355,39 @@
               }
             }
           ]
+        },
+        {
+          "category": "Diff",
+          "items": [
+            {
+              "variant": "変更セル",
+              "tokens": {
+                "before": "text-danger（数値のみ）",
+                "after": "text-success（数値のみ）"
+              }
+            },
+            {
+              "variant": "追加行",
+              "tokens": {
+                "background": "bg-success-soft",
+                "text": "text-success（行全体）"
+              }
+            },
+            {
+              "variant": "削除行",
+              "tokens": {
+                "background": "bg-danger-soft",
+                "text": "text-danger（行全体）"
+              }
+            },
+            {
+              "variant": "帯行",
+              "tokens": {
+                "background": "bg-base-300",
+                "content": "空文字（プレースホルダー）"
+              }
+            }
+          ]
         }
       ],
       "spec": {
@@ -3395,6 +3429,10 @@
           {
             "action": "複数選択",
             "detail": "複数の数量帯を同時に選択できる（排他ではない）"
+          },
+          {
+            "action": "Diff の行位置合わせ",
+            "detail": "変更前/変更後で行構成が違う場合、相手側に無い行の位置に帯行（bg-base-300）を入れて左右の行位置を揃える。Diff は表示専用（クリック・選択なし）"
           }
         ],
         "keyboard": [
@@ -5223,6 +5261,169 @@
         }
       ],
       "hasExamples": true
+    },
+    {
+      "id": "task-card",
+      "name": "TaskCard",
+      "description": "タスクリスト左レールのタスクカード",
+      "category": "data-display",
+      "preview": "previews/task-card.html",
+      "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=4470-102431",
+      "usage": {
+        "when": [
+          "タスクリストの左レールで、確認待ちの下書き1件を表すカードとして使用します。クリックで選択し、右の差分ビューに内容を表示します。"
+        ],
+        "avoid": [
+          "一覧データの表示（Table の領域）",
+          "画面遷移の導線（リンクカードではなく画面内の選択切り替え）"
+        ],
+        "rules": [
+          "主対象（商品名）は大きく、種別・日付は小さく副次的に（ステータス/種別は小・主対象は大の設計原則）",
+          "レール内で Selected は常に1件（排他選択）"
+        ],
+        "vs": [
+          "Card: 見積先カード等の情報表示ブロック。TaskCard は選択状態を持つトリアージ用"
+        ]
+      },
+      "hasDemo": true,
+      "hasExamples": false,
+      "props": [
+        {
+          "name": "State",
+          "type": "enum",
+          "default": "Default",
+          "values": [
+            "Default",
+            "Hover",
+            "Selected"
+          ],
+          "description": "Default=白bg+枠1px、Hover=bg-base-200、Selected=枠2px primary"
+        }
+      ],
+      "tokens": [
+        {
+          "category": "State",
+          "items": [
+            {
+              "variant": "Default",
+              "tokens": {
+                "background": "bg-white",
+                "border": "shadow-border-base-content-5",
+                "radius": "rounded-md"
+              }
+            },
+            {
+              "variant": "Hover",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "shadow-border-base-content-5"
+              }
+            },
+            {
+              "variant": "Selected",
+              "tokens": {
+                "background": "bg-white",
+                "border": "shadow-border-2-primary"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Layout",
+          "items": [
+            {
+              "variant": "主対象",
+              "tokens": {
+                "padding": "px-4 pt-3 pb-2",
+                "gap": "gap-1",
+                "title": "text-sm font-semibold text-base-content（折り返し）",
+                "company": "text-sm text-base-content"
+              }
+            },
+            {
+              "variant": "divider",
+              "tokens": {
+                "inset": "px-4",
+                "line": "h-px bg-base-content/5"
+              }
+            },
+            {
+              "variant": "種別・日付",
+              "tokens": {
+                "padding": "px-4 py-2",
+                "type": "text-xs text-base-content/60",
+                "date": "text-2xs text-base-content/30"
+              }
+            },
+            {
+              "variant": "list",
+              "tokens": {
+                "width": "w-73 (292px)・レール内では w-full",
+                "gap": "gap-2 (8px)"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Common",
+          "items": [
+            {
+              "variant": "focus",
+              "tokens": {
+                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              }
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "anatomy": [
+          {
+            "part": "主対象",
+            "description": "商品名（semibold・折り返し）と会社名"
+          },
+          {
+            "part": "Divider",
+            "description": "左右16pxインセットの区切り線"
+          },
+          {
+            "part": "種別・日付",
+            "description": "タスク種別（左）と作成日（右）"
+          }
+        ],
+        "states": [
+          {
+            "transition": "Default → Selected",
+            "trigger": "カードクリック / Enter",
+            "effect": "枠が青2pxになり、右の差分ビューにこのタスクの内容が表示される"
+          },
+          {
+            "transition": "Selected → Default",
+            "trigger": "別のカードを選択",
+            "effect": "選択が移り、元のカードは通常表示に戻る"
+          }
+        ],
+        "behavior": [
+          {
+            "action": "排他選択",
+            "detail": "レール内で選択されるカードは常に1件。選択解除（0件）状態は作らない"
+          },
+          {
+            "action": "クリックエリア",
+            "detail": "カード全体がクリック可能"
+          }
+        ],
+        "keyboard": [
+          {
+            "key": "Tab",
+            "action": "カード間をフォーカス移動"
+          },
+          {
+            "key": "Enter",
+            "action": "フォーカス中のカードを選択"
+          }
+        ]
+      }
     },
     {
       "id": "details",
