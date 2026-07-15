@@ -3362,22 +3362,22 @@
             {
               "variant": "変更セル",
               "tokens": {
-                "before": "text-danger（数値のみ）",
-                "after": "text-success（数値のみ）"
+                "before": "text-danger font-semibold（数値のみ）",
+                "after": "text-success font-semibold（数値のみ）"
               }
             },
             {
               "variant": "追加行",
               "tokens": {
                 "background": "bg-success-soft",
-                "text": "text-success（行全体）"
+                "text": "text-success font-semibold（行全体）"
               }
             },
             {
               "variant": "削除行",
               "tokens": {
                 "background": "bg-danger-soft",
-                "text": "text-danger（行全体）"
+                "text": "text-danger font-semibold（行全体）"
               }
             },
             {
@@ -3385,6 +3385,12 @@
               "tokens": {
                 "background": "bg-base-300",
                 "content": "空文字（プレースホルダー）"
+              }
+            },
+            {
+              "variant": "共通",
+              "tokens": {
+                "font": "変更がかかっているテキストは font-semibold（通常セルは normal）"
               }
             }
           ]
@@ -5325,6 +5331,13 @@
                 "background": "bg-white",
                 "border": "shadow-border-2-primary"
               }
+            },
+            {
+              "variant": "Selected + Hover",
+              "tokens": {
+                "background": "bg-base-200",
+                "border": "shadow-border-2-primary"
+              }
             }
           ]
         },
@@ -5411,6 +5424,10 @@
           {
             "action": "クリックエリア",
             "detail": "カード全体がクリック可能"
+          },
+          {
+            "action": "Selected 中の hover",
+            "detail": "選択中カードに hover したときは青枠2pxを維持したまま背景だけ bg-base-200 に変わる（ユーザー確定 2026-07-15）"
           }
         ],
         "keyboard": [
