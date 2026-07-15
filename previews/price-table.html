@@ -69,7 +69,7 @@
         変更セル: 数値のみ色（変更前=text-danger / 変更後=text-success）
         追加行: 行全体 bg-success-soft + 全セル text-success
         削除行: 行全体 bg-danger-soft + 全セル text-danger
-        帯行: bg-base-300・空文字（相手側に無い行の位置に入れて左右の行位置を揃える）
+        帯行: bg-base-200・空文字（相手側に無い行の位置に入れて左右の行位置を揃える。旧 base-300 から薄く=2026-07-15）
         実画面（タスクリスト）ではセルは w-20 固定でなく flex-1（変更前/変更後 各カラム FILL）
   -->
 
@@ -215,8 +215,8 @@
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-danger font-semibold font-mono tabular-nums">75</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-danger font-semibold font-mono tabular-nums">80</span></div>
             </div>
-            <!-- Row 帯（相手側に無い行の位置合わせ用プレースホルダー） -->
-            <div class="flex bg-base-300">
+            <!-- Row 帯（相手側に無い行の位置合わせ用プレースホルダー・bg-base-200） -->
+            <div class="flex bg-base-200">
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">&#8203;</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">&#8203;</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">&#8203;</span></div>

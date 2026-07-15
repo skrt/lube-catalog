@@ -1960,7 +1960,8 @@
               "tokens": {
                 "size": "size-27",
                 "icon": "w-4 (16px)",
-                "text": "text-xs"
+                "text": "text-xs",
+                "radius": "rounded-md (6px)"
               }
             },
             {
@@ -1968,7 +1969,8 @@
               "tokens": {
                 "size": "size-55",
                 "icon": "w-5 (20px)",
-                "text": "text-sm"
+                "text": "text-sm",
+                "radius": "rounded-xl (12px)"
               }
             },
             {
@@ -1976,7 +1978,8 @@
               "tokens": {
                 "size": "size-180",
                 "icon": "w-6 (24px)",
-                "text": "text-base"
+                "text": "text-base",
+                "radius": "rounded-3xl (24px)"
               }
             }
           ]
@@ -3383,7 +3386,7 @@
             {
               "variant": "帯行",
               "tokens": {
-                "background": "bg-base-300",
+                "background": "bg-base-200",
                 "content": "空文字（プレースホルダー）"
               }
             },
