@@ -53,7 +53,8 @@
     Design Tokens (from Figma):
     Success: bg-success, text-success-content, icon circle-check
     Error:   bg-danger, text-danger-content, icon circle-alert
-    Layout:  w-96 h-16, px-4 py-3, gap-4, rounded-md
+    Layout:  w-96, px-4 py-3, gap-4, rounded-md
+             高さは内容フィット（title+desc=60px 相当 / title のみ=44px。desc なしの時に固定高で間延びさせない＝2026-07-15 ユーザー確定）
     Title:   text-sm font-bold (700) leading-5
     Desc:    text-xs (12px) leading-4
     Close:   x icon 14px, top-3 right-4
@@ -86,7 +87,7 @@
       <div class="space-y-3">
 
         <!-- Success -->
-        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-md bg-success overflow-hidden">
+        <div class="relative flex items-center gap-4 w-96 px-4 py-3 rounded-md bg-success overflow-hidden">
           <svg class="w-4 h-4 shrink-0 text-success-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           <div class="flex-1 flex flex-col min-w-0 text-success-content">
             <p class="text-sm font-bold leading-5">Success</p>
@@ -97,8 +98,18 @@
           </button>
         </div>
 
+        <!-- Success（title のみ・内容フィット） -->
+        <div class="relative flex items-center gap-4 w-96 px-4 py-3 rounded-md bg-success overflow-hidden">
+          <svg class="w-4 h-4 shrink-0 text-success-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <div class="flex-1 flex flex-col min-w-0 text-success-content">
+            <p class="text-sm font-bold leading-5">下書きを破棄しました</p>
+          </div>
+          <button class="absolute top-3 right-4 text-success-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
         <!-- Error -->
-        <div class="relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-md bg-danger overflow-hidden">
+        <div class="relative flex items-center gap-4 w-96 px-4 py-3 rounded-md bg-danger overflow-hidden">
           <svg class="w-4 h-4 shrink-0 text-danger-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
           <div class="flex-1 flex flex-col min-w-0 text-danger-content">
             <p class="text-sm font-bold leading-5">Error</p>
@@ -138,7 +149,7 @@
     function showToast(type) {
       const cfg = TOAST_CONFIG[type];
       const el = document.createElement('div');
-      el.className = `relative flex items-center gap-4 w-96 h-16 px-4 py-3 rounded-md overflow-hidden pointer-events-auto ${cfg.bgClass} ${cfg.textClass}`;
+      el.className = `relative flex items-center gap-4 w-96 px-4 py-3 rounded-md overflow-hidden pointer-events-auto ${cfg.bgClass} ${cfg.textClass}`;
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = 'transform 0.3s ease, opacity 0.3s ease';

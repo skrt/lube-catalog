@@ -2383,7 +2383,7 @@
               "variant": "all",
               "tokens": {
                 "width": "w-96 (384px)",
-                "height": "h-16 (64px)",
+                "height": "内容フィット",
                 "padding": "px-4 py-3",
                 "gap": "gap-4 (16px)",
                 "radius": "rounded-md (6px)",
@@ -2496,6 +2496,10 @@
           {
             "action": "Footer との共存",
             "detail": "Footer がある場合は Footer の上部に表示し、重ならないようにする"
+          },
+          {
+            "action": "高さ",
+            "detail": "高さは内容フィット。説明行（description）が無い Toast はタイトル1行分に詰める（固定高で間延びさせない・2026-07-15 ユーザー確定）"
           }
         ]
       }
