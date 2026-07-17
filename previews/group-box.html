@@ -58,7 +58,7 @@
       Container: bg-base-200, border base-content/5, rounded-md (6px), p-4 (16px), w-100, flex-col, gap-2 (8px), relative
       Legend Row: absolute, -top-2 left-4, text-xs font-semibold, text-base-content, optional required (*)
       Contents: flex-col gap-2 (8px), free slot
-      Scroll variant: max-h-64 (256px), overflow-y-auto, scrollbar w-2 rounded-full bg-base-content/30
+      Scroll variant: max-h-64 (256px), overflow-y-auto（スクロールバーは OS 標準・カスタム描画しない 2026-07-17）
       Divider: h-px bg-base-content/5
   -->
 
@@ -103,7 +103,7 @@
             <p>高さは最大256pxで、それ以上の場合はスクロール、以下の場合はコンテンツ量に合わせてボックスのサイズを縮めます。</p>
             <p>この行以降はスクロールしないと見えない領域です。</p>
             <p>長文のメモやコメントが入るケースを想定しています。</p>
-            <p>スクロールバーは右端に表示されます。</p>
+            <p>スクロールバーは OS 標準（スクロール時のみ表示）です。</p>
           </div>
         </div>
       </div>
