@@ -94,6 +94,7 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
+- **スクロールバーは OS 標準（スクロール時のみ表示）＝カスタム描画禁止**（ユーザー確定 2026-07-17）。`::-webkit-scrollbar` / `scrollbar-color` でコンポーネントの見た目としてバーを描かない（プレビュー iframe の飾り消し＝`display: none` 系のデモ用ボイラープレートは対象外）。lube 側は `rake screens:lint` が再導入を検知する
 
 ### z-index スケール
 - `z-10`: ドロップダウン / ポップアップ系（SelectMenu, ComboBoxMenu, Calendar, FilterMenu）。ローカルな重なり（GroupBox ラベル、Sidebar ホバー Tooltip 等）もここ
