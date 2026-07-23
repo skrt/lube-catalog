@@ -55,11 +55,14 @@
   <!--
     Design Tokens (from Figma):
     GroupBox: 見出し付きの囲み箱。中身は自由スロット
-      Container: bg-base-200, border base-content/5, rounded-md (6px), p-4 (16px), w-100, flex-col, gap-2 (8px), relative
-      Legend Row: absolute, -top-2 left-4, text-xs font-semibold, text-base-content, optional required (*)
-      Contents: flex-col gap-2 (8px), free slot
-      Scroll variant: max-h-64 (256px), overflow-y-auto（スクロールバーは OS 標準・カスタム描画しない 2026-07-17）
+      ★ 2026-07-23 見出し余白をコンポーネント内蔵化（2層構造）: 置く側の行・親に pt-2/mt-2 を付けない
+      Wrapper（root・透明スペーサー）: relative, pt-2 (8px), w-100 — Legend の頭出し余白を内蔵
+      Box（枠の見た目）: bg-base-200, border base-content/5, rounded-md (6px), p-4 (16px), flex-col, gap-2 (8px)
+      Legend Row: absolute, top-0 left-4（wrapper 基準・Box 上端の枠線に重なる）, text-xs font-semibold, text-base-content, optional required (*)
+      Contents: flex-col gap-2 (8px), free slot（Box の中）
+      Scroll variant: Box に max-h-64 (256px), overflow-y-auto（スクロールバーは OS 標準・カスタム描画しない 2026-07-17）
       Divider: h-px bg-base-content/5
+      配置ルール: GroupBox が複数並ぶ行/grid の gap は gap-4 (16px)（内蔵 8px と合わせて箱間の見た目 24px）。親の padding は p-0
   -->
 
   <div class="space-y-10">
@@ -67,31 +70,35 @@
     <!-- Default (with Legend) -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Default</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
         </div>
-        <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+        </div>
       </div>
     </div>
 
     <!-- With Required -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Required</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
           <span class="text-xs font-semibold leading-4 text-danger">*</span>
         </div>
-        <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+        </div>
       </div>
     </div>
 
     <!-- Scroll -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Scroll</p>
-      <div class="relative mt-3 w-100">
-        <div class="absolute -top-2 left-4 flex items-start gap-1 z-10">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1 z-10">
           <span class="text-xs font-semibold leading-4 text-base-content">社内メモ</span>
         </div>
         <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2 max-h-64 overflow-y-auto">
@@ -113,48 +120,50 @@
 
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">住所(日本)</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">住所</span>
         </div>
-        <!-- 国 Select -->
-        <div class="flex flex-col gap-1 w-24">
-          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">国</span><span class="text-danger">*</span></div>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
-            <span class="text-sm leading-5 text-base-content flex-1">日本</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <!-- 国 Select -->
+          <div class="flex flex-col gap-1 w-24">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">国</span><span class="text-danger">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+              <span class="text-sm leading-5 text-base-content flex-1">日本</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+            </div>
           </div>
-        </div>
-        <!-- 郵便番号 + 住所自動入力 -->
-        <div class="flex gap-2 items-end">
+          <!-- 郵便番号 + 住所自動入力 -->
+          <div class="flex gap-2 items-end">
+            <div class="flex flex-col gap-1 w-40">
+              <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">郵便番号</span><span class="text-danger">*</span></div>
+              <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+            </div>
+            <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 hover:bg-secondary-hover transition-colors">住所自動入力</button>
+          </div>
+          <!-- 都道府県 -->
           <div class="flex flex-col gap-1 w-40">
-            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">郵便番号</span><span class="text-danger">*</span></div>
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">都道府県</span><span class="text-danger">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+              <span class="text-sm leading-5 text-base-content flex-1">選択しましょう</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+            </div>
+          </div>
+          <!-- 市区町村 -->
+          <div class="flex flex-col gap-1 w-full">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">市区町村</span><span class="text-danger">*</span></div>
             <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
           </div>
-          <button class="bg-secondary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 hover:bg-secondary-hover transition-colors">住所自動入力</button>
-        </div>
-        <!-- 都道府県 -->
-        <div class="flex flex-col gap-1 w-40">
-          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">都道府県</span><span class="text-danger">*</span></div>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
-            <span class="text-sm leading-5 text-base-content flex-1">選択しましょう</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+          <!-- 丁目・番地・号 -->
+          <div class="flex flex-col gap-1 w-full">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">丁目・番地・号</span><span class="text-danger">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
           </div>
-        </div>
-        <!-- 市区町村 -->
-        <div class="flex flex-col gap-1 w-full">
-          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">市区町村</span><span class="text-danger">*</span></div>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
-        </div>
-        <!-- 丁目・番地・号 -->
-        <div class="flex flex-col gap-1 w-full">
-          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">丁目・番地・号</span><span class="text-danger">*</span></div>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
-        </div>
-        <!-- 建物・会社名 -->
-        <div class="flex flex-col gap-1 w-full">
-          <span class="text-sm leading-5 text-base-content">建物・会社名</span>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+          <!-- 建物・会社名 -->
+          <div class="flex flex-col gap-1 w-full">
+            <span class="text-sm leading-5 text-base-content">建物・会社名</span>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -162,50 +171,52 @@
     <!-- 利用例: 仕様 -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">仕様</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">仕様</span>
         </div>
-        <!-- カテゴリー -->
-        <div class="flex flex-col gap-1 w-40">
-          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">カテゴリー</span><span class="text-danger">*</span></div>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
-            <span class="text-sm leading-5 text-base-content flex-1">ダンボール</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <!-- カテゴリー -->
+          <div class="flex flex-col gap-1 w-40">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">カテゴリー</span><span class="text-danger">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+              <span class="text-sm leading-5 text-base-content flex-1">ダンボール</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+            </div>
           </div>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <!-- Spec rows -->
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">サイズ</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">形状</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">構成</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">段厚</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">印刷</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">加工</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">その他</span>
-          <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
-        </div>
-        <div class="flex items-start justify-end">
-          <button class="bg-primary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-primary-content hover:bg-primary-hover transition-colors">完了</button>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <!-- Spec rows -->
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">サイズ</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">形状</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">構成</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">段厚</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">印刷</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">加工</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 text-right w-12 shrink-0">その他</span>
+            <div class="flex-1 min-w-0"><div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"></div></div>
+          </div>
+          <div class="flex items-start justify-end">
+            <button class="bg-primary border border-base-content/5 px-3 py-2 rounded-md text-xs font-semibold leading-4 text-primary-content hover:bg-primary-hover transition-colors">完了</button>
+          </div>
         </div>
       </div>
     </div>
@@ -213,80 +224,84 @@
     <!-- 利用例: 単価表 -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">単価表</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">単価表</span>
         </div>
-        <!-- 税区分 Select -->
-        <div class="flex flex-col gap-1 w-24">
-          <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">税区分</span><span class="text-danger">*</span></div>
-          <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
-            <span class="text-sm leading-5 text-base-content flex-1">10%</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <!-- 税区分 Select -->
+          <div class="flex flex-col gap-1 w-24">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">税区分</span><span class="text-danger">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2 gap-2">
+              <span class="text-sm leading-5 text-base-content flex-1">10%</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+            </div>
           </div>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <!-- ヘッダー行（右揃え） -->
-        <div class="flex gap-2 items-center">
-          <div class="flex-1 min-w-0 flex items-center justify-end gap-0.5 text-xs leading-4"><span class="text-base-content/60">数量</span><span class="text-danger">*</span></div>
-          <div class="flex-1 min-w-0 flex items-center justify-end gap-0.5 text-xs leading-4"><span class="text-base-content/60">仕入単価</span><span class="text-danger">*</span></div>
-          <div class="flex-1 min-w-0 flex items-center justify-end gap-0.5 text-xs leading-4"><span class="text-base-content/60">顧客単価</span><span class="text-danger">*</span></div>
-          <div class="w-8 shrink-0"></div>
-        </div>
-        <!-- 入力行（NumberInput md ×3 + trash IconButton md） -->
-        <div class="flex gap-2 items-center">
-          <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
-          <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
-          <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
-          <!-- 行が1行のときは削除ボタンは Disabled（最後の1行は消せない） -->
-          <button disabled class="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-md bg-base-300 border border-transparent cursor-not-allowed transition-colors">
-            <i data-lucide="trash" class="w-4 h-4 text-base-content/30"></i>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <!-- ヘッダー行（右揃え） -->
+          <div class="flex gap-2 items-center">
+            <div class="flex-1 min-w-0 flex items-center justify-end gap-0.5 text-xs leading-4"><span class="text-base-content/60">数量</span><span class="text-danger">*</span></div>
+            <div class="flex-1 min-w-0 flex items-center justify-end gap-0.5 text-xs leading-4"><span class="text-base-content/60">仕入単価</span><span class="text-danger">*</span></div>
+            <div class="flex-1 min-w-0 flex items-center justify-end gap-0.5 text-xs leading-4"><span class="text-base-content/60">顧客単価</span><span class="text-danger">*</span></div>
+            <div class="w-8 shrink-0"></div>
+          </div>
+          <!-- 入力行（NumberInput md ×3 + trash IconButton md） -->
+          <div class="flex gap-2 items-center">
+            <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
+            <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
+            <input type="text" class="flex-1 min-w-0 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
+            <!-- 行が1行のときは削除ボタンは Disabled（最後の1行は消せない） -->
+            <button disabled class="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-md bg-base-300 border border-transparent cursor-not-allowed transition-colors">
+              <i data-lucide="trash" class="w-4 h-4 text-base-content/30"></i>
+            </button>
+          </div>
+          <!-- 行追加（Tertiary md・FILL・circle-plus） -->
+          <button class="flex items-center justify-center gap-2 w-full h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">
+            <i data-lucide="circle-plus" class="w-3.5 h-3.5"></i>
+            行追加
           </button>
+          <p class="text-xs leading-4 text-base-content/60">半角数字、.（小数点）のみ入力できます</p>
         </div>
-        <!-- 行追加（Tertiary md・FILL・circle-plus） -->
-        <button class="flex items-center justify-center gap-2 w-full h-8 px-3 py-2 text-xs font-semibold text-base-content rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors">
-          <i data-lucide="circle-plus" class="w-3.5 h-3.5"></i>
-          行追加
-        </button>
-        <p class="text-xs leading-4 text-base-content/60">半角数字、.（小数点）のみ入力できます</p>
       </div>
     </div>
 
     <!-- 利用例: 関連書類 -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">関連書類</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">関連書類</span>
         </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">見積依頼</span>
-          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">{件名}</span>
-          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">見積書</span>
-          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
-          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">発注請書</span>
-          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
-          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">発注書</span>
-          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
-          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <div class="flex gap-2 items-center">
-          <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">請求書</span>
-          <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
-          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">見積依頼</span>
+            <span class="text-sm leading-5 text-base-content flex-1 min-w-0">{件名}</span>
+            <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+          </div>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">見積書</span>
+            <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+            <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
+          </div>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">発注請書</span>
+            <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+            <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
+          </div>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">発注書</span>
+            <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+            <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content shrink-0 inline-flex items-center gap-2 hover:bg-primary-hover transition-colors"><i data-lucide="file-plus" class="w-3 h-3"></i>作成</button>
+          </div>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <div class="flex gap-2 items-center">
+            <span class="text-sm leading-5 text-base-content/60 w-16 shrink-0">請求書</span>
+            <span class="text-sm leading-5 text-base-content flex-1 min-w-0">未作成</span>
+            <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content shrink-0 inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">詳細<i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+          </div>
         </div>
       </div>
     </div>
@@ -294,24 +309,26 @@
     <!-- 利用例: 請求書ステータス -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">請求書ステータス</p>
-      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2 relative mt-3 overflow-visible">
-        <div class="absolute -top-2 left-4 flex items-start gap-1">
+      <div class="relative pt-2 w-100">
+        <div class="absolute top-0 left-4 flex items-start gap-1">
           <span class="text-xs font-semibold leading-4 text-base-content">請求書ステータス</span>
         </div>
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-sm leading-5 text-base-content">freee請求書</span>
-            <span class="bg-info text-info-content text-xs leading-4 px-2 py-0.5 rounded-full">作成済み</span>
+        <div class="bg-base-200 border border-base-content/5 rounded-md p-4 flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-sm leading-5 text-base-content">freee請求書</span>
+              <span class="bg-info text-info-content text-xs leading-4 px-2 py-0.5 rounded-full">作成済み</span>
+            </div>
+            <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">freeeを開く<i data-lucide="external-link" class="w-3 h-3"></i></button>
           </div>
-          <button class="bg-secondary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-secondary-content inline-flex items-center gap-2 hover:bg-secondary-hover transition-colors">freeeを開く<i data-lucide="external-link" class="w-3 h-3"></i></button>
-        </div>
-        <div class="h-px bg-base-content/5 w-full"></div>
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-sm leading-5 text-base-content">請求書送付</span>
-            <span class="bg-warning text-warning-content text-xs leading-4 px-2 py-0.5 rounded-full">未送付</span>
+          <div class="h-px bg-base-content/5 w-full"></div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-sm leading-5 text-base-content">請求書送付</span>
+              <span class="bg-warning text-warning-content text-xs leading-4 px-2 py-0.5 rounded-full">未送付</span>
+            </div>
+            <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content hover:bg-primary-hover transition-colors">送付済みに変更</button>
           </div>
-          <button class="bg-primary border border-base-content/5 px-2 py-1 rounded-md text-xs font-semibold leading-4 text-primary-content hover:bg-primary-hover transition-colors">送付済みに変更</button>
         </div>
       </div>
     </div>

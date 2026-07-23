@@ -4980,7 +4980,8 @@
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3858-8095",
       "usage": {
         "when": [
-          "浮きラベル付きの枠で情報をひとまとめにするときに使用します。フォーム・テキスト・リスト・ステータスの用途パターンがあります。"
+          "浮きラベル付きの枠で情報をひとまとめにするときに使用します。フォーム・テキスト・リスト・ステータスの用途パターンがあります。",
+          "見出し余白8px（pt-2）はコンポーネント側に内蔵（2026-07-23）。呼び出すだけで見出しが直上要素に被らない"
         ],
         "tables": [
           {
@@ -5020,6 +5021,9 @@
         "vs": [
           "Card: ユーザー操作で増減するブロック",
           "PriceTable: 表示専用の単価表（入力はこの単価表バリアント＋NumberInput）"
+        ],
+        "avoid": [
+          "置く側の行・親フレームに pt-2/mt-2 で見出し余白を付ける（余白はコンポーネント内蔵。旧ルールは廃止）"
         ]
       },
       "props": [
@@ -5044,12 +5048,31 @@
       ],
       "tokens": [
         {
-          "category": "Container",
+          "category": "Wrapper",
           "items": [
             {
               "variant": "layout",
               "tokens": {
-                "width": "w-100",
+                "position": "relative",
+                "padding-top": "pt-2 (8px) — 見出し余白を内蔵",
+                "width": "w-100"
+              }
+            },
+            {
+              "variant": "配置ルール",
+              "tokens": {
+                "parent-padding": "p-0（置く側で余白を付けない）",
+                "gap": "GroupBox が複数並ぶ行/grid は gap-4 (16px)＝内蔵8pxと合わせ箱間の見た目24px"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Box",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
                 "background": "bg-base-200",
                 "border": "border border-base-content/5",
                 "radius": "rounded-md (6px)",
@@ -5072,7 +5095,7 @@
             {
               "variant": "position",
               "tokens": {
-                "absolute": "-top-2 left-4"
+                "absolute": "top-0 left-4（pt-2 wrapper 基準・Box 上端の枠線に重なる）"
               }
             },
             {
