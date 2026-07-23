@@ -2703,7 +2703,8 @@
           "別画面: 入力項目が多い・別の操作体験になる場合"
         ],
         "rules": [
-          "フッターには「N件選択中」の件数表示（Show Count）を組み込める（リスト選択系モーダル用）"
+          "フッターには「N件選択中」の件数表示（Show Count）を組み込める（リスト選択系モーダル用）",
+          "Size full（2026-07-21 新設・ADR-011）は常に作業・閲覧系＝×あり・キャンセルなし（この面積で確認系は出さない）・CTA は lg 単独"
         ]
       },
       "props": [
@@ -2771,6 +2772,12 @@
               }
             },
             {
+              "variant": "full",
+              "tokens": {
+                "size": "fixed inset-10（画面追従・Scrim余白 40px×4辺・寸法値を持たない）"
+              }
+            },
+            {
               "variant": "all",
               "tokens": {
                 "background": "bg-base-100 (white)",
@@ -2792,6 +2799,13 @@
                 "weight": "font-semibold (600)",
                 "color": "text-base-content"
               }
+            },
+            {
+              "variant": "full",
+              "tokens": {
+                "padding": "p-4",
+                "border": "border-b border-base-content/10（下線1px）"
+              }
             }
           ]
         },
@@ -2805,6 +2819,12 @@
                 "font-size": "text-sm (14px)",
                 "line-height": "leading-5 (20px)",
                 "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "full",
+              "tokens": {
+                "padding": "p-0（余白は中身側管理・内部スクロール・Footer下端固定）"
               }
             }
           ]
@@ -2827,6 +2847,14 @@
                 "font-size": "text-sm (14px)",
                 "color": "text-base-content/60",
                 "alignment": "flex-1 left"
+              }
+            },
+            {
+              "variant": "full",
+              "tokens": {
+                "padding": "p-4",
+                "border": "border-t border-base-content/10（上線1px）",
+                "button-size": "lg 単独 (h-10 px-4 py-2.5 text-sm)"
               }
             }
           ]
@@ -2898,7 +2926,8 @@
           {
             "action": "×/キャンセルの排他（役割で使い分け・両方置かない）",
             "detail": "確認系（選択を迫る）＝×なし・フッターにキャンセル＋実行CTA。作業/閲覧系（フォーム・選択リスト・エラー修正）＝×あり・フッターは実行CTAのみ（キャンセルは置かない）。Close Icon 既定=false"
-          }
+          },
+          "full は fixed inset-10 で画面サイズに追従し、Contents が内部スクロール（Header/Footer は固定）"
         ],
         "keyboard": [
           {

@@ -52,7 +52,9 @@
   <!--
     Design Tokens (from Figma):
     Scrim:    bg-black/50
-    Dialog:   bg-white, rounded-xl (12px), Size sm=max-w-sm(384px)/lg=max-w-lg(512px)（プレビューは sm 相当の w-96）, drop-shadow。Close Icon（Header右端の×）は optional・既定OFF、置く場合は IconButton(sm/Tertiary・x)
+    Dialog:   bg-white, rounded-xl (12px), Size sm=max-w-sm(384px)/lg=max-w-lg(512px)/full=画面追従（fixed inset-10＝Scrim余白40px×4辺・寸法値を持たない）（プレビューは sm 相当の w-96）, drop-shadow。Close Icon（Header右端の×）は optional・既定OFF、置く場合は IconButton(sm/Tertiary・x)
+    full 専用クローム（2026-07-21 新設・ADR-011）: Header=p-4＋下線1px(border-base-content/10)・Footer=p-4＋上線1px・Contents=padding 0（余白は中身側管理・内部スクロール・Footer下端固定）＝sm/lg の「線なし・p-6系」とは意図的に別
+    full 運用ルール: 常に作業・閲覧系＝×あり・キャンセルなし（この面積で確認系は出さない）・CTA は lg 単独
     Header:   pt-6 px-6, text-lg (18px) font-semibold leading-7 (28px), text-base-content
     ×/キャンセルの表示ルール（役割で排他・両方置かない）:
       - 確認系（削除確認・送付確認など選択を迫る）= ×なし・フッター＝キャンセル(+否定選択肢)＋実行CTA
@@ -119,6 +121,29 @@
           </div>
           <div class="flex items-center justify-end gap-3 px-6 pt-0 pb-6">
             <button class="inline-flex items-center justify-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary-content rounded-md bg-primary border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Size full（画面追従） -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Size full（画面追従・fixed inset-10。プレビューは縮小表現）</p>
+      <div class="relative bg-gray-100 rounded-lg h-96 overflow-clip">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-10 rounded-xl bg-white shadow-[0_16px_16px_rgba(0,0,0,0.18)] flex flex-col overflow-clip">
+          <div class="shrink-0 flex items-center gap-2 p-4 border-b border-base-content/10">
+            <p class="flex-1 min-w-0 text-lg font-semibold leading-7 text-base-content">単価表から商品を選択</p>
+            <button class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 shrink-0">
+              <svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="flex-1 min-h-0 flex items-center justify-center bg-base-300/50">
+            <span class="text-xs text-base-content/30">Contents Slot（padding 0・余白は中身側管理・内部スクロール）</span>
+          </div>
+          <div class="shrink-0 flex items-center gap-4 p-4 border-t border-base-content/10">
+            <p class="flex-1 min-w-0 text-sm leading-5 text-base-content/60">※注記（任意・Show Count 転用）</p>
+            <button class="inline-flex gap-2 items-center justify-center h-10 px-4 py-2.5 rounded-md text-sm font-semibold bg-primary text-primary-content border border-base-content/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">明細に追加</button>
           </div>
         </div>
       </div>
