@@ -2518,7 +2518,8 @@
         ],
         "rules": [
           "通常フォームのエラーは直下に赤文言（Tooltip を使うのはテーブル内だけの例外）",
-          "複数行の文言は中央揃え（text-center）が基本（2026-07-23 ユーザー確定。1行は nowrap のため揃えの差が出ない）"
+          "複数行の文言は中央揃え（text-center）が基本（2026-07-23 ユーザー確定。1行は nowrap のため揃えの差が出ない）",
+          "表示位置は上下（top/bottom）が基本。横出し（left/right）は上下でどうしても収まらない場合のみ（2026-07-27 ユーザー確定）"
         ],
         "tables": [
           {
@@ -4042,7 +4043,7 @@
             "Hover",
             "Disabled"
           ],
-          "description": "Active=青塗り、Inactive=枠線、Hover=薄青、Disabled=グレー非活性"
+          "description": "Active=青塗り、Inactive=枠線、Hover=グレー1段（base-200・枠維持）、Disabled=グレー非活性"
         },
         {
           "name": "Button / Item - Count",
@@ -4138,7 +4139,8 @@
             {
               "variant": "Hover",
               "tokens": {
-                "background": "bg-secondary",
+                "background": "bg-base-200",
+                "border": "border border-base-content/10（枠維持）",
                 "text": "text-base-content"
               }
             },
@@ -7102,7 +7104,7 @@
           "Type variant は8種で書類ごとに列構成・列幅が確定済み: 見積依頼／見積書／見積書：仕様非表示／発注書／請求書／発注請書／デマンド／見積回答。新しい書類の明細はまず該当 variant の有無を確認",
           "セル部品には Text／Icon（複製・削除）／Button のほか Radio セルがある（送付先テーブルの TO/CC/除外 択一で使用 → RadioGroup 丸型）",
           "青ヘッダーは「サプライヤーが入力する列」の専用表現（見積回答のみ。社内向けは全列グレー）",
-          "空状態は「まだ○○がありません」の1行"
+          "空状態はヘッダー直下 12px に「（まだ）◯◯がありません」（text-sm・base-content/60）。2行目のガイド文（「◯◯を追加しましょう」等）は画面ごと判断で任意（2026-07-14 ユーザー確定の統一仕様）"
         ],
         "vs": [
           "QuoteTable: 読み取り専用の明細表示"

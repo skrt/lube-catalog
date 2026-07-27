@@ -67,7 +67,7 @@
       State: Active, Inactive, Hover, Disabled
       Active: bg-primary, text-primary-content, rounded-md (6px), h-8
       Inactive: bg-white, border base-content/10, text-base-content
-      Hover: bg-secondary, text-base-content
+      Hover: bg-base-200, border base-content/10（枠維持）, text-base-content
       Disabled: bg-base-300, text-base-content/30, 枠線なし
       Count badge (optional):
         Active: bg-white, text-secondary-content
@@ -126,7 +126,7 @@
         <template x-for="item in [{id:'all',label:'すべて'},{id:'unsent',label:'未送付',count:'12'},{id:'sent',label:'送付済み',count:'48'}]" :key="item.id">
           <div class="flex h-8 items-center justify-center px-2 rounded-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" tabindex="0" data-rg="btn" :data-id="item.id"
             :class="[
-              buttonSelected === item.id ? 'bg-primary' : 'bg-white shadow-border-base-content-10 hover:bg-secondary hover:shadow-none',
+              buttonSelected === item.id ? 'bg-primary' : 'bg-white shadow-border-base-content-10 hover:bg-base-200',
               item.count ? 'gap-1 py-1' : 'py-1.5'
             ]"
             @click="buttonSelected = item.id"
@@ -220,7 +220,7 @@
             <span class="text-sm leading-5 text-base-content/60">100</span>
           </div>
         </div>
-        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-secondary">
+        <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-base-200 shadow-border-base-content-10">
           <span class="text-sm font-semibold leading-5 text-base-content">Hover</span>
           <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-base-200">
             <span class="text-sm leading-5 text-base-content/60">100</span>
