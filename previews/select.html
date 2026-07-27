@@ -109,7 +109,7 @@
                 @mouseenter="activeIndex = idx"
                 :data-active="activeIndex === idx"
                 class="flex items-center h-8 px-4 cursor-pointer text-sm text-base-content"
-                :class="activeIndex === idx ? 'bg-base-200' : (selected === option ? 'bg-secondary text-primary' : 'hover:bg-base-200')"
+                :class="activeIndex === idx ? 'bg-base-200' : (selected === option ? 'bg-secondary text-secondary-content' : 'hover:bg-base-200')"
               >
                 <span x-text="option"></span>
               </div>
@@ -138,7 +138,7 @@
               <div
                 @click="toggle(option)"
                 class="flex items-center h-8 px-4 cursor-pointer text-sm"
-                :class="isSelected(option) ? 'bg-secondary text-primary' : 'text-base-content hover:bg-base-200'"
+                :class="isSelected(option) ? 'bg-secondary text-secondary-content' : 'text-base-content hover:bg-base-200'"
               >
                 <span class="flex-1 truncate" x-text="option"></span>
               </div>
@@ -265,7 +265,7 @@
     <div class="w-72 border border-base-content/10 rounded-md shadow-lg py-1.5 bg-white">
       <div class="flex items-center h-8 px-4 text-sm text-base-content">Default</div>
       <div class="flex items-center h-8 px-4 text-sm text-base-content bg-base-200">Hover</div>
-      <div class="flex items-center h-8 px-4 text-sm text-primary bg-secondary">Selected</div>
+      <div class="flex items-center h-8 px-4 text-sm text-secondary-content bg-secondary">Selected</div>
       <div class="flex items-center h-8 px-4 text-sm text-base-content/30">Disabled</div>
     </div>
   </section>

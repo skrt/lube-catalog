@@ -434,7 +434,7 @@
                   </div>
                   <div x-show="catOpen === i" class="absolute top-full left-0 w-28 mt-1 max-h-60 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
                     <template x-for="opt in categories" :key="opt">
-                      <div @click="changeCategory(row, opt); catOpen = null" class="flex items-center h-6 px-3 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-primary' : 'hover:bg-base-200'">
+                      <div @click="changeCategory(row, opt); catOpen = null" class="flex items-center h-6 px-3 cursor-pointer text-xs text-base-content" :class="row.spec.category === opt ? 'bg-secondary text-secondary-content' : 'hover:bg-base-200'">
                         <span x-text="opt"></span>
                       </div>
                     </template>
@@ -526,7 +526,7 @@
             <input type="text" value="130" class="w-20 h-8 px-3 py-2 text-sm font-mono text-right rounded-md bg-white border border-base-content/20 text-base-content outline-none">
             <span class="text-sm leading-5 text-base-content">%</span>
           </div>
-          <button class="inline-flex items-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-primary rounded-md bg-secondary border border-base-content/5 hover:bg-secondary-hover transition-colors">適用</button>
+          <button class="inline-flex items-center gap-2 h-8 px-3 py-2 text-xs font-semibold text-secondary-content rounded-md bg-secondary border border-base-content/5 hover:bg-secondary-hover transition-colors">適用</button>
         </div>
         <div class="w-full min-w-7xl">
           <!-- Header Row -->

@@ -70,7 +70,7 @@
       Hover: bg-secondary, text-base-content
       Disabled: bg-base-300, text-base-content/30, 枠線なし
       Count badge (optional):
-        Active: bg-white, text-primary
+        Active: bg-white, text-secondary-content
         Inactive: bg-base-200, text-base-content/60
         Disabled: bg-white, text-base-content/30
       Font: text-sm font-semibold
@@ -139,7 +139,7 @@
             <template x-if="item.count">
               <div class="flex items-center justify-center px-2 py-0.5 rounded-full"
                 :class="buttonSelected === item.id ? 'bg-white' : 'bg-base-200'">
-                <span class="text-sm leading-5" :class="buttonSelected === item.id ? 'text-primary' : 'text-base-content/60'" x-text="item.count"></span>
+                <span class="text-sm leading-5" :class="buttonSelected === item.id ? 'text-secondary-content' : 'text-base-content/60'" x-text="item.count"></span>
               </div>
             </template>
           </div>
@@ -211,7 +211,7 @@
         <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-primary">
           <span class="text-sm font-semibold leading-5 text-primary-content">Active</span>
           <div class="flex items-center justify-center px-2 py-0.5 rounded-full bg-white">
-            <span class="text-sm leading-5 text-primary">100</span>
+            <span class="text-sm leading-5 text-secondary-content">100</span>
           </div>
         </div>
         <div class="flex h-8 items-center justify-center gap-1 px-2 py-1 rounded-md bg-white shadow-border-base-content-10">
