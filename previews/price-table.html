@@ -64,7 +64,8 @@
       Checkbox cell: border-b base-content/10, py-1.5, center, w-8 (32px), checkbox sm (no label)
       Footer: "税区分：10%", text-2xs, text-base-content/30, right-aligned
       Default columns: 数量 | 仕入単価 | 顧客単価
-      Checkbox columns: (checkbox w-8) | 数量 | 仕入単価 | 顧客単価
+      Checkbox columns: 登録(w-8・チェック列ヘッダーラベル) | 数量 | 仕入単価 | 顧客単価
+        ※ チェック列ヘッダーのラベルは用途で決める: マスタの登録=「登録」／段選択ピッカー（リピート発注）=ラベルなし（ユーザー確定 2026-07-27）
       Diff (Figma 4480:107636): タスクリスト差分ビュー用の行レベル diff（表示のみ）
         変更セル: 数値のみ色（変更前=text-danger / 変更後=text-success）
         追加行: 行全体 bg-success-soft + 全セル text-success
@@ -136,7 +137,7 @@
           </div>
           <div class="flex flex-col">
             <div class="flex">
-              <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-8"></div>
+              <div class="bg-base-200 flex items-center justify-center px-1 py-1 w-8"><span class="text-2xs text-base-content/60">登録</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">数量</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">仕入単価</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">顧客単価</span></div>
@@ -245,7 +246,7 @@
           </div>
           <div class="flex flex-col">
             <div class="flex">
-              <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-8"></div>
+              <div class="bg-base-200 flex items-center justify-center px-1 py-1 w-8"><span class="text-2xs text-base-content/60">登録</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">数量</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">仕入単価</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">顧客単価</span></div>

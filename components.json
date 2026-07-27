@@ -3295,6 +3295,9 @@
         "avoid": [
           "入力用途（入力する単価表は GroupBox 単価表バリアント＋NumberInput）"
         ],
+        "rules": [
+          "Checkbox のチェック列ヘッダーには操作のラベルを置く: マスタの登録=「登録」／段選択ピッカー（リピート発注）はラベルなし（ユーザー確定 2026-07-27）"
+        ],
         "tables": [
           {
             "title": "Type",
@@ -3371,6 +3374,17 @@
                 "padding": "px-2 py-1.5",
                 "align": "center",
                 "checkbox": "sm (16px)"
+              }
+            },
+            {
+              "variant": "checkbox header",
+              "tokens": {
+                "width": "w-8 (32px)",
+                "padding": "px-1 py-1",
+                "font": "text-2xs (11px)",
+                "color": "text-base-content/60",
+                "align": "center",
+                "label": "用途で決める（マスタの登録=「登録」／段選択ピッカー=ラベルなし）"
               }
             },
             {
