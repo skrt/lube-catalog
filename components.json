@@ -2706,7 +2706,8 @@
         ],
         "rules": [
           "フッターには「N件選択中」の件数表示（Show Count）を組み込める（リスト選択系モーダル用）",
-          "Size full（2026-07-21 新設・ADR-011）は常に作業・閲覧系＝×あり・キャンセルなし（この面積で確認系は出さない）・CTA は lg 単独"
+          "Size full（2026-07-21 新設・ADR-011）は常に作業・閲覧系＝×あり・キャンセルなし（この面積で確認系は出さない）・CTA は lg 単独",
+          "Size 2xl（2026-07-27 新設・ADR-011）はワイドテーブルを差し込む作業/閲覧系＝×あり・Footer なし。Header/Footer のクロームは sm/lg と同じ（pt-6 px-6・線なし）だが Contents だけ左右 padding 0 のフルブリード（ヘッダー帯・区切り線が Dialog 端から端まで）。説明文は px-6 ラッパーで寄せ、説明⇔テーブル間隔は mt-3(12)。テーブルは高さ固定ビューポート（例 h-100=400）に入れて内部スクロール（モーダル自体は伸ばさない）。行クリックでその場選択確定して閉じる（確定 CTA を持たない）"
         ]
       },
       "props": [
@@ -2734,9 +2735,11 @@
           "default": "sm",
           "values": [
             "sm",
-            "lg"
+            "lg",
+            "2xl",
+            "full"
           ],
-          "description": "ダイアログ幅。sm=max-w-sm(384px)／lg=max-w-lg(512px)。命名・値は Tailwind max-width スケール準拠（中間が必要になったら md=448）"
+          "description": "ダイアログ幅。sm=max-w-sm(384px)／lg=max-w-lg(512px)／2xl=max-w-2xl(672px・ワイドテーブル用フルブリード)／full=画面追従(fixed inset-10)。命名・値は Tailwind max-width スケール準拠（中間が必要になったら md=448）"
         },
         {
           "name": "Close Icon",
@@ -2771,6 +2774,12 @@
               "variant": "lg",
               "tokens": {
                 "width": "max-w-lg (512px)"
+              }
+            },
+            {
+              "variant": "2xl",
+              "tokens": {
+                "width": "max-w-2xl (672px)"
               }
             },
             {
@@ -2821,6 +2830,13 @@
                 "font-size": "text-sm (14px)",
                 "line-height": "leading-5 (20px)",
                 "color": "text-base-content/60"
+              }
+            },
+            {
+              "variant": "2xl",
+              "tokens": {
+                "padding": "px-0 py-4（左右0のフルブリード＝ワイドテーブルを Dialog 端から端まで）",
+                "note": "説明文だけ px-6 ラッパーで寄せる／説明⇔テーブル間隔 mt-3(12)／テーブルは高さ固定ビューポート(例 h-100=400)で内部スクロール"
               }
             },
             {
