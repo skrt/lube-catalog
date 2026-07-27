@@ -61,10 +61,10 @@
       Vertical label: "単価表", bg-base-200, w-6 (24px), px-1 py-2, text-xs font-semibold, vertical writing
       Header cell: bg-base-200, py-1 px-2, text-2xs (11px), text-base-content/60, right-aligned, w-20 (80px)
       Number cell: border-b base-content/10, py-1.5 px-2, text-2xs mono, text-base-content, right-aligned, w-20
-      Checkbox cell: border-b base-content/10, py-1.5, center, w-8 (32px), checkbox sm (no label)
+      Checkbox cell: border-b base-content/10, py-1.5, center, w-10 (40px), checkbox sm (no label)
       Footer: "税区分：10%", text-2xs, text-base-content/30, right-aligned
       Default columns: 数量 | 仕入単価 | 顧客単価
-      Checkbox columns: 登録(w-8・チェック列ヘッダーラベル) | 数量 | 仕入単価 | 顧客単価
+      Checkbox columns: 登録(w-10・チェック列ヘッダーラベル・px-2) | 数量 | 仕入単価 | 顧客単価
         ※ チェック列ヘッダーのラベルは用途で決める: マスタの登録=「登録」／段選択ピッカー（リピート発注）=ラベルなし（ユーザー確定 2026-07-27）
       Diff (Figma 4480:107636): タスクリスト差分ビュー用の行レベル diff（表示のみ）
         変更セル: 数値のみ色（変更前=text-danger / 変更後=text-success）
@@ -137,37 +137,37 @@
           </div>
           <div class="flex flex-col">
             <div class="flex">
-              <div class="bg-base-200 flex items-center justify-center px-1 py-1 w-8"><span class="text-2xs text-base-content/60">登録</span></div>
+              <div class="bg-base-200 flex items-center justify-center px-2 py-1 w-10"><span class="text-2xs text-base-content/60">登録</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">数量</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">仕入単価</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">顧客単価</span></div>
             </div>
             <div class="flex">
-              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10"><div class="size-4 rounded bg-primary relative"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <div class="flex items-center justify-center px-2 py-1.5 w-10 border-b border-base-content/10"><div class="size-4 rounded bg-primary relative"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">1,000</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">120</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">120</span></div>
             </div>
             <div class="flex">
-              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10"><div class="size-4 rounded bg-primary relative"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <div class="flex items-center justify-center px-2 py-1.5 w-10 border-b border-base-content/10"><div class="size-4 rounded bg-primary relative"><svg class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">2,000</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">115</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">115</span></div>
             </div>
             <div class="flex">
-              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10"><div class="size-4 rounded bg-white shadow-border-base-content-20"></div></div>
+              <div class="flex items-center justify-center px-2 py-1.5 w-10 border-b border-base-content/10"><div class="size-4 rounded bg-white shadow-border-base-content-20"></div></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">3,000</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">110</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">110</span></div>
             </div>
             <div class="flex">
-              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10"><div class="size-4 rounded bg-white shadow-border-base-content-20"></div></div>
+              <div class="flex items-center justify-center px-2 py-1.5 w-10 border-b border-base-content/10"><div class="size-4 rounded bg-white shadow-border-base-content-20"></div></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">5,000</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">100</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">100</span></div>
             </div>
             <div class="flex">
-              <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10"><div class="size-4 rounded bg-white shadow-border-base-content-20"></div></div>
+              <div class="flex items-center justify-center px-2 py-1.5 w-10 border-b border-base-content/10"><div class="size-4 rounded bg-white shadow-border-base-content-20"></div></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">10,000</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">95</span></div>
               <div class="flex items-center justify-end px-2 py-1.5 w-20 border-b border-base-content/10"><span class="text-2xs text-base-content font-mono tabular-nums">95</span></div>
@@ -246,14 +246,14 @@
           </div>
           <div class="flex flex-col">
             <div class="flex">
-              <div class="bg-base-200 flex items-center justify-center px-1 py-1 w-8"><span class="text-2xs text-base-content/60">登録</span></div>
+              <div class="bg-base-200 flex items-center justify-center px-2 py-1 w-10"><span class="text-2xs text-base-content/60">登録</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">数量</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">仕入単価</span></div>
               <div class="bg-base-200 flex items-center justify-end px-2 py-1 w-20"><span class="text-2xs text-base-content/60">顧客単価</span></div>
             </div>
             <template x-for="(row, i) in rows" :key="i">
               <div class="flex cursor-pointer hover:bg-base-200" @click="row.checked = !row.checked">
-                <div class="flex items-center justify-center px-2 py-1.5 w-8 border-b border-base-content/10">
+                <div class="flex items-center justify-center px-2 py-1.5 w-10 border-b border-base-content/10">
                   <div class="size-4 rounded relative outline-none focus-visible:ring-2 focus-visible:ring-primary" tabindex="0" @keydown.enter.prevent="row.checked = !row.checked" :class="row.checked ? 'bg-primary' : 'bg-white shadow-border-base-content-20'">
                     <svg x-show="row.checked" class="absolute inset-0 w-full h-full text-white p-0.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
                   </div>
