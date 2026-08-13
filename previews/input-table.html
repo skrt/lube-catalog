@@ -856,6 +856,64 @@
           </div>
         </div>
       </div>
+
+      <!-- HubSpot連携（HubSpot取引紐付け画面専用・Figma: InputTable / Type=HubSpot連携 5128:53979。取引ID列のみ編集可＝常時 Input md 表示＋直下にステータス行（連携済み=text-success／エラー=「入力しましょう」text-danger）。行操作列（Drug/Copy/Delete）・メモ・納品先・税区分は持たない（行の増減なし・他列は読み取り専用）。実装例=sales_orders/hubspot.html.erb） -->
+      <div>
+        <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">HubSpot連携</p>
+        <div class="w-full min-w-200">
+          <!-- Header Row -->
+          <div class="flex items-stretch w-full">
+            <div class="bg-base-200 w-32 shrink-0 flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">取引ID</p><p class="text-danger">*</p></div>
+            <div class="bg-base-200 flex-1 min-w-72 flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">品名・仕様</p></div>
+            <div class="bg-base-200 w-24 shrink-0 flex items-start p-2 text-xs leading-4"><p class="text-base-content/60">確定納品日</p></div>
+            <div class="bg-base-200 w-18 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">数量</p></div>
+            <div class="bg-base-200 w-22 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">仕入単価</p></div>
+            <div class="bg-base-200 w-30 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">顧客単価</p></div>
+            <div class="bg-base-200 w-31 shrink-0 flex items-start justify-end p-2 text-xs leading-4"><p class="text-base-content/60">金額</p></div>
+          </div>
+          <!-- Body Row 1: 連携済み（取引ID入力済み＋ステータス行・品名は仕様詳細つき） -->
+          <div class="flex items-stretch w-full hover:bg-base-200">
+            <div class="w-32 shrink-0 py-2 border-b border-base-content/10 flex flex-col gap-1 justify-center self-stretch">
+              <input type="text" value="1234567890" class="w-full h-8 px-3 py-2 text-sm rounded-md bg-white border border-base-content/20 text-base-content outline-none">
+              <p class="text-xs leading-4 text-success">連携済み</p>
+            </div>
+            <div class="flex-1 min-w-72 px-3 py-2 border-b border-base-content/10 flex flex-col gap-1 justify-center self-stretch">
+              <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
+              <div class="flex gap-2 pl-1">
+                <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col items-end">
+                  <span class="text-xs leading-5 text-base-content/30 text-right whitespace-nowrap">カテゴリー</span>
+                  <span class="text-xs leading-5 text-base-content/30 text-right whitespace-nowrap">サイズ</span>
+                  <span class="text-xs leading-5 text-base-content/30 text-right whitespace-nowrap">形状</span>
+                </div>
+                <div class="flex flex-col min-w-0">
+                  <span class="text-xs leading-5 text-base-content">ダンボール</span>
+                  <span class="text-xs leading-5 text-base-content">組立外寸 W310×D230×H280mm</span>
+                  <span class="text-xs leading-5 text-base-content">A式</span>
+                </div>
+              </div>
+            </div>
+            <div class="w-24 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center self-stretch"><span class="text-xs leading-4 text-base-content">2025/12/30</span></div>
+            <div class="w-18 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">1,000</span></div>
+            <div class="w-22 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">15</span></div>
+            <div class="w-30 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">19</span></div>
+            <div class="w-31 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">19,000</span></div>
+          </div>
+          <!-- Body Row 2: 手動紐付け前（取引ID空欄・ステータス行なし） -->
+          <div class="flex items-stretch w-full hover:bg-base-200">
+            <div class="w-32 shrink-0 py-2 border-b border-base-content/10 flex flex-col gap-1 justify-center self-stretch">
+              <input type="text" class="w-full h-8 px-3 py-2 text-sm rounded-md bg-white border border-base-content/20 text-base-content outline-none">
+            </div>
+            <div class="flex-1 min-w-72 px-3 py-2 border-b border-base-content/10 flex flex-col gap-1 justify-center self-stretch">
+              <p class="text-xs leading-4 text-base-content">ネコポス大サイズ</p>
+            </div>
+            <div class="w-24 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center self-stretch"><span class="text-xs leading-4 text-base-content">2025/12/30</span></div>
+            <div class="w-18 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">2,000</span></div>
+            <div class="w-22 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">80</span></div>
+            <div class="w-30 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">100</span></div>
+            <div class="w-31 shrink-0 px-2 py-3 border-b border-base-content/10 flex items-center justify-end self-stretch"><span class="text-xs leading-4 text-base-content font-mono tabular-nums">200,000</span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
