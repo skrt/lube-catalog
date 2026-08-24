@@ -333,6 +333,32 @@
       </div>
     </div>
 
+    <!-- 見積条件（空）。閲覧専用画面で「値が入っていない」ことを示す空表示＝「まだ」を付けない（lube CLAUDE.md 空状態ルール・ユーザー確定 2026-08-24）。文言は置く側の対象に合わせて差し替える -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">見積条件（空）</p>
+      <div class="flex flex-col w-full min-w-240">
+        <!-- Header Row -->
+        <div class="bg-base-200 flex items-center">
+          <div class="flex-1 min-w-0 flex items-center px-2 py-1">
+            <span class="text-2xs text-base-content/60">品名</span>
+          </div>
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-2xs text-base-content/60">年間発注量</span>
+          </div>
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-2xs text-base-content/60">数量</span>
+          </div>
+          <div class="w-40 shrink-0 flex items-center justify-end px-2 py-1">
+            <span class="text-2xs text-base-content/60">希望価格</span>
+          </div>
+        </div>
+        <!-- Empty Row: ヘッダー行の直下に1行ぶん（p-2＝行の高さ32px）。テーブルごと消さずヘッダーは残す -->
+        <div class="p-2">
+          <span class="text-xs leading-4 text-base-content/60">見積条件がありません</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </body>
