@@ -97,7 +97,7 @@
         </template>
         <!-- Button -->
         <button
-          class="flex gap-2 items-center justify-center px-3 py-2 rounded-md text-xs font-semibold leading-4 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          class="h-8 flex gap-2 items-center justify-center px-3 rounded-md text-xs font-semibold leading-4 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           :class="loading ? 'bg-base-300 text-base-content/30' : 'bg-base-200 border border-base-content/5 text-base-content hover:bg-base-300'"
           :disabled="loading"
           @click="loading = true; setTimeout(() => { files.push({name: '添付ファイル_' + (files.length + 1) + '.pdf', size: Math.floor(Math.random() * 9000 + 100) + 'KB'}); loading = false; }, 1000)">
