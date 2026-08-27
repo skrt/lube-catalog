@@ -62,7 +62,7 @@
         Title: text-sm font-semibold, text-base-content, flex-1
         Delete: IconButton sm (p-1.5, icon 12px trash-2), bg-base-200, border base-content/5, rounded-md
       Contents: flex-col gap-4 (16px)
-      Type: デマンド：担当者 / サプライヤー：担当者 / 見積依頼：見積先
+      Type: デマンド-納品先：担当者 / サプライヤー：担当者 / 見積依頼：見積先 / デマンド：請求書送付先
       Show Handle / Show Delete: boolean
   -->
 
@@ -119,7 +119,7 @@
     <div id="examples-section" class="space-y-10">
 
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">デマンド担当者</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">デマンド-納品先担当者（旧: デマンド担当者・2026-08-27 リネーム＝実際の用途は納品先の担当者）</p>
       <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2">
         <div class="flex items-center gap-2">
           <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
@@ -142,6 +142,42 @@
           <div class="flex flex-col gap-1">
             <span class="text-sm leading-5 text-base-content">電話番号</span>
             <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"><span class="text-sm leading-5 text-base-content">090-1234-5678</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 利用例: デマンド：請求書送付先（Figma 5966:59504・2026-08-27 新設）
+         請求書の宛先リスト。送信方法=To/Cc の RadioGroup（md・単一選択・既定 To）＋メールアドレス*（Input md・helperなし） -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">デマンド：請求書送付先</p>
+      <div class="bg-base-200 border border-base-content/5 rounded-md p-4 w-100 flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-base-content shrink-0"></i>
+          <span class="text-sm font-semibold leading-5 text-base-content flex-1">送付先 1</span>
+          <button class="bg-base-200 border border-base-content/5 flex items-center justify-center p-1.5 rounded-md hover:bg-base-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <i data-lucide="trash" class="w-3 h-3 text-base-content"></i>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4">
+          <!-- 送信方法 — radio-group.html (Radio md) -->
+          <div class="flex flex-col gap-1">
+            <span class="text-sm leading-5 text-base-content">送信方法</span>
+            <div class="flex gap-4 items-start">
+              <div class="flex gap-2 items-center cursor-pointer">
+                <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-primary"><div class="absolute inset-[5px] rounded-full bg-primary"></div></div>
+                <span class="text-sm leading-5 text-base-content">To</span>
+              </div>
+              <div class="flex gap-2 items-center cursor-pointer">
+                <div class="relative shrink-0 size-5 rounded-full bg-white shadow-border-base-content-20"></div>
+                <span class="text-sm leading-5 text-base-content">Cc</span>
+              </div>
+            </div>
+          </div>
+          <!-- メールアドレス — input.html (md・helperなし) -->
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-0.5 text-sm leading-5"><span class="text-base-content">メールアドレス</span><span class="text-danger">*</span></div>
+            <div class="bg-white border border-base-content/20 rounded-md h-8 flex items-center px-3 py-2"><span class="text-sm leading-5 text-base-content">seikyu@example.com</span></div>
           </div>
         </div>
       </div>
