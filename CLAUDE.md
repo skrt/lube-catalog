@@ -15,12 +15,13 @@ previews/           # 各コンポーネントの HTML プレビューファイ�
 
 ## カタログ構造仕様・追加手順（→ 共通スキル `catalog-structure`）
 
-**正は `~/.claude/skills/catalog-structure/SKILL.md`**（2026-09-03 に pro-catalog と共通化・claude-base へ昇格）。セクション固定順・出所・点灯条件／追加物の行き先（配置判断マップ）／不変則セルフレビュー／追加・変更手順 0〜3／top-script 3分割の正はそちら。**構造を変える時はそちらを編集し、ビューアの変更は pro-catalog の index.html にも入れる**（同型実装）。ここには lube 固有の差分だけ残す:
+**正は `~/.claude/skills/catalog-structure/SKILL.md`**（2026-09-03 に pro-catalog と共通化・claude-base へ昇格）。セクション固定順・出所・点灯条件／追加物の行き先（配置判断マップ）／**preview / spec の記述規約（小見出し・バリアントラベル・States / Demo の構成・Spec の書き方＝2026-09-03 クロスレビュー #22 で昇格）**／不変則セルフレビュー／追加・変更手順 0〜3／top-script 3分割の正はそちら。**構造を変える時はそちらを編集し、ビューアの変更は pro-catalog の index.html にも入れる**（同型実装）。ここには lube 固有の差分だけ残す:
 
 - `category` は7種: `design-tokens / actions / forms / data-display / feedback / navigation / layout`（pro は navigation 無しの6種）
 - Examples セクションは採用済み（`hasExamples: true` 8件）。`spec.anatomy` を 20 件が保持（ビューア未描画）
 - usage は全件投入済み（2026-07-08・当時40件）。画面レベルの原則は lube 本体 CLAUDE.md「デザイン原則」が正・二重記載しない
 - 旧手順「lube 本体 CLAUDE.md のコンポーネント一覧更新」は 2026-07-15 に廃止（登録簿の正は components.json に一本化）
+- **`tokens` のカテゴリ設計（下記「トークン構成」）は昇格対象外**＝lube 固有。pro-catalog は部位軸カテゴリを多数使っており実装が適合しないため（2026-09-03 実測・クロスレビュー #22）
 
 ## プレビューサーバー
 
@@ -56,13 +57,6 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 - **ナビゲーション系**（menu-button 等）: `State`（Default/Hover/Active の bg/text）→ `Layout`（モード別の padding/gap）→ `Common`
 - **`hover:` プレフィックスの規約**: key が `hover` の行（例: `"hover": "hover:bg-primary-hover"`）は `hover:` 付き（実装コピペ可能な形式）。variant が `Hover` 状態を表す行は、状態側で hover を表現しているため値はプレフィックス無しの素のクラス（例: `"background": "bg-base-200"`）
 
-### プレビュー構成
-- States セクションは必ず **md サイズ** で作成する（lg や sm ではなく md が基準）
-- States セクションのトークンは Demo セクションにも反映する（`scripts/check-demo-sync.sh` で検証、pre-commit hook で自動チェック）
-- Disabled 状態のみ Demo 不要。意図的な除外は `<!-- demo-skip: token1 token2 -->` で宣言
-- 既存コンポーネントを内包・利用するプレビューでは、そのコンポーネントの挙動（hover, checked, disabled 等の見た目・インタラクション）を踏襲する。既存プレビューの実装を確認してから組み込むこと
-- デモ背景はプレビュー内の `.in-iframe.demo-only body` CSS で指定する（components.json にフラグは持たない）
-
 ### フォーカス表現
 - **ボタン系・ナビ系**: `ring`（box-shadow）でフォーカスを表現。レイアウトに影響しない
   - **標準**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`
@@ -72,26 +66,6 @@ python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
   - 理由: Error 状態も border-2 を使うため、ring に統一しても padding 補正は残る。2つの仕組みを混在させるより border-2 で統一した方がシンプル
 - `focus:` ではなく **`focus-visible:`** を使う（マウス操作時に出さず、キーボード操作時のみ表示）
 - `tabindex="0"` と `@keydown.enter` は操作対象の要素に付け、クリックエリアは親要素で広く取る
-
-### 見出し体系（セクションタイトル / サブタイトル）
-- **セクションタイトル**（VARIANTS, PROPS, TOKENS, DEMO, SPEC, EXAMPLES）: `text-xl font-normal text-base-content mb-4 uppercase` ※これは**ビューアが描画する**スタイル。preview HTML には手書きしない（→「カタログ構造仕様」参照）。preview 内で使うのはサブタイトル以下
-- **サブタイトル**（Sizes, States, Color 等）: `text-xs font-normal text-gray-400 tracking-wider mb-4`。**ドットは付けない**（2026-07-08 全体から廃止。既存 preview に残る `flex items-center gap-1.5` は描画に影響しないため順次整理でよい）
-- サブタイトルに `capitalize` / `uppercase` は使わない（md が Md になる問題を防ぐ）
-- サブタイトルにコンポーネント名を含めない（例: ✕ ComboBoxMenu Variants → ○ Menu）
-
-### バリアントと利用例の分離
-- コンポーネント固有のバリアント（Default / States / Sizes 等）は VARIANTS セクション内にサブタイトルで配置
-- 利用パターン（テンプレート）がある場合は EXAMPLES セクションタイトルで分離し、サブタイトルで個別パターンを表示
-- 利用例サブタイトルに「利用例：」プレフィックスは不要（EXAMPLES セクション内なので自明）
-
-### バリアントラベル
-- 個別の状態/サイズラベル（sm, md, lg, Default, Hover 等）は `text-[10px] text-gray-400` で統一
-- サブタイトルとは別物。サブタイトルはセクション見出し、ラベルは個別バリアントの注釈
-
-### Spec 記述ルール
-- **States の effect**: トークン名やCSS値を使わず、自然な日本語で書く（例: ✕「bg-primary + check アイコン表示」→ ○「チェックマークが表示される」）
-- **States と Behavior の重複禁止**: States に書いた遷移（クリック→トグル等）を Behavior で繰り返さない。Behavior は States で表現できない補足情報のみ
-- **デモ→spec 昇格**: デモで実装したインタラクション・表示仕様は、commit 前に components.json の spec（behavior/keyboard）に昇格させる。spec に書けない実験的な挙動はデモに入れない（デモにだけ存在する暗黙仕様を作らない）
 
 ### Alpine.js デモ実装
 - x-data のロジックが長い場合は関数に切り出す（インライン x-data が長いと HTML パーサーが壊れる）
