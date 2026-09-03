@@ -13,73 +13,14 @@ previews/           # 各コンポーネントの HTML プレビューファイ�
 
 リポ分割前の残骸。M⇔J 伝言板の正は lube 本体の `/Users/skrt/Claude/lube/.planning/handoff.md`。
 
-## カタログ構造仕様（テンプレート）
+## カタログ構造仕様・追加手順（→ 共通スキル `catalog-structure`）
 
-カタログは **ビューア `index.html` が定義する固定テンプレート**で構成される。各コンポーネントは components.json のフラグで**必要なセクションだけを点灯**させる（統一テンプレートからの取捨選択）。追加・変更は必ずこの構造に従う。
+**正は `~/.claude/skills/catalog-structure/SKILL.md`**（2026-09-03 に pro-catalog と共通化・claude-base へ昇格）。セクション固定順・出所・点灯条件／追加物の行き先（配置判断マップ）／不変則セルフレビュー／追加・変更手順 0〜3／top-script 3分割の正はそちら。**構造を変える時はそちらを編集し、ビューアの変更は pro-catalog の index.html にも入れる**（同型実装）。ここには lube 固有の差分だけ残す:
 
-### セクション（固定順・出所・点灯条件）
-
-| # | セクション | 出所 | 点灯条件 |
-|---|---|---|---|
-| 1 | Usage | components.json `usage`（when / avoid / rules / tables / vs） | usage が存在 |
-| 2 | Variants | preview HTML（`?view=preview`） | 常時 |
-| 3 | Examples | preview の `#examples-section`（`?view=examples`） | components.json `hasExamples: true` |
-| 4 | Props | components.json `props[]` | props が非空 |
-| 5 | Tokens | components.json `tokens[]` | tokens が非空 |
-| 6 | Demo | preview の `#demo-section`（`?view=demo`） | components.json `hasDemo: true` |
-| 7 | Spec | components.json `spec`（states / behavior / keyboard / anatomy） | spec が存在 |
-
-- **Usage は「いつ・何に使うか」**（2026-07-08 新設）。「作る前に読む」情報なので Variants より上に表示される。実装時はまず Usage を読んでから preview をコピーすること
-- preview HTML が持つのは **Variants 本体 ＋（任意で）`#demo-section` / `#examples-section`** だけ。
-- **Usage / Props / Tokens / Spec は preview に書かない**。すべて components.json のデータ（ビューアが描画）。
-- **セクション見出し（`text-xl uppercase`）はビューアが描画する。preview に手書きしない**（二重見出しになる）。
-
-### 追加物 → 行き先（配置判断マップ）
-
-| 入ってくるもの | 行き先 | 実体 |
-|---|---|---|
-| 用途・使い分けのルール | Usage | components.json `usage`。`when`(いつ使うか) / `avoid`(使わないとき・注意) / `rules`(使い方のルール) は string 配列、`tables`(色・サイズ等の区分ルール) は `[{title, items:[{label, desc}]}]`、`vs`(**他コンポーネントとの対比のみ**) は string 配列。実例(examples)は持たない |
-| 状態 / サイズ等のバリアント | Variants | preview 本体に小見出し（`text-xs text-gray-400 tracking-wider`・ドットなし）で追加 |
-| 操作できるデモ | Demo | preview に `#demo-section` ＋ components.json `hasDemo: true` |
-| 利用パターン / 画面例 | Examples | preview に `#examples-section` ＋ `hasExamples: true` ＋ top-script を view 3分割対応に |
-| プロパティ | Props | components.json `props[]`（既存の粒度・順序に合わせる） |
-| デザイントークン | Tokens | components.json `tokens[]`（category → items → tokens 構造） |
-| 挙動 / 状態遷移 / キー操作 | Spec | components.json `spec.{states, behavior, keyboard}` |
-
-迷ったら**新セクション見出しを作らず既存に寄せる**。テンプレにきれいに収まらない場合は勝手に作らず**ユーザーに確認**する。
-
-### 不変則（追加・変更後の必須セルフレビュー）
-
-- **フラグ↔マーカーは必ずペア**：`hasDemo` ⇔ `#demo-section` / `hasExamples` ⇔ `#examples-section`（片方だけは禁止）
-- Examples を持つ preview は top-script が `view === "examples"` を処理していること
-- components.json の各エントリは同じキー構成を保つ：`id / name / description / category / preview / figmaUrl / usage / hasDemo / hasExamples / props / tokens / spec`（usage は figmaUrl の直後。figmaUrl が無いエントリは preview の直後）
-- **usage は全コンポーネント必須**（2026-07-08 で全40件投入済み）。コンポーネントの用途・使い分けが変わる変更をしたら usage も更新する（画面レベルの原則は lube 本体 CLAUDE.md「デザイン原則」が正・二重記載しない）
-- **usage 記述の質基準**: 1項目=1文・自明な内容（Variants を見れば分かる列挙等）は書かない・実例は持たない（screens.yml と ERB のカタログマーカーから導出できるため）・区分ルール（色/サイズ等）は `tables` に
-- **when（いつ使うか）の文体**: 説明文体（です・ます調）で1〜2文。1文目=機能の言い切り（「〜するときに使用します」）、2文目=使い分け軸の予告（バリエーションがある場合のみ）。avoid / rules / vs は体言止めの箇条書きのまま
-- components.json は `JSON.pretty_generate` 往復でフォーマット無劣化（検証済み）。一括編集は ruby スクリプトで安全に行える
-- `category` は既存7種から選ぶ：`design-tokens / actions / forms / data-display / feedback / navigation / layout`
-- preview にセクション見出し（`text-xl uppercase`）を書いていないこと
-
-## コンポーネント追加・変更手順
-0. **着手前に上記「カタログ構造仕様」と、対象ファイル（該当 preview ＋ components.json エントリ）の既存構成を確認する。** 末尾に単純追加せず、配置判断マップに従って行き先を決める
-1. `previews/` に HTML ファイルを作成/編集（Variants 本体 ＋ 必要なら `#demo-section` / `#examples-section`）
-2. `components.json` の `components` 配列にエントリを追加/更新（既存エントリと同じキー構成）:
-   ```json
-   {
-     "id": "button",
-     "name": "Button",
-     "description": "ボタン",
-     "category": "actions",
-     "preview": "previews/button.html",
-     "figmaUrl": "https://www.figma.com/design/…?node-id=…",
-     "usage": { "when": ["いつ使うか"] },
-     "hasDemo": false,
-     "hasExamples": false,
-     "props": [],
-     "tokens": []
-   }
-   ```
-3. 不変則（上記）をセルフレビューする（※旧手順の「lube 本体 CLAUDE.md のコンポーネント一覧更新」は 2026-07-15 に廃止＝登録簿の正は components.json に一本化・一覧表の二重管理をやめた）
+- `category` は7種: `design-tokens / actions / forms / data-display / feedback / navigation / layout`（pro は navigation 無しの6種）
+- Examples セクションは採用済み（`hasExamples: true` 8件）。`spec.anatomy` を 20 件が保持（ビューア未描画）
+- usage は全件投入済み（2026-07-08・当時40件）。画面レベルの原則は lube 本体 CLAUDE.md「デザイン原則」が正・二重記載しない
+- 旧手順「lube 本体 CLAUDE.md のコンポーネント一覧更新」は 2026-07-15 に廃止（登録簿の正は components.json に一本化）
 
 ## プレビューサーバー
 ```bash
