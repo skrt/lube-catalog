@@ -23,6 +23,9 @@ previews/           # 各コンポーネントの HTML プレビューファイ�
 - 旧手順「lube 本体 CLAUDE.md のコンポーネント一覧更新」は 2026-07-15 に廃止（登録簿の正は components.json に一本化）
 
 ## プレビューサーバー
+
+`.claude/launch.json` に `catalog`（port 8766）を定義済み＝`preview_start` で起動する（pro-catalog と対称・2026-09-03 クロスレビュー #24）。手で立てる場合:
+
 ```bash
 python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
 ```
