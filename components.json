@@ -1050,7 +1050,7 @@
               "tokens": {
                 "ref": "icon-button",
                 "size": "sm",
-                "icon": "trash-2"
+                "icon": "trash"
               }
             },
             {
@@ -5338,7 +5338,7 @@
               "tokens": {
                 "ref": "icon-button",
                 "size": "sm",
-                "icon": "trash-2 (12px)"
+                "icon": "trash (12px)"
               }
             }
           ]
