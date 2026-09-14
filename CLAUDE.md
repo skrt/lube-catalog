@@ -11,7 +11,7 @@ previews/           # 各コンポーネントの HTML プレビューファイ�
 
 ## ⚠️ このリポの .planning/handoff.md は使わない
 
-リポ分割前の残骸。M⇔J 伝言板の正は lube 本体の `/Users/skrt/Claude/lube/.planning/handoff.md`。
+リポ分割前の残骸。M⇔J 伝言板の正は lube 本体の `~/Claude/lube/.planning/handoff.md`。
 
 ## カタログ構造仕様・追加手順（→ 共通スキル `catalog-structure`）
 
@@ -28,7 +28,7 @@ previews/           # 各コンポーネントの HTML プレビューファイ�
 `.claude/launch.json` に `catalog`（port 8766）を定義済み＝`preview_start` で起動する（pro-catalog と対称・2026-09-03 クロスレビュー #24）。手で立てる場合:
 
 ```bash
-python3 -m http.server 8766 --directory /Users/skrt/Claude/lube-catalog
+python3 -m http.server 8766 --directory ~/Claude/lube-catalog
 ```
 
 ## ルール
