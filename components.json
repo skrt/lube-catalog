@@ -1097,7 +1097,7 @@
           {
             "transition": "Empty → Loading",
             "trigger": "ファイル選択",
-            "effect": "ボタンがローディング表示に変わる（スピナー + 「処理中...」）"
+            "effect": "ボタンがローディング表示に変わる（スピナー + 「読み込み中」）"
           },
           {
             "transition": "Loading → Selected",
