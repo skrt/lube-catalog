@@ -241,8 +241,8 @@
           <span class="text-xl font-semibold leading-7 text-base-content">発注請書</span>
           <div class="flex-1"></div>
           <div class="flex gap-4 items-center text-xs leading-4 text-base-content">
-            <span>発行日：2025/9/29(月)</span>
-            <span>受注日：2025/9/26(金)</span>
+            <span>発行日：2025/09/29(月)</span>
+            <span>受注日：2025/09/26(金)</span>
           </div>
         </div>
         <!-- 文書ヘッダー -->
@@ -250,7 +250,7 @@
           <div class="flex-1 min-w-0 flex flex-col gap-2">
             <p class="text-base font-semibold leading-6 text-base-content">株式会社コトハ商事 御中</p>
             <p class="text-xs leading-4 text-base-content/60">下記のとおりご発注を承りました</p>
-            <div class="flex items-baseline justify-between border-b border-base-content/10 pb-1 text-base-content w-80">
+            <div class="flex items-baseline justify-between border-b border-base-content/10 pb-1 text-base-content w-88">
               <span class="text-base leading-6">合計金額</span>
               <div class="flex gap-1 items-end">
                 <span class="text-2xl font-bold leading-8">515,900</span>
@@ -259,9 +259,9 @@
             </div>
           </div>
           <div class="w-60 flex flex-col gap-2 relative">
-            <p class="text-sm font-semibold leading-5 text-base-content">ツムギパック株式会社</p>
-            <p class="text-xs leading-4 text-base-content/60">〒150-0001 東京都渋谷区神宮前1丁目2番3号 サンプルビル4F</p>
-            <p class="text-xs leading-4 text-base-content/60">登録番号: T0000000000000</p>
+            <p class="text-sm font-semibold leading-5 text-base-content">株式会社shizai</p>
+            <p class="text-xs leading-4 text-base-content/60">〒107-0052 東京都港区赤坂1丁目14番14号 WAW赤坂第35興和ビル 516</p>
+            <p class="text-xs leading-4 text-base-content/60">登録番号: T7010001213064</p>
             <div class="absolute bottom-0 right-0 w-15 h-15 border border-base-content/10 rounded-full flex items-center justify-center text-2xs text-base-content/30">印</div>
           </div>
         </div>
@@ -334,51 +334,92 @@
             <div class="w-28 shrink-0 px-2 py-1 text-2xs text-base-content/60">確定納品日</div>
             <div class="w-24 shrink-0 px-2 py-1 text-2xs text-base-content/60 text-right">数量</div>
             <div class="w-24 shrink-0 px-2 py-1 text-2xs text-base-content/60 text-right">単価</div>
-            <div class="w-28 shrink-0 px-2 py-1 text-2xs text-base-content/60 text-right">金額(税抜)</div>
+            <div class="w-28 shrink-0 px-2 py-1 text-2xs text-base-content/60 text-right">金額 (税抜)</div>
           </div>
+          <!-- 全行に 受注番号 / 納品先 / コード のサブ行（本番 PDF 準拠・2026-10-09） -->
           <div class="flex">
             <div class="flex-1 min-w-0 flex flex-col gap-1 px-2 py-1.5 border-b border-base-content/10 self-stretch">
               <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
               <div class="flex gap-2 pl-1">
-                <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col">
-                  <span class="text-2xs text-base-content/60">サイズ</span>
-                  <span class="text-2xs text-base-content/60">形状</span>
-                  <span class="text-2xs text-base-content/60">構成</span>
-                  <span class="text-2xs text-base-content/60">段厚</span>
+                <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col items-end">
+                  <span class="text-2xs text-base-content/60">受注番号</span>
+                  <span class="text-2xs text-base-content/60">納品先</span>
+                  <span class="text-2xs text-base-content/60">コード</span>
                 </div>
                 <div class="flex flex-col">
-                  <span class="text-2xs text-base-content">組立外寸 W310×D230×H280mm</span>
-                  <span class="text-2xs text-base-content">A式</span>
-                  <span class="text-2xs text-base-content">C5/120/C5</span>
-                  <span class="text-2xs text-base-content">EF</span>
+                  <span class="text-2xs text-base-content">250926110313-01</span>
+                  <span class="text-2xs text-base-content">納品先A</span>
+                  <span class="text-2xs text-base-content">FTC-CB086-04</span>
                 </div>
               </div>
             </div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content flex items-center">2025/12/30(金)</div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content flex items-center">2025/12/30(火)</div>
             <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">1,000</div>
             <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">19</div>
             <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">19,000</div>
           </div>
           <div class="flex">
-            <div class="flex-1 min-w-0 px-2 py-1.5 border-b border-base-content/10 self-stretch flex flex-col justify-center"><p class="text-xs leading-4 text-base-content">ネコポス大サイズ</p></div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content">2025/12/30(金)</div>
-            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">2,000</div>
-            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">100</div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">200,000</div>
+            <div class="flex-1 min-w-0 flex flex-col gap-1 px-2 py-1.5 border-b border-base-content/10 self-stretch">
+              <p class="text-xs leading-4 text-base-content">ネコポス大サイズ</p>
+              <div class="flex gap-2 pl-1">
+                <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col items-end">
+                  <span class="text-2xs text-base-content/60">受注番号</span>
+                  <span class="text-2xs text-base-content/60">納品先</span>
+                  <span class="text-2xs text-base-content/60">コード</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-2xs text-base-content">250926110313-02</span>
+                  <span class="text-2xs text-base-content">納品先B</span>
+                  <span class="text-2xs text-base-content">FTC-CB096-04</span>
+                </div>
+              </div>
+            </div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content flex items-center">2025/12/30(火)</div>
+            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">2,000</div>
+            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">100</div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">200,000</div>
           </div>
           <div class="flex">
-            <div class="flex-1 min-w-0 px-2 py-1.5 border-b border-base-content/10 self-stretch flex flex-col justify-center"><p class="text-xs leading-4 text-base-content">ゆうパケットパフ</p></div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content">2025/12/30(金)</div>
-            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">500</div>
-            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">320</div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">160,000</div>
+            <div class="flex-1 min-w-0 flex flex-col gap-1 px-2 py-1.5 border-b border-base-content/10 self-stretch">
+              <p class="text-xs leading-4 text-base-content">ゆうパケットパフ</p>
+              <div class="flex gap-2 pl-1">
+                <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col items-end">
+                  <span class="text-2xs text-base-content/60">受注番号</span>
+                  <span class="text-2xs text-base-content/60">納品先</span>
+                  <span class="text-2xs text-base-content/60">コード</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-2xs text-base-content">250926110313-03</span>
+                  <span class="text-2xs text-base-content">納品先C</span>
+                  <span class="text-2xs text-base-content">FTC-CB087-05</span>
+                </div>
+              </div>
+            </div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content flex items-center">2025/12/30(火)</div>
+            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">500</div>
+            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">320</div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">160,000</div>
           </div>
           <div class="flex">
-            <div class="flex-1 min-w-0 px-2 py-1.5 border-b border-base-content/10 self-stretch flex flex-col justify-center"><p class="text-xs leading-4 text-base-content">ショッパー</p></div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content">2025/12/30(金)</div>
-            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">10,000</div>
-            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">9</div>
-            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums text-right">90,000</div>
+            <div class="flex-1 min-w-0 flex flex-col gap-1 px-2 py-1.5 border-b border-base-content/10 self-stretch">
+              <p class="text-xs leading-4 text-base-content">ショッパー</p>
+              <div class="flex gap-2 pl-1">
+                <div class="border-l-2 border-base-content/10 pl-1.5 flex flex-col items-end">
+                  <span class="text-2xs text-base-content/60">受注番号</span>
+                  <span class="text-2xs text-base-content/60">納品先</span>
+                  <span class="text-2xs text-base-content/60">コード</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-2xs text-base-content">250926110313-04</span>
+                  <span class="text-2xs text-base-content">納品先A</span>
+                  <span class="text-2xs text-base-content">FTC-CB097-02</span>
+                </div>
+              </div>
+            </div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content flex items-center">2025/12/30(火)</div>
+            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">10,000</div>
+            <div class="w-24 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">9</div>
+            <div class="w-28 shrink-0 px-2 py-1.5 border-b border-base-content/10 text-2xs text-base-content font-mono tabular-nums flex items-center justify-end">90,000</div>
           </div>
         </div>
         <!-- 合計ブロック -->
@@ -386,12 +427,10 @@
           <div class="flex-1 min-w-0 flex flex-col gap-2">
             <p class="text-xs leading-4 text-base-content/60">備考</p>
             <div class="text-xs leading-4 text-base-content">
-              <p>・恐れ入りますが、振込手数料は貴社にてご負担ください。</p>
+              <p>・振込手数料は貴社にてご負担ください。</p>
+              <p>・ご発注後の製造が進行している場合、キャンセルはお受け致しかねます。</p>
+              <p>・消費税の端数処理により、請求時に誤差が発生する可能性があります。</p>
               <p>・配送先が２階以上、もしくは２トントラック以下しか入れない等の場合は、別途運賃が発生する可能性がございます。</p>
-              <p>・ご発注後の、お客様のご都合によるキャンセルはお受け致しかねます。</p>
-              <p>・万が一、ご発注後のお客様のご都合によるキャンセルが発生する際には、大変恐れ入りますが当該ご発注により発生した当社の損害相当額（版代、型代、製造料金を含みますがこれに限りません）をご負担ください。</p>
-              <p>・版代は別途となります。</p>
-              <p>・印刷は特色印刷想定でございます。</p>
             </div>
           </div>
           <div class="flex flex-col gap-3 w-60 shrink-0">
