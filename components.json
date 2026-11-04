@@ -7455,7 +7455,7 @@
           },
           {
             "part": "Cell / Text",
-            "description": "テキスト入力セル。Props=True で仕様セル（カテゴリー〜その他の属性 8行）になる"
+            "description": "テキスト入力セル。Type=Name（品名）/ Spec（仕様セル＝カテゴリー〜その他の属性 8行）/ Name +Spec（品名＋仕様の要約を1セルに。Disabled=読み取り専用の引用明細・Hover=費用を追加で足した行の編集＝品名と補足が Input）"
           },
           {
             "part": "Cell / Icon",

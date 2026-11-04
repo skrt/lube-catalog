@@ -172,9 +172,9 @@
       </div>
     </div>
 
-    <!-- Cell Text Spec States (仕様セル Props=True) -->
+    <!-- Cell Text Spec States (Type=Spec＝仕様セル／Type=Name +Spec＝品名＋仕様の要約を1セル。Figma InputTable / Cell / Text 3941:13212・Name +Spec は 7370:72017（Disabled）/ 7370:72038（Hover）2026-11-04) -->
     <div>
-      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Cell Text 仕様セル</p>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Cell Text 仕様セル（Type=Spec / Name +Spec）</p>
       <div class="flex flex-wrap gap-6 items-start">
         <div>
           <div class="w-72 p-2 border-b border-base-content/10 flex flex-col gap-1">
@@ -187,7 +187,7 @@
             <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">加工</p></div>
             <div class="flex gap-2 items-center h-6"><p class="w-15 text-right text-xs leading-5 text-base-content/60">その他</p></div>
           </div>
-          <p class="text-[10px] text-gray-400 mt-1.5">Default</p>
+          <p class="text-[10px] text-gray-400 mt-1.5">Spec / Default</p>
         </div>
         <div>
           <div class="w-72 p-2 bg-base-200 border-b border-base-content/10 flex flex-col gap-1">
@@ -216,9 +216,9 @@
               <div class="flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"></div>
             </div>
           </div>
-          <p class="text-[10px] text-gray-400 mt-1.5">Hover（編集モード）</p>
+          <p class="text-[10px] text-gray-400 mt-1.5">Spec / Hover（編集モード）</p>
         </div>
-        <!-- Disabled -->
+        <!-- Name +Spec / Disabled: 品名＋仕様の要約（読み取り専用）。ラベル /30・値 /60・左に 2px の線。発注請書・発注書の品名・仕様列（引用元の明細）で使う -->
         <div>
           <div class="w-72 px-3 py-2 bg-white border-b border-base-content/10 flex flex-col gap-1">
             <p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p>
@@ -231,7 +231,23 @@
               </div>
             </div>
           </div>
-          <p class="text-[10px] text-gray-400 mt-1.5">Disabled（要約表示）</p>
+          <p class="text-[10px] text-gray-400 mt-1.5">Name +Spec / Disabled（要約表示＝読み取り専用）</p>
+        </div>
+        <!-- Name +Spec / Hover: 「費用を追加」で足した費用行の編集＝品名 Input＋カテゴリー「費用」固定（表示のみ）＋補足 Input。ラベル行は h-6 で Input と天地が揃う -->
+        <div>
+          <div class="w-72 px-3 py-2 bg-white border-b border-base-content/10 flex flex-col gap-1">
+            <div class="h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"><p class="text-xs leading-4 text-base-content">60サイズブランドボックス</p></div>
+            <div class="flex gap-2 pl-1 text-xs">
+              <div class="flex flex-col items-end border-l-2 border-base-content/10 pl-1.5 text-right text-base-content/30">
+                <p class="h-6 leading-6">カテゴリー</p><p class="h-6 leading-6">補足</p>
+              </div>
+              <div class="flex-1 min-w-0 flex flex-col text-base-content/60">
+                <p class="h-6 leading-6">費用</p>
+                <div class="h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md flex items-center"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 mt-1.5">Name +Spec / Hover（費用行の編集）</p>
         </div>
       </div>
     </div>
