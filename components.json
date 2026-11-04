@@ -1438,7 +1438,7 @@
           },
           {
             "part": "Menu > Item",
-            "description": "選択肢。Default/Hover/Selected/Disabled の4状態"
+            "description": "選択肢。Default/Hover/Selected/Disabled の4状態。名前＋説明で選ばせる時は説明行付き（2行・説明は /60）。InputTable のインライン Select は xs 版"
           }
         ],
         "states": [
