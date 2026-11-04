@@ -6,6 +6,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style type="text/tailwindcss">
 @theme {
+  --text-2xs: 11px;
+  --text-2xs--line-height: 16px;
   --color-primary: #0a0ac2;
   --color-primary-hover: #080892;
   --color-primary-content: #f3f4fe;
@@ -267,6 +269,32 @@
       <div class="flex items-center h-8 px-4 text-sm text-base-content bg-base-200">Hover</div>
       <div class="flex items-center h-8 px-4 text-sm text-secondary-content bg-secondary">Selected</div>
       <div class="flex items-center h-8 px-4 text-sm text-base-content/30">Disabled</div>
+    </div>
+  </section>
+
+  <!-- Menu Item 説明行付き（名前＋説明の2行）。usage の「名前＋説明で選ばせる時は説明行付きメニュー」の実体。
+       実装例＝発注請書 作成／編集／リピート発注の納品先セレクト（InputTable 内のインライン Select は xs 版: 名前 text-xs・説明 text-2xs・px-3）。
+       メニューは説明が収まる幅に広がる（w-max min-w-full max-w-120）。説明の無い項目は1行のまま。2026-11-04 エンジニアさん指摘（実データは社名＋長い住所） -->
+  <section>
+    <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Menu Item 説明行付き</p>
+    <div class="flex flex-wrap gap-6 items-start">
+      <div>
+        <div class="w-max min-w-72 max-w-120 border border-base-content/10 rounded-md shadow-lg py-1.5 bg-white">
+          <div class="flex flex-col justify-center min-h-8 px-4 py-1.5 text-sm text-base-content"><span class="leading-5">株式会社ワインプレスインターナショナル</span><span class="text-xs leading-4 text-base-content/60">〒598-0048 大阪府泉佐野市りんくう往来北2-11 丸紅物流ビル中2階</span></div>
+          <div class="flex flex-col justify-center min-h-8 px-4 py-1.5 text-sm text-base-content bg-base-200"><span class="leading-5">大阪倉庫</span><span class="text-xs leading-4 text-base-content/60">〒523-0021 大阪府大阪市北区中之島2丁目3番4-11</span></div>
+          <div class="flex flex-col justify-center min-h-8 px-4 py-1.5 text-sm text-secondary-content bg-secondary"><span class="leading-5">本社倉庫</span><span class="text-xs leading-4 text-base-content/60">〒107-0052 東京都港区赤坂1丁目2番3-4</span></div>
+          <div class="flex items-center h-8 px-4 text-sm text-base-content">未定</div>
+        </div>
+        <p class="text-[10px] text-gray-400 mt-1.5">md（Default / Hover / Selected / 説明なし）</p>
+      </div>
+      <div>
+        <div class="w-max min-w-36 max-w-120 border border-base-content/10 rounded-md shadow-lg py-1.5 bg-white">
+          <div class="flex flex-col justify-center min-h-8 px-3 py-1.5 text-xs text-base-content"><span class="leading-4">本社倉庫</span><span class="text-2xs leading-4 text-base-content/60">〒107-0052 東京都港区赤坂1丁目2番3-4</span></div>
+          <div class="flex flex-col justify-center min-h-8 px-3 py-1.5 text-xs text-secondary-content bg-secondary"><span class="leading-4">大阪倉庫</span><span class="text-2xs leading-4 text-base-content/60">〒523-0021 大阪府大阪市北区中之島2丁目3番4-11</span></div>
+          <div class="flex items-center h-8 px-3 text-xs text-base-content">未定</div>
+        </div>
+        <p class="text-[10px] text-gray-400 mt-1.5">xs（InputTable のインライン Select）</p>
+      </div>
     </div>
   </section>
 
