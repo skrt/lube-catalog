@@ -274,7 +274,8 @@
 
   <!-- Menu Item 説明行付き（名前＋説明の2行）。usage の「名前＋説明で選ばせる時は説明行付きメニュー」の実体。
        実装例＝発注請書 作成／編集／リピート発注の納品先セレクト（InputTable 内のインライン Select は xs 版: 名前 text-xs・説明 text-2xs・px-3）。
-       メニューは説明が収まる幅に広がる（w-max min-w-full max-w-120）。説明の無い項目は1行のまま。2026-11-04 エンジニアさん指摘（実データは社名＋長い住所） -->
+       メニューは説明が収まる幅に広がる（w-max min-w-full max-w-120）。説明の無い項目は1行のまま。2026-11-04 エンジニアさん指摘（実データは社名＋長い住所）。
+       Figma 対応: SelectMenu `Type=Description`（7436:29258・2行 item を SelectMenu 側で持つ設計）。Item コンポーネントに説明行付き variant は無い＝1対1ではない（M 2026-11-05） -->
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Menu Item 説明行付き</p>
     <div class="flex flex-wrap gap-6 items-start">
