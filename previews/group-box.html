@@ -62,6 +62,7 @@
       Contents: flex-col gap-2 (8px), free slot（Box の中）
       Scroll variant: Box に max-h-64 (256px), overflow-y-auto（スクロールバーは OS 標準・カスタム描画しない 2026-07-17）
       Divider: h-px bg-base-content/5
+      Error: Box を border-danger + shadow-border-2-danger（枠 2px）に。Legend Row は left-3 px-1 + 背面を bg-linear-to-b from-white from-50% to-base-200 to-50%（赤枠が見出しの裏を横切らないよう切る）。エラー文は Wrapper の直下（gap-1）に text-xs text-danger。Figma は variant を持たずインスタンスの override で表現（2026-11-17）
       配置ルール: GroupBox が複数並ぶ行/grid の gap は gap-4 (16px)（内蔵 8px と合わせて箱間の見た目 24px）。親の padding は p-0
   -->
 
@@ -94,6 +95,23 @@
       </div>
     </div>
 
+    <!-- Error（必須の選択が0件） -->
+    <div>
+      <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Error</p>
+      <div class="flex flex-col gap-1 w-100">
+        <div class="relative pt-2">
+          <div class="absolute top-0 left-3 px-1 flex items-start gap-1 bg-linear-to-b from-white from-50% to-base-200 to-50%">
+            <span class="text-xs font-semibold leading-4 text-base-content">見出し</span>
+            <span class="text-xs font-semibold leading-4 text-danger">*</span>
+          </div>
+          <div class="bg-base-200 border border-danger shadow-border-2-danger rounded-md p-4 flex flex-col gap-2">
+            <div class="h-20 bg-base-300/50 rounded flex items-center justify-center text-xs text-base-content/30">Contents Slot</div>
+          </div>
+        </div>
+        <p class="text-xs leading-4 text-danger">選択しましょう</p>
+      </div>
+    </div>
+    
     <!-- Scroll -->
     <div>
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Scroll</p>

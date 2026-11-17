@@ -3644,7 +3644,8 @@
           "小計から合計金額までの金額集計を縦積みで表示するときに使用します。"
         ],
         "rules": [
-          "幅 w-60 固定"
+          "幅 w-60 固定",
+          "ラベルは折り返さず、金額が幅に収まらないときは金額側を折り返して全桁を表示する（行の高さは伸びる）"
         ]
       },
       "props": [
@@ -3687,7 +3688,7 @@
             {
               "variant": "row",
               "tokens": {
-                "height": "h-5 (20px)",
+                "height": "min-h-5 (20px)（金額が折り返すと伸びる）",
                 "gap": "gap-2 (8px)",
                 "align": "items-center"
               }
@@ -3716,35 +3717,40 @@
               "variant": "label",
               "tokens": {
                 "font": "text-sm",
-                "color": "text-base-content"
+                "color": "text-base-content",
+                "wrap": "shrink-0 whitespace-nowrap"
               }
             },
             {
               "variant": "sub label",
               "tokens": {
                 "font": "text-xs",
-                "color": "text-base-content/60"
+                "color": "text-base-content/60",
+                "wrap": "shrink-0 whitespace-nowrap"
               }
             },
             {
               "variant": "value",
               "tokens": {
                 "font": "text-sm font-mono tabular-nums",
-                "color": "text-base-content"
+                "color": "text-base-content",
+                "wrap": "min-w-0 break-all text-right"
               }
             },
             {
               "variant": "sub value",
               "tokens": {
                 "font": "text-sm font-mono tabular-nums",
-                "color": "text-base-content/60"
+                "color": "text-base-content/60",
+                "wrap": "min-w-0 break-all text-right"
               }
             },
             {
               "variant": "total",
               "tokens": {
                 "font": "text-sm font-semibold font-mono tabular-nums",
-                "color": "text-base-content"
+                "color": "text-base-content",
+                "wrap": "min-w-0 break-all text-right"
               }
             }
           ]
@@ -5050,7 +5056,8 @@
         "rules": [
           "見出し余白8px（pt-2）はコンポーネント内蔵（2026-07-23）＝instanceを置くだけで見出しが直上要素に被らない",
           "メモ等の自由テキスト本文は1テキスト＋whitespace-pre-line で改行を表現（本番実装はテキストカラム1本の想定・<p> に行分割しない。2026-07-23 ユーザー確定）",
-          "Scroll variant の最大高は文脈で変える。既定は max-h-64(256)、長文のメール本文プレビュー等は max-h-100(400)。最小は内容にフィット（hug）で、超えた分だけ枠内スクロール"
+          "Scroll variant の最大高は文脈で変える。既定は max-h-64(256)、長文のメール本文プレビュー等は max-h-100(400)。最小は内容にフィット（hug）で、超えた分だけ枠内スクロール",
+          "Error は GroupBox の中の必須の選択が0件のときに使う（例: 送信先 TO のチェックが1件も無い）。エラー文は GroupBox の直下に置く"
         ],
         "tables": [
           {
@@ -5092,7 +5099,8 @@
           "PriceTable: 表示専用の単価表（入力はこの単価表バリアント＋NumberInput）"
         ],
         "avoid": [
-          "置く側の行・親フレームに pt-2/mt-2 で見出し余白を付ける（余白はコンポーネント内蔵。旧ルールは廃止）"
+          "置く側の行・親フレームに pt-2/mt-2 で見出し余白を付ける（余白はコンポーネント内蔵。旧ルールは廃止）",
+          "中に入力欄がある GroupBox を Error にする（入力欄のエラーは各入力欄の側で出す）"
         ]
       },
       "props": [
@@ -5113,6 +5121,12 @@
           "type": "boolean",
           "default": false,
           "description": "max-h-64でスクロール表示"
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "default": false,
+          "description": "エラー表示（Box の枠が赤・直下にエラー文）。Figma は variant を持たずインスタンスの override で表現"
         }
       ],
       "tokens": [
@@ -5155,6 +5169,12 @@
                 "max-height": "max-h-64 (256px)",
                 "overflow": "overflow-y-auto"
               }
+            },
+            {
+              "variant": "error",
+              "tokens": {
+                "border": "border-danger + shadow-border-2-danger（枠 2px）"
+              }
             }
           ]
         },
@@ -5178,6 +5198,26 @@
             {
               "variant": "required",
               "tokens": {
+                "color": "text-danger"
+              }
+            },
+            {
+              "variant": "error",
+              "tokens": {
+                "position": "left-3 px-1（背面の塗りの分だけ左へ）",
+                "background": "bg-linear-to-b from-white from-50% to-base-200 to-50%（上半分=白／下半分=Box の地色で枠線を切る）"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Error Text",
+          "items": [
+            {
+              "variant": "layout",
+              "tokens": {
+                "gap": "gap-1 (4px)（GroupBox の直下）",
+                "size": "text-xs (12px)",
                 "color": "text-danger"
               }
             }
@@ -7145,7 +7185,8 @@
           "セル部品には Text／Icon（複製・削除）／Button のほか Radio セルがある（送付先テーブルの TO/CC/除外 択一で使用 → RadioGroup 丸型）",
           "青ヘッダーは「サプライヤーが入力する列」の専用表現（見積回答のみ。社内向けは全列グレー）",
           "見積依頼 variant の年間発注数量・希望価格はフリーテキストの入力欄＝ヘッダー・セルとも左揃え（数量は右揃え）。閲覧側（QuoteTable）だけ数字なら右揃えに切り替える（ユーザー確定 2026-09-10）",
-          "空状態はヘッダー直下 12px に「（まだ）◯◯がありません」（text-sm・base-content/60）。2行目のガイド文（「◯◯を追加しましょう」等）は画面ごと判断で任意（2026-07-14 ユーザー確定の統一仕様）"
+          "空状態はヘッダー直下 12px に「（まだ）◯◯がありません」（text-sm・base-content/60）。2行目のガイド文（「◯◯を追加しましょう」等）は画面ごと判断で任意（2026-07-14 ユーザー確定の統一仕様）",
+          "金額など計算結果の表示セルは、列幅に収まらない桁を折り返して全桁を表示する（省略しない）"
         ],
         "vs": [
           "QuoteTable: 読み取り専用の明細表示"
