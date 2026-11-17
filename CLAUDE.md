@@ -33,6 +33,12 @@ python3 -m http.server 8766 --directory ~/Claude/lube-catalog
 
 ## ルール
 
+### 文言
+
+- バリデーション文言のトーンは「〜しましょう」
+- 語尾の使い分け（shizai-pro 2026-11-11 ユーザー確定を移植・2026-11-17）: 読む人が画面の操作で自分で解決できる → 「〜しましょう」／相手に頼む・待ってもらうなど自分では解決できない → 「〜ください」（「ご連絡ください」「お問い合わせください」「お試しください」の依頼形だけ。操作の指示に「〜してください」は使わない）
+- 表示文言は常用漢字だけで構成する（表外字はひらがなに開く）。詳細と機械チェック（`copy:lint`）は lube 側 CLAUDE.md「ボタンラベルの文言・語彙ルール」が正
+
 ### Tailwind / スタイル
 - Tailwind CSS 標準クラスのみ使用（ハードコードカラー値禁止、各 preview 冒頭の `@theme` ブロックのトークンを使う）
   - ⚠️ **`tailwind.config.js` は 2026-07-27 に削除済み**（Tailwind v4＝`@tailwindcss/browser@4` は v3 形式の JS config を読まない完全な死にファイルで、中身も `error`／旧 soft 値のまま stale だった）。トークンの正は **各 preview の `@theme` ブロック**（値は lube 本体 `app/assets/tailwind/application.css` の @theme と揃える）
