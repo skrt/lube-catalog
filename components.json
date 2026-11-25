@@ -7088,13 +7088,6 @@
                 "width": "w-72 (288px)",
                 "icons": "calendar-range left, circle-x right"
               }
-            },
-            {
-              "variant": "フリーワード",
-              "tokens": {
-                "width": "flex-1",
-                "helper": "text-xs text-base-content/60"
-              }
             }
           ]
         },

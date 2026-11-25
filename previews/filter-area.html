@@ -54,7 +54,7 @@
     FilterArea — 一覧画面の検索フィルタテンプレート
       Type: 見積依頼 / 見積書 / 発注書 / 発注請書 / 請求書 / デマンド / サプライヤー
       Layout: flex items-start gap-3, w-full（フィールド間 gap-3=12px）
-      Fields: Input(w-40) / ComboBox(w-40,w-32) / DateRangePicker(w-72) / フリーワード(flex-1)
+      Fields: Input(w-40) / ComboBox(w-40,w-32) / DateRangePicker(w-72)
       All fields: label text-sm text-base-content + input h-8 shadow-border-base-content-20 rounded-md px-3 py-2
       ComboBox（デマンド/サプライヤー）: chevron なし（一覧フィルタ仕様）／ Select（担当者）: chevron-down icon right
       DateRangePicker: calendar-range icon left, circle-x icon right
@@ -67,14 +67,6 @@
   <section>
     <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">見積依頼</p>
     <div class="flex items-start gap-3 w-full max-w-5xl">
-      <!-- フリーワード -->
-      <div class="flex-1 min-w-0 flex flex-col gap-1">
-        <p class="text-sm text-base-content">フリーワード</p>
-        <div class="h-8 bg-white shadow-border-base-content-20 rounded-md px-3 py-2 flex items-center">
-          <span class="text-sm text-base-content/30"></span>
-        </div>
-        <p class="text-xs text-base-content/60">複数ワード検索の方法：「配送箱 名古屋」など、半角スペースで区切る</p>
-      </div>
       <!-- デマンド -->
       <div class="shrink-0 w-40 flex flex-col gap-1">
         <p class="text-sm text-base-content">デマンド</p>
