@@ -44,7 +44,7 @@ python3 -m http.server 8766 --directory ~/Claude/lube-catalog
   - ⚠️ **`tailwind.config.js` は 2026-07-27 に削除済み**（Tailwind v4＝`@tailwindcss/browser@4` は v3 形式の JS config を読まない完全な死にファイルで、中身も `error`／旧 soft 値のまま stale だった）。トークンの正は **各 preview の `@theme` ブロック**（値は lube 本体 `app/assets/tailwind/application.css` の @theme と揃える）
 - **カスタム text トークンを使う preview は `@theme` にその定義を必ず含める**。特に `text-2xs`（11px）は Tailwind 標準に無いため、`@theme` に `--text-2xs: 11px; --text-2xs--line-height: 16px;` が無いと CDN Tailwind がクラスを生成せず**既定16pxにフォールバックして文字が巨大化する**（2026-07-14 に place/price-table/document/details/quote-table で発生）。app 側 `application.css` の @theme と揃える
 - Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
-- **Button / IconButton の枠線は `border` でなく内側の影 `shadow-border-base-content-5`**（ユーザー確定 2026-11-25）。CSS の `border` は寸法に入り、Figma の内側の線（寸法に入らない）と幅がズレるため。Disabled は枠線なし（`border border-transparent` を付けない）。他の preview にボタンを置くときも同じ。入力欄・箱もの・Pagination はまだ `border` のまま（順に切り替える予定）
+- **Button / IconButton の枠線は `border` でなく内側の影 `shadow-border-base-content-5`**（ユーザー確定 2026-11-25）。CSS の `border` は寸法に入り、Figma の内側の線（寸法に入らない）と幅がズレるため。Disabled は枠線なし（`border border-transparent` を付けない）。他の preview にボタンを置くときも同じ。箱もの・メニュー・Pagination はまだ `border` のまま（順に切り替える予定）。入力欄は「フォーカス表現」節を参照
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
 - **スクロールバーは OS 標準（スクロール時のみ表示）＝カスタム描画禁止**（ユーザー確定 2026-07-17）。`::-webkit-scrollbar` / `scrollbar-color` でコンポーネントの見た目としてバーを描かない（プレビュー iframe の飾り消し＝`display: none` 系のデモ用ボイラープレートは対象外）。lube 側は `rake screens:lint` が再導入を検知する
@@ -68,9 +68,9 @@ python3 -m http.server 8766 --directory ~/Claude/lube-catalog
 - **ボタン系・ナビ系**: `ring`（box-shadow）でフォーカスを表現。レイアウトに影響しない
   - **標準**: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`
   - **コンパクト（checkbox/radio の box 等）**: `outline-none focus-visible:ring-2 focus-visible:ring-primary`（offset 無し）
-- **フォーム系**（input, select, combobox, date-picker 等）: `border-2` でフォーカスを表現（Focus: `border-2 border-primary`、Error: `border-2 border-danger`）。ring は使わない
-  - border-2 によるサイズ変動は padding 補正で吸収する（例: `px-[11px]`）
-  - 理由: Error 状態も border-2 を使うため、ring に統一しても padding 補正は残る。2つの仕組みを混在させるより border-2 で統一した方がシンプル
+- **フォーム系**（input, select, combobox, date-picker 等）: 枠線は内側の影で描き、太さの切り替えでフォーカスを表現する（ユーザー確定 2026-11-25）。通常 `shadow-border-base-content-20`／Focus `shadow-border-2-primary`／Error `shadow-border-2-danger`／Disabled `shadow-border-base-content-10`。ring は使わない
+  - 影は寸法に入らないので、**padding 補正（`px-[11px]` 等）は書かない**（Figma の内側の線と同じ挙動）
+  - 旧方式（`border-2`＋padding 補正）は廃止。メニュー（Select / ComboBox の選択肢の箱）は hover の背景が端まで届くため `border` のまま
 - `focus:` ではなく **`focus-visible:`** を使う（マウス操作時に出さず、キーボード操作時のみ表示）
 - `tabindex="0"` と `@keydown.enter` は操作対象の要素に付け、クリックエリアは親要素で広く取る
 

@@ -700,37 +700,35 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200"
               }
             },
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -889,37 +887,35 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200"
               }
             },
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -1256,30 +1252,28 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
               }
@@ -1287,7 +1281,7 @@
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -1743,30 +1737,28 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
               }
@@ -1774,7 +1766,7 @@
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -3133,30 +3125,28 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
               }
@@ -3164,7 +3154,7 @@
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -4106,14 +4096,14 @@
               "variant": "Default",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "shape": "rounded-full"
               }
             },
             {
               "variant": "Hover",
               "tokens": {
-                "border": "border-2 border-primary",
+                "border": "shadow-border-2-primary",
                 "shape": "rounded-full"
               }
             },
@@ -4129,14 +4119,14 @@
               "variant": "Disabled",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "label": "text-base-content/30"
               }
             },
             {
               "variant": "Selected-Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "dot": "bg-base-content/10",
                 "label": "text-base-content/30"
               }
@@ -4350,21 +4340,21 @@
               "variant": "Unchecked Default",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border border-base-content/20"
+                "border": "shadow-border-base-content-20"
               }
             },
             {
               "variant": "Unchecked Hover",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border-2 border-primary"
+                "border": "shadow-border-2-primary"
               }
             },
             {
               "variant": "Unchecked Disabled",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border border-base-content/10"
+                "border": "shadow-border-base-content-10"
               }
             },
             {
@@ -6568,30 +6558,28 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
               }
@@ -6599,7 +6587,7 @@
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -6803,30 +6791,28 @@
             {
               "variant": "Default",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
-                "border": "border-2 border-primary",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-primary",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Error",
               "tokens": {
-                "border": "border-2 border-danger",
-                "padding": "px-[11px] py-[7px]（border-2 の分を補正）",
+                "border": "shadow-border-2-danger",
                 "background": "bg-base-100 (white)"
               }
             },
             {
               "variant": "Disabled",
               "tokens": {
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "background": "bg-base-200",
                 "text": "text-base-content/30"
               }
@@ -6834,7 +6820,7 @@
             {
               "variant": "Filled",
               "tokens": {
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "background": "bg-base-100 (white)"
               }
             }
@@ -7084,7 +7070,7 @@
               "tokens": {
                 "width": "w-40 (160px)",
                 "height": "h-8",
-                "border": "border border-base-content/20",
+                "border": "shadow-border-base-content-20",
                 "radius": "rounded-md",
                 "padding": "px-3 py-2",
                 "label": "text-sm text-base-content"
@@ -7323,23 +7309,21 @@
               "tokens": {
                 "row-background": "bg-base-200（行 hover で行全体に適用）",
                 "cell-padding": "py-2 px-0",
-                "input": "h-6 w-full px-2 py-1 bg-white border border-base-content/20 rounded-md（セル hover で出現）"
+                "input": "h-6 w-full px-2 py-1 bg-white shadow-border-base-content-20 rounded-md（セル hover で出現）"
               }
             },
             {
               "variant": "Focus",
               "tokens": {
                 "cell-padding": "p-0",
-                "input": "h-6 bg-white border-2 border-primary rounded-md",
-                "padding-fix": "px-[7px] py-[3px]（border-2 のサイズ変動を補正）"
+                "input": "h-6 bg-white shadow-border-2-primary rounded-md"
               }
             },
             {
               "variant": "Error",
               "tokens": {
                 "cell-padding": "p-0",
-                "input": "h-6 bg-white border-2 border-danger rounded-md",
-                "padding-fix": "px-[7px] py-[3px]（border-2 のサイズ変動を補正）"
+                "input": "h-6 bg-white shadow-border-2-danger rounded-md"
               }
             },
             {
@@ -7367,8 +7351,8 @@
               "variant": "Hover",
               "tokens": {
                 "row-background": "bg-base-200（行 hover で行全体に適用）",
-                "select": "w-28 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md + chevron-down 12px（カテゴリー行、セル hover で出現）。Menu は select コンポーネントの sm サイズ準拠",
-                "input": "flex-1 h-6 px-2 py-1 bg-white border border-base-content/20 rounded-md（その他の行、セル hover で出現）"
+                "select": "w-28 h-6 px-2 py-1 bg-white shadow-border-base-content-20 rounded-md + chevron-down 12px（カテゴリー行、セル hover で出現）。Menu は select コンポーネントの sm サイズ準拠",
+                "input": "flex-1 h-6 px-2 py-1 bg-white shadow-border-base-content-20 rounded-md（その他の行、セル hover で出現）"
               }
             },
             {
@@ -7481,7 +7465,7 @@
               "variant": "layout",
               "tokens": {
                 "cell-border": "border-b border-base-content/10",
-                "focus": "ボタン・ラジオ系は focus-visible:ring-2 ring-primary、入力セルは border-2 border-primary"
+                "focus": "ボタン・ラジオ系は focus-visible:ring-2 ring-primary、入力セルは shadow-border-2-primary"
               }
             }
           ]
