@@ -44,7 +44,7 @@ python3 -m http.server 8766 --directory ~/Claude/lube-catalog
   - ⚠️ **`tailwind.config.js` は 2026-07-27 に削除済み**（Tailwind v4＝`@tailwindcss/browser@4` は v3 形式の JS config を読まない完全な死にファイルで、中身も `error`／旧 soft 値のまま stale だった）。トークンの正は **各 preview の `@theme` ブロック**（値は lube 本体 `app/assets/tailwind/application.css` の @theme と揃える）
 - **カスタム text トークンを使う preview は `@theme` にその定義を必ず含める**。特に `text-2xs`（11px）は Tailwind 標準に無いため、`@theme` に `--text-2xs: 11px; --text-2xs--line-height: 16px;` が無いと CDN Tailwind がクラスを生成せず**既定16pxにフォールバックして文字が巨大化する**（2026-07-14 に place/price-table/document/details/quote-table で発生）。app 側 `application.css` の @theme と揃える
 - Figma から取得した arbitrary value（`w-[192px]` 等）は、同値の Tailwind 標準クラスがあれば自動で置き換える（例: `w-[192px]` → `w-48`）。等価クラスがない場合はユーザーに報告する
-- **Button / IconButton の枠線は `border` でなく内側の影 `shadow-border-base-content-5`**（ユーザー確定 2026-11-25）。CSS の `border` は寸法に入り、Figma の内側の線（寸法に入らない）と幅がズレるため。Disabled は枠線なし（`border border-transparent` を付けない）。他の preview にボタンを置くときも同じ。箱もの・メニュー・Pagination はまだ `border` のまま（順に切り替える予定）。入力欄は「フォーカス表現」節を参照
+- **Button / IconButton の枠線は `border` でなく内側の影 `shadow-border-base-content-5`**（ユーザー確定 2026-11-25）。CSS の `border` は寸法に入り、Figma の内側の線（寸法に入らない）と幅がズレるため。Disabled は枠線なし（`border border-transparent` を付けない）。他の preview にボタンを置くときも同じ。Pagination も同じ方式。箱もの（Card / GroupBox / Modal）とメニューは `border` のまま（寸法の差が出たものから個別に切り替える・ユーザー確定 2026-11-25）。入力欄は「フォーカス表現」節を参照
 - アイコンは Lucide
 - font-family は Tailwind デフォルト（Google Fonts 不使用）
 - **スクロールバーは OS 標準（スクロール時のみ表示）＝カスタム描画禁止**（ユーザー確定 2026-07-17）。`::-webkit-scrollbar` / `scrollbar-color` でコンポーネントの見た目としてバーを描かない（プレビュー iframe の飾り消し＝`display: none` 系のデモ用ボイラープレートは対象外）。lube 側は `rake screens:lint` が再導入を検知する
