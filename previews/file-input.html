@@ -88,7 +88,7 @@
                   <span class="text-xs leading-4 text-base-content truncate" x-text="file.name"></span>
                   <span class="text-xs leading-4 text-base-content/30" x-text="'(' + file.size + ')'"></span>
                 </div>
-                <button class="shrink-0 bg-base-200 border border-base-content/5 rounded-md p-1.5 hover:bg-base-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" @click="files.splice(i, 1)">
+                <button class="shrink-0 bg-base-200 shadow-border-base-content-5 rounded-md p-1.5 hover:bg-base-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" @click="files.splice(i, 1)">
                   <svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                 </button>
               </div>
@@ -98,7 +98,7 @@
         <!-- Button -->
         <button
           class="h-8 flex gap-2 items-center justify-center px-3 rounded-md text-xs font-semibold leading-4 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-          :class="loading ? 'bg-base-300 text-base-content/30' : 'bg-base-200 border border-base-content/5 text-base-content hover:bg-base-300'"
+          :class="loading ? 'bg-base-300 text-base-content/30' : 'bg-base-200 shadow-border-base-content-5 text-base-content hover:bg-base-300'"
           :disabled="loading"
           @click="loading = true; setTimeout(() => { files.push({name: '添付ファイル_' + (files.length + 1) + '.pdf', size: Math.floor(Math.random() * 9000 + 100) + 'KB'}); loading = false; }, 1000)">
           <template x-if="!loading">
@@ -125,7 +125,7 @@
               <span class="text-xs leading-4 text-base-content">ファイル添付</span>
               <span class="text-xs leading-4 text-danger">*</span>
             </div>
-            <button class="h-8 flex gap-2 items-center justify-center px-3 rounded-md bg-base-200 border border-base-content/5 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <button class="h-8 flex gap-2 items-center justify-center px-3 rounded-md bg-base-200 shadow-border-base-content-5 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               <svg class="w-3.5 h-3.5 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
               <span class="text-xs font-semibold leading-4 text-base-content">ファイルを選択</span>
             </button>
@@ -161,7 +161,7 @@
               <span class="text-xs leading-4 text-base-content">見積書_サンプル.pdf</span>
               <span class="text-xs leading-4 text-base-content/30">(2,345KB)</span>
             </div>
-            <button class="shrink-0 bg-base-200 border border-base-content/5 rounded-md p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <button class="shrink-0 bg-base-200 shadow-border-base-content-5 rounded-md p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               <svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
             </button>
           </div>
@@ -170,7 +170,7 @@
               <span class="text-xs leading-4 text-base-content">請求書_2024年5月分.pdf</span>
               <span class="text-xs leading-4 text-base-content/30">(1,024KB)</span>
             </div>
-            <button class="shrink-0 bg-base-200 border border-base-content/5 rounded-md p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <button class="shrink-0 bg-base-200 shadow-border-base-content-5 rounded-md p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               <svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
             </button>
           </div>
@@ -179,11 +179,11 @@
               <span class="text-xs leading-4 text-base-content">発注書スキャン画像_20240613_150058_控え_最終版.png</span>
               <span class="text-xs leading-4 text-base-content/30">(45KB)</span>
             </div>
-            <button class="shrink-0 bg-base-200 border border-base-content/5 rounded-md p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <button class="shrink-0 bg-base-200 shadow-border-base-content-5 rounded-md p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               <svg class="w-3 h-3 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
             </button>
           </div>
-          <button class="h-8 flex gap-2 items-center justify-center px-3 rounded-md bg-base-200 border border-base-content/5 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          <button class="h-8 flex gap-2 items-center justify-center px-3 rounded-md bg-base-200 shadow-border-base-content-5 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
             <svg class="w-3.5 h-3.5 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
             <span class="text-xs font-semibold leading-4 text-base-content">ファイルを選択</span>
           </button>
@@ -199,7 +199,7 @@
               <span class="text-xs leading-4 text-base-content">ファイル添付</span>
               <span class="text-xs leading-4 text-danger">*</span>
             </div>
-            <button class="h-8 flex gap-2 items-center justify-center px-3 rounded-md bg-base-200 border border-base-content/5 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <button class="h-8 flex gap-2 items-center justify-center px-3 rounded-md bg-base-200 shadow-border-base-content-5 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               <svg class="w-3.5 h-3.5 text-base-content" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
               <span class="text-xs font-semibold leading-4 text-base-content">ファイルを選択</span>
             </button>
