@@ -3079,7 +3079,7 @@
               "tokens": {
                 "size": "24px (p-1.5 + 12px icon)",
                 "background": "bg-base-200",
-                "border": "border border-base-content/5",
+                "border": "shadow-border-base-content-5",
                 "radius": "rounded-md"
               }
             },
@@ -3364,7 +3364,7 @@
               "variant": "number cell",
               "tokens": {
                 "width": "w-20 (80px)",
-                "border-bottom": "border border-base-content/10",
+                "border-bottom": "border-b border-base-content/10",
                 "padding": "px-2 py-1.5",
                 "font": "text-2xs mono tabular-nums",
                 "color": "text-base-content",
@@ -3375,7 +3375,7 @@
               "variant": "checkbox cell",
               "tokens": {
                 "width": "w-10 (40px)",
-                "border-bottom": "border border-base-content/10",
+                "border-bottom": "border-b border-base-content/10",
                 "padding": "px-2 py-1.5",
                 "align": "center",
                 "checkbox": "sm (16px)"
@@ -3581,7 +3581,7 @@
                 "font": "text-xs (12px)",
                 "color": "text-base-content",
                 "padding": "p-2",
-                "border-bottom": "border border-base-content/10"
+                "border-bottom": "border-b border-base-content/10"
               }
             },
             {
@@ -3610,7 +3610,7 @@
               "tokens": {
                 "width": "w-40 (160px)",
                 "padding": "px-2 py-1.5",
-                "border-bottom": "border border-base-content/10",
+                "border-bottom": "border-b border-base-content/10",
                 "font": "text-2xs mono tabular-nums",
                 "color": "text-base-content",
                 "align": "right"
@@ -3990,7 +3990,7 @@
               "variant": "Button",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border border-base-content/5",
+                "border": "shadow-border-base-content-5",
                 "padding": "px-2 py-1",
                 "radius": "rounded-sm",
                 "font": "text-xs font-semibold",
@@ -4110,7 +4110,7 @@
             {
               "variant": "Selected",
               "tokens": {
-                "border": "border border-primary",
+                "border": "shadow-border-primary",
                 "dot": "bg-primary",
                 "shape": "rounded-full"
               }
@@ -4158,7 +4158,7 @@
               "variant": "Inactive",
               "tokens": {
                 "background": "bg-base-100 (white)",
-                "border": "border border-base-content/10",
+                "border": "shadow-border-base-content-10",
                 "text": "text-base-content",
                 "count-bg": "bg-base-200",
                 "count-text": "text-base-content/60"
@@ -4168,7 +4168,7 @@
               "variant": "Hover",
               "tokens": {
                 "background": "bg-base-200",
-                "border": "border border-base-content/10（枠維持）",
+                "border": "shadow-border-base-content-10（枠維持）",
                 "text": "text-base-content"
               }
             },
@@ -7396,7 +7396,7 @@
               "variant": "Common",
               "tokens": {
                 "cell-size": "size-12 (48px)",
-                "button": "p-2 rounded-md border border-base-content/5",
+                "button": "p-2 rounded-md shadow-border-base-content-5",
                 "icon": "16px (w-4 h-4)",
                 "ref": "icon-button"
               }
