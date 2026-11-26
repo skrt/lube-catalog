@@ -74,7 +74,29 @@
           }
         };
       }
-      function multiSelectDemo() {
+// 複数選択＋説明行つき＋単独でしか選べない選択肢（「未定」）。選ぶとほかの選択が外れ、ほかを選ぶと外れる
+function exclusiveSelectDemo() {
+  return {
+    open: false,
+    selected: ['本社倉庫', '大阪物流センター'],
+    exclusive: ['未定'],
+    options: [
+      { label: '本社倉庫', sub: '〒107-0052 東京都港区赤坂1-14-14' },
+      { label: '大阪物流センター', sub: '〒541-0051 大阪府大阪市中央区備後町2-1-1' },
+      { label: '名古屋営業所', sub: '〒460-0008 愛知県名古屋市中区栄3-5-12' },
+      { label: '未定' }
+    ],
+    toggle(o) {
+      const v = o.label; const i = this.selected.indexOf(v);
+      if (i >= 0) this.selected.splice(i, 1);
+      else if (this.exclusive.includes(v)) this.selected = [v];
+      else { this.selected = this.selected.filter(s => !this.exclusive.includes(s)); this.selected.push(v); }
+    },
+    isSelected(o) { return this.selected.includes(o.label); },
+    get label() { return this.selected.length ? this.options.filter(o => this.isSelected(o)).map(o => o.label).join(' / ') : '選択しましょう'; }
+  };
+}
+function multiSelectDemo() {
         return {
           open: false,
           selected: [],
@@ -149,6 +171,32 @@
         </div>
         <p class="text-xs text-base-content/60">複数選択：背景色で選択表現（チェックなし）・「/」区切り</p>
       </div>
+<!-- 複数選択（説明行つき・単独の選択肢つき） -->
+<div class="w-100 space-y-1" x-data="exclusiveSelectDemo()">
+  <label class="block text-sm text-base-content">納品先 <span class="text-danger">*</span></label>
+  <div class="relative" @click.away="open = false">
+    <div
+      @click="open = !open"
+      @keydown.escape="open = false"
+      tabindex="0"
+      @keydown.enter.prevent="open = !open"
+      class="flex items-center h-8 gap-2 rounded-md bg-white cursor-pointer outline-none shadow-border-base-content-20 px-3 py-2 focus-visible:shadow-border-2-primary"
+      :class="{ 'shadow-border-2-primary': open, 'shadow-border-base-content-20': !open }"
+    >
+      <span class="flex-1 text-sm truncate" :class="selected.length ? 'text-base-content' : 'text-base-content/30'" x-text="label"></span>
+      <svg class="shrink-0 w-3.5 h-3.5 text-base-content/60 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div x-show="open" x-cloak tabindex="-1" class="absolute top-full left-0 w-full mt-1 max-h-72 overflow-y-auto py-1.5 bg-white border border-base-content/10 rounded-md shadow-lg z-10">
+      <template x-for="o in options" :key="o.label">
+        <div @click="toggle(o)" class="flex flex-col gap-0.5 px-4 cursor-pointer" :class="[o.sub ? 'py-2' : 'min-h-8 justify-center', isSelected(o) ? 'bg-secondary' : 'hover:bg-base-200']">
+          <span class="text-sm leading-5 truncate" :class="isSelected(o) ? 'text-secondary-content' : 'text-base-content'" x-text="o.label"></span>
+          <span x-show="o.sub" class="text-xs leading-4 truncate" :class="isSelected(o) ? 'text-secondary-content' : 'text-base-content/60'" x-text="o.sub"></span>
+        </div>
+      </template>
+    </div>
+  </div>
+  <p class="text-xs text-base-content/60">複数選択できます</p>
+</div>
     </div>
   </section>
 
