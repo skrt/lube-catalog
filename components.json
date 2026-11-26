@@ -5574,7 +5574,7 @@
     {
       "id": "details",
       "name": "Details",
-      "description": "書類詳細画面の明細カード。Item/Cost の2タイプ、Open/Close/Add/Confirm の各モード",
+      "description": "書類詳細画面の明細カード。Item/Cost の2タイプ、表示/Add/Confirm の各モード",
       "category": "data-display",
       "preview": "previews/details.html",
       "figmaUrl": "https://www.figma.com/design/UBp46lUz5QIpQZbdNW4NkF/lube?node-id=3912-7775",
@@ -5612,12 +5612,6 @@
             "Cost"
           ],
           "description": "明細の種類。Item=商品明細、Cost=費用明細"
-        },
-        {
-          "name": "Open",
-          "type": "boolean",
-          "default": true,
-          "description": "本体の展開/折りたたみ"
         },
         {
           "name": "Mode",
@@ -5986,16 +5980,6 @@
                 "color": "text-base-content",
                 "gap": "gap-2 (8px)"
               }
-            },
-            {
-              "variant": "toggle",
-              "tokens": {
-                "icon": "list-collapse (16px)",
-                "background": "bg-base-200",
-                "border": "border border-base-content/5",
-                "radius": "rounded-md",
-                "padding": "p-2"
-              }
             }
           ]
         },
@@ -6023,24 +6007,13 @@
               }
             }
           ]
-        },
-        {
-          "category": "Common",
-          "items": [
-            {
-              "variant": "focus",
-              "tokens": {
-                "ring": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              }
-            }
-          ]
         }
       ],
       "spec": {
         "anatomy": [
           {
             "part": "Header",
-            "description": "filter アイコン + 「フィルター」タイトル + メニュー切替ボタン（list-collapse）"
+            "description": "filter アイコン + 「フィルター」タイトル"
           },
           {
             "part": "Section",
@@ -6058,10 +6031,6 @@
           {
             "action": "フィルタの適用",
             "detail": "チェック変更で即時に一覧へ絞り込みを適用する（適用ボタンは置かない）【仮置き・エンジニアさん確認待ち】"
-          },
-          {
-            "action": "メニュー切替",
-            "detail": "ヘッダー右のボタンは FilterMenu 自身ではなく、一覧側の Details カード（Item の Open/Close モード）を一括切替する（ユーザーさん確定 2026-06-10）"
           },
           {
             "action": "Empty セクション",

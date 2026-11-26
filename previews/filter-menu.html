@@ -57,9 +57,8 @@
     Design Tokens (from Figma):
     FilterMenu: 縦型フィルターパネル。ヘッダー＋セクション別Checkbox項目
       Container: bg-white(base-100), 右辺のみ border(base-content/10), 角丸なし, p-4 (16px), w-56, gap-4 (16px)（左に貼り付くレール型）
-      Header: flex justify-between items-center
+      Header: flex items-center
         Title: gap-2, filter icon 16px + text-base font-semibold text-base-content
-        Toggle: IconButton Tertiary (bg-base-200, border base-content/5, rounded-md, p-2, icon 16px)
       Section: gap-3 (12px)
         Section title: text-sm, text-base-content/30
         Checkbox items: md (20px box), gap-2, label text-sm text-base-content
@@ -72,14 +71,11 @@
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Default</p>
       <div class="bg-white border-r border-base-content/10 flex flex-col gap-4 p-4 w-56">
         <!-- Header -->
-        <div class="flex items-center justify-between">
+        <div class="flex items-center">
           <div class="flex items-center gap-2">
             <i data-lucide="filter" class="w-4 h-4 text-base-content"></i>
             <span class="text-base font-semibold leading-6 text-base-content">フィルター</span>
           </div>
-          <button class="bg-base-200 shadow-border-base-content-5 flex items-center justify-center p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-            <i data-lucide="list-collapse" class="w-4 h-4 text-base-content"></i>
-          </button>
         </div>
         <!-- カテゴリー -->
         <div class="flex flex-col gap-3">
@@ -141,14 +137,11 @@
       <p class="flex items-center gap-1.5 text-xs font-normal text-gray-400 tracking-wider mb-4">Empty</p>
       <div class="bg-white border-r border-base-content/10 flex flex-col gap-4 p-4 w-56">
         <!-- Header -->
-        <div class="flex items-center justify-between">
+        <div class="flex items-center">
           <div class="flex items-center gap-2">
             <i data-lucide="filter" class="w-4 h-4 text-base-content"></i>
             <span class="text-base font-semibold leading-6 text-base-content">フィルター</span>
           </div>
-          <button class="bg-base-200 shadow-border-base-content-5 flex items-center justify-center p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-            <i data-lucide="list-collapse" class="w-4 h-4 text-base-content"></i>
-          </button>
         </div>
         <!-- カテゴリー (empty) -->
         <div class="flex flex-col gap-3">
@@ -182,14 +175,11 @@
     }">
       <div class="bg-white border-r border-base-content/10 flex flex-col gap-4 p-4 w-56">
         <!-- Header -->
-        <div class="flex items-center justify-between">
+        <div class="flex items-center">
           <div class="flex items-center gap-2">
             <i data-lucide="filter" class="w-4 h-4 text-base-content"></i>
             <span class="text-base font-semibold leading-6 text-base-content">フィルター</span>
           </div>
-          <button class="bg-base-200 shadow-border-base-content-5 flex items-center justify-center p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-            <i data-lucide="list-collapse" class="w-4 h-4 text-base-content"></i>
-          </button>
         </div>
         <!-- カテゴリー -->
         <div class="flex flex-col gap-3">
